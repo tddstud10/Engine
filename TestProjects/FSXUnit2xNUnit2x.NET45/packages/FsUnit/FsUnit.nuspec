@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>FsUnit</id>
+    <version>1.4.1.0</version>
+    <authors>Ray Vernagus and Daniel Mohl</authors>
+    <owners>Ray Vernagus and Daniel Mohl</owners>
+    <licenseUrl>http://github.com/fsprojects/FsUnit/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>http://github.com/fsprojects/FsUnit</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fsprojects/FsUnit/master/docs/files/img/logo.png</iconUrl>
+    <description>FsUnit is a set of extensions that add special testing syntax to NUnit.</description>
+    <summary>The goals of FsUnit are to make unit-testing feel more functional while leverage existing testing frameworks.</summary>
+    <releaseNotes>Fixed `should be null` - https://github.com/fsprojects/FsUnit/issues/52</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>F# fsharp NUnit FsUnit</tags>
+    <dependencies>
+      <dependency id="NUnit" version="[2.6.4]" />
+      <dependency id="FSharp.Core" version="3.1.2.5" />
+    </dependencies>
+  </metadata>
+</package>

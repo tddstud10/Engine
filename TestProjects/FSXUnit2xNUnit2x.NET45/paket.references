@@ -1,0 +1,14 @@
+FsCheck
+FsCheck.Xunit
+FSharp.Core
+FsUnit
+NUnit
+NUnit.ApplicationDomain
+NUnitTestAdapter
+xunit
+xunit.abstractions
+xunit.assert
+xunit.core
+xunit.extensibility.core
+xunit.extensibility.execution
+xunit.runner.visualstudio

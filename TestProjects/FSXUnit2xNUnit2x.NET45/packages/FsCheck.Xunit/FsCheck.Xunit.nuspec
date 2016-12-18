@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>FsCheck.Xunit</id>
+    <version>2.5.0</version>
+    <authors>Kurt Schelfthout and contributors</authors>
+    <owners>Kurt Schelfthout and contributors</owners>
+    <licenseUrl>https://github.com/fsharp/FsCheck/blob/master/License.txt</licenseUrl>
+    <projectUrl>https://github.com/fsharp/FsCheck</projectUrl>
+    <description>FsCheck.Xunit integrates FsCheck with xUnit.NET by adding a PropertyAttribute that runs FsCheck tests, similar to xUnit.NET's FactAttribute.
+
+All the options normally available in vanilla FsCheck via configuration can be controlled via the PropertyAttribute.</description>
+    <summary>Integrates FsCheck with xUnit.NET</summary>
+    <releaseNotes>Add Gen.growingElements.
+Add default generator and shrinker for IPAddress and MailAddress.
+Gen.eval now uses the given size directly to generate an element of that size, instead of randomly choosing a size up to the given size. This means that on average
+test case sizes are bigger.
+Gen.frequency now throws a clearer exeption if no element can be generated.
+Renamed Gen.suchThat and Gen.suchThatOption to Gen.where or Gen.filter and Gen.tryWhere or Gen.tryFilter. (The functions/methods with the old names are still there, they are just marked Obsolete and will be removed in a future version.)
+Renamed DontSize to DoNotSize, DontShrink to DoNotShrink, DontSizeInt16 to DoNotSizeInt16 etc. (The types with the old names are still there, they are just marked Obsolete and will be removed in a future version.)
+StateMachine: operation shrinker shrinks operations too, not just the list of operations.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>test testing random fscheck quickcheck xunit xunit.net</tags>
+    <dependencies>
+      <dependency id="FsCheck" version="2.5.0" />
+      <dependency id="xunit.extensibility.execution" version="[2.1.0,3.0.0)" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,17 @@
+source https://www.nuget.org/api/v2
+
+nuget FAKE
+nuget FsCheck 2.5.0 framework: >= net45
+nuget FsCheck.Xunit 2.5.0 framework: >= net45
+nuget FSharp.Core 3.1.2.5 framework: >= net45
+nuget FsUnit 1.4.1.0 framework: >= net45
+nuget NUnit 2.6.4 framework: >= net45
+nuget NUnit.ApplicationDomain 5.0.1 framework: >= net45
+nuget NUnitTestAdapter 2.0.0 framework: >= net45
+nuget xunit 2.1.0 framework: >= net45
+nuget xunit.abstractions 2.0.0 framework: >= net45
+nuget xunit.assert 2.1.0 framework: >= net45
+nuget xunit.core 2.1.0 framework: >= net45
+nuget xunit.extensibility.core 2.1.0 framework: >= net45
+nuget xunit.extensibility.execution 2.1.0 framework: >= net45
+nuget xunit.runner.visualstudio 2.1.0 framework: >= net45
