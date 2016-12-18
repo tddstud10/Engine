@@ -16,19 +16,17 @@
     <tags>TddStud10 TDD Unit Test</tags>
     @dependencies@
     <references>
-      <reference file="R4nd0mApps.TddStud10.TestHost.Core.dll" />
-      <reference file="R4nd0mApps.TddStud10.TestRuntime.dll" />
+      <reference file="R4nd0mApps.TddStud10.Engine.dll" />
+      <reference file="R4nd0mApps.TddStud10.Engine.Core.dll" />
     </references>  
   </metadata>
   <files>
-    <file src="..\build\R4nd0mApps.TddStud10.TestHost.Core.dll" target="lib" /> 
-    <file src="..\build\R4nd0mApps.TddStud10.TestHost.Core.pdb" target="lib" /> 
-    <file src="..\build\R4nd0mApps.TddStud10.TestRuntime.dll" target="lib" /> 
-    <file src="..\build\R4nd0mApps.TddStud10.TestRuntime.pdb" target="lib" /> 
-    <file src="..\build\TddStud10.TestHost.exe" target="lib" /> 
-    <file src="..\build\TddStud10.TestHost.exe.config" target="lib" /> 
-    <file src="..\build\TddStud10.TestHost.pdb" target="lib" /> 
-    <file src="..\ObjectModel\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll" target="lib" /> 
-    <file src="..\ObjectModel\msdia120typelib_clr0200.dll" target="lib" /> 
+    <file src="..\build\R4nd0mApps.TddStud10.Engine.dll" target="lib" /> 
+    <file src="..\build\R4nd0mApps.TddStud10.Engine.pdb" target="lib" /> 
+    <file src="..\build\R4nd0mApps.TddStud10.Engine.Core.dll" target="lib" /> 
+    <file src="..\build\R4nd0mApps.TddStud10.Engine.Core.pdb" target="lib" /> 
+    <file src="..\build\R4nd0mApps.TddStud10.Engine.Server.exe" target="lib" /> 
+    <file src="..\build\R4nd0mApps.TddStud10.Engine.Server.exe.config" target="lib" /> 
+    <file src="..\build\R4nd0mApps.TddStud10.Engine.Server.pdb" target="lib" /> 
   </files>
 </package>

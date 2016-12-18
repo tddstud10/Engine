@@ -79,8 +79,11 @@ Target "Package" (fun _ ->
             Description = "TddStud10 Engine"
             Version = EnvironmentHelper.environVarOrDefault "GitVersion_NuGetVersion" "0.0.0-alpha00"
             Dependencies = [ "FSharp.Core", "" 
-                             // ????
-                             "TddStud10.Common", "TddStud10" ]
+                             "Mono.Cecil", ""
+                             "Newtonsoft.Json", ""
+                             "Suave", ""
+                             "TddStud10.Common", "TddStud10"
+                             "TddStud10.TestHost", "TddStud10" ]
                            |> List.map (fun (d,g) -> d, GetPackageVersion (packagesDir @@ g) d)
             OutputPath = buildDir })
 )
