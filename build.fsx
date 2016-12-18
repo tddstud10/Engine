@@ -68,7 +68,16 @@ let runTest pattern =
 
 Target "Test" DoNothing
 Target "UnitTests" (runTest "/*.UnitTests*.dll")
-Target "ContractTests" (runTest "/*.ContractTests*.dll") 
+Target "ContractTests" (
+    !! "TestProjects/**/build.cmd"
+    |> Seq.map (fun it -> Shell.AsyncExec(it, "Build", Path.GetDirectoryName(it)))
+    |> Async.Parallel
+    |> Async.RunSynchronously
+    |> Array.map ((=) 0)
+    |> Array.fold (&&) true
+    |> fun it -> if not it then failwith "One or more of the child builds failed"
+
+    runTest "/*.ContractTests*.dll") 
 
 Target "Package" (fun _ ->
     "Engine.nuspec"

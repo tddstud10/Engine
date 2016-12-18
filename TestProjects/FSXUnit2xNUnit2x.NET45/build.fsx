@@ -5,6 +5,8 @@ open Fake
 open System
 open System.IO
 
+MSBuildDefaults <- { MSBuildDefaults with Verbosity = Some MSBuildVerbosity.Quiet }
+
 // Directories
 let buildDir  = "./build/"
 
@@ -12,7 +14,7 @@ let buildDir  = "./build/"
 Target "Build" (fun _ ->
     !! "*.*proj"
     |> MSBuildRelease buildDir "Build" 
-    |> Log "Build-Output: "
+    |> ignore
 )
 
 // Start build
