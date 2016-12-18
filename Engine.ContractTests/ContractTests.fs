@@ -13,7 +13,7 @@ module ContractTests =
         [ 
           @"CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln"
           @"VBXUnit1xNUnit2x.NET40\VBXUnit1xNUnit2x.sln" 
-          // NOTE: Working around for now: @"FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln"
+          //@"FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln"
         ]
     let variants = [ "BREAK_NOTHING"; "BREAK_TEST"; "BREAK_BUILD" ]
     

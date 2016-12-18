@@ -19,8 +19,8 @@ module Helpers =
     
     let getTestProjectsRoot testProject = 
         [ Path.GetFullPath
-              (Path.Combine(binRoot, @"..\..\..\paket-files\github.com\parthopdas\tddstud10-testprojects\e2e"))
-          Path.GetFullPath(Path.Combine(binRoot, @"..\paket-files\github.com\parthopdas\tddstud10-testprojects\e2e")) ]
+              (Path.Combine(binRoot, @"..\..\..\TestProjects"))
+          Path.GetFullPath(Path.Combine(binRoot, @"..\TestProjects")) ]
         |> List.map (fun it -> Path.Combine(it, testProject))
         |> List.find File.Exists
     

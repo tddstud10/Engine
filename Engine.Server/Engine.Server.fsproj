@@ -64,7 +64,9 @@
   -->
   <ItemGroup>
     <Content Include="paket.references" />
-    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="..\AssemblyInfo.fs">
+      <Link>AssemblyInfo.fs</Link>
+    </Compile>
     <Compile Include="JsonSerializer.fs" />
     <Compile Include="Engine.Server.fs" />
     <None Include="App.config" />
@@ -82,7 +84,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
       <ItemGroup>
         <Reference Include="Newtonsoft.Json">
-          <HintPath>..\..\packages\Newtonsoft.Json\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <HintPath>..\packages\Newtonsoft.Json\lib\net45\Newtonsoft.Json.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -93,7 +95,7 @@
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
       <ItemGroup>
         <Reference Include="Suave">
-          <HintPath>..\..\packages\Suave\lib\net40\Suave.dll</HintPath>
+          <HintPath>..\packages\Suave\lib\net40\Suave.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -102,12 +104,12 @@
   </Choose>
   <ItemGroup>
     <Reference Include="R4nd0mApps.TddStud10.Common.Domain">
-      <HintPath>..\..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Common.Domain.dll</HintPath>
+      <HintPath>..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Common.Domain.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>
     <Reference Include="R4nd0mApps.TddStud10.Logger">
-      <HintPath>..\..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Logger.dll</HintPath>
+      <HintPath>..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Logger.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>

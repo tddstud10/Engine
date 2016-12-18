@@ -25,7 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\Debug\R4nd0mApps.TddStud10.Engine.Core.XML</DocumentationFile>
-    <OtherFlags>--keyfile:..\..\tddstud10.snk</OtherFlags>
+    <OtherFlags>--keyfile:..\tddstud10.snk</OtherFlags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +35,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\Release\R4nd0mApps.TddStud10.Engine.Core.XML</DocumentationFile>
-    <OtherFlags>--keyfile:..\..\tddstud10.snk</OtherFlags>
+    <OtherFlags>--keyfile:..\tddstud10.snk</OtherFlags>
   </PropertyGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
@@ -54,7 +54,10 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="..\..\Common\Constants.fs">
+    <Compile Include="..\AssemblyInfo.fs">
+      <Link>AssemblyInfo.fs</Link>
+    </Compile>
+    <Compile Include="..\Constants.fs">
       <Link>Constants.fs</Link>
     </Compile>
     <Compile Include="AssemblyAttributes.fs" />
@@ -95,12 +98,12 @@
   -->
   <ItemGroup>
     <Reference Include="R4nd0mApps.TddStud10.Common.Domain">
-      <HintPath>..\..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Common.Domain.dll</HintPath>
+      <HintPath>..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Common.Domain.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>
     <Reference Include="R4nd0mApps.TddStud10.Logger">
-      <HintPath>..\..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Logger.dll</HintPath>
+      <HintPath>..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Logger.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>
