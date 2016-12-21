@@ -16,12 +16,10 @@ nuget BuildTools.FxCop
 nuget StyleCop.MSBuild
 
 group TddStud10
-    source https://ci.appveyor.com/nuget/common-wqs82t184w0x
     source http://nuget.org/api/v2
     nuget FSharp.Core 3.1.2.5 framework: >= net45
+    source https://ci.appveyor.com/nuget/common-wqs82t184w0x
     nuget TddStud10.Common 
     source https://ci.appveyor.com/nuget/testhost-rrsttutj8jym
-    source http://nuget.org/api/v2
-    nuget FSharp.Core 3.1.2.5 framework: >= net45
     nuget TddStud10.TestHost 
     

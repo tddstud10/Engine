@@ -60,6 +60,50 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.fs">
+      <Link>AssemblyInfo.fs</Link>
+    </Compile>
+    <Compile Include="Helpers.fs" />
+    <Compile Include="ContractTests.fs" />
+    <Content Include="paket.references" />
+    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll">
+      <Link>Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\msdia120typelib_clr0200.dll">
+      <Link>msdia120typelib_clr0200.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\TddStud10.TestHost.exe">
+      <Link>TddStud10.TestHost.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\TddStud10.TestHost.exe.config">
+      <Link>TddStud10.TestHost.exe.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <ProjectReference Include="..\Engine.Core\Engine.Core.fsproj">
+      <Name>Engine.Core</Name>
+      <Project>{e5fb2292-1833-4c4c-800e-a31ac891a931}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine\Engine.csproj">
+      <Name>Engine</Name>
+      <Project>{96d4c703-953a-43f6-94fa-a5394b297703}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <Reference Include="System.Runtime" />
+  </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
       <ItemGroup>
@@ -143,48 +187,6 @@
     </When>
   </Choose>
   <ItemGroup>
-    <Compile Include="..\AssemblyInfo.fs">
-      <Link>AssemblyInfo.fs</Link>
-    </Compile>
-    <Compile Include="Helpers.fs" />
-    <Compile Include="ContractTests.fs" />
-    <Content Include="paket.references" />
-    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll">
-      <Link>Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\msdia120typelib_clr0200.dll">
-      <Link>msdia120typelib_clr0200.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\TddStud10.TestHost.exe">
-      <Link>TddStud10.TestHost.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\TddStud10.TestHost.exe.config">
-      <Link>TddStud10.TestHost.exe.config</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="mscorlib" />
-    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <ProjectReference Include="..\Engine.Core\Engine.Core.fsproj">
-      <Name>Engine.Core</Name>
-      <Project>{e5fb2292-1833-4c4c-800e-a31ac891a931}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Engine\Engine.csproj">
-      <Name>Engine</Name>
-      <Project>{96d4c703-953a-43f6-94fa-a5394b297703}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <Reference Include="System.Runtime" />
     <Reference Include="R4nd0mApps.TddStud10.Common.Domain">
       <HintPath>..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Common.Domain.dll</HintPath>
       <Private>True</Private>
