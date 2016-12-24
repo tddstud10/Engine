@@ -35,10 +35,10 @@ NUGET
     FSharp.Core (3.1.2.5)
     Mono.Cecil (0.9.6.4)
   remote: https://ci.appveyor.com/nuget/common-wqs82t184w0x
-    TddStud10.Common (0.2.0-ci0077)
+    TddStud10.Common (0.2.1-ci0079)
       FSharp.Core (>= 3.1.2.5)
   remote: https://ci.appveyor.com/nuget/testhost-rrsttutj8jym
-    TddStud10.TestHost (0.2.0-ci0004)
+    TddStud10.TestHost (0.2.0-ci0005)
       FSharp.Core (>= 3.1.2.5)
       Mono.Cecil (>= 0.9.6.4)
-      TddStud10.Common (>= 0.2.0-ci0077)
+      TddStud10.Common (>= 0.2.1-ci0079)
