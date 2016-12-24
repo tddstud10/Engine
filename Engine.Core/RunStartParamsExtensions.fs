@@ -14,7 +14,7 @@ module RunStartParamsExtensions =
         |> Path.GetFullPath
         |> Path.GetDirectoryName
     
-    let testHostProcessName = sprintf "TddStud10.TestHost%s.exe" Constants.ProductVariant
+    let testHostProcessName = sprintf "TddStud10.TestHost%s.exe" (if (Common.DFizer.isDF()) then ".DF" else "")
     
     type RunStartParams with
         static member Create (cfg : EngineConfig) startTime solutionPath = 
