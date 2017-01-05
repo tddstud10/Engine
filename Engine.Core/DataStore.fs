@@ -3,7 +3,7 @@
 open R4nd0mApps.TddStud10.Common.Domain
 
 (* NOTE: Keep this entity free of intelligence. It just needs to be able to store/retrive data.
-   Consumers are reponsible for testing their own intelligence. *)
+   Consumers are responsible for testing their own intelligence. *)
 type DataStore() = 
     static let instance = Lazy.Create(fun () -> DataStore())
     let testCasesUpdated = Event<_>()
@@ -50,13 +50,35 @@ type DataStore() =
             (PerTestIdDResults(), PerDocumentLocationTestFailureInfo(), PerSequencePointIdTestRunId()) |> TestRunOutput |> x.UpdateData
         
         member x.FindTest dl : DTestCase seq = (dl, x.TestCases) ||> Dict.tryGetValue Seq.empty (fun v -> v :> seq<_>)
+        member x.FindTestsInFile file = 
+            x.TestCases.Keys
+            |> Seq.filter (fun dl -> dl.document = file)
+            |> Seq.map (fun dl -> dl, dl |> (x :> IDataStore).FindTest |> Seq.toArray)
+            |> dict
         member x.GetSequencePointsForFile p : SequencePoint seq = 
             (p, x.SequencePoints) ||> Dict.tryGetValue Seq.empty (fun v -> v :> seq<_>)
         member x.FindTestFailureInfo dl : TestFailureInfo seq = 
             (dl, x.TestFailureInfo) ||> Dict.tryGetValue Seq.empty (fun v -> v :> seq<_>)
+        member x.FindTestFailureInfosInFile file = 
+            x.TestFailureInfo.Keys
+            |> Seq.filter (fun dl -> dl.document = file)
+            |> Seq.map (fun dl -> dl, dl |> (x :> IDataStore).FindTestFailureInfo |> Seq.toArray)
+            |> dict
         member x.GetRunIdsForTestsCoveringSequencePointId spid = 
             (spid, x.CoverageInfo) ||> Dict.tryGetValue Seq.empty (fun v -> v :> seq<_>)
         member x.GetResultsForTestId tid = (tid, x.TestResults) ||> Dict.tryGetValue Seq.empty (fun v -> v :> seq<_>)
-    
+        member x.GetTestResultsForSequencepointsIds spids = 
+            spids
+            |> Seq.map (fun spid -> 
+                    spid, 
+                    spid 
+                    |> (x :> IDataStore).GetRunIdsForTestsCoveringSequencePointId
+                    |> Seq.map (fun rid -> rid.testId)
+                    |> Seq.distinct
+                    |> Seq.map (x :> IDataStore).GetResultsForTestId
+                    |> Seq.collect id
+                    |> Seq.toArray)
+            |> dict
+
     static member Instance 
         with public get () = instance.Value :> IDataStore

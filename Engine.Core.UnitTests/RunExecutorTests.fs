@@ -4,6 +4,7 @@ open Xunit
 open System
 open R4nd0mApps.TddStud10
 open R4nd0mApps.TddStud10.Common.Domain
+open R4nd0mApps.TddStud10.Engine.Core
 open R4nd0mApps.TddStud10.Engine.TestDoubles
 open R4nd0mApps.TddStud10.Engine.TestFramework
 open System.IO

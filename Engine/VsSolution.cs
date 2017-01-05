@@ -1,10 +1,10 @@
-﻿using R4nd0mApps.TddStud10.Common.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using R4nd0mApps.TddStud10.Engine.Core;
 
 namespace R4nd0mApps.TddStud10
 {

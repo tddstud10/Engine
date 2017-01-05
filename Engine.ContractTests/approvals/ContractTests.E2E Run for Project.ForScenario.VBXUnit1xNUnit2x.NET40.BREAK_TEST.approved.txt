@@ -1715,7 +1715,7 @@
     {
       "Case": "TestFailed"
     },
-    "Exception of type 'R4nd0mApps.TddStud10.Common.Domain.RunStepFailedException' was thrown.",
+    "Exception of type 'R4nd0mApps.TddStud10.Engine.Core.RunStepFailedException' was thrown.",
     {
       "SnapShotRoot": {
         "Case": "FilePath",

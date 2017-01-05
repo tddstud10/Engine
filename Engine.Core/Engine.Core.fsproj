@@ -58,6 +58,8 @@
       <Link>AssemblyInfo.fs</Link>
     </Compile>
     <Compile Include="AssemblyAttributes.fs" />
+    <Compile Include="Domain.fs" />
+    <Compile Include="IDataStore.fs" />
     <Compile Include="SafeExec.fs" />
     <Compile Include="EngineConfig.fs" />
     <Compile Include="EngineConfigLoader.fs" />
