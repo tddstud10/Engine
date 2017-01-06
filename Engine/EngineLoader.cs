@@ -1,11 +1,11 @@
-﻿using Microsoft.FSharp.Control;
-using R4nd0mApps.TddStud10.Common.Domain;
+﻿using R4nd0mApps.TddStud10.Common.Domain;
 using R4nd0mApps.TddStud10.Engine.Core;
 using R4nd0mApps.TddStud10.Logger;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.FSharp.Core;
 
 namespace R4nd0mApps.TddStud10.Engine
 {
@@ -19,7 +19,7 @@ namespace R4nd0mApps.TddStud10.Engine
 
         void RunStepEnded(RunStepEndedEventArg rss);
 
-        void OnRunError(Exception ex);
+        void OnRunError(RunFailureInfo rfi);
 
         void RunEnded(RunStartParams rsp);
     }
@@ -45,13 +45,13 @@ namespace R4nd0mApps.TddStud10.Engine
         private static Task _currentRun;
         private static CancellationTokenSource _currentRunCts;
 
-        public static FSharpHandler<RunState> _runStateChangedHandler;
-        public static FSharpHandler<RunStartParams> _runStartingHandler;
-        public static FSharpHandler<RunStepStartingEventArg> _runStepStartingHandler;
-        public static FSharpHandler<RunStepErrorEventArg> _onRunStepErrorHandler;
-        public static FSharpHandler<RunStepEndedEventArg> _runStepEndedHandler;
-        public static FSharpHandler<Exception> _onRunErrorHandler;
-        public static FSharpHandler<RunStartParams> _runEndedHandler;
+        private static Action<RunState> _runStateChangedHandler;
+        private static Action<RunStartParams> _runStartingHandler;
+        private static Action<RunStepStartingEventArg> _runStepStartingHandler;
+        private static Action<RunStepErrorEventArg> _onRunStepErrorHandler;
+        private static Action<RunStepEndedEventArg> _runStepEndedHandler;
+        private static Action<RunFailureInfo> _onRunErrorHandler;
+        private static Action<RunStartParams> _runEndedHandler;
 
         public static void Load(IEngineHost host, IDataStore dataStore, EngineLoaderParams loaderParams)
         {
@@ -60,33 +60,33 @@ namespace R4nd0mApps.TddStud10.Engine
             _host = host;
             _dataStore = dataStore;
 
-            _runStateChangedHandler = new FSharpHandler<RunState>((s, ea) => _host.RunStateChanged(ea));
-            _runStartingHandler = new FSharpHandler<RunStartParams>(
-                (s, ea) =>
+            _runStateChangedHandler = _host.RunStateChanged;
+            _runStartingHandler =
+                ea =>
                 {
                     _host.RunStarting(ea);
                     _dataStore.UpdateRunStartParams(ea);
-                });
-            _runStepStartingHandler = new FSharpHandler<RunStepStartingEventArg>((s, ea) => _host.RunStepStarting(ea));
-            _onRunStepErrorHandler = new FSharpHandler<RunStepErrorEventArg>((s, ea) => _host.OnRunStepError(ea));
-            _runStepEndedHandler = new FSharpHandler<RunStepEndedEventArg>(
-                (s, ea) =>
+                };
+            _runStepStartingHandler = _host.RunStepStarting;
+            _onRunStepErrorHandler = _host.OnRunStepError;
+            _runStepEndedHandler =
+                ea =>
                 {
                     _host.RunStepEnded(ea);
                     _dataStore.UpdateData(ea.rsr.runData);
-                });
-            _onRunErrorHandler = new FSharpHandler<Exception>((s, ea) => _host.OnRunError(ea));
-            _runEndedHandler = new FSharpHandler<RunStartParams>((s, ea) => _host.RunEnded(ea));
+                };
+            _onRunErrorHandler = _host.OnRunError;
+            _runEndedHandler = _host.RunEnded;
 
             _runner = _runner ?? TddStud10Runner.Create(host, Engine.CreateRunSteps(_dataStore.FindTest));
             _runner.AttachHandlers(
-                _runStateChangedHandler,
-                _runStartingHandler,
-                _runStepStartingHandler,
-                _onRunStepErrorHandler,
-                _runStepEndedHandler,
-                _onRunErrorHandler,
-                _runEndedHandler);
+                FuncConvert.ToFSharpFunc(_runStateChangedHandler),
+                FuncConvert.ToFSharpFunc(_runStartingHandler),
+                FuncConvert.ToFSharpFunc(_runStepStartingHandler),
+                FuncConvert.ToFSharpFunc(_onRunStepErrorHandler),
+                FuncConvert.ToFSharpFunc(_runStepEndedHandler),
+                FuncConvert.ToFSharpFunc(_onRunErrorHandler),
+                FuncConvert.ToFSharpFunc(_runEndedHandler));
 
             _efsWatcher = EngineFileSystemWatcher.Create(loaderParams, RunEngine);
         }
@@ -127,14 +127,7 @@ namespace R4nd0mApps.TddStud10.Engine
             _efsWatcher.Dispose();
             _efsWatcher = null;
 
-            _runner.DetachHandlers(
-                _runEndedHandler,
-                _onRunErrorHandler,
-                _runStepEndedHandler,
-                _onRunStepErrorHandler,
-                _runStepStartingHandler,
-                _runStartingHandler,
-                _runStateChangedHandler);
+            _runner.DetachHandlers();
 
             _runEndedHandler = null;
             _onRunErrorHandler = null;

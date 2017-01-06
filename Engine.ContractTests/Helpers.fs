@@ -35,13 +35,18 @@ module Helpers =
         let ids = ds :> IDataStore
         let r = TddStud10Runner.Create host (Engine.CreateRunSteps(Func<_, _>(ids.FindTest)))
         let es = ResizeArray<obj>()
-        r.AttachHandlers (Handler(fun _ -> es.Add)) (Handler(fun _ ea -> 
-                                                         es.Add(ea)
-                                                         ids.UpdateRunStartParams(ea))) (Handler(fun _ -> es.Add)) 
-            (Handler(fun _ ea -> es.Add(ea.sp, ea.info))) (Handler(fun _ ea -> 
-                                                               es.Add(ea.sp, ea.info)
-                                                               ids.UpdateData(ea.rsr.runData))) 
-            (Handler(fun _ ex -> es.Add(ex.Message))) (Handler(fun _ -> es.Add))
+        r.AttachHandlers 
+            es.Add 
+            (fun ea -> 
+                es.Add(ea)
+                ids.UpdateRunStartParams(ea)) 
+            es.Add
+            (fun ea -> es.Add(ea.sp, ea.info)) 
+            (fun ea -> 
+                es.Add(ea.sp, ea.info)
+                ids.UpdateData(ea.rsr.runData)) 
+            (fun ex -> es.Add(ex.Message)) 
+            es.Add
         r, ds, es
     
     let cfg = JsonSerializerSettings(ReferenceLoopHandling = ReferenceLoopHandling.Ignore)

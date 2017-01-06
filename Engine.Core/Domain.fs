@@ -168,6 +168,20 @@ type RunStepResult =
 exception RunStepFailedException of RunStepResult
 
 [<CLIMutable>]
+type RunFailureInfo =
+    { Message : string
+      StackTrace : string
+      Result : RunStepResult option } 
+    static member FromExeption (e : Exception) =
+        let r = 
+            match e with
+            | :? RunStepFailedException as rsfe -> Some rsfe.Data0
+            | _ -> None
+        { Message = e.Message
+          StackTrace = e.StackTrace
+          Result = r } 
+
+[<CLIMutable>]
 type RunStepStartingEventArg = 
     { sp : RunStartParams
       info : RunStepInfo }
