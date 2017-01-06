@@ -2,8 +2,6 @@
 
 open R4nd0mApps.TddStud10.Common.Domain
 
-(* NOTE: Keep this entity free of intelligence. It just needs to be able to store/retrive data.
-   Consumers are responsible for testing their own intelligence. *)
 type DataStore() = 
     static let instance = Lazy.Create(fun () -> DataStore())
     let testCasesUpdated = Event<_>()

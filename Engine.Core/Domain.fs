@@ -117,12 +117,17 @@ type public IRunExecutorHost =
     abstract CanContinue : unit -> bool
     abstract RunStateChanged : RunState -> unit
 
+[<KnownType("KnownTypes")>]
 type RunData = 
     | NoData
     | TestCases of PerDocumentLocationDTestCases
     | SequencePoints of PerDocumentSequencePoints
     | TestRunOutput of PerTestIdDResults * PerDocumentLocationTestFailureInfo * PerSequencePointIdTestRunId
+    static member KnownTypes() = 
+        typeof<RunData>.GetNestedTypes(BindingFlags.Public ||| BindingFlags.NonPublic) 
+        |> Array.filter FSharpType.IsUnion
 
+[<CLIMutable>]
 type RunDataFiles = 
     { SequencePointStore : FilePath
       CoverageSessionStore : FilePath
@@ -131,6 +136,7 @@ type RunDataFiles =
       TestFailureInfoStore : FilePath
       DiscoveredUnitDTestsStore : FilePath }
 
+[<CLIMutable>]
 type SolutionPaths = 
     { Path : FilePath
       SnapshotPath : FilePath
@@ -147,11 +153,13 @@ type RunStartParams =
       IgnoredTests : string
       AdditionalMSBuildProperties : string[] }
 
+[<CLIMutable>]
 type RunStepInfo = 
     { name : RunStepName
       kind : RunStepKind
       subKind : RunStepSubKind }
 
+[<CLIMutable>]
 type RunStepResult = 
     { status : RunStepStatus
       runData : RunData
