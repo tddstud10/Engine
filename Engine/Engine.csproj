@@ -58,6 +58,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,8 +73,6 @@
       <Paket>True</Paket>
     </Content>
     <Compile Include="Engine.cs" />
-    <Compile Include="EngineFileSystemWatcher.cs" />
-    <Compile Include="EngineLoader.cs" />
     <Compile Include="Instrumentation.cs" />
     <Compile Include="Properties\AssemblyProps.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -81,6 +80,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RemoteHost.cs" />
     <Compile Include="VsSolution.cs" />
   </ItemGroup>
   <ItemGroup>

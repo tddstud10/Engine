@@ -59,8 +59,8 @@
     </Compile>
     <Compile Include="AssemblyAttributes.fs" />
     <Compile Include="Domain.fs" />
-    <Compile Include="IDataStore.fs" />
     <Compile Include="SafeExec.fs" />
+    <Compile Include="DataStore.fs" />
     <Compile Include="EngineConfig.fs" />
     <Compile Include="EngineConfigLoader.fs" />
     <Compile Include="RunStartParamsExtensions.fs" />
@@ -69,10 +69,10 @@
     <Compile Include="RunExecutor.fs" />
     <Compile Include="RunStateTracker.fs" />
     <Compile Include="TddStud10Runner.fs" />
-    <Compile Include="DataStore.fs" />
     <Compile Include="TestHost.fs" />
     <Content Include="paket.references" />
     <Compile Include="SnapshotGC.fs" />
+    <Compile Include="Engine.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -84,6 +84,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
