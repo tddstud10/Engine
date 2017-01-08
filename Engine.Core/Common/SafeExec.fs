@@ -1,4 +1,4 @@
-﻿module R4nd0mApps.TddStud10.Engine.Core.Common
+﻿module R4nd0mApps.TddStud10.Common.Exec
 
 let logger = R4nd0mApps.TddStud10.Logger.LoggerFactory.logger
 

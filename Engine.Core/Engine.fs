@@ -1,5 +1,6 @@
 ﻿namespace R4nd0mApps.TddStud10.Engine.Core
 
+open R4nd0mApps.TddStud10.Common
 open R4nd0mApps.TddStud10.Common.Domain
 open R4nd0mApps.TddStud10.Logger
 open System
@@ -79,7 +80,7 @@ type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x =
     let engineParams : EngineParams option ref = ref None
 
     let cbs : IEngineCallback list ref = ref (cb |> Option.fold (fun _ e -> [ e ]) [])
-    let invokeCbs f = !cbs |> List.iter (fun cb -> Common.safeExec (fun () -> f cb))
+    let invokeCbs f = !cbs |> List.iter (fun cb -> Exec.safeExec (fun () -> f cb))
 
     let createRunStepsTempHack() =
         AppDomain.CurrentDomain.GetAssemblies()

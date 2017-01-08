@@ -3,6 +3,7 @@
 open R4nd0mApps.TddStud10.Common.Domain
 open System.Collections.Generic
 open System.ServiceModel
+open R4nd0mApps.TddStud10.Common
 
 type IDataStore = 
     abstract RunStartParams : RunStartParams option
@@ -44,17 +45,17 @@ type DataStore() =
         | NoData -> ()
         | TestCases(tc) -> 
             x.TestCases <- tc
-            Common.safeExec (fun () -> testCasesUpdated.Trigger(x.TestCases))
+            Exec.safeExec (fun () -> testCasesUpdated.Trigger(x.TestCases))
         | SequencePoints(sp) -> 
             x.SequencePoints <- sp
-            Common.safeExec (fun () -> sequencePointsUpdated.Trigger(x.SequencePoints))
+            Exec.safeExec (fun () -> sequencePointsUpdated.Trigger(x.SequencePoints))
         | TestRunOutput(tr, tfi, ci) -> 
             x.TestResults <- tr
-            Common.safeExec (fun () -> testResultsUpdated.Trigger(x.TestResults))
+            Exec.safeExec (fun () -> testResultsUpdated.Trigger(x.TestResults))
             x.TestFailureInfo <- tfi
-            Common.safeExec (fun () -> testFailureInfoUpdated.Trigger(x.TestFailureInfo))
+            Exec.safeExec (fun () -> testFailureInfoUpdated.Trigger(x.TestFailureInfo))
             x.CoverageInfo <- ci
-            Common.safeExec (fun () -> coverageInfoUpdated.Trigger(x.CoverageInfo))
+            Exec.safeExec (fun () -> coverageInfoUpdated.Trigger(x.CoverageInfo))
         
     interface IDataStore with
         member x.RunStartParams : RunStartParams option = x.RunStartParams
@@ -192,7 +193,7 @@ type XDataStore(dataStore : IDataStore, cb : IXDataStoreCallback option) =
         f()
 
     let cbs : IXDataStoreCallback list ref = ref (cb |> Option.fold (fun _ e -> [ e ]) [])
-    let invokeCbs f _ = !cbs |> List.iter (fun cb -> Common.safeExec (fun () -> f cb))
+    let invokeCbs f _ = !cbs |> List.iter (fun cb -> Exec.safeExec (fun () -> f cb))
     do dataStore.TestCasesUpdated.Add(invokeCbs (fun cb -> cb.OnTestCasesUpdated()))
     do dataStore.SequencePointsUpdated.Add(invokeCbs (fun cb -> cb.OnSequencePointsUpdated()))
     do dataStore.TestResultsUpdated.Add(invokeCbs (fun cb -> cb.OnTestResultsUpdated()))

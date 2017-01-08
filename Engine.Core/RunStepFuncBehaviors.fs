@@ -1,13 +1,13 @@
 ﻿module R4nd0mApps.TddStud10.Engine.Core.RunStepFuncBehaviors
 
 open System.Diagnostics
-open R4nd0mApps.TddStud10.Common.Domain
+open R4nd0mApps.TddStud10.Common
 
 let logger = R4nd0mApps.TddStud10.Logger.LoggerFactory.logger
 
 let eventsPublisher f = 
     fun h sp i { onStart = se; onError = ee; onFinish = fe } -> 
-        Common.safeExec (fun () -> 
+        Exec.safeExec (fun () -> 
             se.Trigger({ sp = sp
                          info = i }))
         let rsr = 
@@ -20,11 +20,11 @@ let eventsPublisher f =
                   runData = NoData
                   addendum = ExceptionData ex }
         if rsr.status <> Succeeded then 
-            Common.safeExec (fun () -> 
+            Exec.safeExec (fun () -> 
                 ee.Trigger({ sp = sp
                              info = i
                              rsr = rsr }))
-        Common.safeExec (fun () -> 
+        Exec.safeExec (fun () -> 
             fe.Trigger({ sp = sp
                          info = i
                          rsr = rsr }))

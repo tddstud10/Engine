@@ -1,8 +1,8 @@
 ﻿namespace R4nd0mApps.TddStud10.Engine.Core
 
 module EngineConfigLoader = 
+    open R4nd0mApps.TddStud10.Common
     open R4nd0mApps.TddStud10.Common.Domain
-    open R4nd0mApps.TddStud10.Engine.Core
     open System.IO
     open System.Runtime.Serialization.Json
     open System.Text
@@ -17,7 +17,7 @@ module EngineConfigLoader =
     let private fromJson<'T> (jsonString : string) : 'T option = 
         use ms = new MemoryStream(UTF8Encoding.Default.GetBytes(jsonString))
         fun () -> (new DataContractJsonSerializer(typeof<'T>)).ReadObject(ms) :?> 'T 
-        |> Common.safeExec2
+        |> Exec.safeExec2
     
     let load defaultCfg (slnPath : FilePath) = 
         let nullCfg = 
@@ -41,7 +41,7 @@ module EngineConfigLoader =
             |> Array.filter (fun pi -> pi.GetValue(cfg) = pi.GetValue(nullCfg))
             |> Array.iter (fun pi -> pi.SetValue(cfg, pi.GetValue(defaultCfg)))
         
-        Common.safeExec (fun () -> File.WriteAllText(cfgPath, json))
+        Exec.safeExec (fun () -> File.WriteAllText(cfgPath, json))
         copyNonDefaultProperties nullCfg defaultCfg cfg
         cfg
 

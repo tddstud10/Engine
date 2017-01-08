@@ -1,6 +1,6 @@
 ﻿namespace R4nd0mApps.TddStud10.Engine.Core
 
-open R4nd0mApps.TddStud10.Common.Domain
+open R4nd0mApps.TddStud10.Common
 open System
 
 type public RunExecutor private (host : IRunExecutorHost, runSteps : RunSteps, stepWrapper : RunStepFuncWrapper) = 
@@ -36,7 +36,7 @@ type public RunExecutor private (host : IRunExecutorHost, runSteps : RunSteps, s
         (* NOTE: Need to ensure the started/errored/ended events go out no matter what*)
         let rsp = RunStartParams.Create cfg startTime solutionPath
         let op = tc.StartOperation("TddStud10 Run")
-        Common.safeExec (fun () -> runStarting.Trigger(rsp))
+        Exec.safeExec (fun () -> runStarting.Trigger(rsp))
         let rses = 
             { onStart = runStepStarting
               onError = onRunStepError
@@ -45,8 +45,8 @@ type public RunExecutor private (host : IRunExecutorHost, runSteps : RunSteps, s
         let err = runSteps |> Seq.fold (executeStep host rsp rses) None
         match err with
         | None -> ()
-        | Some e -> Common.safeExec (fun () -> onRunError.Trigger(e))
-        Common.safeExec (fun () -> runEnded.Trigger(rsp))
+        | Some e -> Exec.safeExec (fun () -> onRunError.Trigger(e))
+        Exec.safeExec (fun () -> runEnded.Trigger(rsp))
         tc.StopOperation(op)
         rsp, err
     

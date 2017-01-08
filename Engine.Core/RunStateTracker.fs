@@ -1,7 +1,7 @@
 ﻿namespace R4nd0mApps.TddStud10.Engine.Core
 
 open System
-open R4nd0mApps.TddStud10.Common.Domain
+open R4nd0mApps.TddStud10.Common
 
 type RunStateTracker() = 
     let logger = R4nd0mApps.TddStud10.Logger.LoggerFactory.logger
@@ -62,7 +62,7 @@ type RunStateTracker() =
         let oldState = state
         state <- transitionState (state, ev)
         logger.logInfof "Run Tracker State Machine: Trasition (%A, %A) -> %A" oldState ev state
-        Common.safeExec (fun () -> runStateChanged.Trigger(state))
+        Exec.safeExec (fun () -> runStateChanged.Trigger(state))
     
     member __.State = state
     member public __.RunStateChanged = runStateChanged.Publish
