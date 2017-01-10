@@ -48,7 +48,6 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\tddstud10.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -84,7 +83,6 @@
     <Compile Include="VsSolution.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\tddstud10.snk" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
