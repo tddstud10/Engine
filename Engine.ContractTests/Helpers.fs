@@ -62,6 +62,10 @@ module Helpers =
         let ssr = sprintf @"%s\%O" binRoot (Guid.NewGuid())
         let h = TddStud10HostProxy(9999, @"engine\contracttests", true) :> ITddStud10Host
         try 
+            let ds = h.GetDataStore()
+            let eEvents = collectEngineEvents <| h.GetEngineEvents()
+            let dsEvents = collectDataStoreEvents <| h.GetDataStoreEvents()
+
             let ver = h.Start() |> Async.RunSynchronously
             Xunit.Assert.Equal(ver, App.getVersion())
 
@@ -77,10 +81,6 @@ module Helpers =
             Xunit.Assert.False(e.IsEnabled() |> Async.RunSynchronously)
 
             e.EnableEngine() |> Async.RunSynchronously |> ignore
-
-            let ds = h.GetDataStore()
-            let eEvents = collectEngineEvents <| h.GetEngineEvents()
-            let dsEvents = collectDataStoreEvents <| h.GetDataStoreEvents()
 
             let ep = 
                 { HostVersion = HostVersion.VS2015; 

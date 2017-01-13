@@ -872,7 +872,13 @@
       }
     ]
   ],
-  []
+  [
+    "SequencePointsUpdated",
+    "TestCasesUpdated",
+    "TestResultsUpdated",
+    "TestFailureInfoUpdated",
+    "CoverageInfoUpdated"
+  ]
 ]
 ,[
   {

@@ -1877,6 +1877,11 @@
     "TestCasesUpdated",
     "TestResultsUpdated",
     "TestFailureInfoUpdated",
+    "CoverageInfoUpdated",
+    "SequencePointsUpdated",
+    "TestCasesUpdated",
+    "TestResultsUpdated",
+    "TestFailureInfoUpdated",
     "CoverageInfoUpdated"
   ]
 ]
