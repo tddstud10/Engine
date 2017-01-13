@@ -1,4 +1,6 @@
+File: YoLo.fs
 System.Reactive
 Newtonsoft.Json
+FSharp.Data
 group TddStud10
 TddStud10.Common

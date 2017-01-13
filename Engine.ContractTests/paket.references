@@ -1,5 +1,7 @@
+File: YoLo.fs
 ApprovalTests
 Newtonsoft.Json
 xunit
 group TddStud10
 TddStud10.Common
+TddStud10.TestHost

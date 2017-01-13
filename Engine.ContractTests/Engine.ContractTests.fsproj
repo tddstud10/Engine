@@ -61,6 +61,10 @@
   </Target>
   -->
   <ItemGroup>
+    <Compile Include="..\paket-files\haf\YoLo\YoLo.fs">
+      <Paket>True</Paket>
+      <Link>paket-files/YoLo.fs</Link>
+    </Compile>
     <Compile Include="..\AssemblyInfo.fs">
       <Link>AssemblyInfo.fs</Link>
     </Compile>
@@ -83,6 +87,7 @@
       <Link>TddStud10.TestHost.exe.config</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -95,6 +100,11 @@
     <ProjectReference Include="..\Engine.Core\Engine.Core.fsproj">
       <Name>Engine.Core</Name>
       <Project>{e5fb2292-1833-4c4c-800e-a31ac891a931}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine.Server\Engine.Server.fsproj">
+      <Name>Engine.Server</Name>
+      <Project>{a4793dff-5fcb-4660-a6de-a041c8f4f003}</Project>
       <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\Engine\Engine.csproj">
@@ -186,6 +196,113 @@
       </ItemGroup>
     </When>
   </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0')">
+      <ItemGroup>
+        <Reference Include="Mono.Cecil">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net20\Mono.Cecil.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Mdb">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net20\Mono.Cecil.Mdb.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Pdb">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net20\Mono.Cecil.Pdb.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Mono.Cecil">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net35\Mono.Cecil.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Mdb">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net35\Mono.Cecil.Mdb.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Pdb">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net35\Mono.Cecil.Pdb.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Rocks">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net35\Mono.Cecil.Rocks.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+      <ItemGroup>
+        <Reference Include="Mono.Cecil">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net40\Mono.Cecil.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Mdb">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Pdb">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Rocks">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
+      <ItemGroup>
+        <Reference Include="Mono.Cecil">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net45\Mono.Cecil.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Mdb">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net45\Mono.Cecil.Mdb.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Pdb">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net45\Mono.Cecil.Pdb.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Rocks">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net45\Mono.Cecil.Rocks.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == 'Silverlight' And $(TargetFrameworkVersion) == 'v5.0'">
+      <ItemGroup>
+        <Reference Include="Mono.Cecil">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\sl5\Mono.Cecil.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+        <Reference Include="Mono.Cecil.Rocks">
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\sl5\Mono.Cecil.Rocks.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
   <ItemGroup>
     <Reference Include="R4nd0mApps.TddStud10.Common.Domain">
       <HintPath>..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Common.Domain.dll</HintPath>
@@ -194,6 +311,18 @@
     </Reference>
     <Reference Include="R4nd0mApps.TddStud10.Logger">
       <HintPath>..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Logger.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="R4nd0mApps.TddStud10.TestHost.Core">
+      <HintPath>..\packages\tddstud10\TddStud10.TestHost\lib\R4nd0mApps.TddStud10.TestHost.Core.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+    <Reference Include="R4nd0mApps.TddStud10.TestRuntime">
+      <HintPath>..\packages\tddstud10\TddStud10.TestHost\lib\R4nd0mApps.TddStud10.TestRuntime.dll</HintPath>
       <Private>True</Private>
       <Paket>True</Paket>
     </Reference>

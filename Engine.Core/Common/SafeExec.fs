@@ -1,6 +1,6 @@
 ﻿module R4nd0mApps.TddStud10.Common.Exec
 
-let logger = R4nd0mApps.TddStud10.Logger.LoggerFactory.logger
+let private logger = R4nd0mApps.TddStud10.Logger.LoggerFactory.logger
 
 let safeExec (f : unit -> unit) = 
     try 

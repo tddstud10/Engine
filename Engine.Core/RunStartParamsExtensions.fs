@@ -9,11 +9,6 @@ module RunStartParamsExtensions =
     open R4nd0mApps.TddStud10.Common.Domain
     open R4nd0mApps.TddStud10
     
-    let private getLocalPath() = 
-        (Uri(Assembly.GetExecutingAssembly().CodeBase)).LocalPath
-        |> Path.GetFullPath
-        |> Path.GetDirectoryName
-    
     let testHostProcessName = sprintf "TddStud10.TestHost%s.exe" (if (Common.DFizer.isDF()) then ".DF" else "")
     
     type RunStartParams with
@@ -22,7 +17,7 @@ module RunStartParamsExtensions =
             let buildRoot = PathBuilder.makeSlnBuildRoot snapShotRoot solutionPath
             { SnapShotRoot = snapShotRoot
               StartTime = startTime
-              TestHostPath = Path.Combine(() |> getLocalPath, testHostProcessName) |> FilePath
+              TestHostPath = Path.Combine(Assembly.GetExecutingAssembly() |> Assembly.getAssemblyLocation , testHostProcessName) |> FilePath
               Solution = 
                   { Path = solutionPath
                     SnapshotPath = PathBuilder.makeSlnSnapshotPath snapShotRoot solutionPath

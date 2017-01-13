@@ -83,6 +83,8 @@ Target "Package" (fun _ ->
                              "Mono.Cecil", ""
                              "Newtonsoft.Json", ""
                              "Suave", ""
+                             "FSharp.Data", ""
+                             "System.Reactive", ""
                              "TddStud10.Common", "TddStud10"
                              "TddStud10.TestHost", "TddStud10" ]
                            |> List.map (fun (d,g) -> d, GetPackageVersion (packagesDir @@ g) d)

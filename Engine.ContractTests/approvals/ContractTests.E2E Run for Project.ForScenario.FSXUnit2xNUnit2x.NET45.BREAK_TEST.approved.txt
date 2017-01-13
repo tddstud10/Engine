@@ -1,90 +1,12 @@
-﻿[
+﻿[[
   [
-    {
-      "Case": "Initial"
-    },
-    {
-      "SnapShotRoot": {
-        "Case": "FilePath",
-        "Fields": [
-          "<binroot>\\<GUID>"
-        ]
-      },
-      "StartTime": "<DATETIME>",
-      "TestHostPath": {
-        "Case": "FilePath",
-        "Fields": [
-          "<binroot>\\TddStud10.TestHost.exe"
-        ]
-      },
-      "Solution": {
-        "Path": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\FSXUnit2xNUnit2x.sln"
-          ]
-        },
-        "SnapshotPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-          ]
-        },
-        "BuildRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-          ]
-        }
-      },
-      "DataFiles": {
-        "SequencePointStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-          ]
-        },
-        "CoverageSessionStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-          ]
-        },
-        "TestResultsStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-          ]
-        },
-        "DiscoveredUnitTestsStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-          ]
-        },
-        "TestFailureInfoStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-          ]
-        },
-        "DiscoveredUnitDTestsStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-          ]
-        }
-      },
-      "IgnoredTests": "",
-      "AdditionalMSBuildProperties": [
-        "DefineConstants=BREAK_TEST"
-      ]
-    },
-    {
-      "Case": "FirstBuildRunning"
-    },
-    {
-      "sp": {
+    [
+      {
+        "Case": "Initial"
+      }
+    ],
+    [
+      {
         "SnapShotRoot": {
           "Case": "FilePath",
           "Fields": [
@@ -160,27 +82,1718 @@
         "AdditionalMSBuildProperties": [
           "DefineConstants=BREAK_TEST"
         ]
-      },
-      "info": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Creating Solution Snapshot"
+      }
+    ],
+    [
+      {
+        "Case": "FirstBuildRunning"
+      }
+    ],
+    [
+      {
+        "sp": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
           ]
         },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "CreateSnapshot"
+        "info": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Creating Solution Snapshot"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "CreateSnapshot"
+          }
         }
       }
-    },
-    {
-      "Case": "BuildPassed"
-    },
-    {
-      "Item1": {
+    ],
+    [
+      {
+        "Case": "BuildPassed"
+      }
+    ],
+    [
+      {
+        "Item1": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "Item2": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Creating Solution Snapshot"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "CreateSnapshot"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildRunning"
+      }
+    ],
+    [
+      {
+        "sp": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "info": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Deleting Build Output"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "DeleteBuildOutput"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildPassed"
+      }
+    ],
+    [
+      {
+        "Item1": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "Item2": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Deleting Build Output"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "DeleteBuildOutput"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildRunning"
+      }
+    ],
+    [
+      {
+        "sp": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "info": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Building Solution Snapshot"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "BuildSnapshot"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildPassed"
+      }
+    ],
+    [
+      {
+        "Item1": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "Item2": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Building Solution Snapshot"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "BuildSnapshot"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildRunning"
+      }
+    ],
+    [
+      {
+        "sp": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "info": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Refresh Test Runtime"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "RefreshTestRuntime"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildPassed"
+      }
+    ],
+    [
+      {
+        "Item1": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "Item2": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Refresh Test Runtime"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "RefreshTestRuntime"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildRunning"
+      }
+    ],
+    [
+      {
+        "sp": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "info": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Discover Sequence Points"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "DiscoverSequencePoints"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildPassed"
+      }
+    ],
+    [
+      {
+        "Item1": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "Item2": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Discover Sequence Points"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "DiscoverSequencePoints"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildRunning"
+      }
+    ],
+    [
+      {
+        "sp": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "info": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Discover Unit Tests"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "DiscoverTests"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildPassed"
+      }
+    ],
+    [
+      {
+        "Item1": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "Item2": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Discover Unit Tests"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "DiscoverTests"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildRunning"
+      }
+    ],
+    [
+      {
+        "sp": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "info": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Instrument Binaries"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "InstrumentBinaries"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "BuildPassed"
+      }
+    ],
+    [
+      {
+        "Item1": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "Item2": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Instrument Binaries"
+            ]
+          },
+          "kind": {
+            "Case": "Build"
+          },
+          "subKind": {
+            "Case": "InstrumentBinaries"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "TestRunning"
+      }
+    ],
+    [
+      {
+        "sp": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "info": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Running Tests"
+            ]
+          },
+          "kind": {
+            "Case": "Test"
+          },
+          "subKind": {
+            "Case": "RunTests"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "TestFailureDetected"
+      }
+    ],
+    [
+      {
+        "Item1": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "Item2": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Running Tests"
+            ]
+          },
+          "kind": {
+            "Case": "Test"
+          },
+          "subKind": {
+            "Case": "RunTests"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "TestFailed"
+      }
+    ],
+    [
+      {
+        "Item1": {
+          "SnapShotRoot": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>"
+            ]
+          },
+          "StartTime": "<DATETIME>",
+          "TestHostPath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\TddStud10.TestHost.exe"
+            ]
+          },
+          "Solution": {
+            "Path": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "SnapshotPath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
+              ]
+            },
+            "BuildRoot": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
+              ]
+            }
+          },
+          "DataFiles": {
+            "SequencePointStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
+              ]
+            },
+            "CoverageSessionStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
+              ]
+            },
+            "TestResultsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
+              ]
+            },
+            "DiscoveredUnitTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
+              ]
+            },
+            "TestFailureInfoStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
+              ]
+            },
+            "DiscoveredUnitDTestsStore": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
+              ]
+            }
+          },
+          "IgnoredTests": "",
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ]
+        },
+        "Item2": {
+          "name": {
+            "Case": "RunStepName",
+            "Fields": [
+              "Running Tests"
+            ]
+          },
+          "kind": {
+            "Case": "Test"
+          },
+          "subKind": {
+            "Case": "RunTests"
+          }
+        }
+      }
+    ],
+    [
+      {
+        "Case": "TestFailed"
+      }
+    ],
+    [
+      "Exception of type 'R4nd0mApps.TddStud10.Engine.Core.RunStepFailedException' was thrown."
+    ],
+    [
+      {
         "SnapShotRoot": {
           "Case": "FilePath",
           "Fields": [
@@ -256,1544 +1869,18 @@
         "AdditionalMSBuildProperties": [
           "DefineConstants=BREAK_TEST"
         ]
-      },
-      "Item2": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Creating Solution Snapshot"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "CreateSnapshot"
-        }
       }
-    },
-    {
-      "Case": "BuildRunning"
-    },
-    {
-      "sp": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "info": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Deleting Build Output"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "DeleteBuildOutput"
-        }
-      }
-    },
-    {
-      "Case": "BuildPassed"
-    },
-    {
-      "Item1": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "Item2": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Deleting Build Output"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "DeleteBuildOutput"
-        }
-      }
-    },
-    {
-      "Case": "BuildRunning"
-    },
-    {
-      "sp": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "info": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Building Solution Snapshot"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "BuildSnapshot"
-        }
-      }
-    },
-    {
-      "Case": "BuildPassed"
-    },
-    {
-      "Item1": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "Item2": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Building Solution Snapshot"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "BuildSnapshot"
-        }
-      }
-    },
-    {
-      "Case": "BuildRunning"
-    },
-    {
-      "sp": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "info": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Refresh Test Runtime"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "RefreshTestRuntime"
-        }
-      }
-    },
-    {
-      "Case": "BuildPassed"
-    },
-    {
-      "Item1": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "Item2": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Refresh Test Runtime"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "RefreshTestRuntime"
-        }
-      }
-    },
-    {
-      "Case": "BuildRunning"
-    },
-    {
-      "sp": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "info": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Discover Sequence Points"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "DiscoverSequencePoints"
-        }
-      }
-    },
-    {
-      "Case": "BuildPassed"
-    },
-    {
-      "Item1": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "Item2": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Discover Sequence Points"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "DiscoverSequencePoints"
-        }
-      }
-    },
-    {
-      "Case": "BuildRunning"
-    },
-    {
-      "sp": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "info": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Discover Unit Tests"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "DiscoverTests"
-        }
-      }
-    },
-    {
-      "Case": "BuildPassed"
-    },
-    {
-      "Item1": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "Item2": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Discover Unit Tests"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "DiscoverTests"
-        }
-      }
-    },
-    {
-      "Case": "BuildRunning"
-    },
-    {
-      "sp": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "info": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Instrument Binaries"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "InstrumentBinaries"
-        }
-      }
-    },
-    {
-      "Case": "BuildPassed"
-    },
-    {
-      "Item1": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "Item2": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Instrument Binaries"
-          ]
-        },
-        "kind": {
-          "Case": "Build"
-        },
-        "subKind": {
-          "Case": "InstrumentBinaries"
-        }
-      }
-    },
-    {
-      "Case": "TestRunning"
-    },
-    {
-      "sp": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "info": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Running Tests"
-          ]
-        },
-        "kind": {
-          "Case": "Test"
-        },
-        "subKind": {
-          "Case": "RunTests"
-        }
-      }
-    },
-    {
-      "Case": "TestFailureDetected"
-    },
-    {
-      "Item1": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "Item2": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Running Tests"
-          ]
-        },
-        "kind": {
-          "Case": "Test"
-        },
-        "subKind": {
-          "Case": "RunTests"
-        }
-      }
-    },
-    {
-      "Case": "TestFailed"
-    },
-    {
-      "Item1": {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
-        "StartTime": "<DATETIME>",
-        "TestHostPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\TddStud10.TestHost.exe"
-          ]
-        },
-        "Solution": {
-          "Path": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "SnapshotPath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-            ]
-          },
-          "BuildRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-            ]
-          }
-        },
-        "DataFiles": {
-          "SequencePointStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-            ]
-          },
-          "CoverageSessionStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-            ]
-          },
-          "TestResultsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-            ]
-          },
-          "DiscoveredUnitTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-            ]
-          },
-          "TestFailureInfoStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-            ]
-          },
-          "DiscoveredUnitDTestsStore": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-            ]
-          }
-        },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
-      },
-      "Item2": {
-        "name": {
-          "Case": "RunStepName",
-          "Fields": [
-            "Running Tests"
-          ]
-        },
-        "kind": {
-          "Case": "Test"
-        },
-        "subKind": {
-          "Case": "RunTests"
-        }
-      }
-    },
-    {
-      "Case": "TestFailed"
-    },
-    "Exception of type 'R4nd0mApps.TddStud10.Common.Domain.RunStepFailedException' was thrown.",
-    {
-      "SnapShotRoot": {
-        "Case": "FilePath",
-        "Fields": [
-          "<binroot>\\<GUID>"
-        ]
-      },
-      "StartTime": "<DATETIME>",
-      "TestHostPath": {
-        "Case": "FilePath",
-        "Fields": [
-          "<binroot>\\TddStud10.TestHost.exe"
-        ]
-      },
-      "Solution": {
-        "Path": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\FSXUnit2xNUnit2x.sln"
-          ]
-        },
-        "SnapshotPath": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\FSXUnit2xNUnit2x.sln"
-          ]
-        },
-        "BuildRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out"
-          ]
-        }
-      },
-      "DataFiles": {
-        "SequencePointStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_sequencePointStore.xml"
-          ]
-        },
-        "CoverageSessionStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_coverageresults.xml"
-          ]
-        },
-        "TestResultsStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testresults.xml"
-          ]
-        },
-        "DiscoveredUnitTestsStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitTests.xml"
-          ]
-        },
-        "TestFailureInfoStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_testFailureInfo.xml"
-          ]
-        },
-        "DiscoveredUnitDTestsStore": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\Z_discoveredUnitDTests.xml"
-          ]
-        }
-      },
-      "IgnoredTests": "",
-      "AdditionalMSBuildProperties": [
-        "DefineConstants=BREAK_TEST"
-      ]
-    }
+    ]
   ],
+  [
+    "SequencePointsUpdated",
+    "TestCasesUpdated",
+    "TestResultsUpdated",
+    "TestFailureInfoUpdated",
+    "CoverageInfoUpdated"
+  ]
+]
+,[
   {
     "Case": "Some",
     "Fields": [
@@ -1888,7 +1975,7 @@
         "line": {
           "Case": "DocumentCoordinate",
           "Fields": [
-            13
+            14
           ]
         }
       },
@@ -1912,7 +1999,7 @@
           "LineNumber": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              13
+              14
             ]
           }
         }
@@ -1929,60 +2016,14 @@
         "line": {
           "Case": "DocumentCoordinate",
           "Fields": [
-            30
+            31
           ]
         }
       },
       "Value": [
         {
           "DtcId": "<GUID>",
-          "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>0449d661)",
-          "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"?test bla\", result: \"?test\")",
-          "Source": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-            ]
-          },
-          "CodeFilePath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "LineNumber": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        },
-        {
-          "DtcId": "<GUID>",
-          "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>abd49890)",
-          "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"an1\")",
-          "Source": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-            ]
-          },
-          "CodeFilePath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "LineNumber": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        },
-        {
-          "DtcId": "<GUID>",
-          "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>785f8598)",
+          "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>0573cd38)",
           "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"?an1\")",
           "Source": {
             "Case": "FilePath",
@@ -1999,7 +2040,53 @@
           "LineNumber": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
+            ]
+          }
+        },
+        {
+          "DtcId": "<GUID>",
+          "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>526cd561)",
+          "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"an1\")",
+          "Source": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
+            ]
+          },
+          "CodeFilePath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<root>\\LIBRARY1.FS"
+            ]
+          },
+          "LineNumber": {
+            "Case": "DocumentCoordinate",
+            "Fields": [
+              31
+            ]
+          }
+        },
+        {
+          "DtcId": "<GUID>",
+          "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>08e8e27d)",
+          "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"?test bla\", result: \"?test\")",
+          "Source": {
+            "Case": "FilePath",
+            "Fields": [
+              "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
+            ]
+          },
+          "CodeFilePath": {
+            "Case": "FilePath",
+            "Fields": [
+              "<root>\\LIBRARY1.FS"
+            ]
+          },
+          "LineNumber": {
+            "Case": "DocumentCoordinate",
+            "Fields": [
+              31
             ]
           }
         }
@@ -2016,7 +2103,7 @@
         "line": {
           "Case": "DocumentCoordinate",
           "Fields": [
-            38
+            39
           ]
         }
       },
@@ -2040,7 +2127,7 @@
           "LineNumber": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              38
+              39
             ]
           }
         }
@@ -2083,7 +2170,7 @@
           "startLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              45
+              46
             ]
           },
           "startColumn": {
@@ -2095,7 +2182,7 @@
           "endLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              45
+              46
             ]
           },
           "endColumn": {
@@ -2132,7 +2219,7 @@
           "startLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           },
           "startColumn": {
@@ -2144,7 +2231,7 @@
           "endLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           },
           "endColumn": {
@@ -2181,7 +2268,7 @@
           "startLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              21
+              22
             ]
           },
           "startColumn": {
@@ -2193,7 +2280,7 @@
           "endLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              21
+              22
             ]
           },
           "endColumn": {
@@ -2230,7 +2317,7 @@
           "startLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              13
+              14
             ]
           },
           "startColumn": {
@@ -2242,7 +2329,7 @@
           "endLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              18
+              17
             ]
           },
           "endColumn": {
@@ -2279,7 +2366,7 @@
           "startLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              38
+              39
             ]
           },
           "startColumn": {
@@ -2291,7 +2378,7 @@
           "endLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              45
+              46
             ]
           },
           "endColumn": {
@@ -2328,7 +2415,7 @@
           "startLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              10
+              11
             ]
           },
           "startColumn": {
@@ -2340,7 +2427,7 @@
           "endLine": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              10
+              11
             ]
           },
           "endColumn": {
@@ -2372,7 +2459,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              13
+              14
             ]
           }
         }
@@ -2399,7 +2486,7 @@
             "LineNumber": {
               "Case": "DocumentCoordinate",
               "Fields": [
-                13
+                14
               ]
             }
           },
@@ -2429,48 +2516,17 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
       },
       "Value": [
         {
-          "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"an1\")",
-          "TestCase": {
-            "DtcId": "<GUID>",
-            "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>abd49890)",
-            "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"an1\")",
-            "Source": {
-              "Case": "FilePath",
-              "Fields": [
-                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-              ]
-            },
-            "CodeFilePath": {
-              "Case": "FilePath",
-              "Fields": [
-                "<root>\\LIBRARY1.FS"
-              ]
-            },
-            "LineNumber": {
-              "Case": "DocumentCoordinate",
-              "Fields": [
-                30
-              ]
-            }
-          },
-          "Outcome": {
-            "Case": "TOPassed"
-          },
-          "ErrorStackTrace": null,
-          "ErrorMessage": null
-        },
-        {
           "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"?an1\")",
           "TestCase": {
             "DtcId": "<GUID>",
-            "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>785f8598)",
+            "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>0573cd38)",
             "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"?an1\")",
             "Source": {
               "Case": "FilePath",
@@ -2487,21 +2543,21 @@
             "LineNumber": {
               "Case": "DocumentCoordinate",
               "Fields": [
-                30
+                31
               ]
             }
           },
           "Outcome": {
             "Case": "TOFailed"
           },
-          "ErrorStackTrace": "   at FSXUnit2xNUnit2x.Class1.should parse symbol(String toParse, String result) in <root>\\LIBRARY1.FS:line 30",
+          "ErrorStackTrace": "   at FSXUnit2xNUnit2x.Class1.should parse symbol(String toParse, String result) in <root>\\LIBRARY1.FS:line 31",
           "ErrorMessage": "Assert.Equal() Failure\r\n          ↓ (pos 0)\r\nExpected: ?an1\r\nActual:   an1\r\n          ↑ (pos 0)"
         },
         {
           "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"?test bla\", result: \"?test\")",
           "TestCase": {
             "DtcId": "<GUID>",
-            "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>0449d661)",
+            "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>08e8e27d)",
             "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"?test bla\", result: \"?test\")",
             "Source": {
               "Case": "FilePath",
@@ -2518,7 +2574,38 @@
             "LineNumber": {
               "Case": "DocumentCoordinate",
               "Fields": [
-                30
+                31
+              ]
+            }
+          },
+          "Outcome": {
+            "Case": "TOPassed"
+          },
+          "ErrorStackTrace": null,
+          "ErrorMessage": null
+        },
+        {
+          "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"an1\")",
+          "TestCase": {
+            "DtcId": "<GUID>",
+            "FullyQualifiedName": "FSXUnit2xNUnit2x.Class1.should parse symbol <GUID>526cd561)",
+            "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"an1\")",
+            "Source": {
+              "Case": "FilePath",
+              "Fields": [
+                "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
+              ]
+            },
+            "CodeFilePath": {
+              "Case": "FilePath",
+              "Fields": [
+                "<root>\\LIBRARY1.FS"
+              ]
+            },
+            "LineNumber": {
+              "Case": "DocumentCoordinate",
+              "Fields": [
+                31
               ]
             }
           },
@@ -2548,7 +2635,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              38
+              39
             ]
           }
         }
@@ -2575,14 +2662,14 @@
             "LineNumber": {
               "Case": "DocumentCoordinate",
               "Fields": [
-                38
+                39
               ]
             }
           },
           "Outcome": {
             "Case": "TOFailed"
           },
-          "ErrorStackTrace": "at FsUnit.TopLevelOperators.should[a,a](FSharpFunc`2 f, a x, Object y) in d:\\GitHub\\FsUnit\\src\\FsUnit.NUnit\\FsUnit.fs:line 48\r\nat FSXUnit2xNUnit2x.Class1.shouldSayHelloWithFsUnit() in <root>\\LIBRARY1.FS:line 38\r\n",
+          "ErrorStackTrace": "at FsUnit.TopLevelOperators.should[a,a](FSharpFunc`2 f, a x, Object y) in d:\\GitHub\\FsUnit\\src\\FsUnit.NUnit\\FsUnit.fs:line 48\r\nat FSXUnit2xNUnit2x.Class1.shouldSayHelloWithFsUnit() in <root>\\LIBRARY1.FS:line 39\r\n",
           "ErrorMessage": "  Expected: \"Hello World!\", but was \"Hello ???\"\r\n"
         }
       ]
@@ -2600,7 +2687,7 @@
         "line": {
           "Case": "DocumentCoordinate",
           "Fields": [
-            30
+            31
           ]
         }
       },
@@ -2622,7 +2709,7 @@
                   "line": {
                     "Case": "DocumentCoordinate",
                     "Fields": [
-                      30
+                      31
                     ]
                   }
                 }
@@ -2643,7 +2730,7 @@
         "line": {
           "Case": "DocumentCoordinate",
           "Fields": [
-            38
+            39
           ]
         }
       },
@@ -2685,7 +2772,7 @@
                   "line": {
                     "Case": "DocumentCoordinate",
                     "Fields": [
-                      38
+                      39
                     ]
                   }
                 }
@@ -2748,7 +2835,7 @@
                   "line": {
                     "Case": "DocumentCoordinate",
                     "Fields": [
-                      38
+                      39
                     ]
                   }
                 }
@@ -2787,7 +2874,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              13
+              14
             ]
           }
         }
@@ -2820,7 +2907,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
@@ -2853,7 +2940,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
@@ -2886,7 +2973,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
@@ -2919,7 +3006,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              38
+              39
             ]
           }
         }
@@ -2952,7 +3039,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              38
+              39
             ]
           }
         }
@@ -2985,7 +3072,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              13
+              14
             ]
           }
         }
@@ -3018,7 +3105,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
@@ -3051,7 +3138,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
@@ -3084,7 +3171,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
@@ -3117,7 +3204,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
@@ -3150,7 +3237,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
@@ -3183,7 +3270,7 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              30
+              31
             ]
           }
         }
@@ -3216,11 +3303,11 @@
           "line": {
             "Case": "DocumentCoordinate",
             "Fields": [
-              38
+              39
             ]
           }
         }
       }
     }
   ]
-]
+]]
