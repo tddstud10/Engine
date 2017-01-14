@@ -8,30 +8,77 @@ open Suave
 open Suave.Filters
 open Suave.Http
 open Suave.Operators
+open Suave.Sockets.Control
 open Suave.Web
 open Suave.WebPart
+open Suave.WebSocket
 open System.Diagnostics
-open System.Reflection
 open System.Threading
+
+(* 
+   TODO: PARTHO: 
+   - Split out the Engine and DataStore interactions into their individual classes/sockets/agents/etc.
+   - Break out code units into their individual files
+*)
 
 let logger = LoggerFactory.logger
 
-[<AutoOpen>]
-module internal Utils = 
-    open Newtonsoft.Json
-    
-    let private fromJson<'a> json = JsonConvert.DeserializeObject(json, typeof<'a>) :?> 'a
-    
-    let getResourceFromReq<'a> (req : HttpRequest) = 
-        let getString rawForm = System.Text.Encoding.UTF8.GetString(rawForm)
-        req.rawForm
-        |> getString
-        |> fromJson<'a>
+type SocketSenderMessages = 
+    | Initialize of WebSocket
+    | PushNotification of Notification
+    | OpCodePong
+
+let sockSender = 
+    MailboxProcessor.Start(fun inbox -> 
+        logger.logInfof "SOCK SENDER AGENT: Starting"
+        let rec loop (ws : WebSocket option) = 
+            async { 
+                let! msg = inbox.Receive()
+                match ws, msg with
+                | _, Initialize ws -> 
+                    logger.logInfof "SOCK SENDER AGENT: Initializing"
+                    return! loop (Some ws)
+                | None, msg -> 
+                    logger.logWarnf "SOCK SENDER AGENT: Ignoring message %A as we are not initialized" msg
+                    return! loop None
+                | Some ws, OpCodePong -> let! _ = ws.send Pong [||] true
+                                         return! loop (Some ws)
+                | Some ws, PushNotification n -> 
+                    logger.logInfof "SOCK SENDER AGENT: sending message. %A..." n
+                    let bs = Server.serializeNotification n
+                    let! _ = ws.send Text bs true
+                    return! loop (Some ws)
+            }
+        loop None)
+
+sockSender.Error.Add(logger.logErrorf "SOCK SENDER AGENT: Errored out: %O")
+
+let socketHandler (ws : WebSocket) _ = 
+    ws
+    |> Initialize
+    |> sockSender.Post
+    let rec socketFn() = 
+        socket { 
+            let! m = ws.read()
+            match m with
+            | Ping, _, _ -> 
+                logger.logInfof "SOCK HANDLER: Received ping, replying with pong"
+                OpCodePong |> sockSender.Post
+                return! socketFn()
+            | oc, _, _ -> 
+                logger.logWarnf "SOCK HANDLER: Received unexpected message. Ignoring it. %A" oc
+                return! socketFn()
+        }
+    socketFn()
 
 let handler f : WebPart = 
+    let getResourceFromReq (req : HttpRequest) = req.rawForm |> UTF8.toString
     fun (r : HttpContext) -> 
         async { 
-            let data = r.request |> getResourceFromReq
+            let data = 
+                r.request
+                |> getResourceFromReq
+                |> JsonConvert.deserialize<'a>
             let! res = Async.Catch(f data)
             match res with
             | Choice1Of2 res -> 
@@ -54,8 +101,6 @@ let rec sucideOnParentExit ppid =
         return! sucideOnParentExit ppid
     }
 
-type Serializer = obj -> string
-
 module CommandResponse = 
     let info (serialize : Serializer) (s : string) = 
         serialize { Kind = "info"
@@ -71,28 +116,25 @@ module CommandResponse =
     
     let engineState (serialize : Serializer) es = 
         serialize { Kind = "engineState"
-                    Data = { EngineState.Enabled = es } }
+                    Data = { EngineInfo.Enabled = es } }
     
     let runState (serialize : Serializer) rs = 
         serialize { Kind = "runState"
-                    Data = { RunState.InProgress = rs } }
+                    Data = { RunInfo.InProgress = rs } }
     
     let dataStoreRespose (serialize : Serializer) kind data = 
         serialize { Kind = kind
                     Data = data }
 
-module Response = CommandResponse
-
-(*
-type Commands(ns, serialize : Serializer) = 
+type Commands(notify, serialize : Serializer) = 
     let dataStore = DataStore()
-    let e = Engine(dataStore, new EngineEventsSource(ns) :> IEngineCallback |> Some) :> IEngine
+    let e = Engine(dataStore, new EngineEventsSource(notify) :> IEngineCallback |> Some) :> IEngine
     do e.Connect()
-    let ds = XDataStore(dataStore, new XDataStoreEventsSource(ns) :> IXDataStoreCallback |> Some) :> IXDataStore
-    member __.GetServerVersion() = [ Response.serverVersion serialize () ] |> async.Return
-    member __.GetEngineState() = e.IsEnabled() |> Async.map (fun es -> [ Response.engineState serialize (es) ])
+    let ds = XDataStore(dataStore, new XDataStoreEventsSource(notify) :> IXDataStoreCallback |> Some) :> IXDataStore
+    member __.GetServerVersion() = [ CommandResponse.serverVersion serialize () ] |> async.Return
+    member __.GetEngineState() = e.IsEnabled() |> Async.map (fun es -> [ CommandResponse.engineState serialize (es) ])
     
-    member i.SetEngineState(es : EngineState) = 
+    member i.SetEngineState(es : EngineInfo) = 
         let set = 
             if es.Enabled then e.EnableEngine()
             else e.DisableEngine()
@@ -103,49 +145,50 @@ type Commands(ns, serialize : Serializer) =
         |> e.RunEngine
         |> Async.bind (fun _ -> i.GetRunState())
     
-    member __.GetRunState() = e.IsRunInProgress() |> Async.map (fun es -> [ Response.runState serialize es ])
+    member __.GetRunState() = e.IsRunInProgress() |> Async.map (fun es -> [ CommandResponse.runState serialize es ])
     member __.GetDataStoreFailureInfo(fp) = 
         ds.GetTestFailureInfosInFile(fp) 
-        |> Async.map (fun tfis -> [ Response.dataStoreRespose serialize "testFailureInfo" tfis ])
+        |> Async.map (fun tfis -> [ CommandResponse.dataStoreRespose serialize "testFailureInfo" tfis ])
     member __.GetDataStoreTests(fp) = 
-        ds.GetTestsInFile(fp) |> Async.map (fun ts -> [ Response.dataStoreRespose serialize "tests" ts ])
+        ds.GetTestsInFile(fp) |> Async.map (fun ts -> [ CommandResponse.dataStoreRespose serialize "tests" ts ])
     member __.GetDataStoreSequencePoints(fp) = 
         ds.GetSequencePointsForFile(fp) 
-        |> Async.map (fun sps -> [ Response.dataStoreRespose serialize "sequencePoints" sps ])
+        |> Async.map (fun sps -> [ CommandResponse.dataStoreRespose serialize "sequencePoints" sps ])
     member __.GetDataStoreTestResultsForSequencePoints(spids) = 
         ds.GetTestResultsForSequencepointsIds(spids) 
-        |> Async.map (fun trs -> [ Response.dataStoreRespose serialize "testResultsForSequencePoints" trs ])
+        |> Async.map (fun trs -> [ CommandResponse.dataStoreRespose serialize "testResultsForSequencePoints" trs ])
     member __.GetDataStoreSerializedState() = 
-        ds.GetSerializedState() |> Async.map (fun s -> [ Response.dataStoreRespose serialize "serializedState" s ])
+        ds.GetSerializedState() 
+        |> Async.map (fun s -> [ CommandResponse.dataStoreRespose serialize "serializedState" s ])
 
 // Test with: curl -Uri 'http://127.0.0.1:9999/server/version' -Method Get 
 let createRoutes (commands : Commands) = 
-    choose 
-        [ Filters.GET 
-          >=> choose [ path UrlSubPaths.ServerVersion >=> handler commands.GetServerVersion
-                       path UrlSubPaths.EngineState >=> handler commands.GetEngineState
-                       path UrlSubPaths.RunState >=> handler commands.GetRunState
-                       path UrlSubPaths.DataStoreSerializedState >=> handler commands.GetDataStoreSerializedState ]
-          
-          Filters.POST 
-          >=> choose 
-                  [ path UrlSubPaths.EngineState >=> handler commands.SetEngineState
-                    path UrlSubPaths.Run >=> handler commands.CreateRun
-                    path UrlSubPaths.DataStoreFailureInfo >=> handler commands.GetDataStoreFailureInfo
-                    path UrlSubPaths.DataStoreTests >=> handler commands.GetDataStoreTests
-                    path UrlSubPaths.DataStoreSequencePoints >=> handler commands.GetDataStoreSequencePoints
-                    
-                    path UrlSubPaths.DataStoreTestResultsForSequencePointIds 
-                    >=> handler commands.GetDataStoreTestResultsForSequencePoints ]
-          RequestErrors.NOT_FOUND "Found no handlers." ]
+    choose [ Filters.GET 
+             >=> choose [ path UrlSubPaths.ServerEvents >=> handShake socketHandler
+                          path UrlSubPaths.ServerVersion >=> handler commands.GetServerVersion
+                          path UrlSubPaths.EngineState >=> handler commands.GetEngineState
+                          path UrlSubPaths.RunState >=> handler commands.GetRunState
+                          path UrlSubPaths.DataStoreEvents >=> handShake socketHandler
+                          path UrlSubPaths.DataStoreSerializedState >=> handler commands.GetDataStoreSerializedState ]
+             
+             Filters.POST 
+             >=> choose 
+                     [ path UrlSubPaths.EngineState >=> handler commands.SetEngineState
+                       path UrlSubPaths.Run >=> handler commands.CreateRun
+                       path UrlSubPaths.DataStoreFailureInfo >=> handler commands.GetDataStoreFailureInfo
+                       path UrlSubPaths.DataStoreTests >=> handler commands.GetDataStoreTests
+                       path UrlSubPaths.DataStoreSequencePoints >=> handler commands.GetDataStoreSequencePoints
+                       
+                       path UrlSubPaths.DataStoreTestResultsForSequencePointIds 
+                       >=> handler commands.GetDataStoreTestResultsForSequencePoints ]
+             RequestErrors.NOT_FOUND "Found no handlers." ]
     >=> Writers.setMimeType "application/json; charset=utf-8"
-*)
 
 [<EntryPoint>]
 let main argv = 
-    let ppid, port, ns = int argv.[0], int argv.[1], argv.[2]
-    //let commands = Commands(ns, JsonSerializer.writeJson)
-    let app = choose [ ] // createRoutes commands
+    let ppid, port = int argv.[0], int argv.[1]
+    let commands = Commands(PushNotification >> sockSender.Post, JsonConvert.serialize)
+    let app = createRoutes commands
     ThreadPool.SetMinThreads(8, 8) |> ignore
     ppid
     |> sucideOnParentExit

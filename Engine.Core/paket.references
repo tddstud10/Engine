@@ -1,6 +1,7 @@
-File: YoLo.fs
 System.Reactive
 Newtonsoft.Json
 FSharp.Data
+WebSocket4Net
+File:YoLo.fs
 group TddStud10
 TddStud10.Common

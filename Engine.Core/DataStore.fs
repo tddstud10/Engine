@@ -4,6 +4,7 @@ open Newtonsoft.Json
 open R4nd0mApps.TddStud10.Common
 open R4nd0mApps.TddStud10.Common.Domain
 open R4nd0mApps.TddStud10.Engine
+open R4nd0mApps.TddStud10.Engine.Server
 open System
 open System.Collections.Generic
 
@@ -28,11 +29,11 @@ type IDataStore =
     abstract GetSerializedState : unit -> string
 
 type DataStore() = 
-    let testCasesUpdated = Event<_>()
-    let sequencePointsUpdated = Event<_>()
-    let testResultsUpdated = Event<_>()
-    let testFailureInfoUpdated = Event<_>()
-    let coverageInfoUpdated = Event<_>()
+    let tcu = Event<_>()
+    let spu = Event<_>()
+    let tru = Event<_>()
+    let tfiu = Event<_>()
+    let ciu = Event<_>()
     member val RunStartParams = None with get, set
     member val TestCases = PerDocumentLocationDTestCases() with get, set
     member val SequencePoints = PerDocumentSequencePoints() with get, set
@@ -45,25 +46,25 @@ type DataStore() =
         | NoData -> ()
         | TestCases(tc) -> 
             x.TestCases <- tc
-            Exec.safeExec (fun () -> testCasesUpdated.Trigger(x.TestCases))
+            Exec.safeExec (fun () -> tcu.Trigger(x.TestCases))
         | SequencePoints(sp) -> 
             x.SequencePoints <- sp
-            Exec.safeExec (fun () -> sequencePointsUpdated.Trigger(x.SequencePoints))
+            Exec.safeExec (fun () -> spu.Trigger(x.SequencePoints))
         | TestRunOutput(tr, tfi, ci) -> 
             x.TestResults <- tr
-            Exec.safeExec (fun () -> testResultsUpdated.Trigger(x.TestResults))
+            Exec.safeExec (fun () -> tru.Trigger(x.TestResults))
             x.TestFailureInfo <- tfi
-            Exec.safeExec (fun () -> testFailureInfoUpdated.Trigger(x.TestFailureInfo))
+            Exec.safeExec (fun () -> tfiu.Trigger(x.TestFailureInfo))
             x.CoverageInfo <- ci
-            Exec.safeExec (fun () -> coverageInfoUpdated.Trigger(x.CoverageInfo))
+            Exec.safeExec (fun () -> ciu.Trigger(x.CoverageInfo))
     
     interface IDataStore with
         member x.RunStartParams : RunStartParams option = x.RunStartParams
-        member __.TestCasesUpdated : IEvent<_> = testCasesUpdated.Publish
-        member __.SequencePointsUpdated : IEvent<_> = sequencePointsUpdated.Publish
-        member __.TestResultsUpdated : IEvent<_> = testResultsUpdated.Publish
-        member __.TestFailureInfoUpdated : IEvent<_> = testFailureInfoUpdated.Publish
-        member __.CoverageInfoUpdated : IEvent<_> = coverageInfoUpdated.Publish
+        member __.TestCasesUpdated : IEvent<_> = tcu.Publish
+        member __.SequencePointsUpdated : IEvent<_> = spu.Publish
+        member __.TestResultsUpdated : IEvent<_> = tru.Publish
+        member __.TestFailureInfoUpdated : IEvent<_> = tfiu.Publish
+        member __.CoverageInfoUpdated : IEvent<_> = ciu.Publish
         member x.UpdateRunStartParams(rsp : RunStartParams) : unit = x.RunStartParams <- rsp |> Some
         member x.UpdateData(rd : RunData) : unit = x.UpdateData rd
         
@@ -155,47 +156,100 @@ type IXDataStoreCallback =
     abstract OnCoverageInfoUpdated : unit -> unit
 
 type XDataStoreEventsLocal() = 
-    let testCasesUpdated = new Event<_>()
-    let sequencePointsUpdated = new Event<_>()
-    let testResultsUpdated = new Event<_>()
-    let testFailureInfoUpdated = new Event<_>()
-    let coverageInfoUpdated = new Event<_>()
+    let tcu = new Event<_>()
+    let spu = new Event<_>()
+    let tru = new Event<_>()
+    let tfiu = new Event<_>()
+    let ciu = new Event<_>()
+    
     interface IXDataStoreEvents with
-        member __.TestCasesUpdated = testCasesUpdated.Publish
-        member __.SequencePointsUpdated = sequencePointsUpdated.Publish
-        member __.TestResultsUpdated = testResultsUpdated.Publish
-        member __.TestFailureInfoUpdated = testFailureInfoUpdated.Publish
-        member __.CoverageInfoUpdated = coverageInfoUpdated.Publish
+        member __.TestCasesUpdated = tcu.Publish
+        member __.SequencePointsUpdated = spu.Publish
+        member __.TestResultsUpdated = tru.Publish
+        member __.TestFailureInfoUpdated = tfiu.Publish
+        member __.CoverageInfoUpdated = ciu.Publish
+    
     interface IXDataStoreCallback with
-        member __.OnCoverageInfoUpdated() = coverageInfoUpdated.Trigger()
-        member __.OnSequencePointsUpdated() = sequencePointsUpdated.Trigger()
-        member __.OnTestCasesUpdated() = testCasesUpdated.Trigger()
-        member __.OnTestFailureInfoUpdated() = testFailureInfoUpdated.Trigger()
-        member __.OnTestResultsUpdated() = testResultsUpdated.Trigger()
+        member __.OnCoverageInfoUpdated() = ciu.Trigger()
+        member __.OnSequencePointsUpdated() = spu.Trigger()
+        member __.OnTestCasesUpdated() = tcu.Trigger()
+        member __.OnTestFailureInfoUpdated() = tfiu.Trigger()
+        member __.OnTestResultsUpdated() = tru.Trigger()
 
-(*
-type XDataStoreEventsSource(ns) = 
+type XDataStoreEventsSource(notify) = 
     let disposed : bool ref = ref false
-    let testCasesUpdated, testCasesUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Source ns "TestCasesUpdated"
-    let sequencePointsUpdated, sequencePointsUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Source ns "SequencePointsUpdated"
-    let testResultsUpdated, testResultsUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Source ns "TestResultsUpdated"
-    let testFailureInfoUpdated, testFailureInfoUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Source ns "TestFailureInfoUpdated"
-    let coverageInfoUpdated, coverageInfoUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Source ns "CoverageInfoUpdated"
+    let tcu = Event<_>()
+    let tcuSub = tcu.Publish |> Observable.subscribe (TestCasesUpdated >> notify)
+    let spu = Event<_>()
+    let spuSub = spu.Publish |> Observable.subscribe (SequencePointsUpdated >> notify)
+    let tru = Event<_>()
+    let truSub = tru.Publish |> Observable.subscribe (TestResultsUpdated >> notify)
+    let tfiu = Event<_>()
+    let tfiuSub = tfiu.Publish |> Observable.subscribe (TestFailureInfoUpdated >> notify)
+    let ciu = Event<_>()
+    let ciuSub = ciu.Publish |> Observable.subscribe (CoverageInfoUpdated >> notify)
     abstract Dispose : bool -> unit
     
     override __.Dispose(disposing) = 
         if not disposed.Value then 
             if disposing then 
-                testCasesUpdatedDisp.Dispose()
-                sequencePointsUpdatedDisp.Dispose()
-                testResultsUpdatedDisp.Dispose()
-                testFailureInfoUpdatedDisp.Dispose()
-                coverageInfoUpdatedDisp.Dispose()
+                tcuSub.Dispose()
+                spuSub.Dispose()
+                truSub.Dispose()
+                tfiuSub.Dispose()
+                ciuSub.Dispose()
+            disposed := true
+    
+    interface IDisposable with
+        member x.Dispose() = 
+            x.Dispose(true)
+            GC.SuppressFinalize(x)
+    
+    interface IXDataStoreCallback with
+        member __.OnCoverageInfoUpdated() = ciu.Trigger()
+        member __.OnSequencePointsUpdated() = spu.Trigger()
+        member __.OnTestCasesUpdated() = tcu.Trigger()
+        member __.OnTestFailureInfoUpdated() = tfiu.Trigger()
+        member __.OnTestResultsUpdated() = tru.Trigger()
+
+type XDataStoreEventsSink(o) = 
+    let disposed : bool ref = ref false
+    
+    let tcu, tcuSub = 
+        Server.createEventOfNotification<_> (function 
+            | TestCasesUpdated x -> Some x
+            | _ -> None) o
+    
+    let spu, spuSub = 
+        Server.createEventOfNotification<_> (function 
+            | SequencePointsUpdated x -> Some x
+            | _ -> None) o
+    
+    let tru, truSub = 
+        Server.createEventOfNotification<_> (function 
+            | TestResultsUpdated x -> Some x
+            | _ -> None) o
+    
+    let tfiu, tfiuSub = 
+        Server.createEventOfNotification<_> (function 
+            | TestFailureInfoUpdated x -> Some x
+            | _ -> None) o
+    
+    let ciu, ciuSub = 
+        Server.createEventOfNotification<_> (function 
+            | CoverageInfoUpdated x -> Some x
+            | _ -> None) o
+    
+    abstract Dispose : bool -> unit
+    
+    override __.Dispose(disposing) = 
+        if not disposed.Value then 
+            if disposing then 
+                tcuSub.Dispose()
+                spuSub.Dispose()
+                truSub.Dispose()
+                tfiuSub.Dispose()
+                ciuSub.Dispose()
             disposed := true
     
     interface IDisposable with
@@ -204,55 +258,11 @@ type XDataStoreEventsSource(ns) =
             GC.SuppressFinalize(x)
     
     interface IXDataStoreEvents with
-        member __.TestCasesUpdated = testCasesUpdated.Publish
-        member __.SequencePointsUpdated = sequencePointsUpdated.Publish
-        member __.TestResultsUpdated = testResultsUpdated.Publish
-        member __.TestFailureInfoUpdated = testFailureInfoUpdated.Publish
-        member __.CoverageInfoUpdated = coverageInfoUpdated.Publish
-    
-    interface IXDataStoreCallback with
-        member __.OnCoverageInfoUpdated() = coverageInfoUpdated.Trigger()
-        member __.OnSequencePointsUpdated() = sequencePointsUpdated.Trigger()
-        member __.OnTestCasesUpdated() = testCasesUpdated.Trigger()
-        member __.OnTestFailureInfoUpdated() = testFailureInfoUpdated.Trigger()
-        member __.OnTestResultsUpdated() = testResultsUpdated.Trigger()
-
-type XDataStoreEventsSink(ns) = 
-    let disposed : bool ref = ref false
-    let testCasesUpdated, testCasesUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Sink ns "TestCasesUpdated"
-    let sequencePointsUpdated, sequencePointsUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Sink ns "SequencePointsUpdated"
-    let testResultsUpdated, testResultsUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Sink ns "TestResultsUpdated"
-    let testFailureInfoUpdated, testFailureInfoUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Sink ns "TestFailureInfoUpdated"
-    let coverageInfoUpdated, coverageInfoUpdatedDisp = 
-        RemoteEvents.prepareEvent<unit> RemoteEvents.Type.Sink ns "CoverageInfoUpdated"
-    abstract Dispose : bool -> unit
-    
-    override __.Dispose(disposing) = 
-        if not disposed.Value then 
-            if disposing then 
-                testCasesUpdatedDisp.Dispose()
-                sequencePointsUpdatedDisp.Dispose()
-                testResultsUpdatedDisp.Dispose()
-                testFailureInfoUpdatedDisp.Dispose()
-                coverageInfoUpdatedDisp.Dispose()
-            disposed := true
-    
-    interface IDisposable with
-        member x.Dispose() = 
-            x.Dispose(true)
-            GC.SuppressFinalize(x)
-    
-    interface IXDataStoreEvents with
-        member __.TestCasesUpdated = testCasesUpdated.Publish
-        member __.SequencePointsUpdated = sequencePointsUpdated.Publish
-        member __.TestResultsUpdated = testResultsUpdated.Publish
-        member __.TestFailureInfoUpdated = testFailureInfoUpdated.Publish
-        member __.CoverageInfoUpdated = coverageInfoUpdated.Publish
-*)
+        member __.TestCasesUpdated = tcu.Publish
+        member __.SequencePointsUpdated = spu.Publish
+        member __.TestResultsUpdated = tru.Publish
+        member __.TestFailureInfoUpdated = tfiu.Publish
+        member __.CoverageInfoUpdated = ciu.Publish
 
 type IXDataStore = 
     abstract GetTestsInFile : fp:FilePath -> Async<IDictionary<DocumentLocation, DTestCase []>>
@@ -262,7 +272,7 @@ type IXDataStore =
      -> Async<IDictionary<SequencePointId, DTestResult []>>
     abstract GetSerializedState : unit -> Async<string>
 
-type XDataStore(dataStore : IDataStore, cb : IXDataStoreCallback option) = 
+type XDataStore(ds : IDataStore, cb : IXDataStoreCallback option) = 
     let logger = R4nd0mApps.TddStud10.Logger.LoggerFactory.logger
     
     let logFn n f = 
@@ -271,20 +281,20 @@ type XDataStore(dataStore : IDataStore, cb : IXDataStoreCallback option) =
     
     let cbs : IXDataStoreCallback list ref = ref (cb |> Option.fold (fun _ e -> [ e ]) [])
     let invokeCbs f _ = !cbs |> List.iter (fun cb -> Exec.safeExec (fun () -> f cb))
-    do dataStore.TestCasesUpdated.Add(invokeCbs (fun cb -> cb.OnTestCasesUpdated()))
-    do dataStore.SequencePointsUpdated.Add(invokeCbs (fun cb -> cb.OnSequencePointsUpdated()))
-    do dataStore.TestResultsUpdated.Add(invokeCbs (fun cb -> cb.OnTestResultsUpdated()))
-    do dataStore.TestFailureInfoUpdated.Add(invokeCbs (fun cb -> cb.OnTestFailureInfoUpdated()))
-    do dataStore.CoverageInfoUpdated.Add(invokeCbs (fun cb -> cb.OnCoverageInfoUpdated()))
+    do ds.TestCasesUpdated.Add(invokeCbs (fun cb -> cb.OnTestCasesUpdated()))
+    do ds.SequencePointsUpdated.Add(invokeCbs (fun cb -> cb.OnSequencePointsUpdated()))
+    do ds.TestResultsUpdated.Add(invokeCbs (fun cb -> cb.OnTestResultsUpdated()))
+    do ds.TestFailureInfoUpdated.Add(invokeCbs (fun cb -> cb.OnTestFailureInfoUpdated()))
+    do ds.CoverageInfoUpdated.Add(invokeCbs (fun cb -> cb.OnCoverageInfoUpdated()))
     interface IXDataStore with
-        member __.GetTestsInFile(fp) = logFn "FindTestsInFile" (fun () -> dataStore.FindTestsInFile fp)
+        member __.GetTestsInFile(fp) = logFn "FindTestsInFile" (fun () -> ds.FindTestsInFile fp)
         member __.GetTestFailureInfosInFile(fp) = 
-            logFn "FindTestFailureInfosInFile" (fun () -> dataStore.FindTestFailureInfosInFile fp)
+            logFn "FindTestFailureInfosInFile" (fun () -> ds.FindTestFailureInfosInFile fp)
         member __.GetSequencePointsForFile(path : FilePath) = 
-            logFn "GetSequencePointsForFile" (fun () -> dataStore.GetSequencePointsForFile path)
+            logFn "GetSequencePointsForFile" (fun () -> ds.GetSequencePointsForFile path)
         member __.GetTestResultsForSequencepointsIds(spids) = 
-            logFn "GetTestResultsForSequencepointsIds" (fun () -> dataStore.GetTestResultsForSequencepointsIds spids)
-        member __.GetSerializedState() = logFn "GetSerializedState" (fun () -> dataStore.GetSerializedState())
+            logFn "GetTestResultsForSequencepointsIds" (fun () -> ds.GetTestResultsForSequencepointsIds spids)
+        member __.GetSerializedState() = logFn "GetSerializedState" (fun () -> ds.GetSerializedState())
 
 type XDataStoreProxy(baseUrl) = 
     interface IXDataStore with

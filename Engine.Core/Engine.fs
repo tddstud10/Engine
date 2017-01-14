@@ -3,6 +3,7 @@
 open R4nd0mApps.TddStud10.Common
 open R4nd0mApps.TddStud10.Common.Domain
 open R4nd0mApps.TddStud10.Engine
+open R4nd0mApps.TddStud10.Engine.Server
 open R4nd0mApps.TddStud10.Logger
 open System
 open System.Reflection
@@ -42,56 +43,6 @@ type EngineEventsLocal() =
     let runStepEnded = new Event<_>()
     let runError = new Event<_>()
     let runEnded = new Event<_>()
-    interface IEngineEvents with
-        member __.RunStateChanged = runStateChanged.Publish
-        member __.RunStarting = runStarting.Publish
-        member __.RunStepStarting = runStepStarting.Publish
-        member __.RunStepError = runStepError.Publish
-        member __.RunStepEnded = runStepEnded.Publish
-        member __.RunError = runError.Publish
-        member __.RunEnded = runEnded.Publish
-    interface IEngineCallback with
-        member __.OnRunStateChanged(rs) = runStateChanged.Trigger(rs)
-        member __.OnRunStarting(rsp) = runStarting.Trigger(rsp)
-        member __.OnRunStepStarting(rssea) = runStepStarting.Trigger(rssea)
-        member __.OnRunStepError(rseea) = runStepError.Trigger(rseea)
-        member __.OnRunStepEnded(rseea) = runStepEnded.Trigger(rseea)
-        member __.OnRunError(e) = runError.Trigger(e)
-        member __.OnRunEnded(rsp) = runEnded.Trigger(rsp)
-
-(*
-type EngineEventsSource(ns) = 
-    let disposed : bool ref = ref false
-    let runStateChanged, runStateChangedDisp = 
-        RemoteEvents.prepareEvent<RunState> RemoteEvents.Type.Source ns "RunStateChanged"
-    let runStarting, runStartingDisp = 
-        RemoteEvents.prepareEvent<RunStartParams> RemoteEvents.Type.Source ns "RunStarting"
-    let runStepStarting, runStepStartingDisp = 
-        RemoteEvents.prepareEvent<RunStepStartingEventArg> RemoteEvents.Type.Source ns "RunStepStarting"
-    let runStepError, runStepErrorDisp = 
-        RemoteEvents.prepareEvent<RunStepErrorEventArg> RemoteEvents.Type.Source ns "RunStepError"
-    let runStepEnded, runStepEndedDisp = 
-        RemoteEvents.prepareEvent<RunStepEndedEventArg> RemoteEvents.Type.Source ns "RunStepEnded"
-    let runError, runErrorDisp = RemoteEvents.prepareEvent<RunFailureInfo> RemoteEvents.Type.Source ns "RunError"
-    let runEnded, runEndedDisp = RemoteEvents.prepareEvent<RunStartParams> RemoteEvents.Type.Source ns "RunEnded"
-    abstract Dispose : bool -> unit
-    
-    override __.Dispose(disposing) = 
-        if not disposed.Value then 
-            if disposing then 
-                runStateChangedDisp.Dispose()
-                runStartingDisp.Dispose()
-                runStepStartingDisp.Dispose()
-                runStepErrorDisp.Dispose()
-                runStepEndedDisp.Dispose()
-                runErrorDisp.Dispose()
-                runEndedDisp.Dispose()
-            disposed := true
-    
-    interface IDisposable with
-        member x.Dispose() = 
-            x.Dispose(true)
-            GC.SuppressFinalize(x)
     
     interface IEngineEvents with
         member __.RunStateChanged = runStateChanged.Publish
@@ -111,31 +62,100 @@ type EngineEventsSource(ns) =
         member __.OnRunError(e) = runError.Trigger(e)
         member __.OnRunEnded(rsp) = runEnded.Trigger(rsp)
 
-type EngineEventsSink(ns) = 
+type EngineEventsSource(notify) = 
     let disposed : bool ref = ref false
-    let runStateChanged, runStateChangedDisp = 
-        RemoteEvents.prepareEvent<RunState> RemoteEvents.Type.Sink ns "RunStateChanged"
-    let runStarting, runStartingDisp = RemoteEvents.prepareEvent<RunStartParams> RemoteEvents.Type.Sink ns "RunStarting"
-    let runStepStarting, runStepStartingDisp = 
-        RemoteEvents.prepareEvent<RunStepStartingEventArg> RemoteEvents.Type.Sink ns "RunStepStarting"
-    let runStepError, runStepErrorDisp = 
-        RemoteEvents.prepareEvent<RunStepErrorEventArg> RemoteEvents.Type.Sink ns "RunStepError"
-    let runStepEnded, runStepEndedDisp = 
-        RemoteEvents.prepareEvent<RunStepEndedEventArg> RemoteEvents.Type.Sink ns "RunStepEnded"
-    let runError, runErrorDisp = RemoteEvents.prepareEvent<RunFailureInfo> RemoteEvents.Type.Sink ns "RunError"
-    let runEnded, runEndedDisp = RemoteEvents.prepareEvent<RunStartParams> RemoteEvents.Type.Sink ns "RunEnded"
+    let rsc = Event<_>()
+    let rscSub = rsc.Publish |> Observable.subscribe (RunStateChanged >> notify)
+    let rs = Event<_>()
+    let rsSub = rs.Publish |> Observable.subscribe (RunStarting >> notify)
+    let rss = Event<_>()
+    let rssSub = rss.Publish |> Observable.subscribe (RunStepStarting >> notify)
+    let rserr = Event<_>()
+    let rserrSub = rserr.Publish |> Observable.subscribe (RunStepError >> notify)
+    let rse = Event<_>()
+    let rseSub = rse.Publish |> Observable.subscribe (RunStepEnded >> notify)
+    let rerr = Event<_>()
+    let rerrSub = rerr.Publish |> Observable.subscribe (RunError >> notify)
+    let re = Event<_>()
+    let reSub = re.Publish |> Observable.subscribe (RunEnded >> notify)
     abstract Dispose : bool -> unit
     
     override __.Dispose(disposing) = 
         if not disposed.Value then 
             if disposing then 
-                runStateChangedDisp.Dispose()
-                runStartingDisp.Dispose()
-                runStepStartingDisp.Dispose()
-                runStepErrorDisp.Dispose()
-                runStepEndedDisp.Dispose()
-                runErrorDisp.Dispose()
-                runEndedDisp.Dispose()
+                rscSub.Dispose()
+                rsSub.Dispose()
+                rssSub.Dispose()
+                rserrSub.Dispose()
+                rseSub.Dispose()
+                rerrSub.Dispose()
+                reSub.Dispose()
+            disposed := true
+    
+    interface IDisposable with
+        member x.Dispose() = 
+            x.Dispose(true)
+            GC.SuppressFinalize(x)
+    
+    interface IEngineCallback with
+        member __.OnRunStateChanged(rs) = rsc.Trigger(rs)
+        member __.OnRunStarting(rsp) = rs.Trigger(rsp)
+        member __.OnRunStepStarting(rssea) = rss.Trigger(rssea)
+        member __.OnRunStepError(rseea) = rserr.Trigger(rseea)
+        member __.OnRunStepEnded(rseea) = rse.Trigger(rseea)
+        member __.OnRunError(e) = rerr.Trigger(e)
+        member __.OnRunEnded(rsp) = re.Trigger(rsp)
+
+type EngineEventsSink(o) = 
+    let disposed : bool ref = ref false
+    
+    let rsc, rscSub = 
+        Server.createEventOfNotification<_> (function 
+            | RunStateChanged x -> Some x
+            | _ -> None) o
+    
+    let rs, rsSub = 
+        Server.createEventOfNotification<_> (function 
+            | RunStarting x -> Some x
+            | _ -> None) o
+    
+    let rss, rssSub = 
+        Server.createEventOfNotification<_> (function 
+            | RunStepStarting x -> Some x
+            | _ -> None) o
+    
+    let rserr, rserrSub = 
+        Server.createEventOfNotification<_> (function 
+            | RunStepError x -> Some x
+            | _ -> None) o
+    
+    let rse, rseSub = 
+        Server.createEventOfNotification<_> (function 
+            | RunStepEnded x -> Some x
+            | _ -> None) o
+    
+    let rerr, rerrSub = 
+        Server.createEventOfNotification<_> (function 
+            | RunError x -> Some x
+            | _ -> None) o
+    
+    let re, reSub = 
+        Server.createEventOfNotification<_> (function 
+            | RunEnded x -> Some x
+            | _ -> None) o
+    
+    abstract Dispose : bool -> unit
+    
+    override __.Dispose(disposing) = 
+        if not disposed.Value then 
+            if disposing then 
+                rscSub.Dispose()
+                rsSub.Dispose()
+                rssSub.Dispose()
+                rserrSub.Dispose()
+                rseSub.Dispose()
+                rerrSub.Dispose()
+                reSub.Dispose()
             disposed := true
     
     interface IDisposable with
@@ -144,14 +164,13 @@ type EngineEventsSink(ns) =
             GC.SuppressFinalize(x)
     
     interface IEngineEvents with
-        member __.RunEnded = runEnded.Publish
-        member __.RunError = runError.Publish
-        member __.RunStarting = runStarting.Publish
-        member __.RunStateChanged = runStateChanged.Publish
-        member __.RunStepEnded = runStepEnded.Publish
-        member __.RunStepError = runStepError.Publish
-        member __.RunStepStarting = runStepStarting.Publish
-*)
+        member __.RunEnded = re.Publish
+        member __.RunError = rerr.Publish
+        member __.RunStarting = rs.Publish
+        member __.RunStateChanged = rsc.Publish
+        member __.RunStepEnded = rse.Publish
+        member __.RunStepError = rserr.Publish
+        member __.RunStepStarting = rss.Publish
 
 type IEngine = 
     abstract Connect : unit -> unit
@@ -187,21 +206,22 @@ type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x =
         
         member __.Connect() = 
             logger.logInfof "|ENGINE ACCESS| =====> Connect"
-            let rsc = fun ea -> (invokeCbs (fun cb -> cb.OnRunStateChanged(ea)))
-                
+            let rsc = fun ea -> 
+                (invokeCbs (fun cb -> cb.OnRunStateChanged(ea)))
+            
             let rs = 
                 fun ea -> 
                     dataStore.UpdateRunStartParams(ea)
                     invokeCbs (fun cb -> cb.OnRunStarting(ea))
-                
+            
             let rss = fun ea -> (invokeCbs (fun cb -> cb.OnRunStepStarting(ea)))
             let rser = fun ea -> (invokeCbs (fun cb -> cb.OnRunStepError(ea)))
-                
+            
             let rse = 
                 fun ea -> 
                     dataStore.UpdateData(ea.rsr.runData)
                     invokeCbs (fun cb -> cb.OnRunStepEnded(ea))
-                
+            
             let rer = fun ea -> (invokeCbs (fun cb -> cb.OnRunError(ea)))
             let re = fun ea -> (invokeCbs (fun cb -> cb.OnRunEnded(ea)))
             do runner.AttachHandlers rsc rs rss rser rse rer re
@@ -277,15 +297,16 @@ type EngineProxy(baseUrl) =
         member __.Connect() = failwith "Not implemented yet"
         member __.Disconnect() = failwith "Not implemented yet"
         member __.EnableEngine() = 
-            Server.postToServer<Server.EngineState> baseUrl Server.UrlSubPaths.EngineState { Server.EngineState.Enabled = true } 
-            |> Async.map (fun it -> it.Enabled)
+            Server.postToServer<Server.EngineInfo> baseUrl Server.UrlSubPaths.EngineState 
+                { Server.EngineInfo.Enabled = true } |> Async.map (fun it -> it.Enabled)
         member __.DisableEngine() = 
-            Server.postToServer<Server.EngineState> baseUrl Server.UrlSubPaths.EngineState { Server.EngineState.Enabled = false } 
-            |> Async.map (fun it -> it.Enabled)
+            Server.postToServer<Server.EngineInfo> baseUrl Server.UrlSubPaths.EngineState 
+                { Server.EngineInfo.Enabled = false } |> Async.map (fun it -> it.Enabled)
         member __.IsEnabled() = 
-            Server.getFromServer<Server.EngineState> baseUrl Server.UrlSubPaths.EngineState |> Async.map (fun it -> it.Enabled)
-        member __.IsRunInProgress() =
-            Server.getFromServer<Server.RunState> baseUrl Server.UrlSubPaths.RunState |> Async.map (fun it -> it.InProgress)
-        member __.RunEngine(ep) = 
-            Server.postToServer<Server.RunState> baseUrl Server.UrlSubPaths.Run ep 
+            Server.getFromServer<Server.EngineInfo> baseUrl Server.UrlSubPaths.EngineState 
+            |> Async.map (fun it -> it.Enabled)
+        member __.IsRunInProgress() = 
+            Server.getFromServer<Server.RunInfo> baseUrl Server.UrlSubPaths.RunState 
             |> Async.map (fun it -> it.InProgress)
+        member __.RunEngine(ep) = 
+            Server.postToServer<Server.RunInfo> baseUrl Server.UrlSubPaths.Run ep |> Async.map (fun it -> it.InProgress)

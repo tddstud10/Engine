@@ -84,6 +84,7 @@ Target "Package" (fun _ ->
                              "Newtonsoft.Json", ""
                              "Suave", ""
                              "FSharp.Data", ""
+                             "WebSocket4Net", ""
                              "System.Reactive", ""
                              "TddStud10.Common", "TddStud10"
                              "TddStud10.TestHost", "TddStud10" ]

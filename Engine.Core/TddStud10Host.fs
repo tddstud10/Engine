@@ -17,12 +17,14 @@ type ITddStud10Host =
     abstract GetDataStore : unit -> IXDataStore
     abstract GetDataStoreEvents : unit -> IXDataStoreEvents
 
-type TddStud10HostProxy(port : int, eventNS : string, ?local0 : bool) = 
+type TddStud10HostProxy(port : int, ?local0 : bool) = 
     let local = defaultArg local0 false
     let logger = LoggerFactory.logger
     let serverProcess : Process ref = ref null
     let baseUrl = sprintf "http://127.0.0.1:%d" port
-    
+    let ebaseUrl = sprintf "ws://127.0.0.1:%d%s" port
+    let eventsWs = new WebSocket4Net.WebSocket(ebaseUrl Server.UrlSubPaths.ServerEvents)
+
     let (engineProxy : IEngine, engineEvents : IEngineEvents, dataStoreProxy : IXDataStore, 
          dataStoreEvents : IXDataStoreEvents) = 
         if local then 
@@ -34,9 +36,9 @@ type TddStud10HostProxy(port : int, eventNS : string, ?local0 : bool) =
             let xds = XDataStore(ds, xde :> IXDataStoreCallback |> Some) :> IXDataStore
             e, ee :> _, xds, xde :> _
         else 
-            failwithf "nyi"
-            //EngineProxy(baseUrl) :> _, new EngineEventsSink(eventNS) :> _, XDataStoreProxy(baseUrl) :> _, 
-            //new XDataStoreEventsSink(eventNS) :> _
+            let eo = Server.WebSocket.createObservable eventsWs
+            EngineProxy(baseUrl) :> _, new EngineEventsSink(eo) :> _, XDataStoreProxy(baseUrl) :> _, 
+            new XDataStoreEventsSink(eo) :> _
     
     let getServerExePath() = 
         let cd = Assembly.GetExecutingAssembly() |> Assembly.getAssemblyLocation
@@ -49,7 +51,7 @@ type TddStud10HostProxy(port : int, eventNS : string, ?local0 : bool) =
             Process.GetCurrentProcess()
         else
             let sp = getServerExePath()
-            let sa = sprintf "%d %d \"%s\"" (Process.GetCurrentProcess().Id) port eventNS
+            let sa = sprintf "%d %d" (Process.GetCurrentProcess().Id) port
             logger.logInfof "Starting TddStud10 Server: \"%s\" %s" sp sa
             let proc = new Process()
             proc.StartInfo.FileName <- sp
@@ -57,6 +59,7 @@ type TddStud10HostProxy(port : int, eventNS : string, ?local0 : bool) =
             proc.StartInfo.Arguments <- sa
             proc.Start() |> ignore
             logger.logInfof "Started TddStud10 Server with PID: %d" proc.Id
+            eventsWs.Open()
             proc
     
     let stopServer (proc : Process) = 

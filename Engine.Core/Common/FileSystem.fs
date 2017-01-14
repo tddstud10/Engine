@@ -13,14 +13,14 @@ module FileSystem =
         | Renamed of FileInfo * FileInfo
     
     let watch nf so filter path = 
-        Observable.Create<_>(fun (observer : IObserver<_>) -> 
+        Observable.Create<_>(fun (o : IObserver<_>) -> 
             let fsw = new FileSystemWatcher(path, filter)
-            fsw.Created.AddHandler(fun _ args -> observer.OnNext(Created(FileInfo(args.FullPath))))
-            fsw.Changed.AddHandler(fun _ args -> observer.OnNext(Changed(FileInfo(args.FullPath))))
-            fsw.Deleted.AddHandler(fun _ args -> observer.OnNext(Deleted(FileInfo(args.FullPath))))
+            fsw.Created.AddHandler(fun _ args -> o.OnNext(Created(FileInfo(args.FullPath))))
+            fsw.Changed.AddHandler(fun _ args -> o.OnNext(Changed(FileInfo(args.FullPath))))
+            fsw.Deleted.AddHandler(fun _ args -> o.OnNext(Deleted(FileInfo(args.FullPath))))
             fsw.Renamed.AddHandler
-                (fun _ args -> observer.OnNext(Renamed(FileInfo(args.FullPath), FileInfo(args.OldFullPath))))
-            fsw.Error.AddHandler(fun _ args -> observer.OnError(args.GetException()))
+                (fun _ args -> o.OnNext(Renamed(FileInfo(args.FullPath), FileInfo(args.OldFullPath))))
+            fsw.Error.AddHandler(fun _ args -> o.OnError(args.GetException()))
             fsw.EnableRaisingEvents <- true
             fsw.IncludeSubdirectories <- (so = SearchOption.AllDirectories)
             nf |> Option.fold (fun () e -> fsw.NotifyFilter <- e) ()
