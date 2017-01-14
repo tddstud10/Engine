@@ -81,17 +81,3 @@ let ``E2E Run for Project`` (s : string, v : string) =
     let output, projRoot = runEngine s [| sprintf "DefineConstants=%s" v |]
     Approvals.Verify
         (output, Func<_, _>(normalizeJsonDoc binRoot (Path.GetDirectoryName(projRoot.ToString()))))
-(*
-o Test enhancement
-  - datastore api tests
-o Update 
-  - FSharp.Core to 4.0
-  - XUnit and add FSUnit and FSCheck
-o Additional enhancements
-  - Logging
-  - Telemetry
-o Add other stuff in YoLo 
-  - from prelude esp
-  - let inline ofNull value
-- Telemetry.Flush on closing solution hangs VS
-*)

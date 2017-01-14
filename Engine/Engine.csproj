@@ -77,7 +77,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RemoteHost.cs" />
     <Compile Include="VsSolution.cs" />
   </ItemGroup>
   <ItemGroup>
