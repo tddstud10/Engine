@@ -85,8 +85,8 @@ let ``DataStore API Tests``() =
     let ds = h.GetDataStore()
     try 
         async { 
-            let! _ = e.EnableEngine()
             let! _ = h.Start()
+            let! _ = e.EnableEngine()
             let ep = 
                 { HostVersion = HostVersion.VS2015
                   EngineConfig = EngineConfig(SnapShotRoot = ssr, AdditionalMSBuildProperties = props)
