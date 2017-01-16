@@ -18,6 +18,7 @@ type EngineParams =
       SessionStartTime : DateTime }
 
 type IEngineEvents = 
+    inherit IDisposable
     abstract RunStateChanged : IEvent<RunState>
     abstract RunStarting : IEvent<RunStartParams>
     abstract RunStepStarting : IEvent<RunStepStartingEventArg>
@@ -61,6 +62,9 @@ type EngineEventsLocal() =
         member __.OnRunStepEnded(rseea) = runStepEnded.Trigger(rseea)
         member __.OnRunError(e) = runError.Trigger(e)
         member __.OnRunEnded(rsp) = runEnded.Trigger(rsp)
+
+    interface IDisposable with
+        member __.Dispose() = ()
 
 type EngineEventsSource(notify) = 
     let disposed : bool ref = ref false
@@ -211,7 +215,7 @@ type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x =
             
             let rs = 
                 fun ea -> 
-                    dataStore.UpdateRunStartParams(ea)
+                    dataStore.SetRunStartParams(ea)
                     invokeCbs (fun cb -> cb.OnRunStarting(ea))
             
             let rss = fun ea -> (invokeCbs (fun cb -> cb.OnRunStepStarting(ea)))
@@ -294,8 +298,8 @@ type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x =
 
 type EngineProxy(baseUrl) = 
     interface IEngine with
-        member __.Connect() = failwith "Not implemented yet"
-        member __.Disconnect() = failwith "Not implemented yet"
+        member __.Connect() = ()
+        member __.Disconnect() = ()
         member __.EnableEngine() = 
             Server.postToServer<Server.EngineInfo> baseUrl Server.UrlSubPaths.EngineState 
                 { Server.EngineInfo.Enabled = true } |> Async.map (fun it -> it.Enabled)

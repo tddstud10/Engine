@@ -16,9 +16,6 @@ let getTestProjectsRoot testProject =
     |> List.map (fun it -> Path.Combine(it, testProject))
     |> List.find File.Exists
 
-let cfg = JsonSerializerSettings(ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
-let toJson o = JsonConvert.SerializeObject(o, Formatting.Indented, cfg)
-
 let normalizeJsonDoc (binRoot : string) (root : string) = 
     let regexReplace (p : string, r : string) s = 
         Regex.Replace(s, p, r, RegexOptions.IgnoreCase ||| RegexOptions.Multiline)
@@ -41,6 +38,17 @@ let collectEngineEvents (ees : IEngineEvents) =
     ees.RunStepError.Add(fun ea -> es.Enqueue([| ea.sp, ea.info |]))
     ees.RunEnded.Add(fun ea -> es.Enqueue([| ea |]))
     ees.RunError.Add(fun ea -> es.Enqueue([| ea.Message |]))
+    es
+
+let collectEngineEventsSummary (ees : IEngineEvents) = 
+    let es = ConcurrentQueue<obj>()
+    ees.RunStateChanged.Add(fun _ -> es.Enqueue("RunStateChanged"))
+    ees.RunStarting.Add(fun _ -> es.Enqueue("RunStarting"))
+    ees.RunStepStarting.Add(fun _ -> es.Enqueue("RunStepStarting"))
+    ees.RunStepEnded.Add(fun _ -> es.Enqueue("RunStepEnded"))
+    ees.RunStepError.Add(fun _ -> es.Enqueue("RunStepError"))
+    ees.RunEnded.Add(fun _ -> es.Enqueue("RunEnded"))
+    ees.RunError.Add(fun _ -> es.Enqueue("RunError"))
     es
 
 let collectDataStoreEvents (dses : IXDataStoreEvents) = 

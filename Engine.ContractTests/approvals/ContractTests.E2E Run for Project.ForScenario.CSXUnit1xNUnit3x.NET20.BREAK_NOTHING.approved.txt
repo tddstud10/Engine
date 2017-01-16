@@ -1862,20 +1862,7 @@
   },
   [
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\CLASS1.CS"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            12
-          ]
-        }
-      },
+      "Key": "<root>\\CLASS1.CS|12",
       "Value": [
         {
           "DtcId": "<GUID>",
@@ -1903,20 +1890,7 @@
       ]
     },
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\CLASS1.CS"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            30
-          ]
-        }
-      },
+      "Key": "<root>\\CLASS1.CS|30",
       "Value": [
         {
           "DtcId": "<GUID>",
@@ -1967,20 +1941,7 @@
       ]
     },
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\CLASS1.CS"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            41
-          ]
-        }
-      },
+      "Key": "<root>\\CLASS1.CS|41",
       "Value": [
         {
           "DtcId": "<GUID>",
@@ -2018,23 +1979,7 @@
       },
       "Value": [
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  7
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|7|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2067,23 +2012,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  6
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|6|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2116,23 +2045,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  6
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|6|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2165,23 +2078,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  6
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|6|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2214,23 +2111,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  5
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|5|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2263,23 +2144,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  5
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|5|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2312,23 +2177,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  5
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|5|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2361,23 +2210,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  4
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|4|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2410,23 +2243,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  4
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|4|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2459,23 +2276,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  3
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|3|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2508,23 +2309,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  3
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|3|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2557,23 +2342,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  3
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|3|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2606,23 +2375,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 5
-          },
+          "id": "<GUID>|2|5",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2655,23 +2408,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 4
-          },
+          "id": "<GUID>|2|4",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2704,23 +2441,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 3
-          },
+          "id": "<GUID>|2|3",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2753,23 +2474,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|2|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2802,23 +2507,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|2|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2851,23 +2540,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|2|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2900,23 +2573,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  1
-                ]
-              }
-            },
-            "uid": 3
-          },
+          "id": "<GUID>|1|3",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2949,23 +2606,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  1
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|1|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2998,23 +2639,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  1
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|1|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3047,23 +2672,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  1
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|1|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3100,28 +2709,7 @@
   ],
   [
     {
-      "Key": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      },
+      "Key": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12",
       "Value": [
         {
           "DisplayName": "CSXUnit1xNUnit3x.StringTests3.IndexOf(input: \"hello world\", letter: 'w', expected: 6)",
@@ -3188,28 +2776,7 @@
       ]
     },
     {
-      "Key": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      },
+      "Key": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30",
       "Value": [
         {
           "DisplayName": "SquareRootDefinition(0.0d)",
@@ -3276,28 +2843,7 @@
       ]
     },
     {
-      "Key": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              41
-            ]
-          }
-        }
-      },
+      "Key": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41",
       "Value": [
         {
           "DisplayName": "CSXUnit1xNUnit3x.StringTests3.TestToSkip",
@@ -3345,28 +2891,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -3378,28 +2903,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -3411,28 +2915,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -3444,28 +2927,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -3477,28 +2939,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -3510,28 +2951,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -3543,28 +2963,7 @@
         },
         "Item2": 3
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -3576,28 +2975,7 @@
         },
         "Item2": 3
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -3609,28 +2987,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3642,28 +2999,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3675,28 +3011,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3708,28 +3023,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3741,28 +3035,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3774,28 +3047,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3807,28 +3059,7 @@
         },
         "Item2": 3
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3840,28 +3071,7 @@
         },
         "Item2": 3
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3873,28 +3083,7 @@
         },
         "Item2": 4
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3906,28 +3095,7 @@
         },
         "Item2": 4
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3939,28 +3107,7 @@
         },
         "Item2": 5
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -3972,28 +3119,7 @@
         },
         "Item2": 5
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -4005,28 +3131,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              41
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
     },
     {
       "Item1": {
@@ -4038,28 +3143,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              41
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
     },
     {
       "Item1": {
@@ -4071,28 +3155,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              41
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
     },
     {
       "Item1": {
@@ -4104,28 +3167,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -4137,28 +3179,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -4170,28 +3191,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -4203,28 +3203,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -4236,28 +3215,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              41
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
     },
     {
       "Item1": {
@@ -4269,28 +3227,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -4302,28 +3239,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -4335,28 +3251,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -4368,28 +3263,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
     },
     {
       "Item1": {
@@ -4401,28 +3275,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              41
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
     },
     {
       "Item1": {
@@ -4434,28 +3287,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -4467,28 +3299,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     },
     {
       "Item1": {
@@ -4500,28 +3311,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              12
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
     }
   ]
 ]]

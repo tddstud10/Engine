@@ -1862,20 +1862,7 @@
   },
   [
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\APPSETTINGTESTS.VB"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            25
-          ]
-        }
-      },
+      "Key": "<root>\\APPSETTINGTESTS.VB|25",
       "Value": [
         {
           "DtcId": "<GUID>",
@@ -1903,20 +1890,7 @@
       ]
     },
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\APPSETTINGTESTS.VB"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            30
-          ]
-        }
-      },
+      "Key": "<root>\\APPSETTINGTESTS.VB|30",
       "Value": [
         {
           "DtcId": "<GUID>",
@@ -1944,20 +1918,7 @@
       ]
     },
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\APPSETTINGTESTS.VB"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            39
-          ]
-        }
-      },
+      "Key": "<root>\\APPSETTINGTESTS.VB|39",
       "Value": [
         {
           "DtcId": "<GUID>",
@@ -1995,23 +1956,7 @@
       },
       "Value": [
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  34
-                ]
-              }
-            },
-            "uid": 3
-          },
+          "id": "<GUID>|34|3",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2044,23 +1989,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  34
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|34|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2093,23 +2022,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  34
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|34|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2142,23 +2055,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  34
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|34|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2191,23 +2088,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  33
-                ]
-              }
-            },
-            "uid": 8
-          },
+          "id": "<GUID>|33|8",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2240,23 +2121,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  33
-                ]
-              }
-            },
-            "uid": 7
-          },
+          "id": "<GUID>|33|7",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2289,23 +2154,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  33
-                ]
-              }
-            },
-            "uid": 6
-          },
+          "id": "<GUID>|33|6",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2338,23 +2187,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  33
-                ]
-              }
-            },
-            "uid": 5
-          },
+          "id": "<GUID>|33|5",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2387,23 +2220,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  33
-                ]
-              }
-            },
-            "uid": 4
-          },
+          "id": "<GUID>|33|4",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2436,23 +2253,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  33
-                ]
-              }
-            },
-            "uid": 3
-          },
+          "id": "<GUID>|33|3",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2485,23 +2286,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  33
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|33|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2534,23 +2319,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  33
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|33|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2583,23 +2352,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  33
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|33|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2632,23 +2385,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  32
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|32|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2681,23 +2418,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  32
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|32|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2730,23 +2451,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  32
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|32|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2779,23 +2484,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  31
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|31|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2828,23 +2517,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  31
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|31|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2877,23 +2550,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  31
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|31|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2926,23 +2583,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  30
-                ]
-              }
-            },
-            "uid": 5
-          },
+          "id": "<GUID>|30|5",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2975,23 +2616,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  30
-                ]
-              }
-            },
-            "uid": 4
-          },
+          "id": "<GUID>|30|4",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3024,23 +2649,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  30
-                ]
-              }
-            },
-            "uid": 3
-          },
+          "id": "<GUID>|30|3",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3073,23 +2682,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  30
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|30|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3122,23 +2715,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  30
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|30|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3171,23 +2748,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  30
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|30|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3220,23 +2781,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  29
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|29|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3269,23 +2814,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  29
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|29|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3318,23 +2847,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  29
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|29|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3367,23 +2880,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  28
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|28|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3416,23 +2913,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  28
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|28|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3465,23 +2946,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  28
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|28|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3514,23 +2979,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  27
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|27|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3563,23 +3012,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  27
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|27|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3612,23 +3045,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  27
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|27|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3661,23 +3078,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  26
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|26|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3710,23 +3111,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  26
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|26|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3759,23 +3144,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  26
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|26|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3808,23 +3177,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  7
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|7|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3857,23 +3210,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  7
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|7|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3906,23 +3243,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  7
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|7|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -3955,23 +3276,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  6
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|6|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4004,23 +3309,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  6
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|6|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4053,23 +3342,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  6
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|6|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4102,23 +3375,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  5
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|5|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4151,23 +3408,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  5
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|5|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4200,23 +3441,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  5
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|5|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4249,23 +3474,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  4
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|4|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4298,23 +3507,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  4
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|4|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4347,23 +3540,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  4
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|4|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4396,23 +3573,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  3
-                ]
-              }
-            },
-            "uid": 3
-          },
+          "id": "<GUID>|3|3",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4445,23 +3606,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  3
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|3|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4494,23 +3639,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  3
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|3|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4543,23 +3672,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  3
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|3|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4592,23 +3705,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|2|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4641,23 +3738,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|2|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4690,23 +3771,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|2|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4749,23 +3814,7 @@
       },
       "Value": [
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  18
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|18|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4798,23 +3847,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  18
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|18|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4847,23 +3880,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  18
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|18|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4896,23 +3913,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  17
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|17|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4945,23 +3946,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  17
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|17|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -4994,23 +3979,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  17
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|17|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5043,23 +4012,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  16
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|16|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5092,23 +4045,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  16
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|16|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5141,23 +4078,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  16
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|16|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5190,23 +4111,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  15
-                ]
-              }
-            },
-            "uid": 3
-          },
+          "id": "<GUID>|15|3",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5239,23 +4144,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  15
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|15|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5288,23 +4177,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  15
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|15|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5337,23 +4210,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  15
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|15|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5396,23 +4253,7 @@
       },
       "Value": [
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  24
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|24|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5445,23 +4286,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  24
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|24|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5494,23 +4319,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  24
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|24|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5543,23 +4352,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  23
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|23|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5592,23 +4385,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  23
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|23|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5641,23 +4418,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  23
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|23|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5690,23 +4451,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  22
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|22|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5739,23 +4484,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  22
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|22|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5788,23 +4517,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  22
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|22|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5837,23 +4550,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  21
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|21|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5886,23 +4583,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  21
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|21|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5935,23 +4616,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  20
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|20|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -5984,23 +4649,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  20
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|20|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6033,23 +4682,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  20
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|20|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6082,23 +4715,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  19
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|19|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6131,23 +4748,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  19
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|19|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6190,23 +4791,7 @@
       },
       "Value": [
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  10
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|10|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6239,23 +4824,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  10
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|10|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6288,23 +4857,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  10
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|10|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6337,23 +4890,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  9
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|9|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6386,23 +4923,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  9
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|9|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6435,23 +4956,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  9
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|9|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6484,23 +4989,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  8
-                ]
-              }
-            },
-            "uid": 7
-          },
+          "id": "<GUID>|8|7",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6533,23 +5022,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  8
-                ]
-              }
-            },
-            "uid": 6
-          },
+          "id": "<GUID>|8|6",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6582,23 +5055,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  8
-                ]
-              }
-            },
-            "uid": 5
-          },
+          "id": "<GUID>|8|5",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6631,23 +5088,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  8
-                ]
-              }
-            },
-            "uid": 4
-          },
+          "id": "<GUID>|8|4",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6680,23 +5121,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  8
-                ]
-              }
-            },
-            "uid": 3
-          },
+          "id": "<GUID>|8|3",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6729,23 +5154,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  8
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|8|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6778,23 +5187,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  8
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|8|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6827,23 +5220,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  8
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|8|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6886,23 +5263,7 @@
       },
       "Value": [
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  14
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|14|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6935,23 +5296,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  14
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|14|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -6984,23 +5329,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  14
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|14|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -7033,23 +5362,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  13
-                ]
-              }
-            },
-            "uid": 2
-          },
+          "id": "<GUID>|13|2",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -7082,23 +5395,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  13
-                ]
-              }
-            },
-            "uid": 1
-          },
+          "id": "<GUID>|13|1",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -7131,23 +5428,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  13
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|13|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -7180,23 +5461,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  11
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|11|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -7233,28 +5498,7 @@
   ],
   [
     {
-      "Key": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      },
+      "Key": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25",
       "Value": [
         {
           "DisplayName": "id",
@@ -7290,28 +5534,7 @@
       ]
     },
     {
-      "Key": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      },
+      "Key": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30",
       "Value": [
         {
           "DisplayName": "name",
@@ -7347,28 +5570,7 @@
       ]
     },
     {
-      "Key": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      },
+      "Key": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39",
       "Value": [
         {
           "DisplayName": "VBXUnit1xNUnit2x.AppSettingTests.name2",
@@ -7416,28 +5618,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -7449,28 +5630,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -7482,28 +5642,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -7515,28 +5654,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -7548,28 +5666,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -7581,28 +5678,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -7614,28 +5690,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -7647,28 +5702,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -7680,28 +5714,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -7713,28 +5726,7 @@
         },
         "Item2": 3
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -7746,28 +5738,7 @@
         },
         "Item2": 3
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -7779,28 +5750,7 @@
         },
         "Item2": 3
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -7812,28 +5762,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -7845,28 +5774,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -7878,28 +5786,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -7911,28 +5798,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -7944,28 +5810,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -7977,28 +5822,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8010,28 +5834,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8043,28 +5846,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8076,28 +5858,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8109,28 +5870,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -8142,28 +5882,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8175,28 +5894,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -8208,28 +5906,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8241,28 +5918,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -8274,28 +5930,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8307,28 +5942,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -8340,28 +5954,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8373,28 +5966,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -8406,28 +5978,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -8439,28 +5990,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -8472,28 +6002,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8505,28 +6014,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8538,28 +6026,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              25
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|25"
     },
     {
       "Item1": {
@@ -8571,28 +6038,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -8604,28 +6050,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -8637,28 +6062,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              30
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|30"
     },
     {
       "Item1": {
@@ -8670,28 +6074,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -8703,28 +6086,7 @@
         },
         "Item2": 1
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     },
     {
       "Item1": {
@@ -8736,28 +6098,7 @@
         },
         "Item2": 2
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\APPSETTINGTESTS.VB"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\VBXUnit1xNUnit2x.NET40\\out\\VBXUnit1xNUnit2x.dll|<root>\\APPSETTINGTESTS.VB|39"
     }
   ]
 ]]

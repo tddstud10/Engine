@@ -44,7 +44,7 @@ let sockSender =
                 | Some ws, OpCodePong -> let! _ = ws.send Pong [||] true
                                          return! loop (Some ws)
                 | Some ws, PushNotification n -> 
-                    logger.logInfof "SOCK SENDER AGENT: sending message. %A..." n
+                    logger.logInfof "SOCK SENDER AGENT: sending message. %O..." n
                     let bs = Server.serializeNotification n
                     let! _ = ws.send Text bs true
                     return! loop (Some ws)
@@ -122,9 +122,11 @@ module CommandResponse =
         serialize { Kind = "runState"
                     Data = { RunInfo.InProgress = rs } }
     
-    let dataStoreRespose (serialize : Serializer) kind data = 
-        serialize { Kind = kind
-                    Data = data }
+    let dataStoreRespose (serialize : Serializer) kind (data) = 
+        let x = 
+            { Kind = kind
+              Data = data }
+        serialize x
 
 type Commands(notify, serialize : Serializer) = 
     let dataStore = DataStore()
@@ -132,7 +134,7 @@ type Commands(notify, serialize : Serializer) =
     do e.Connect()
     let ds = XDataStore(dataStore, new XDataStoreEventsSource(notify) :> IXDataStoreCallback |> Some) :> IXDataStore
     member __.GetServerVersion() = [ CommandResponse.serverVersion serialize () ] |> async.Return
-    member __.GetEngineState() = e.IsEnabled() |> Async.map (fun es -> [ CommandResponse.engineState serialize (es) ])
+    member __.GetEngineState() = e.IsEnabled() |> Async.map (fun es -> [ CommandResponse.engineState serialize es ])
     
     member i.SetEngineState(es : EngineInfo) = 
         let set = 
@@ -146,6 +148,9 @@ type Commands(notify, serialize : Serializer) =
         |> Async.bind (fun _ -> i.GetRunState())
     
     member __.GetRunState() = e.IsRunInProgress() |> Async.map (fun es -> [ CommandResponse.runState serialize es ])
+    member __.GetDataStoreRunStartParams() = 
+        ds.GetRunStartParams() 
+        |> Async.map (fun es -> [ CommandResponse.dataStoreRespose serialize "runStartParams" es ])
     member __.GetDataStoreFailureInfo(fp) = 
         ds.GetTestFailureInfosInFile(fp) 
         |> Async.map (fun tfis -> [ CommandResponse.dataStoreRespose serialize "testFailureInfo" tfis ])
@@ -168,7 +173,7 @@ let createRoutes (commands : Commands) =
                           path UrlSubPaths.ServerVersion >=> handler commands.GetServerVersion
                           path UrlSubPaths.EngineState >=> handler commands.GetEngineState
                           path UrlSubPaths.RunState >=> handler commands.GetRunState
-                          path UrlSubPaths.DataStoreEvents >=> handShake socketHandler
+                          path UrlSubPaths.DataStoreRunStartParams >=> handler commands.GetDataStoreRunStartParams
                           path UrlSubPaths.DataStoreSerializedState >=> handler commands.GetDataStoreSerializedState ]
              
              Filters.POST 

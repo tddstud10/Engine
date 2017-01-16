@@ -6,11 +6,8 @@ open R4nd0mApps.TddStud10.Common
 open R4nd0mApps.TddStud10.Engine.Core
 open R4nd0mApps.TddStud10.Logger
 open System
-open System.IO
 open System.Reflection
 open System.Runtime.Serialization
-open System.Text
-open System.Xml
 
 let logger = LoggerFactory.logger
 
@@ -22,7 +19,7 @@ module UrlSubPaths =
     let Run = "/run"
     let RunState = "/run/state"
     let EngineState = "/engine/state"
-    let DataStoreEvents = "/datastore/events"
+    let DataStoreRunStartParams = "/datastore/runstartparams"
     let DataStoreSerializedState = "/datastore/serializedstate"
     let DataStoreFailureInfo = "/datastore/failureinfo"
     let DataStoreTests = "/datastore/tests"
@@ -77,27 +74,9 @@ let postToServer<'T> baseUrl p =
     >> Some
     >> callServer<'T> baseUrl p
 
-(* 
-   NOTE: PARTHO: 
-   Using the DataContractSerializer for now. JsonConvert cannot round trip FilePath.
-   Fix this when we integrate with VSCode/Atom *)
+let deserializeNotification = UTF8.toString >> JsonConvert.deserialize<Notification>
 
-//let deserializeNotification = UTF8.toString >> JsonConvert.deserialize<Notification>
-let deserializeNotification bs = 
-    let deserializer = DataContractSerializer(typeof<Notification>)
-    let s = UTF8.toString bs
-    use sr = new StringReader(s)
-    use writer = XmlReader.Create(sr)
-    deserializer.ReadObject(writer) :?> Notification
-
-//let serializeNotification : Notification -> _ = JsonConvert.serialize >> UTF8.bytes
-let serializeNotification n = 
-    let serializer = DataContractSerializer(typeof<Notification>)
-    let sb = new StringBuilder()
-    use writer = XmlWriter.Create(sb)
-    serializer.WriteObject(writer, n)
-    writer.Flush()
-    sb.ToString() |> UTF8.bytes
+let serializeNotification : Notification -> _ = JsonConvert.serialize >> UTF8.bytes
 
 let createEventOfNotification<'T> eventSel (o : IObservable<Notification>) = 
     let e = Event<'T>()
@@ -108,8 +87,7 @@ let createEventOfNotification<'T> eventSel (o : IObservable<Notification>) =
         |> Observable.subscribe (e.Trigger)
     e, sub
 
-module WebSocket = 
-    open System
+module Notifications = 
     open System.Reactive.Linq
     open WebSocket4Net
     
@@ -117,11 +95,14 @@ module WebSocket =
         Observable.Create<_>(fun (o : IObserver<_>) -> 
             ws.MessageReceived.AddHandler(fun _ ea -> o.OnNext(ea.Message |> UTF8.bytes))
             ws.Closed.AddHandler(fun _ _ -> 
-                logger.logInfof "WEBSOCKET CLIENT: Closed. Terminating observable."
+                logger.logInfof "WEBSOCKET CLIENT: Unsubscribing Observable."
                 o.OnCompleted())
             ws.Error.AddHandler(fun _ ea -> 
                 logger.logErrorf "WEBSOCKET CLIENT: Exception. %O." ea.Exception
                 o.OnError(ea.Exception))
-            ws.Opened.AddHandler(fun _ _ -> logger.logInfof "WEBSOCKET CLIENT: Opened")
-            ws :> IDisposable)
-        |> Observable.map (deserializeNotification)
+            ws.Opened.AddHandler(fun _ _ -> logger.logInfof "WEBSOCKET CLIENT: Subscribing Observable.")
+            Action(ignore))
+        |> Observable.map deserializeNotification
+        |> Observable.map (fun n -> 
+                           logger.logInfof "WEBSOCKET CLIENT: Received Notification %O" n
+                           n)

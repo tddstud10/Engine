@@ -1,6 +1,5 @@
 ﻿namespace R4nd0mApps.TddStud10.Engine.Core
 
-open Newtonsoft.Json
 open R4nd0mApps.TddStud10.Common
 open R4nd0mApps.TddStud10.Common.Domain
 open R4nd0mApps.TddStud10.Engine
@@ -9,13 +8,13 @@ open System
 open System.Collections.Generic
 
 type IDataStore = 
-    abstract RunStartParams : RunStartParams option
+    abstract GetStartParams : unit -> RunStartParams option
+    abstract SetRunStartParams : RunStartParams -> unit
     abstract TestCasesUpdated : IEvent<PerDocumentLocationDTestCases>
     abstract SequencePointsUpdated : IEvent<PerDocumentSequencePoints>
     abstract TestResultsUpdated : IEvent<PerTestIdDResults>
     abstract TestFailureInfoUpdated : IEvent<PerDocumentLocationTestFailureInfo>
     abstract CoverageInfoUpdated : IEvent<PerSequencePointIdTestRunId>
-    abstract UpdateRunStartParams : RunStartParams -> unit
     abstract UpdateData : RunData -> unit
     abstract ResetData : unit -> unit
     abstract FindTest : DocumentLocation -> seq<DTestCase>
@@ -59,13 +58,13 @@ type DataStore() =
             Exec.safeExec (fun () -> ciu.Trigger(x.CoverageInfo))
     
     interface IDataStore with
-        member x.RunStartParams : RunStartParams option = x.RunStartParams
+        member x.GetStartParams() = x.RunStartParams
+        member x.SetRunStartParams(rsp) : unit = x.RunStartParams <- rsp |> Some
         member __.TestCasesUpdated : IEvent<_> = tcu.Publish
         member __.SequencePointsUpdated : IEvent<_> = spu.Publish
         member __.TestResultsUpdated : IEvent<_> = tru.Publish
         member __.TestFailureInfoUpdated : IEvent<_> = tfiu.Publish
         member __.CoverageInfoUpdated : IEvent<_> = ciu.Publish
-        member x.UpdateRunStartParams(rsp : RunStartParams) : unit = x.RunStartParams <- rsp |> Some
         member x.UpdateData(rd : RunData) : unit = x.UpdateData rd
         
         member x.ResetData() = 
@@ -124,9 +123,6 @@ type DataStore() =
             |> dict
         
         member i.GetSerializedState() = 
-            let cfg = JsonSerializerSettings(ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
-            let toJson o = JsonConvert.SerializeObject(o, Formatting.Indented, cfg)
-            
             let state = 
                 [ i.RunStartParams :> obj
                   (i.TestCases.ToArray() |> Array.sortBy (fun it -> it.Key.ToString())) :> obj
@@ -138,10 +134,11 @@ type DataStore() =
                           (fun kv -> 
                           kv.Value.ToArray() |> Array.map (fun v -> (kv.Key.methodId.mdTokenRid, kv.Key.uid), v.testId))
                    |> Array.sortBy (fun (um, tid : TestId) -> sprintf "%O.%O" um tid)) :> obj ]
-                |> toJson
+                |> JsonConvert.serialize2
             state
 
 type IXDataStoreEvents = 
+    inherit IDisposable
     abstract TestCasesUpdated : IEvent<unit>
     abstract SequencePointsUpdated : IEvent<unit>
     abstract TestResultsUpdated : IEvent<unit>
@@ -175,6 +172,9 @@ type XDataStoreEventsLocal() =
         member __.OnTestCasesUpdated() = tcu.Trigger()
         member __.OnTestFailureInfoUpdated() = tfiu.Trigger()
         member __.OnTestResultsUpdated() = tru.Trigger()
+
+    interface IDisposable with
+        member x.Dispose() = ()
 
 type XDataStoreEventsSource(notify) = 
     let disposed : bool ref = ref false
@@ -265,6 +265,9 @@ type XDataStoreEventsSink(o) =
         member __.CoverageInfoUpdated = ciu.Publish
 
 type IXDataStore = 
+    abstract GetRunStartParams : unit -> Async<RunStartParams option>
+    abstract SetRunStartParams : RunStartParams -> Async<unit>
+    abstract UpdateData : RunData -> Async<unit>
     abstract GetTestsInFile : fp:FilePath -> Async<IDictionary<DocumentLocation, DTestCase []>>
     abstract GetSequencePointsForFile : fp:FilePath -> Async<seq<SequencePoint>>
     abstract GetTestFailureInfosInFile : fp:FilePath -> Async<IDictionary<DocumentLocation, TestFailureInfo []>>
@@ -287,6 +290,9 @@ type XDataStore(ds : IDataStore, cb : IXDataStoreCallback option) =
     do ds.TestFailureInfoUpdated.Add(invokeCbs (fun cb -> cb.OnTestFailureInfoUpdated()))
     do ds.CoverageInfoUpdated.Add(invokeCbs (fun cb -> cb.OnCoverageInfoUpdated()))
     interface IXDataStore with
+        member __.GetRunStartParams() = logFn "GetRunStartParams" (fun () -> ds.GetStartParams()) 
+        member __.SetRunStartParams rsp = logFn "SetRunStartParams" (fun () -> ds.SetRunStartParams rsp)
+        member __.UpdateData rd = logFn "SetRunStartParams" (fun () -> ds.UpdateData rd)
         member __.GetTestsInFile(fp) = logFn "FindTestsInFile" (fun () -> ds.FindTestsInFile fp)
         member __.GetTestFailureInfosInFile(fp) = 
             logFn "FindTestFailureInfosInFile" (fun () -> ds.FindTestFailureInfosInFile fp)
@@ -298,6 +304,10 @@ type XDataStore(ds : IDataStore, cb : IXDataStoreCallback option) =
 
 type XDataStoreProxy(baseUrl) = 
     interface IXDataStore with
+        member __.GetRunStartParams() =
+            Server.getFromServer<_> baseUrl Server.UrlSubPaths.DataStoreRunStartParams
+        member __.SetRunStartParams _ = failwith "Not implemented"
+        member __.UpdateData _ = failwith "Not implemented"
         member __.GetTestFailureInfosInFile(fp) = 
             Server.postToServer<_> baseUrl Server.UrlSubPaths.DataStoreFailureInfo fp
         member __.GetTestsInFile(fp) = Server.postToServer<_> baseUrl Server.UrlSubPaths.DataStoreTests fp
