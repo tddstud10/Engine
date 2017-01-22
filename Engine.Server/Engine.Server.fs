@@ -45,7 +45,7 @@ let sockSender =
                                          return! loop (Some ws)
                 | Some ws, PushNotification n -> 
                     logger.logInfof "SOCK SENDER AGENT: sending message. %O..." n
-                    let bs = Server.serializeNotification n
+                    let bs = n |> JsonConvert.serialize |> UTF8.bytes
                     let! _ = ws.send Text bs true
                     return! loop (Some ws)
             }

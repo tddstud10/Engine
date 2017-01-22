@@ -181,6 +181,7 @@ namespace R4nd0mApps.TddStud10
                     Logger.LogInfo("Instrumenting {0}.", assemblyPath);
 
                     var assembly = AssemblyDefinition.ReadAssembly(assemblyPath, readerParams);
+                    var hasSn = assembly.Name.HasPublicKey;
 
                     /*
                        IL_0001: ldstr <assemblyId>
@@ -203,7 +204,7 @@ namespace R4nd0mApps.TddStud10
                     File.Move(assemblyPath, backupAssemblyPath);
                     try
                     {
-                        assembly.Write(assemblyPath, new WriterParameters { WriteSymbols = true, StrongNameKeyPair = snKeyPair });
+                        assembly.Write(assemblyPath, new WriterParameters { WriteSymbols = true, StrongNameKeyPair = hasSn ? snKeyPair : null });
                     }
                     catch
                     {

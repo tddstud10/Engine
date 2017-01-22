@@ -74,10 +74,6 @@ let postToServer<'T> baseUrl p =
     >> Some
     >> callServer<'T> baseUrl p
 
-let deserializeNotification = UTF8.toString >> JsonConvert.deserialize<Notification>
-
-let serializeNotification : Notification -> _ = JsonConvert.serialize >> UTF8.bytes
-
 let createEventOfNotification<'T> eventSel (o : IObservable<Notification>) = 
     let e = Event<'T>()
     
@@ -93,7 +89,9 @@ module Notifications =
     
     let createObservable (ws : WebSocket) = 
         Observable.Create<_>(fun (o : IObserver<_>) -> 
-            ws.MessageReceived.AddHandler(fun _ ea -> o.OnNext(ea.Message |> UTF8.bytes))
+            ws.MessageReceived.AddHandler(fun _ ea -> 
+                logger.logInfof "WEBSOCKET CLIENT: Received Notification" 
+                o.OnNext(ea.Message))
             ws.Closed.AddHandler(fun _ _ -> 
                 logger.logInfof "WEBSOCKET CLIENT: Unsubscribing Observable."
                 o.OnCompleted())
@@ -102,7 +100,4 @@ module Notifications =
                 o.OnError(ea.Exception))
             ws.Opened.AddHandler(fun _ _ -> logger.logInfof "WEBSOCKET CLIENT: Subscribing Observable.")
             Action(ignore))
-        |> Observable.map deserializeNotification
-        |> Observable.map (fun n -> 
-                           logger.logInfof "WEBSOCKET CLIENT: Received Notification %O" n
-                           n)
+        |> Observable.map JsonConvert.deserialize<Notification>
