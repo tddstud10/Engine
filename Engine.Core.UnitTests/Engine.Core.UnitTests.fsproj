@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Engine.Core.UnitTests</RootNamespace>
     <AssemblyName>R4nd0mApps.TddStud10.Engine.Core.UnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Name>Engine.Core.UnitTests</Name>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>

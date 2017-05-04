@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Engine.ContractTests</RootNamespace>
     <AssemblyName>R4nd0mApps.TddStud10.Engine.ContractTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Name>Engine.ContractTests</Name>
     <TargetFrameworkProfile />
