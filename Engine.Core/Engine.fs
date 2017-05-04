@@ -192,11 +192,8 @@ type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x =
     let invokeCbs f = !cbs |> List.iter (fun cb -> Exec.safeExec (fun () -> f cb))
     
     let createRunStepsTempHack() = 
-        [ "R4nd0mApps.TddStud10.Engine"; "R4nd0mApps.TddStud10.Engine.DF" ]
-        |> List.pick (fun an -> 
-               let a = Assembly.Load(an)
-               if obj.ReferenceEquals(a, null) then None
-               else Some a)
+        sprintf "R4nd0mApps.TddStud10.Engine%s" (if DFizer.isDF() then ".DF" else "")
+        |> Assembly.Load
         |> fun a -> a.GetType("R4nd0mApps.TddStud10.Engine.Engine")
         |> fun t -> t.GetMethod("CreateRunSteps", BindingFlags.Public ||| BindingFlags.Static)
         |> fun m -> m.Invoke(null, [| Func<_, _>(dataStore.FindTest) |]) :?> RunSteps
@@ -259,7 +256,7 @@ type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x =
             async { 
                 logger.logInfof "|ENGINE ACCESS| =====> IsRunInProgress"
                 return not 
-                           (currentRun.Value = null 
+                           (isNull currentRun.Value
                             || (currentRun.Value.Status = TaskStatus.Canceled 
                                 || currentRun.Value.Status = TaskStatus.Faulted 
                                 || currentRun.Value.Status = TaskStatus.RanToCompletion))
@@ -277,7 +274,7 @@ type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x =
                         else 
                             logger.logInfof "Engine: Going to trigger a run."
                             // NOTE: Note fix the CT design once we wire up.
-                            if (currentRunCts.Value <> null) then currentRunCts.Value.Dispose()
+                            if (currentRunCts.Value |> isNull |> not) then currentRunCts.Value.Dispose()
                             currentRunCts := new CancellationTokenSource()
                             currentRun 
                             := runner.StartAsync ep.EngineConfig ep.SessionStartTime ep.SolutionPath 
