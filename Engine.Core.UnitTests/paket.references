@@ -1,6 +1,11 @@
-xunit
-xunit.runner.visualstudio
 System.Reactive
 Newtonsoft.Json
+File:YaFunTK.fs
+
+group Test
+    FsUnit.xUnit
+    FsCheck.Xunit
+    xunit.runner.visualstudio
+
 group TddStud10
-TddStud10.Common
+    TddStud10.Common

@@ -2,6 +2,7 @@ System.Reactive
 Newtonsoft.Json
 FSharp.Data
 WebSocket4Net
-File:YoLo.fs
+File:YaFunTK.fs
+
 group TddStud10
-TddStud10.Common
+    TddStud10.Common

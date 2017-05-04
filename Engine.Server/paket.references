@@ -1,5 +1,6 @@
-File: YoLo.fs
+File:YaFunTK.fs
 Newtonsoft.Json
 Suave
+
 group TddStud10
-TddStud10.Common
+    TddStud10.Common

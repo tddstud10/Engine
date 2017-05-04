@@ -14,6 +14,7 @@ open Suave.WebPart
 open Suave.WebSocket
 open System.Diagnostics
 open System.Threading
+open System
 
 (* 
    TODO: PARTHO: 
@@ -41,11 +42,11 @@ let sockSender =
                 | None, msg -> 
                     logger.logWarnf "SOCK SENDER AGENT: Ignoring message %A as we are not initialized" msg
                     return! loop None
-                | Some ws, OpCodePong -> let! _ = ws.send Pong [||] true
+                | Some ws, OpCodePong -> let! _ = ws.send Pong (ArraySegment()) true
                                          return! loop (Some ws)
                 | Some ws, PushNotification n -> 
                     logger.logInfof "SOCK SENDER AGENT: sending message. %O..." n
-                    let bs = n |> JsonConvert.serialize |> UTF8.bytes
+                    let bs = n |> JsonConvert.serialize |> UTF8.bytes |> ArraySegment
                     let! _ = ws.send Text bs true
                     return! loop (Some ws)
             }

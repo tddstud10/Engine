@@ -1,7 +1,12 @@
-File: YoLo.fs
-ApprovalTests
 Newtonsoft.Json
-xunit
+File:YaFunTK.fs
+
+group Test
+    FsUnit.xUnit
+    FsCheck.Xunit
+    xunit.runner.visualstudio
+    ApprovalTests
+
 group TddStud10
-TddStud10.Common
-TddStud10.TestHost
+    TddStud10.Common
+    TddStud10.TestHost
