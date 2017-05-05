@@ -3,7 +3,7 @@ source https://www.nuget.org/api/v2
 nuget FSharp.Core 4.0.0.1 redirects: force
 nuget FSharp.Data
 nuget Mono.Cecil
-nuget Newtonsoft.Json 9.0.1 redirects: force 
+nuget Newtonsoft.Json redirects: force 
 nuget Suave
 nuget System.Reactive
 nuget WebSocket4Net
