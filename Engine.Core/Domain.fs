@@ -151,7 +151,9 @@ type RunStartParams =
       DataFiles : RunDataFiles
       // TODO: Merge this with EngineConfig, otherwise we will keep duplicating parameters
       IgnoredTests : string
-      AdditionalMSBuildProperties : string[] }
+      AdditionalMSBuildProperties : string[]
+      SnapshotIncludeFolders : string[]
+      SnapshotExcludeFolders : string[] }
 
 [<CLIMutable>]
 type RunStepInfo = 

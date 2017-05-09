@@ -16,3 +16,9 @@ type EngineConfig() =
 
     [<DataMember(IsRequired = false)>]
     member val AdditionalMSBuildProperties : string[] = [||] with get, set
+
+    [<DataMember(IsRequired = false)>]
+    member val SnapshotIncludeFolders : string[] = [|"packages"; "paket-files"|] with get, set
+
+    [<DataMember(IsRequired = false)>]
+    member val SnapshotExcludeFolders : string[] = [|".git"; "obj"; "bin"|] with get, set

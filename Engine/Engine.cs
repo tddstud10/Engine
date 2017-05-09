@@ -185,19 +185,34 @@ namespace R4nd0mApps.TddStud10.Engine
         {
             var solutionGrandParentPath = Path.GetDirectoryName(Path.GetDirectoryName(rsp.Solution.Path.Item));
             var projects = VsSolution.GetProjects(host.HostVersion, rsp.Solution.Path.Item).ToList();
+
+            var toCopy = new List<Tuple<string, SearchOption>>
+            {
+                new Tuple<string, SearchOption>(Path.GetDirectoryName(rsp.Solution.Path.Item), SearchOption.TopDirectoryOnly),
+            };
+
+            Array.ForEach(rsp.SnapshotIncludeFolders,
+                item =>
+                {
+                    toCopy.Add(new Tuple<string, SearchOption>(Path.Combine(Path.GetDirectoryName(rsp.Solution.Path.Item), item), SearchOption.AllDirectories));
+                });
+
             projects.ForEach(p =>
+            {
+                var projectFile = Path.Combine(Path.GetDirectoryName(rsp.Solution.Path.Item), p.RelativePath);
+                var folder = Path.GetDirectoryName(projectFile);
+                toCopy.Add(new Tuple<string, SearchOption>(folder, SearchOption.AllDirectories));
+            });
+
+            toCopy.ForEach(item =>
             {
                 if (!host.CanContinue())
                 {
                     throw new OperationCanceledException();
                 }
 
-                var projectFile = Path.Combine(Path.GetDirectoryName(rsp.Solution.Path.Item), p.RelativePath);
-                var folder = Path.GetDirectoryName(projectFile);
-                CopyFiles(rsp, solutionGrandParentPath, folder, SearchOption.AllDirectories);
+                CopyFiles(rsp, solutionGrandParentPath, item.Item1, item.Item2);
             });
-            CopyFiles(rsp, solutionGrandParentPath, Path.GetDirectoryName(rsp.Solution.Path.Item), SearchOption.TopDirectoryOnly);
-            CopyFiles(rsp, solutionGrandParentPath, Path.Combine(Path.GetDirectoryName(rsp.Solution.Path.Item), "packages"), SearchOption.AllDirectories);
 
             SnapshotGC.mark(FilePath.NewFilePath(Path.GetDirectoryName(rsp.Solution.SnapshotPath.Item)));
 
@@ -215,7 +230,8 @@ namespace R4nd0mApps.TddStud10.Engine
 
             foreach (var src in Directory.EnumerateFiles(folder, "*", searchOpt))
             {
-                if (src.IndexOf(@"\.git\", 0, StringComparison.OrdinalIgnoreCase) != -1)
+                var shouldExlclude = rsp.SnapshotExcludeFolders.Any(item => src.IndexOf($@"\{item}\", 0, StringComparison.OrdinalIgnoreCase) >= 0);
+                if (shouldExlclude)
                 {
                     continue;
                 }

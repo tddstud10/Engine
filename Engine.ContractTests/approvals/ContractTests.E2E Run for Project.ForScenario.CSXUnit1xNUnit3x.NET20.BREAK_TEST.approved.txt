@@ -81,6 +81,15 @@
         "IgnoredTests": "",
         "AdditionalMSBuildProperties": [
           "DefineConstants=BREAK_TEST"
+        ],
+        "SnapshotIncludeFolders": [
+          "packages",
+          "paket-files"
+        ],
+        "SnapshotExcludeFolders": [
+          ".git",
+          "obj",
+          "bin"
         ]
       }
     ],
@@ -166,6 +175,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "info": {
@@ -266,6 +284,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "Item2": {
@@ -366,6 +393,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "info": {
@@ -466,6 +502,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "Item2": {
@@ -566,6 +611,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "info": {
@@ -666,6 +720,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "Item2": {
@@ -766,6 +829,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "info": {
@@ -866,6 +938,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "Item2": {
@@ -966,6 +1047,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "info": {
@@ -1066,6 +1156,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "Item2": {
@@ -1166,6 +1265,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "info": {
@@ -1266,6 +1374,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "Item2": {
@@ -1366,6 +1483,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "info": {
@@ -1466,6 +1592,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "Item2": {
@@ -1566,6 +1701,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "info": {
@@ -1666,6 +1810,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "Item2": {
@@ -1766,6 +1919,15 @@
           "IgnoredTests": "",
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludeFolders": [
+            ".git",
+            "obj",
+            "bin"
           ]
         },
         "Item2": {
@@ -1868,6 +2030,15 @@
         "IgnoredTests": "",
         "AdditionalMSBuildProperties": [
           "DefineConstants=BREAK_TEST"
+        ],
+        "SnapshotIncludeFolders": [
+          "packages",
+          "paket-files"
+        ],
+        "SnapshotExcludeFolders": [
+          ".git",
+          "obj",
+          "bin"
         ]
       }
     ]
@@ -1964,6 +2135,15 @@
         "IgnoredTests": "",
         "AdditionalMSBuildProperties": [
           "DefineConstants=BREAK_TEST"
+        ],
+        "SnapshotIncludeFolders": [
+          "packages",
+          "paket-files"
+        ],
+        "SnapshotExcludeFolders": [
+          ".git",
+          "obj",
+          "bin"
         ]
       }
     ]

@@ -24,6 +24,8 @@ module RunStartParamsExtensions =
                     BuildRoot = buildRoot }
               IgnoredTests = cfg.IgnoredTests
               AdditionalMSBuildProperties = cfg.AdditionalMSBuildProperties
+              SnapshotIncludeFolders = cfg.SnapshotIncludeFolders
+              SnapshotExcludeFolders = cfg.SnapshotExcludeFolders
               DataFiles = 
                   { SequencePointStore =
                         PathBuilder.combine [ buildRoot

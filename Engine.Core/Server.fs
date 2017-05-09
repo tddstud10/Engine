@@ -90,7 +90,6 @@ module Notifications =
     let createObservable (ws : WebSocket) = 
         Observable.Create<_>(fun (o : IObserver<_>) -> 
             ws.MessageReceived.AddHandler(fun _ ea -> 
-                logger.logInfof "WEBSOCKET CLIENT: Received Notification" 
                 o.OnNext(ea.Message))
             ws.Closed.AddHandler(fun _ _ -> 
                 logger.logInfof "WEBSOCKET CLIENT: Unsubscribing Observable."
