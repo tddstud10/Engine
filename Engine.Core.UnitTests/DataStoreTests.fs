@@ -8,7 +8,7 @@ open Xunit
 
 let createDS slnPath = 
     let ds = DataStore() :> IDataStore
-    RunStartParams.Create (EngineConfig()) DateTime.Now (FilePath slnPath) |> ds.SetRunStartParams
+    RunStartParams.Create EngineConfigLoader.defaultValue DateTime.Now (FilePath slnPath) |> ds.SetRunStartParams
     ds
 
 let createDSWithPATC slnPath = 

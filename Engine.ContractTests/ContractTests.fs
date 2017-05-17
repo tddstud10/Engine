@@ -48,7 +48,7 @@ let runEngine sln props =
             let! _ = e.EnableEngine()
             let ep = 
                 { HostVersion = HostVersion.VS2015
-                  EngineConfig = EngineConfig(SnapShotRoot = ssr, AdditionalMSBuildProperties = props)
+                  EngineConfig = { EngineConfigLoader.defaultValue with SnapShotRoot = ssr; AdditionalMSBuildProperties = props }
                   SolutionPath = getTestProjectsRoot sln |> FilePath
                   SessionStartTime = DateTime.UtcNow.AddMinutes(-1.0) }
             let! runInProgress = e.RunEngine ep
@@ -89,7 +89,7 @@ let ``DataStore API Tests``() =
             let! _ = e.EnableEngine()
             let ep = 
                 { HostVersion = HostVersion.VS2015
-                  EngineConfig = EngineConfig(SnapShotRoot = ssr, AdditionalMSBuildProperties = props)
+                  EngineConfig = { EngineConfigLoader.defaultValue with SnapShotRoot = ssr; AdditionalMSBuildProperties = props }
                   SolutionPath = getTestProjectsRoot sln |> FilePath
                   SessionStartTime = DateTime.UtcNow.AddMinutes(-1.0) }
             let! _ = e.RunEngine ep
@@ -152,7 +152,7 @@ let quickRun ssr (h : ITddStud10Host) =
         let! _ = e.EnableEngine()
         let ep = 
             { HostVersion = HostVersion.VS2015
-              EngineConfig = EngineConfig(SnapShotRoot = ssr, AdditionalMSBuildProperties = [||])
+              EngineConfig = { EngineConfigLoader.defaultValue with SnapShotRoot = ssr; AdditionalMSBuildProperties = [||] }
               SolutionPath = "c:\\nonexistant.sln.xxx" |> FilePath
               SessionStartTime = DateTime.UtcNow.AddMinutes(-1.0) }
         let! _ = e.RunEngine ep

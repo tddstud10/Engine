@@ -9,10 +9,10 @@ open R4nd0mApps.TddStud10.Engine.TestDoubles
 open R4nd0mApps.TddStud10.Engine.TestFramework
 open System.IO
 
-let cfg = EngineConfig()
-cfg.SnapShotRoot <- "%WINDIR%"
-cfg.AdditionalMSBuildProperties <- [|"AdditionalMSBuildProperties"|]
-cfg.IgnoredTests <- "IgnoredTests"
+let cfg = { EngineConfigLoader.defaultValue<EngineConfig> with 
+                SnapShotRoot = "%WINDIR%"
+                AdditionalMSBuildProperties = [|"AdditionalMSBuildProperties"|]
+                IgnoredTests = "IgnoredTests" }
 let now = DateTime.Now
 let host = new TestHost(Int32.MaxValue)
 let ex = (new InvalidOperationException("A mock method threw")) :> Exception

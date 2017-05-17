@@ -73,7 +73,7 @@ type TddStud10HostProxy(port : int, ?local0 : bool) =
                 eventsWs.Close()
                 logger.logInfof "TddStud10Host: Events socket is now in %A state" eventsWs.State
                 logger.logInfof "TddStud10Host: Stopping TddStud10 server..."
-                if proc <> null then 
+                if proc |> isNull |> not then 
                     if proc.HasExited then logger.logInfof "TddStud10Host: Server has already exited. Exit code: %d" proc.Id
                     else 
                         logger.logInfof "TddStud10Host: Serveris running currently. Killing it."
@@ -101,7 +101,7 @@ type TddStud10HostProxy(port : int, ?local0 : bool) =
                 Server.getFromServer<Server.Version> baseUrl Server.UrlSubPaths.ServerVersion 
                 |> Async.map (fun it -> it.Value)
         
-        member __.IsRunning = !serverProcess <> null && not (!serverProcess).HasExited
+        member __.IsRunning = !serverProcess |> isNull |> not && not (!serverProcess).HasExited
         member __.GetEngine() = engine
         member __.GetEngineEvents() = engineEvents
         member __.GetDataStore() = dataStore

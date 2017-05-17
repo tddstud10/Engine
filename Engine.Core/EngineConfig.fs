@@ -1,24 +1,22 @@
 ﻿namespace R4nd0mApps.TddStud10.Engine.Core
 
-open System.Runtime.Serialization
+open System.ComponentModel
 
-[<AllowNullLiteral>]
-[<DataContract>]
-type EngineConfig() = 
-    [<DataMember(IsRequired = false)>]
-    member val SnapShotRoot = @"%temp%\_tdd" with get, set
+type EngineConfig = 
+    { [<DefaultValue(@"%temp%\_tdd")>]            
+      SnapShotRoot : string
 
-    [<DataMember(IsRequired = false)>]
-    member val IgnoredTests = "" with get, set
+      [<DefaultValue("")>]            
+      IgnoredTests : string
 
-    [<DataMember(IsRequired = false)>]
-    member val IsDisabled = false with get, set
+      [<DefaultValue(false)>]            
+      IsDisabled : bool
 
-    [<DataMember(IsRequired = false)>]
-    member val AdditionalMSBuildProperties : string[] = [||] with get, set
+      [<DefaultValue([|"_TDDSTUD10"|])>]            
+      AdditionalMSBuildProperties : string[]
 
-    [<DataMember(IsRequired = false)>]
-    member val SnapshotIncludeFolders : string[] = [|"packages"; "paket-files"|] with get, set
+      [<DefaultValue([|"packages"; "paket-files"|])>]  
+      SnapshotIncludeFolders : string[]
 
-    [<DataMember(IsRequired = false)>]
-    member val SnapshotExcludeFolders : string[] = [|".git"; "obj"; "bin"|] with get, set
+      [<DefaultValue([|".git"; "obj"; "bin"|])>] 
+      SnapshotExcludeFolders : string[] }

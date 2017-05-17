@@ -3,7 +3,6 @@
 open Xunit
 open R4nd0mApps.TddStud10.Engine.TestFramework
 open System
-open R4nd0mApps.TddStud10.Common.Domain
 
 let ex = new InvalidOperationException("A mock method threw")
 
@@ -14,7 +13,7 @@ let createSM() =
     sm, cs
 
 let createSP() =
-    RunStartParams.Create (EngineConfig()) DateTime.Now ~~"c:\\a\\b.sln"
+    RunStartParams.Create EngineConfigLoader.defaultValue DateTime.Now ~~"c:\\a\\b.sln"
 
 let createRSS s =
     { status = s
