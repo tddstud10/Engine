@@ -6,6 +6,10 @@ install:
 assembly_info:
   patch: false
 
+cache:
+  - packages -> packet.lock
+  - paket-files -> packet.lock
+
 before_build:
   - ps: gitversion /l console /output buildserver /updateAssemblyInfo
 
