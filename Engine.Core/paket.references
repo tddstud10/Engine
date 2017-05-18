@@ -1,8 +1,15 @@
+File:FSharpCore41.fs
+File:Aether.fs
+File:Hekate.fs
+File:YaFunTK.fs
+
 System.Reactive
 Newtonsoft.Json
 FSharp.Data
 WebSocket4Net
-File:YaFunTK.fs
+Akka
+Akka.FSharp
+sqlite-net-pcl
 
 group TddStud10
     TddStud10.Common

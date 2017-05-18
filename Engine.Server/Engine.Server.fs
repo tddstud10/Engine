@@ -191,7 +191,7 @@ let createRoutes (commands : Commands) =
     >=> Writers.setMimeType "application/json; charset=utf-8"
 
 [<EntryPoint>]
-let main argv = 
+let main (argv : string[]) = 
     let ppid, port = int argv.[0], int argv.[1]
     let commands = Commands(PushNotification >> sockSender.Post, JsonConvert.serialize)
     let app = createRoutes commands
@@ -204,3 +204,66 @@ let main argv =
     let serverConfig = { defaultConfig with bindings = [ { defaultBinding with socketBinding = withPort } ] }
     startWebServer serverConfig app
     0
+
+open Akka.Actor
+open Akka.FSharp
+open R4nd0mApps.TddStud10.Engine.Actors
+open R4nd0mApps.TddStud10.Engine.Actors.ActorMessages
+(*
+
+Scenarios:
+v Resync
+v Cancel
+  v Resync
+  v resync With hung operation
+- Incr
+- Cancel
+  - Incr
+  - Incr With hung operation
+
+TODO:
+- IDE integration
+  - IDE Events 
+    - Specifics of each step - names of projects discovered, etc.
+  - Console log to actual logs
+  - Redirect akka.net Logging to our logger
+- Incremental
+  - Test discover method will be different, will do lookup on files changed
+  - Combined data since last resync
+x Seperate executable for build and test
+x Cooperative cancellation + assign cooperative cancellation
+x Simplify messaging - ProjectBuildDone and BuildDone should ideally be the same
+
+*)
+
+(*[<EntryPoint>]
+let main2 _ = 
+    let system = System.create ActorNames.System.Name (Configuration.load())
+
+    spawn system ActorNames.IdEvents.Name IdeEvents.actorLoop |> ignore
+    spawn system ActorNames.DataStore.Name ADataStore.actorLoop |> ignore
+
+    let runner = spawn system ActorNames.Runner.Name Runner.actorLoop
+
+    (Guid.NewGuid(), TestData.Solution) |> Resync |> runner.Tell
+
+    System.Threading.Thread.Sleep(2000)
+
+    CancelRun |> runner.Tell
+
+    System.Threading.Thread.Sleep(1000)
+
+    (Guid.NewGuid(), TestData.Solution) |> Resync |> runner.Tell
+
+    System.Threading.Thread.Sleep(3000)
+
+    CancelRun |> runner.Tell
+
+    System.Threading.Thread.Sleep(1000)
+
+    (Guid.NewGuid(), TestData.Solution) |> Resync |> runner.Tell
+
+    system.WhenTerminated.Wait()
+
+    0 // return an integer exit code
+*)

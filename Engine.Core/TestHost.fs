@@ -15,4 +15,4 @@ module TestHost =
             rsp.Solution.Path
             rsp.Solution.SnapshotPath
             rsp.DataFiles.DiscoveredUnitDTestsStore
-            rsp.IgnoredTests
+            rsp.Config.IgnoredTests

@@ -132,7 +132,6 @@ namespace R4nd0mApps.TddStud10
         private static void InstrumentImpl(IRunExecutorHost host, RunStartParams rsp, Func<DocumentLocation, IEnumerable<DTestCase>> findTest)
         {
             var timeFilter = rsp.StartTime;
-            var solutionSnapshotRoot = Path.GetDirectoryName(rsp.Solution.SnapshotPath.Item);
             var solutionRoot = Path.GetDirectoryName(rsp.Solution.Path.Item);
             var buildOutputRoot = rsp.Solution.BuildRoot.Item;
             Logger.LogInfo(

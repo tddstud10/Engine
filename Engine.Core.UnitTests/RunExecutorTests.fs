@@ -55,17 +55,13 @@ let ``Executor initialized RunData``() =
     
     let ssRoot = Environment.ExpandEnvironmentVariables(cfg.SnapShotRoot)
     let expected = 
-        { SnapShotRoot = ~~ssRoot
-          StartTime = now
+        { StartTime = now
           TestHostPath = ~~(sprintf "TddStud10.TestHost%s.exe" (if (Common.DFizer.isDF()) then ".DF" else ""))
           Solution = 
             { Path = slnFile
               SnapshotPath = ~~(ssRoot + @"\folder\file.sln")
               BuildRoot = ~~(ssRoot + @"\folder\out") }
-          IgnoredTests = cfg.IgnoredTests
-          AdditionalMSBuildProperties = cfg.AdditionalMSBuildProperties
-          SnapshotIncludeFolders = cfg.SnapshotIncludeFolders
-          SnapshotExcludeFolders = cfg.SnapshotExcludeFolders
+          Config = { cfg with SnapShotRoot = (~~ssRoot).ToString() }
           DataFiles = 
               { SequencePointStore = ~~(ssRoot + @"\folder\out\Z_sequencePointStore.xml")
                 CoverageSessionStore = ~~(ssRoot + @"\folder\out\Z_coverageresults.xml")

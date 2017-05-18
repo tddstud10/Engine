@@ -144,16 +144,11 @@ type SolutionPaths =
 
 [<CLIMutable>]
 type RunStartParams = 
-    { SnapShotRoot : FilePath
-      StartTime : DateTime
+    { StartTime : DateTime
       TestHostPath : FilePath
       Solution : SolutionPaths
       DataFiles : RunDataFiles
-      // TODO: Merge this with EngineConfig, otherwise we will keep duplicating parameters
-      IgnoredTests : string
-      AdditionalMSBuildProperties : string[]
-      SnapshotIncludeFolders : string[]
-      SnapshotExcludeFolders : string[] }
+      Config : EngineConfig }
 
 [<CLIMutable>]
 type RunStepInfo = 

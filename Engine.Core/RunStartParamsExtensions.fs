@@ -15,17 +15,13 @@ module RunStartParamsExtensions =
         static member Create (cfg : EngineConfig) startTime solutionPath = 
             let snapShotRoot = Environment.ExpandEnvironmentVariables(cfg.SnapShotRoot) |> FilePath
             let buildRoot = PathBuilder.makeSlnBuildRoot snapShotRoot solutionPath
-            { SnapShotRoot = snapShotRoot
-              StartTime = startTime
+            { StartTime = startTime
               TestHostPath = Path.Combine(Assembly.GetExecutingAssembly() |> Assembly.getAssemblyLocation , testHostProcessName) |> FilePath
               Solution = 
                   { Path = solutionPath
                     SnapshotPath = PathBuilder.makeSlnSnapshotPath snapShotRoot solutionPath
                     BuildRoot = buildRoot }
-              IgnoredTests = cfg.IgnoredTests
-              AdditionalMSBuildProperties = cfg.AdditionalMSBuildProperties
-              SnapshotIncludeFolders = cfg.SnapshotIncludeFolders
-              SnapshotExcludeFolders = cfg.SnapshotExcludeFolders
+              Config = { cfg with SnapShotRoot = snapShotRoot.ToString() }
               DataFiles = 
                   { SequencePointStore =
                         PathBuilder.combine [ buildRoot

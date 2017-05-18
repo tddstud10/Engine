@@ -7,7 +7,13 @@ nuget Newtonsoft.Json redirects: force
 nuget Suave
 nuget System.Reactive
 nuget WebSocket4Net
+nuget Akka.FSharp
+nuget FsPickler 1.2.21
+nuget sqlite-net-pcl
 
+gist parthopdas/b84c913549f9ff1cbcb62d31a4dd3528 FSharpCore41.fs
+github xyncro/aether src/Aether/Aether.fs
+github xyncro/hekate src/Hekate/Hekate.fs
 gist parthopdas/ccd06b223c0ae88ed9164f34cc1f5f06 YaFunTK.fs
 
 group Build

@@ -1,6 +1,10 @@
-File:YaFunTK.fs
 Newtonsoft.Json
 Suave
+Akka
+Akka.FSharp
+sqlite-net-pcl
+
+File:YaFunTK.fs
 
 group TddStud10
     TddStud10.Common

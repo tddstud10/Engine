@@ -167,7 +167,7 @@ namespace R4nd0mApps.TddStud10.Engine
                     string.Format(@"MSBuild\{0}\Bin\msbuild.exe", host.HostVersion)),
                     string.Format(
                         @"/m /v:minimal /p:Configuration=Debug /p:CreateVsixContainer=false /p:DeployExtension=false /p:CopyVsixExtensionFiles=false /p:RunCodeAnalysis=false {0} /p:OutDir=""{1}\\"" ""{2}""",
-                        string.Join(" ", (rsp.AdditionalMSBuildProperties ?? new string[0]).Select(it => string.Format("/p:{0}", it))),
+                        string.Join(" ", (rsp.Config.AdditionalMSBuildProperties ?? new string[0]).Select(it => string.Format("/p:{0}", it))),
                         rsp.Solution.BuildRoot.Item,
                         rsp.Solution.SnapshotPath.Item)
             );
@@ -191,7 +191,7 @@ namespace R4nd0mApps.TddStud10.Engine
                 new Tuple<string, SearchOption>(Path.GetDirectoryName(rsp.Solution.Path.Item), SearchOption.TopDirectoryOnly),
             };
 
-            Array.ForEach(rsp.SnapshotIncludeFolders,
+            Array.ForEach(rsp.Config.SnapshotIncludeFolders,
                 item =>
                 {
                     toCopy.Add(new Tuple<string, SearchOption>(Path.Combine(Path.GetDirectoryName(rsp.Solution.Path.Item), item), SearchOption.AllDirectories));
@@ -230,13 +230,13 @@ namespace R4nd0mApps.TddStud10.Engine
 
             foreach (var src in Directory.EnumerateFiles(folder, "*", searchOpt))
             {
-                var shouldExlclude = rsp.SnapshotExcludeFolders.Any(item => src.IndexOf($@"\{item}\", 0, StringComparison.OrdinalIgnoreCase) >= 0);
+                var shouldExlclude = rsp.Config.SnapshotExcludeFolders.Any(item => src.IndexOf($@"\{item}\", 0, StringComparison.OrdinalIgnoreCase) >= 0);
                 if (shouldExlclude)
                 {
                     continue;
                 }
 
-                var dst = src.ToUpperInvariant().Replace(solutionGrandParentPath.ToUpperInvariant(), rsp.SnapShotRoot.Item);
+                var dst = src.ToUpperInvariant().Replace(solutionGrandParentPath.ToUpperInvariant(), rsp.Config.SnapShotRoot);
                 var srcInfo = new FileInfo(src);
                 var dstInfo = new FileInfo(dst);
 
