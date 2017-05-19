@@ -230,7 +230,7 @@ namespace R4nd0mApps.TddStud10.Engine
 
             foreach (var src in Directory.EnumerateFiles(folder, "*", searchOpt))
             {
-                var shouldExlclude = rsp.Config.SnapshotExcludeFolders.Any(item => src.IndexOf($@"\{item}\", 0, StringComparison.OrdinalIgnoreCase) >= 0);
+                var shouldExlclude = rsp.Config.SnapshotExcludePatterns.Any(item => src.IndexOf(item, 0, StringComparison.OrdinalIgnoreCase) >= 0);
                 if (shouldExlclude)
                 {
                     continue;

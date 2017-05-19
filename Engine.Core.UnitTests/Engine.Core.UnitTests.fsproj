@@ -109,6 +109,7 @@
     <Compile Include="DataStoreTests.fs" />
     <Compile Include="CollectionExtensionTests.fs" />
     <Compile Include="SnapshotGCTests.fs" />
+    <Compile Include="SolutionLoaderTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

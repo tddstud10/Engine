@@ -83,10 +83,10 @@
             "packages",
             "paket-files"
           ],
-          "SnapshotExcludeFolders": [
-            ".git",
-            "obj",
-            "bin"
+          "SnapshotExcludePatterns": [
+            "\\.git\\",
+            "\\obj\\",
+            "\\bin\\"
           ]
         }
       }
@@ -175,10 +175,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -282,10 +282,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -389,10 +389,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -496,10 +496,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -603,10 +603,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -710,10 +710,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -817,10 +817,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -924,10 +924,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -1031,10 +1031,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -1138,10 +1138,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -1245,10 +1245,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -1352,10 +1352,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -1459,10 +1459,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -1566,10 +1566,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -1673,10 +1673,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -1780,10 +1780,10 @@
               "packages",
               "paket-files"
             ],
-            "SnapshotExcludeFolders": [
-              ".git",
-              "obj",
-              "bin"
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
             ]
           }
         },
@@ -1881,10 +1881,10 @@
             "packages",
             "paket-files"
           ],
-          "SnapshotExcludeFolders": [
-            ".git",
-            "obj",
-            "bin"
+          "SnapshotExcludePatterns": [
+            "\\.git\\",
+            "\\obj\\",
+            "\\bin\\"
           ]
         }
       }
@@ -1984,10 +1984,10 @@
             "packages",
             "paket-files"
           ],
-          "SnapshotExcludeFolders": [
-            ".git",
-            "obj",
-            "bin"
+          "SnapshotExcludePatterns": [
+            "\\.git\\",
+            "\\obj\\",
+            "\\bin\\"
           ]
         }
       }

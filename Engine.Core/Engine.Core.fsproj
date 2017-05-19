@@ -144,7 +144,6 @@
     <Compile Include="..\AssemblyInfo.fs">
       <Link>AssemblyInfo.fs</Link>
     </Compile>
-    <Compile Include="EngineConfig.fs" />
     <Compile Include="Domain.fs" />
     <Compile Include="Common\SafeExec.fs" />
     <Compile Include="Common\FileSystem.fs" />
@@ -161,6 +160,7 @@
     <Compile Include="TestHost.fs" />
     <Content Include="paket.references" />
     <Compile Include="SnapshotGC.fs" />
+    <Compile Include="SolutionLoader.fs" />
     <Compile Include="Engine.fs" />
     <Compile Include="TddStud10Host.fs" />
     <Compile Include="Actors/TestData.fs" />

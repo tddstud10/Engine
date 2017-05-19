@@ -209,6 +209,8 @@ open Akka.Actor
 open Akka.FSharp
 open R4nd0mApps.TddStud10.Engine.Actors
 open R4nd0mApps.TddStud10.Engine.Actors.ActorMessages
+open R4nd0mApps.TddStud10.Common.Domain
+
 (*
 
 Scenarios:
@@ -245,23 +247,31 @@ let main2 _ =
 
     let runner = spawn system ActorNames.Runner.Name Runner.actorLoop
 
-    (Guid.NewGuid(), TestData.Solution) |> Resync |> runner.Tell
+    let rsp =
+        { Id = Guid.NewGuid()
+          Solution = 
+            { Path = @"D:\src\t\Engine\Engine.sln" |> FilePath
+              SnapshotPath = "" |> FilePath
+              BuildRoot = "" |> FilePath }
+          Config = EngineConfigLoader.defaultValue<_> }
 
-    System.Threading.Thread.Sleep(2000)
+    rsp |> Resync |> runner.Tell
 
-    CancelRun |> runner.Tell
-
-    System.Threading.Thread.Sleep(1000)
-
-    (Guid.NewGuid(), TestData.Solution) |> Resync |> runner.Tell
-
-    System.Threading.Thread.Sleep(3000)
-
-    CancelRun |> runner.Tell
-
-    System.Threading.Thread.Sleep(1000)
-
-    (Guid.NewGuid(), TestData.Solution) |> Resync |> runner.Tell
+//    System.Threading.Thread.Sleep(2000)
+//
+//    CancelRun |> runner.Tell
+//
+//    System.Threading.Thread.Sleep(1000)
+//
+//    rsp |> Resync |> runner.Tell
+//
+//    System.Threading.Thread.Sleep(3000)
+//
+//    CancelRun |> runner.Tell
+//
+//    System.Threading.Thread.Sleep(1000)
+//
+//    rsp |> Resync |> runner.Tell
 
     system.WhenTerminated.Wait()
 

@@ -1,93 +1,95 @@
 namespace R4nd0mApps.TddStud10.Engine.Actors
 
 open TestData
+open R4nd0mApps.TddStud10.Engine.Core
 
 module ActorMessages = 
+
     type DataStoreMessage =
         | DsInitialize
 
     type IdeEventsMessage =
-        | EvResyncStarting of RunId
-        | EvRunStarting of RunId
-        | EvProjectsDiscovered of RunId * ProjectId[]
-        | EvProjectSnapshotStarting of RunId * ProjectId
-        | EvProjectSnapshotSucceeded of RunId * ProjectId
-        | EvProjectSnapshotFailed of RunId * ProjectId * FailureInfo
-        | EvProjectFileFixStarting of RunId * ProjectId
-        | EvProjectFileFixSucceeded of RunId * ProjectId
-        | EvProjectFileFixFailed of RunId * ProjectId * FailureInfo
-        | EvProjectBuildStarting of RunId * ProjectId
-        | EvProjectBuildSucceeded of RunId * ProjectId         
-        | EvProjectBuildFailed of RunId * ProjectId * FailureInfo 
-        | EvAssemblyInstrumentationStarting of RunId * AssemblyId
-        | EvAssemblyInstrumentationSucceeded of RunId * AssemblyId
-        | EvAssemblyInstrumentationFailed of RunId * AssemblyId * FailureInfo
-        | EvAssemblyTestDiscoveryStarting of RunId * AssemblyId
-        | EvTestDiscovered of RunId * TestId
-        | EvAssemblyTestDiscoverySucceeded of RunId * AssemblyId
-        | EvAssemblyTestDiscoveryFailed of RunId * AssemblyId * FailureInfo
-        | EvAssemblySequencePointsDiscoveryStarting of RunId * AssemblyId
-        | EvSequencePointsDiscovered of RunId * TestId
-        | EvAssemblySequencePointsDiscoverySucceeded of RunId * AssemblyId
-        | EvAssemblySequencePointsDiscoveryFailed of RunId * AssemblyId * FailureInfo
-        | EvTestRunStarting of RunId * TestId
-        | EvTestRunSucceeded of RunId * TestId
-        | EvTestRunFailed of RunId * TestId * FailureInfo
+        | EvResyncStarting of ResyncParams
+        | EvRunStarting of ResyncParams
+        | EvProjectsDiscovered of ResyncParams * ProjectId[]
+        | EvProjectSnapshotStarting of ResyncParams * ProjectId
+        | EvProjectSnapshotSucceeded of ResyncParams * ProjectId
+        | EvProjectSnapshotFailed of ResyncParams * ProjectId * FailureInfo
+        | EvProjectFileFixStarting of ResyncParams * ProjectId
+        | EvProjectFileFixSucceeded of ResyncParams * ProjectId
+        | EvProjectFileFixFailed of ResyncParams * ProjectId * FailureInfo
+        | EvProjectBuildStarting of ResyncParams * ProjectId
+        | EvProjectBuildSucceeded of ResyncParams * ProjectId         
+        | EvProjectBuildFailed of ResyncParams * ProjectId * FailureInfo 
+        | EvAssemblyInstrumentationStarting of ResyncParams * AssemblyId
+        | EvAssemblyInstrumentationSucceeded of ResyncParams * AssemblyId
+        | EvAssemblyInstrumentationFailed of ResyncParams * AssemblyId * FailureInfo
+        | EvAssemblyTestDiscoveryStarting of ResyncParams * AssemblyId
+        | EvTestDiscovered of ResyncParams * TestId
+        | EvAssemblyTestDiscoverySucceeded of ResyncParams * AssemblyId
+        | EvAssemblyTestDiscoveryFailed of ResyncParams * AssemblyId * FailureInfo
+        | EvAssemblySequencePointsDiscoveryStarting of ResyncParams * AssemblyId
+        | EvSequencePointsDiscovered of ResyncParams * TestId
+        | EvAssemblySequencePointsDiscoverySucceeded of ResyncParams * AssemblyId
+        | EvAssemblySequencePointsDiscoveryFailed of ResyncParams * AssemblyId * FailureInfo
+        | EvTestRunStarting of ResyncParams * TestId
+        | EvTestRunSucceeded of ResyncParams * TestId
+        | EvTestRunFailed of ResyncParams * TestId * FailureInfo
 
     type RunnerMessage = 
-        | Resync of RunId * Solution
-        | Run of RunId
+        | Resync of ResyncParams
+        | Run of ResyncParams
         | CancelRun
 
     type RunSchedulerMessage = 
-        | ScheduleProjectBuild of RunId * Solution
-        | ScheduleProjectBuildSucceeded of RunId * ProjectId
-        | ScheduleProjectBuildFailed of RunId * ProjectId * FailureInfo
+        | ScheduleProjectBuild of ResyncParams * Solution
+        | ScheduleProjectBuildSucceeded of ResyncParams * ProjectId
+        | ScheduleProjectBuildFailed of ResyncParams * ProjectId * FailureInfo
 
     type ProjectBuildCoordinatorMessage = 
-        | ReadyForBuildProject of RunId * ProjectId
+        | ReadyForBuildProject of ResyncParams * ProjectId
 
     type ProjectSnapshotCreatorMessage = 
-        | CreateProjectSnapshot of RunId * ProjectId
-        | CreateProjectSnapshotSucceeded of RunId * ProjectId
-        | CreateProjectSnapshotFailed of RunId * ProjectId * FailureInfo
+        | CreateProjectSnapshot of ResyncParams * ProjectId
+        | CreateProjectSnapshotSucceeded of ResyncParams * ProjectId
+        | CreateProjectSnapshotFailed of ResyncParams * ProjectId * FailureInfo
 
     type ProjectFileFixerMessage = 
-        | FixProjectFile of RunId * ProjectId
-        | FixProjectFileSucceeded of RunId * ProjectId
-        | FixProjectFileFailed of RunId * ProjectId * FailureInfo
+        | FixProjectFile of ResyncParams * ProjectId
+        | FixProjectFileSucceeded of ResyncParams * ProjectId
+        | FixProjectFileFailed of ResyncParams * ProjectId * FailureInfo
 
     type ProjectBuilderMessage = 
-        | BuildProject of RunId * ProjectId
-        | BuildProjectSucceeded of RunId * ProjectId
-        | BuildProjectFailed of RunId * ProjectId * FailureInfo
+        | BuildProject of ResyncParams * ProjectId
+        | BuildProjectSucceeded of ResyncParams * ProjectId
+        | BuildProjectFailed of ResyncParams * ProjectId * FailureInfo
 
     type AssemblyInstrumenterMessage = 
-        | InstrumentAssembly of RunId * AssemblyId
-        | InstrumentAssemblySucceeded of RunId * AssemblyId
-        | InstrumentAssemblyFailed of RunId * AssemblyId * FailureInfo
+        | InstrumentAssembly of ResyncParams * AssemblyId
+        | InstrumentAssemblySucceeded of ResyncParams * AssemblyId
+        | InstrumentAssemblyFailed of ResyncParams * AssemblyId * FailureInfo
 
     type AssemblyTestsDiscovererCoordinatorMessage = 
-        | ReadyForDiscoverAssemblyTests of RunId * AssemblyId
+        | ReadyForDiscoverAssemblyTests of ResyncParams * AssemblyId
 
     type AssemblyTestsDiscovererMessage = 
-        | DiscoverAssemblyTests of RunId * AssemblyId
-        | DiscoverAssemblyTestsSucceeded of RunId * AssemblyId
-        | DiscoverAssemblyTestsFailed of RunId * AssemblyId * FailureInfo
+        | DiscoverAssemblyTests of ResyncParams * AssemblyId
+        | DiscoverAssemblyTestsSucceeded of ResyncParams * AssemblyId
+        | DiscoverAssemblyTestsFailed of ResyncParams * AssemblyId * FailureInfo
 
     type AssemblySequencePointsDiscovererCoordinatorMessage = 
-        | ReadyForDiscoverAssemblySequencePoints of RunId * AssemblyId
+        | ReadyForDiscoverAssemblySequencePoints of ResyncParams * AssemblyId
 
     type AssemblySequencePointsDiscovererMessage = 
-        | DiscoverAssemblySequencePoints of RunId * AssemblyId
-        | DiscoverAssemblySequencePointsSucceeded of RunId * AssemblyId
-        | DiscoverAssemblySequencePointsFailed of RunId * AssemblyId * FailureInfo
+        | DiscoverAssemblySequencePoints of ResyncParams * AssemblyId
+        | DiscoverAssemblySequencePointsSucceeded of ResyncParams * AssemblyId
+        | DiscoverAssemblySequencePointsFailed of ResyncParams * AssemblyId * FailureInfo
 
     type TestRunnerCoordinatorMessage =
-        | ReadyForRunTest of RunId * TestId
+        | ReadyForRunTest of ResyncParams * TestId
 
     type TestRunnerMessage =
-        | RunTest of RunId * TestId
-        | RunTestSucceeded of RunId * TestId
-        | RunTestFailed of RunId * TestId * FailureInfo
+        | RunTest of ResyncParams * TestId
+        | RunTestSucceeded of ResyncParams * TestId
+        | RunTestFailed of ResyncParams * TestId * FailureInfo
 

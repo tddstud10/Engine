@@ -6,7 +6,6 @@ open Akka.FSharp
 open Akka.Routing
 open System
 open TestData
-open R4nd0mApps.TddStud10.Common.Domain
 
 module AssemblySequencePointsDiscoverer = 
     open ActorMessages

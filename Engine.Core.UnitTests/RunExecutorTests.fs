@@ -36,7 +36,7 @@ let createRE2 h ss _ (sh : CallSpy<_>, erh : CallSpy<_>, eh : CallSpy<_>) =
 
 let startRE (re : RunExecutor) = re.Start(cfg, now, slnFile)
 
-let areRdsSimillar rd1 rd2 = 
+let areRdsSimillar (rd1 : RunStartParams option) (rd2  : RunStartParams) = 
     match rd1 with
     | None -> false
     | Some rd1 -> rd1.Solution.Path = rd2.Solution.Path

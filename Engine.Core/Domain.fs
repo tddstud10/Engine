@@ -3,8 +3,80 @@
 open Microsoft.FSharp.Reflection
 open R4nd0mApps.TddStud10.Common.Domain
 open System
+open System.ComponentModel
 open System.Reflection
 open System.Runtime.Serialization
+open System.Collections.Generic
+
+type EngineConfig = 
+    { [<DefaultValue(@"%temp%\_tdd")>]            
+      SnapShotRoot : string
+      [<DefaultValue("")>]            
+      IgnoredTests : string
+      [<DefaultValue(false)>]            
+      IsDisabled : bool
+      [<DefaultValue([|"_TDDSTUD10"|])>]            
+      AdditionalMSBuildProperties : string[]
+      [<DefaultValue([|"packages"; "paket-files"|])>]  
+      SnapshotIncludeFolders : string[]
+      [<DefaultValue([|"\\.git\\"; "\\obj\\"; "\\bin\\"|])>] 
+      SnapshotExcludePatterns : string[] }
+
+[<CLIMutable>]
+type RunDataFiles = 
+    { SequencePointStore : FilePath
+      CoverageSessionStore : FilePath
+      TestResultsStore : FilePath
+      DiscoveredUnitTestsStore : FilePath
+      TestFailureInfoStore : FilePath
+      DiscoveredUnitDTestsStore : FilePath }
+
+[<CLIMutable>]
+type SolutionPaths = 
+    { Path : FilePath
+      SnapshotPath : FilePath
+      BuildRoot : FilePath }
+
+[<CLIMutable>]
+type RunStartParams = 
+    { StartTime : DateTime
+      TestHostPath : FilePath
+      Solution : SolutionPaths
+      DataFiles : RunDataFiles
+      Config : EngineConfig }
+
+type ResyncId = Guid
+
+type ResyncParams = 
+    { Id : ResyncId
+      Solution : SolutionPaths
+      Config : EngineConfig }
+
+type ProjectId = 
+    { Name : string
+      FileName : FilePath
+      DirectoryName : FilePath
+      Id : Guid
+      Type : Guid }
+    override it.ToString() = 
+        sprintf "%s::%O\%O [%O]" it.Name it.DirectoryName it.FileName it.Id
+    member it.Path =
+        (it.DirectoryName.ToString(), it.FileName.ToString()) ||> Path.combine |> FilePath
+
+type Project = 
+    { Id : ProjectId
+      Items : FilePath[] }
+    override it.ToString() = 
+        sprintf "%A: Items = %d" it.Id (it.Items |> Seq.length)
+
+type ProjectMap = Map<ProjectId, Project>
+
+type Solution = 
+    { Path : FilePath
+      Projects : Project[]
+      DependencyMap : IReadOnlyDictionary<ProjectId, seq<ProjectId>> }    
+    override it.ToString() = 
+        sprintf "%O (Dependencies: %d)" it.Path it.DependencyMap.Count
 
 // =================================================
 // NOTE: Adding any new cases will break RunStateTracker.
@@ -126,29 +198,6 @@ type RunData =
     static member KnownTypes() = 
         typeof<RunData>.GetNestedTypes(BindingFlags.Public ||| BindingFlags.NonPublic) 
         |> Array.filter FSharpType.IsUnion
-
-[<CLIMutable>]
-type RunDataFiles = 
-    { SequencePointStore : FilePath
-      CoverageSessionStore : FilePath
-      TestResultsStore : FilePath
-      DiscoveredUnitTestsStore : FilePath
-      TestFailureInfoStore : FilePath
-      DiscoveredUnitDTestsStore : FilePath }
-
-[<CLIMutable>]
-type SolutionPaths = 
-    { Path : FilePath
-      SnapshotPath : FilePath
-      BuildRoot : FilePath }
-
-[<CLIMutable>]
-type RunStartParams = 
-    { StartTime : DateTime
-      TestHostPath : FilePath
-      Solution : SolutionPaths
-      DataFiles : RunDataFiles
-      Config : EngineConfig }
 
 [<CLIMutable>]
 type RunStepInfo = 
