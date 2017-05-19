@@ -19,7 +19,7 @@ let ``loadSolution should build Solution from filesystem``() =
     let sln = SolutionLoader.load [| @"\.git\"; @"\bin\"; @"\xbin\"; @"\obj\" |] slnPath
     sln.Path |> should equal slnPath
     sln.Projects
-    |> Array.map (fun p -> p.Id.Name)
+    |> Array.map (fun p -> p.Name)
     |> Array.sort
     |> should equal [| "Lib1"; "Lib2"; "Lib3" |]
     sln.Projects
@@ -27,6 +27,13 @@ let ``loadSolution should build Solution from filesystem``() =
     |> Array.collect id
     |> Array.length
     |> should equal 16
+    let x =
+        sln.Projects
+        |> Array.filter (fun p -> p.Name = "Lib1")
+        |> Array.collect (fun p -> p.Items)
+        |> Array.sort
+    let y = [| FilePath "Class1.cs"; FilePath "Lib1.csproj"; FilePath @"Properties\AssemblyInfo.cs" |]
+    x |> should equal y
     sln.DependencyMap
     |> Seq.map (fun kv -> (kv.Key.Name, kv.Value |> Seq.length))
     |> Seq.sortBy fst
@@ -34,3 +41,12 @@ let ``loadSolution should build Solution from filesystem``() =
     |> should equal [ ("Lib1", 0)
                       ("Lib2", 1)
                       ("Lib3", 2) ]
+
+[<Theory>]
+[<InlineData(@"c:\a\", @"c:\a\b 1.txt", @"b 1.txt")>]
+[<InlineData(@"c:\a\c", @"c:\a\c\b.txt", @"b.txt")>]
+[<InlineData(@"c:\a\", @"c:\a\b.txt", @"b.txt")>]
+[<InlineData(@"c:\a", @"c:\a\c\b.txt", @"c\b.txt")>]
+[<InlineData(@"c:\a\b\", @"c:\a\c\b.txt", @"..\c\b.txt")>]
+let ``makeRelativePath tests`` folder abs rel =
+    SolutionLoader.makeRelativePath folder abs |> should equal rel

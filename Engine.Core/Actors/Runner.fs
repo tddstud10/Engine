@@ -17,7 +17,7 @@ let actorLoop (m : Actor<_>) =
                 DsInitialize |> m.Context.System.EventStream.Publish
                 rs |> Option.iter m.Context.Stop
                 let rs = spawn m.Context ActorNames.RunScheduler.Name RunScheduler.actorLoop
-                let sln = rp.Solution.Path |> SolutionLoader.load rp.Config.SnapshotExcludePatterns
+                let sln = rp.SolutionPaths.Path |> SolutionLoader.load rp.Config.SnapshotExcludePatterns
                 (rp, sln)
                 |> ScheduleProjectBuild
                 |> rs.Tell

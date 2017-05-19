@@ -8,6 +8,16 @@ open System.IO
 open System.Text.RegularExpressions
 open System.Xml
 
+let makeRelativePath (folder : string) file = 
+    let file = Uri(file, UriKind.Absolute)
+    
+    let folder = 
+        if folder.EndsWith(@"\") then folder
+        else folder + @"\"
+    
+    let folder = Uri(folder, UriKind.Absolute)
+    folder.MakeRelativeUri(file).ToString().Replace('/', Path.DirectorySeparatorChar) |> Uri.UnescapeDataString
+
 let private projectPattern = 
     Regex
         (@"Project\(\""(?<typeGuid>.*?)\""\)\s+=\s+\""(?<name>.*?)\"",\s+\""(?<path>.*?)\"",\s+\""(?<guid>.*?)\""(?<content>.*?)\bEndProject\b", 
@@ -23,27 +33,36 @@ let rec private getAllMatches acc (m : Match) =
     if not m.Success then acc
     else getAllMatches (m :: acc) (m.NextMatch())
 
-let private projectIDFromMatch slnDir (m : Match) = 
-    let projectFilePath = 
-        m.Groups.["path"].Value
-        |> Path.combine slnDir
+let private getProjectItems excludePatterns (FilePath projectPath) = 
+    let projDir =  
+        projectPath
+        |> Path.GetDirectoryName
 
-    { Name = m.Groups.["name"].Value
-      FileName = projectFilePath |> Path.GetFileName |> FilePath
-      DirectoryName = projectFilePath |> Path.GetDirectoryName |> FilePath
-      Id = m.Groups.["guid"].Value |> Guid
-      Type = m.Groups.["typeGuid"].Value |> Guid }
-
-let private getListOfProjectItems excludePatterns (FilePath projectPath) = 
-    projectPath
-    |> Path.GetDirectoryName
-    |> fun d -> Directory.EnumerateFiles(d, "*", SearchOption.AllDirectories)
+    Directory.EnumerateFiles(projDir, "*", SearchOption.AllDirectories)
     |> Seq.filter (fun p -> 
            excludePatterns
            |> Array.exists (fun ep -> p.IndexOf(ep, 0, StringComparison.OrdinalIgnoreCase) >= 0)
            |> not)
-    |> Seq.map FilePath
+    |> Seq.map (makeRelativePath projDir >> FilePath)
     |> Seq.toArray
+
+let private projectIDFromMatch excludePatterns slnDir i (m : Match) = 
+    let typeGuid = m.Groups.["typeGuid"].Value |> Guid
+    if not <| Set.contains typeGuid supportedProjectTypes then
+        None
+    else
+        let projectFilePath = 
+            m.Groups.["path"].Value
+            |> Path.combine slnDir
+
+        { Index = i
+          Name = m.Groups.["name"].Value
+          FileName = projectFilePath |> Path.GetFileName |> FilePath
+          DirectoryName = projectFilePath |> Path.GetDirectoryName |> FilePath
+          Id = m.Groups.["guid"].Value |> Guid
+          Type = m.Groups.["typeGuid"].Value |> Guid
+          Items = getProjectItems excludePatterns (FilePath projectFilePath) } |> Some
+
 
 let private getProjectReferences (FilePath projectPath) = 
     let doc = XmlDocument()
@@ -58,10 +77,9 @@ let private getProjectReferences (FilePath projectPath) =
                 >> Path.GetFullPath
                 >> FilePath)
     
-let private findProjectIDGivenPath projects projectPath = 
+let private findProjectFromPath (projects : Project list) projectPath = 
     projects
-    |> List.tryFind (fun p -> p.Id.Path = projectPath)
-    |> Option.map (fun p -> p.Id)
+    |> List.tryFind (fun p -> p.Path = projectPath)
 
 let load excludePatterns (slnPath : FilePath) = 
     let slnDir = slnPath.ToString() |> Path.GetDirectoryName
@@ -71,19 +89,16 @@ let load excludePatterns (slnPath : FilePath) =
         |> File.ReadAllText
         |> projectPattern.Match
         |> getAllMatches []
-        |> List.map (projectIDFromMatch slnDir)
-        |> List.filter (fun pid -> Set.contains pid.Type supportedProjectTypes)
-        |> List.map (fun pid -> 
-               { Id = pid
-                 Items = getListOfProjectItems excludePatterns pid.Path })
+        |> List.mapi (projectIDFromMatch excludePatterns slnDir)
+        |> List.choose id
     
     let dependencyMap = 
         projects
         |> List.map (fun p -> 
-               (p.Id, 
-                p.Id.Path
+               (p, 
+                p.Path
                 |> getProjectReferences
-                |> Seq.choose (findProjectIDGivenPath projects)))
+                |> Seq.choose (findProjectFromPath projects)))
         |> dict
         |> ReadOnlyDictionary<_, _>
     
@@ -93,10 +108,10 @@ let load excludePatterns (slnPath : FilePath) =
 
 let createDGraph sln = 
     Graph.create (sln.Projects
-                  |> Array.map (fun p -> p.Id, p.Id.ToString())
+                  |> Array.map (fun p -> p, p.Id.ToString())
                   |> Array.toList) (sln.DependencyMap
                                     |> Seq.map 
                                            (fun kvp -> 
-                                           kvp.Value |> Seq.map (fun p2 -> kvp.Key, p2, sprintf "%O -> %O" kvp.Key p2))
+                                           kvp.Value |> Seq.map (fun p2 -> kvp.Key, p2, sprintf "%O -> %O" kvp.Key.Id p2.Id))
                                     |> Seq.collect id
                                     |> Seq.toList)

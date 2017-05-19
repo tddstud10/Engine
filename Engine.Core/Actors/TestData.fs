@@ -10,7 +10,7 @@ open R4nd0mApps.TddStud10.Engine.Core
 [<StructuredFormatDisplay("{AsString}")>]
 type AssemblyId = 
     { Path : FilePath
-      Project : ProjectId }
+      Project : Project }
     member it.AsString = sprintf "Assembly: %O [%O]" it.Path it.Project
             
 [<DebuggerDisplay("{AsString}")>]
@@ -37,17 +37,43 @@ let Tests =
     [ ] |> Map.ofList
 
 module API =
-    let createProjectSnapshot rid (p : ProjectId) =
-        async {
-            do! Async.Sleep(1000)
+    let createProjectSnapshot rsp p = 
+        let updateProjectItemSnapshot snapshotPath pi = 
+            async { 
+                let srcInfo = 
+                    (p.DirectoryName.ToString(), pi.ToString())
+                    |> Path.Combine
+                    |> FileInfo
+                
+                let dstInfo = 
+                    (snapshotPath, p.Index.ToString(), pi.ToString())
+                    |> Path.Combine
+                    |> FileInfo
+
+                let dstFolder = dstInfo.Directory.FullName
+                
+                if srcInfo.LastWriteTimeUtc > dstInfo.LastWriteTimeUtc then 
+                    dstFolder
+                    |> Directory.CreateDirectory
+                    |> ignore
+                    File.Copy(srcInfo.FullName, dstInfo.FullName, true)
+            }
+
+        async { 
+            let snapshotPath = rsp.SolutionPaths.SnapshotPath.ToString() |> Path.GetDirectoryName
+            let! _ = p.Items
+                     |> Array.map (updateProjectItemSnapshot snapshotPath)
+                     |> Async.Parallel
+            return ()
         }
+
 
     let fixProjectFile rid p =
         async {
             do! Async.Sleep(1000)
         }
     
-    let buildProject rid (p : ProjectId) =
+    let buildProject rid (p : Project) =
         async {
             do! Async.Sleep(1000)
             return { Path = Path.ChangeExtension(p.Path.ToString(), "dll") |> FilePath; Project = p }

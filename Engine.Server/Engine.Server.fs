@@ -249,9 +249,9 @@ let main2 _ =
 
     let rsp =
         { Id = Guid.NewGuid()
-          Solution = 
+          SolutionPaths = 
             { Path = @"D:\src\t\Engine\Engine.sln" |> FilePath
-              SnapshotPath = "" |> FilePath
+              SnapshotPath = @"D:\delme\_tdd\Engine\Engine.sln" |> FilePath
               BuildRoot = "" |> FilePath }
           Config = EngineConfigLoader.defaultValue<_> }
 
@@ -277,3 +277,4 @@ let main2 _ =
 
     0 // return an integer exit code
 *)
+

@@ -11,16 +11,16 @@ module ActorMessages =
     type IdeEventsMessage =
         | EvResyncStarting of ResyncParams
         | EvRunStarting of ResyncParams
-        | EvProjectsDiscovered of ResyncParams * ProjectId[]
-        | EvProjectSnapshotStarting of ResyncParams * ProjectId
-        | EvProjectSnapshotSucceeded of ResyncParams * ProjectId
-        | EvProjectSnapshotFailed of ResyncParams * ProjectId * FailureInfo
-        | EvProjectFileFixStarting of ResyncParams * ProjectId
-        | EvProjectFileFixSucceeded of ResyncParams * ProjectId
-        | EvProjectFileFixFailed of ResyncParams * ProjectId * FailureInfo
-        | EvProjectBuildStarting of ResyncParams * ProjectId
-        | EvProjectBuildSucceeded of ResyncParams * ProjectId         
-        | EvProjectBuildFailed of ResyncParams * ProjectId * FailureInfo 
+        | EvProjectsDiscovered of ResyncParams * Project[]
+        | EvProjectSnapshotStarting of ResyncParams * Project
+        | EvProjectSnapshotSucceeded of ResyncParams * Project
+        | EvProjectSnapshotFailed of ResyncParams * Project * FailureInfo
+        | EvProjectFileFixStarting of ResyncParams * Project
+        | EvProjectFileFixSucceeded of ResyncParams * Project
+        | EvProjectFileFixFailed of ResyncParams * Project * FailureInfo
+        | EvProjectBuildStarting of ResyncParams * Project
+        | EvProjectBuildSucceeded of ResyncParams * Project         
+        | EvProjectBuildFailed of ResyncParams * Project * FailureInfo 
         | EvAssemblyInstrumentationStarting of ResyncParams * AssemblyId
         | EvAssemblyInstrumentationSucceeded of ResyncParams * AssemblyId
         | EvAssemblyInstrumentationFailed of ResyncParams * AssemblyId * FailureInfo
@@ -43,26 +43,26 @@ module ActorMessages =
 
     type RunSchedulerMessage = 
         | ScheduleProjectBuild of ResyncParams * Solution
-        | ScheduleProjectBuildSucceeded of ResyncParams * ProjectId
-        | ScheduleProjectBuildFailed of ResyncParams * ProjectId * FailureInfo
+        | ScheduleProjectBuildSucceeded of ResyncParams * Project
+        | ScheduleProjectBuildFailed of ResyncParams * Project * FailureInfo
 
     type ProjectBuildCoordinatorMessage = 
-        | ReadyForBuildProject of ResyncParams * ProjectId
+        | ReadyForBuildProject of ResyncParams * Project
 
     type ProjectSnapshotCreatorMessage = 
-        | CreateProjectSnapshot of ResyncParams * ProjectId
-        | CreateProjectSnapshotSucceeded of ResyncParams * ProjectId
-        | CreateProjectSnapshotFailed of ResyncParams * ProjectId * FailureInfo
+        | CreateProjectSnapshot of ResyncParams * Project
+        | CreateProjectSnapshotSucceeded of ResyncParams * Project
+        | CreateProjectSnapshotFailed of ResyncParams * Project * FailureInfo
 
     type ProjectFileFixerMessage = 
-        | FixProjectFile of ResyncParams * ProjectId
-        | FixProjectFileSucceeded of ResyncParams * ProjectId
-        | FixProjectFileFailed of ResyncParams * ProjectId * FailureInfo
+        | FixProjectFile of ResyncParams * Project
+        | FixProjectFileSucceeded of ResyncParams * Project
+        | FixProjectFileFailed of ResyncParams * Project * FailureInfo
 
     type ProjectBuilderMessage = 
-        | BuildProject of ResyncParams * ProjectId
-        | BuildProjectSucceeded of ResyncParams * ProjectId
-        | BuildProjectFailed of ResyncParams * ProjectId * FailureInfo
+        | BuildProject of ResyncParams * Project
+        | BuildProjectSucceeded of ResyncParams * Project
+        | BuildProjectFailed of ResyncParams * Project * FailureInfo
 
     type AssemblyInstrumenterMessage = 
         | InstrumentAssembly of ResyncParams * AssemblyId

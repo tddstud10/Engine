@@ -22,18 +22,18 @@ let actorLoop (m : Actor<_>) =
         actor { 
             let! msg = m.Receive()
             match msg with
-            | ScheduleProjectBuild(id, s) -> 
-                (id, s.Projects |> Array.map (fun p -> p.Id))
+            | ScheduleProjectBuild(rsp, s) -> 
+                (rsp, s.Projects)
                 |> EvProjectsDiscovered
                 |> m.Context.System.EventStream.Publish
                 let dg = s |> SolutionLoader.createDGraph
                 let roots = Graph.Nodes.toList dg |> List.filter (fun (n, _) -> Graph.Nodes.outwardDegree n dg = Some 0)
                 roots |> List.iter (fst
-                                    >> (fun p -> id, p)
+                                    >> Prelude.tuple2 rsp
                                     >> ReadyForBuildProject
                                     >> m.Context.System.EventStream.Publish)
                 return! loop dg inProgress
-            | ScheduleProjectBuildSucceeded(id, p) -> 
+            | ScheduleProjectBuildSucceeded(rsp, p) -> 
                 let dg = Graph.Nodes.remove p depGraph
                 
                 let roots = 
@@ -41,7 +41,7 @@ let actorLoop (m : Actor<_>) =
                     |> List.filter (fun (n, _) -> Graph.Nodes.outwardDegree n dg = Some 0)
                     |> List.filter (fun (n, _) -> not <| Set.contains n inProgress)
                 roots |> List.iter (fst
-                                    >> (fun p -> id, p)
+                                    >> Prelude.tuple2 rsp
                                     >> ReadyForBuildProject
                                     >> m.Context.System.EventStream.Publish)
                 let inProgress = roots |> List.fold (fun acc (n, _) -> Set.add n acc) inProgress

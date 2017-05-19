@@ -49,32 +49,26 @@ type ResyncId = Guid
 
 type ResyncParams = 
     { Id : ResyncId
-      Solution : SolutionPaths
+      SolutionPaths : SolutionPaths
       Config : EngineConfig }
 
-type ProjectId = 
-    { Name : string
+type Project = 
+    { Index : int // change to ID
+      Name : string
       FileName : FilePath
       DirectoryName : FilePath
       Id : Guid
-      Type : Guid }
-    override it.ToString() = 
-        sprintf "%s::%O\%O [%O]" it.Name it.DirectoryName it.FileName it.Id
-    member it.Path =
-        (it.DirectoryName.ToString(), it.FileName.ToString()) ||> Path.combine |> FilePath
-
-type Project = 
-    { Id : ProjectId
+      Type : Guid
       Items : FilePath[] }
     override it.ToString() = 
-        sprintf "%A: Items = %d" it.Id (it.Items |> Seq.length)
-
-type ProjectMap = Map<ProjectId, Project>
+        sprintf "%s::%O\%O [%O]#%d: Items = %d" it.Name it.DirectoryName it.FileName it.Id it.Index (it.Items |> Seq.length)
+    member it.Path =
+        (it.DirectoryName.ToString(), it.FileName.ToString()) ||> Path.combine |> FilePath
 
 type Solution = 
     { Path : FilePath
       Projects : Project[]
-      DependencyMap : IReadOnlyDictionary<ProjectId, seq<ProjectId>> }    
+      DependencyMap : IReadOnlyDictionary<Project, seq<Project>> }    
     override it.ToString() = 
         sprintf "%O (Dependencies: %d)" it.Path it.DependencyMap.Count
 
