@@ -15,10 +15,10 @@ module AssemblyInstrumenter =
             let! res = Async.Catch <| API.instrumentAssembly rid a
             match res with
             | Choice1Of2 r -> 
-                (rid, a) |> ReadyForDiscoverAssemblyTests |> es.Publish
-                (rid, a) |> ReadyForDiscoverAssemblySequencePoints |> es.Publish
-                (rid, a.Project) |> ScheduleProjectBuildSucceeded |> es.Publish
-                (rid, a) |> InstrumentAssemblySucceeded |> self.Tell
+                (rid, r) |> ReadyForDiscoverAssemblyTests |> es.Publish
+                (rid, r) |> ReadyForDiscoverAssemblySequencePoints |> es.Publish
+                (rid, r) |> ScheduleProjectBuildSucceeded |> es.Publish
+                (rid, r) |> InstrumentAssemblySucceeded |> self.Tell
             | Choice2Of2 e ->
                 let fi = e |> FailureInfo.FromException
                 (rid, a.Project, fi) |> ScheduleProjectBuildFailed |> es.Publish
@@ -61,17 +61,17 @@ module ProjectBuilder =
     open ActorMessages
     open R4nd0mApps.TddStud10.Engine.Core
     
-    let buildProjectErrorHandler rid (p : Project) (ai : IActorRef) (es : EventStream) (self : IActorRef) =
+    let buildProjectErrorHandler rid (sso : ProjectSnapshotCreatorOutput) (ai : IActorRef) (es : EventStream) (self : IActorRef) =
         async {
-            let! res = Async.Catch <| API.buildProject rid p
+            let! res = Async.Catch <| API.buildProject rid sso
             match res with
             | Choice1Of2 r -> 
                 (rid, r) |> InstrumentAssembly |> ai.Tell
-                (rid, p) |> BuildProjectSucceeded |> self.Tell
+                (rid, r) |> BuildProjectSucceeded |> self.Tell
             | Choice2Of2 e ->
                 let fi = e |> FailureInfo.FromException
-                (rid, p, fi) |> ScheduleProjectBuildFailed |> es.Publish
-                (rid, p, fi) |> BuildProjectFailed |> self.Tell
+                (rid, sso.Project, fi) |> ScheduleProjectBuildFailed |> es.Publish
+                (rid, sso, fi) |> BuildProjectFailed |> self.Tell
         } |> Async.RunSynchronously
     
     let actorLoop (ai: IActorRef) (m : Actor<_>) =
@@ -114,11 +114,11 @@ module ProjectFileFixer =
             let! res = Async.Catch <| API.fixProjectFile rid p
             match res with
             | Choice1Of2 r -> 
-                (rid, p) |> BuildProject |> pb.Tell
-                (rid, p) |> FixProjectFileSucceeded |> self.Tell
+                (rid, r) |> BuildProject |> pb.Tell
+                (rid, r) |> FixProjectFileSucceeded |> self.Tell
             | Choice2Of2 e ->
                 let fi = e |> FailureInfo.FromException
-                (rid, p, fi) |> ScheduleProjectBuildFailed |> es.Publish
+                (rid, p.Project, fi) |> ScheduleProjectBuildFailed |> es.Publish
                 (rid, p, fi) |> FixProjectFileFailed |> self.Tell
         } |> Async.RunSynchronously
     
@@ -162,8 +162,8 @@ module ProjectSnapshotCreator =
             let! res = Async.Catch <| API.createProjectSnapshot rsp p
             match res with
             | Choice1Of2 r -> 
-                (rsp, p) |> FixProjectFile |> pff.Tell
-                (rsp, p) |> CreateProjectSnapshotSucceeded |> self.Tell
+                (rsp, r) |> FixProjectFile |> pff.Tell
+                (rsp, r) |> CreateProjectSnapshotSucceeded |> self.Tell
             | Choice2Of2 e ->
                 let fi = e |> FailureInfo.FromException
                 (rsp, p, fi) |> ScheduleProjectBuildFailed |> es.Publish

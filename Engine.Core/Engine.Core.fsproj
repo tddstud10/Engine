@@ -144,6 +144,7 @@
     <Compile Include="..\AssemblyInfo.fs">
       <Link>AssemblyInfo.fs</Link>
     </Compile>
+    <Compile Include="FilePathApi.fs" />
     <Compile Include="Domain.fs" />
     <Compile Include="Common\SafeExec.fs" />
     <Compile Include="Common\FileSystem.fs" />
@@ -177,6 +178,9 @@
     <Compile Include="Actors/Runner.fs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />

@@ -6,23 +6,22 @@ open Akka.FSharp
 open Akka.Routing
 open System
 open TestData
+open ActorMessages
 
 module AssemblyTestsDiscoverer = 
-    open ActorMessages
-
-    let discoverAssemblyTestsWorker rid a (es: EventStream) (self : IActorRef) =
+    let discoverAssemblyTestsWorker rid pbo (es: EventStream) (self : IActorRef) =
         async {
             let f tid =
                 tid |> ReadyForRunTest |> es.Publish
                 tid |> EvTestDiscovered |> es.Publish   
 
-            let! res = Async.Catch <| API.discoverAssemblyTests f rid a
+            let! res = Async.Catch <| API.discoverAssemblyTests f rid pbo
             match res with
             | Choice1Of2 r -> 
-                (rid, a) |> DiscoverAssemblyTestsSucceeded |> self.Tell
+                (rid, pbo) |> DiscoverAssemblyTestsSucceeded |> self.Tell
             | Choice2Of2 e ->
                 let fi = e |> FailureInfo.FromException
-                (rid, a, fi) |> DiscoverAssemblyTestsFailed |> self.Tell
+                (rid, pbo, fi) |> DiscoverAssemblyTestsFailed |> self.Tell
         } |> Async.RunSynchronously
     
     let actorLoop (m : Actor<_>) =         
@@ -33,9 +32,9 @@ module AssemblyTestsDiscoverer =
             actor { 
                 let! msg = m.Receive()
                 match msg with
-                | DiscoverAssemblyTests(rid, a) -> 
-                    (rid, a) |> EvAssemblyTestDiscoveryStarting |> m.Context.System.EventStream.Publish
-                    bgWorker.StartOnBackgroundWorker (discoverAssemblyTestsWorker rid a m.Context.System.EventStream) m.Self 
+                | DiscoverAssemblyTests(rid, pbo) -> 
+                    (rid, pbo) |> EvAssemblyTestDiscoveryStarting |> m.Context.System.EventStream.Publish
+                    bgWorker.StartOnBackgroundWorker (discoverAssemblyTestsWorker rid pbo m.Context.System.EventStream) m.Self 
                     return! loopTaskRunning()
                 | _ -> Prelude.undefined
             }
@@ -43,8 +42,8 @@ module AssemblyTestsDiscoverer =
             actor {
                 let! msg = m.Receive()
                 match msg with
-                | DiscoverAssemblyTestsSucceeded(rid, a) ->
-                    (rid, a) |> EvAssemblyTestDiscoverySucceeded |> m.Context.System.EventStream.Publish
+                | DiscoverAssemblyTestsSucceeded(rid, pbo) ->
+                    (rid, pbo) |> EvAssemblyTestDiscoverySucceeded |> m.Context.System.EventStream.Publish
                     m.UnstashAll()
                     return! loop()
                 | DiscoverAssemblyTestsFailed(rid, a, e) ->
@@ -69,8 +68,8 @@ module AssemblyTestsDiscovererCoordinator =
             actor { 
                 let! msg = m.Receive()
                 match msg with
-                | ReadyForDiscoverAssemblyTests(id, a) -> 
-                    (id, a) |> DiscoverAssemblyTests |> td.Tell
+                | ReadyForDiscoverAssemblyTests(id, pbo) -> 
+                    (id, pbo) |> DiscoverAssemblyTests |> td.Tell
                 return! loop()
             }
         loop()

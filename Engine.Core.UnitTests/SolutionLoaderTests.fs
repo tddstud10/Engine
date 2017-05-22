@@ -42,6 +42,7 @@ let ``loadSolution should build Solution from filesystem``() =
                       ("Lib2", 1)
                       ("Lib3", 2) ]
 
+// TODO: Move this to Common.UnitTests
 [<Theory>]
 [<InlineData(@"c:\a\", @"c:\a\b 1.txt", @"b 1.txt")>]
 [<InlineData(@"c:\a\c", @"c:\a\c\b.txt", @"b.txt")>]
@@ -49,4 +50,4 @@ let ``loadSolution should build Solution from filesystem``() =
 [<InlineData(@"c:\a", @"c:\a\c\b.txt", @"c\b.txt")>]
 [<InlineData(@"c:\a\b\", @"c:\a\c\b.txt", @"..\c\b.txt")>]
 let ``makeRelativePath tests`` folder abs rel =
-    SolutionLoader.makeRelativePath folder abs |> should equal rel
+    FilePath.makeRelativePath (FilePath folder) (FilePath abs) |> should equal (FilePath rel)

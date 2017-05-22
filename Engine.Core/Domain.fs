@@ -15,7 +15,7 @@ type EngineConfig =
       IgnoredTests : string
       [<DefaultValue(false)>]            
       IsDisabled : bool
-      [<DefaultValue([|"_TDDSTUD10"|])>]            
+      [<DefaultValue([|"_TDDSTUD10=1"|])>]            
       AdditionalMSBuildProperties : string[]
       [<DefaultValue([|"packages"; "paket-files"|])>]  
       SnapshotIncludeFolders : string[]
@@ -63,7 +63,7 @@ type Project =
     override it.ToString() = 
         sprintf "%s::%O\%O [%O]#%d: Items = %d" it.Name it.DirectoryName it.FileName it.Id it.Index (it.Items |> Seq.length)
     member it.Path =
-        (it.DirectoryName.ToString(), it.FileName.ToString()) ||> Path.combine |> FilePath
+        (it.DirectoryName, it.FileName) ||> FilePath.combine
 
 type Solution = 
     { Path : FilePath
@@ -71,6 +71,23 @@ type Solution =
       DependencyMap : IReadOnlyDictionary<Project, seq<Project>> }    
     override it.ToString() = 
         sprintf "%O (Dependencies: %d)" it.Path it.DependencyMap.Count
+
+type ProjectSnapshotCreatorOutput = 
+    { SnapshotPath : FilePath
+      Project : Project }
+    override it.ToString() = 
+        sprintf "Snapshot output: %O [%O]" it.SnapshotPath it.Project
+
+type ProjectFileFixerOutput = ProjectSnapshotCreatorOutput
+
+type ProjectBuilderOutput = 
+    { Items : FilePath[]
+      SnapshotPath : FilePath
+      Project : Project }
+    override it.ToString() = 
+        sprintf "Buid output Items: %s [%O-%O]" (it.Items |> Array.fold (fun acc e -> acc + "; " + e.ToString()) "") it.SnapshotPath it.Project
+
+type AssemblyInstrumenterOutput = ProjectBuilderOutput
 
 // =================================================
 // NOTE: Adding any new cases will break RunStateTracker.

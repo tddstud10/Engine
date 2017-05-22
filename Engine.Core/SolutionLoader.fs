@@ -8,16 +8,6 @@ open System.IO
 open System.Text.RegularExpressions
 open System.Xml
 
-let makeRelativePath (folder : string) file = 
-    let file = Uri(file, UriKind.Absolute)
-    
-    let folder = 
-        if folder.EndsWith(@"\") then folder
-        else folder + @"\"
-    
-    let folder = Uri(folder, UriKind.Absolute)
-    folder.MakeRelativeUri(file).ToString().Replace('/', Path.DirectorySeparatorChar) |> Uri.UnescapeDataString
-
 let private projectPattern = 
     Regex
         (@"Project\(\""(?<typeGuid>.*?)\""\)\s+=\s+\""(?<name>.*?)\"",\s+\""(?<path>.*?)\"",\s+\""(?<guid>.*?)\""(?<content>.*?)\bEndProject\b", 
@@ -33,17 +23,18 @@ let rec private getAllMatches acc (m : Match) =
     if not m.Success then acc
     else getAllMatches (m :: acc) (m.NextMatch())
 
-let private getProjectItems excludePatterns (FilePath projectPath) = 
+let private getProjectItems excludePatterns projectPath = 
     let projDir =  
         projectPath
-        |> Path.GetDirectoryName
+        |> FilePath.getDirectoryName
 
-    Directory.EnumerateFiles(projDir, "*", SearchOption.AllDirectories)
+    projDir
+    |> FilePath.enumerateFiles SearchOption.AllDirectories "*"
     |> Seq.filter (fun p -> 
            excludePatterns
-           |> Array.exists (fun ep -> p.IndexOf(ep, 0, StringComparison.OrdinalIgnoreCase) >= 0)
+           |> Array.exists (fun ep -> p.ToString().IndexOf(ep, 0, StringComparison.OrdinalIgnoreCase) >= 0)
            |> not)
-    |> Seq.map (makeRelativePath projDir >> FilePath)
+    |> Seq.map (FilePath.makeRelativePath projDir)
     |> Seq.toArray
 
 let private projectIDFromMatch excludePatterns slnDir i (m : Match) = 
@@ -53,40 +44,40 @@ let private projectIDFromMatch excludePatterns slnDir i (m : Match) =
     else
         let projectFilePath = 
             m.Groups.["path"].Value
-            |> Path.combine slnDir
+            |> FilePath
+            |> FilePath.combine slnDir
 
         { Index = i
           Name = m.Groups.["name"].Value
-          FileName = projectFilePath |> Path.GetFileName |> FilePath
-          DirectoryName = projectFilePath |> Path.GetDirectoryName |> FilePath
+          FileName = projectFilePath |> FilePath.getFileName
+          DirectoryName = projectFilePath |> FilePath.getDirectoryName
           Id = m.Groups.["guid"].Value |> Guid
           Type = m.Groups.["typeGuid"].Value |> Guid
-          Items = getProjectItems excludePatterns (FilePath projectFilePath) } |> Some
+          Items = getProjectItems excludePatterns projectFilePath } |> Some
 
 
-let private getProjectReferences (FilePath projectPath) = 
+let private getProjectReferences projectPath = 
     let doc = XmlDocument()
-    doc.Load(projectPath)
+    doc.Load(projectPath.ToString())
     let nsmgr = XmlNamespaceManager(doc.NameTable)
     nsmgr.AddNamespace("msb", "http://schemas.microsoft.com/developer/msbuild/2003")
     doc.DocumentElement.SelectNodes("//msb:ProjectReference", nsmgr)
     |> Seq.cast<XmlNode>
-    |> Seq.map (fun xn -> Option.attempt (fun () -> xn.Attributes.["Include"].Value))
+    |> Seq.map (fun xn -> Option.attempt (fun () -> xn.Attributes.["Include"].Value |> FilePath))
     |> Seq.choose id
-    |> Seq.map (Path.combine (Path.GetDirectoryName(projectPath))
-                >> Path.GetFullPath
-                >> FilePath)
+    |> Seq.map (FilePath.combine (FilePath.getDirectoryName projectPath)
+                >> FilePath.getFullPath)
     
 let private findProjectFromPath (projects : Project list) projectPath = 
     projects
     |> List.tryFind (fun p -> p.Path = projectPath)
 
-let load excludePatterns (slnPath : FilePath) = 
-    let slnDir = slnPath.ToString() |> Path.GetDirectoryName
+let load excludePatterns slnPath = 
+    let slnDir = slnPath |> FilePath.getDirectoryName
     
     let projects = 
-        slnPath.ToString()
-        |> File.ReadAllText
+        slnPath
+        |> FilePath.readAllText
         |> projectPattern.Match
         |> getAllMatches []
         |> List.mapi (projectIDFromMatch excludePatterns slnDir)

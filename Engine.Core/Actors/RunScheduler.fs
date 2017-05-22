@@ -34,7 +34,7 @@ let actorLoop (m : Actor<_>) =
                                     >> m.Context.System.EventStream.Publish)
                 return! loop dg inProgress
             | ScheduleProjectBuildSucceeded(rsp, p) -> 
-                let dg = Graph.Nodes.remove p depGraph
+                let dg = Graph.Nodes.remove p.Project depGraph
                 
                 let roots = 
                     Graph.Nodes.toList dg

@@ -224,6 +224,10 @@ v Cancel
   - Incr With hung operation
 
 TODO:
+- Snapshot
+  - IncludeFolder settings
+- Multi-project solutions
+-------
 - IDE integration
   - IDE Events 
     - Specifics of each step - names of projects discovered, etc.
@@ -250,8 +254,8 @@ let main2 _ =
     let rsp =
         { Id = Guid.NewGuid()
           SolutionPaths = 
-            { Path = @"D:\src\t\Engine\Engine.sln" |> FilePath
-              SnapshotPath = @"D:\delme\_tdd\Engine\Engine.sln" |> FilePath
+            { Path = @"d:\src\t\Engine\TestProjects\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
+              SnapshotPath = @"D:\delme\_tdd\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
               BuildRoot = "" |> FilePath }
           Config = EngineConfigLoader.defaultValue<_> }
 

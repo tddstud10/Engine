@@ -13,25 +13,25 @@ module ActorMessages =
         | EvRunStarting of ResyncParams
         | EvProjectsDiscovered of ResyncParams * Project[]
         | EvProjectSnapshotStarting of ResyncParams * Project
-        | EvProjectSnapshotSucceeded of ResyncParams * Project
+        | EvProjectSnapshotSucceeded of ResyncParams * ProjectSnapshotCreatorOutput
         | EvProjectSnapshotFailed of ResyncParams * Project * FailureInfo
-        | EvProjectFileFixStarting of ResyncParams * Project
-        | EvProjectFileFixSucceeded of ResyncParams * Project
-        | EvProjectFileFixFailed of ResyncParams * Project * FailureInfo
-        | EvProjectBuildStarting of ResyncParams * Project
-        | EvProjectBuildSucceeded of ResyncParams * Project         
-        | EvProjectBuildFailed of ResyncParams * Project * FailureInfo 
-        | EvAssemblyInstrumentationStarting of ResyncParams * AssemblyId
-        | EvAssemblyInstrumentationSucceeded of ResyncParams * AssemblyId
-        | EvAssemblyInstrumentationFailed of ResyncParams * AssemblyId * FailureInfo
-        | EvAssemblyTestDiscoveryStarting of ResyncParams * AssemblyId
+        | EvProjectFileFixStarting of ResyncParams * ProjectSnapshotCreatorOutput
+        | EvProjectFileFixSucceeded of ResyncParams * ProjectFileFixerOutput
+        | EvProjectFileFixFailed of ResyncParams * ProjectSnapshotCreatorOutput * FailureInfo
+        | EvProjectBuildStarting of ResyncParams * ProjectFileFixerOutput
+        | EvProjectBuildSucceeded of ResyncParams * ProjectBuilderOutput
+        | EvProjectBuildFailed of ResyncParams * ProjectFileFixerOutput * FailureInfo 
+        | EvAssemblyInstrumentationStarting of ResyncParams * ProjectBuilderOutput
+        | EvAssemblyInstrumentationSucceeded of ResyncParams * AssemblyInstrumenterOutput
+        | EvAssemblyInstrumentationFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
+        | EvAssemblyTestDiscoveryStarting of ResyncParams * ProjectBuilderOutput
         | EvTestDiscovered of ResyncParams * TestId
-        | EvAssemblyTestDiscoverySucceeded of ResyncParams * AssemblyId
-        | EvAssemblyTestDiscoveryFailed of ResyncParams * AssemblyId * FailureInfo
-        | EvAssemblySequencePointsDiscoveryStarting of ResyncParams * AssemblyId
+        | EvAssemblyTestDiscoverySucceeded of ResyncParams * ProjectBuilderOutput
+        | EvAssemblyTestDiscoveryFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
+        | EvAssemblySequencePointsDiscoveryStarting of ResyncParams * ProjectBuilderOutput
         | EvSequencePointsDiscovered of ResyncParams * TestId
-        | EvAssemblySequencePointsDiscoverySucceeded of ResyncParams * AssemblyId
-        | EvAssemblySequencePointsDiscoveryFailed of ResyncParams * AssemblyId * FailureInfo
+        | EvAssemblySequencePointsDiscoverySucceeded of ResyncParams * ProjectBuilderOutput
+        | EvAssemblySequencePointsDiscoveryFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
         | EvTestRunStarting of ResyncParams * TestId
         | EvTestRunSucceeded of ResyncParams * TestId
         | EvTestRunFailed of ResyncParams * TestId * FailureInfo
@@ -43,7 +43,7 @@ module ActorMessages =
 
     type RunSchedulerMessage = 
         | ScheduleProjectBuild of ResyncParams * Solution
-        | ScheduleProjectBuildSucceeded of ResyncParams * Project
+        | ScheduleProjectBuildSucceeded of ResyncParams * AssemblyInstrumenterOutput
         | ScheduleProjectBuildFailed of ResyncParams * Project * FailureInfo
 
     type ProjectBuildCoordinatorMessage = 
@@ -51,39 +51,39 @@ module ActorMessages =
 
     type ProjectSnapshotCreatorMessage = 
         | CreateProjectSnapshot of ResyncParams * Project
-        | CreateProjectSnapshotSucceeded of ResyncParams * Project
+        | CreateProjectSnapshotSucceeded of ResyncParams * ProjectSnapshotCreatorOutput
         | CreateProjectSnapshotFailed of ResyncParams * Project * FailureInfo
 
     type ProjectFileFixerMessage = 
-        | FixProjectFile of ResyncParams * Project
-        | FixProjectFileSucceeded of ResyncParams * Project
-        | FixProjectFileFailed of ResyncParams * Project * FailureInfo
+        | FixProjectFile of ResyncParams * ProjectSnapshotCreatorOutput
+        | FixProjectFileSucceeded of ResyncParams * ProjectFileFixerOutput
+        | FixProjectFileFailed of ResyncParams * ProjectSnapshotCreatorOutput * FailureInfo
 
     type ProjectBuilderMessage = 
-        | BuildProject of ResyncParams * Project
-        | BuildProjectSucceeded of ResyncParams * Project
-        | BuildProjectFailed of ResyncParams * Project * FailureInfo
+        | BuildProject of ResyncParams * ProjectFileFixerOutput
+        | BuildProjectSucceeded of ResyncParams * ProjectBuilderOutput
+        | BuildProjectFailed of ResyncParams * ProjectFileFixerOutput * FailureInfo
 
     type AssemblyInstrumenterMessage = 
-        | InstrumentAssembly of ResyncParams * AssemblyId
-        | InstrumentAssemblySucceeded of ResyncParams * AssemblyId
-        | InstrumentAssemblyFailed of ResyncParams * AssemblyId * FailureInfo
+        | InstrumentAssembly of ResyncParams * ProjectBuilderOutput
+        | InstrumentAssemblySucceeded of ResyncParams * AssemblyInstrumenterOutput
+        | InstrumentAssemblyFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
 
     type AssemblyTestsDiscovererCoordinatorMessage = 
-        | ReadyForDiscoverAssemblyTests of ResyncParams * AssemblyId
+        | ReadyForDiscoverAssemblyTests of ResyncParams * ProjectBuilderOutput
 
     type AssemblyTestsDiscovererMessage = 
-        | DiscoverAssemblyTests of ResyncParams * AssemblyId
-        | DiscoverAssemblyTestsSucceeded of ResyncParams * AssemblyId
-        | DiscoverAssemblyTestsFailed of ResyncParams * AssemblyId * FailureInfo
+        | DiscoverAssemblyTests of ResyncParams * ProjectBuilderOutput
+        | DiscoverAssemblyTestsSucceeded of ResyncParams * ProjectBuilderOutput
+        | DiscoverAssemblyTestsFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
 
     type AssemblySequencePointsDiscovererCoordinatorMessage = 
-        | ReadyForDiscoverAssemblySequencePoints of ResyncParams * AssemblyId
+        | ReadyForDiscoverAssemblySequencePoints of ResyncParams * ProjectBuilderOutput
 
     type AssemblySequencePointsDiscovererMessage = 
-        | DiscoverAssemblySequencePoints of ResyncParams * AssemblyId
-        | DiscoverAssemblySequencePointsSucceeded of ResyncParams * AssemblyId
-        | DiscoverAssemblySequencePointsFailed of ResyncParams * AssemblyId * FailureInfo
+        | DiscoverAssemblySequencePoints of ResyncParams * ProjectBuilderOutput
+        | DiscoverAssemblySequencePointsSucceeded of ResyncParams * ProjectBuilderOutput
+        | DiscoverAssemblySequencePointsFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
 
     type TestRunnerCoordinatorMessage =
         | ReadyForRunTest of ResyncParams * TestId

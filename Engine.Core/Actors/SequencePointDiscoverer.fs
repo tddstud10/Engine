@@ -6,21 +6,20 @@ open Akka.FSharp
 open Akka.Routing
 open System
 open TestData
+open ActorMessages
 
 module AssemblySequencePointsDiscoverer = 
-    open ActorMessages
-
-    let discoverAssemblySequencePointsWorker rid a (es: EventStream) (self : IActorRef) =
+    let discoverAssemblySequencePointsWorker rid pbo (es: EventStream) (self : IActorRef) =
         async {
             let f = EvSequencePointsDiscovered >> es.Publish   
 
-            let! res = Async.Catch <| API.discoverAssemblySequencePoints f rid a
+            let! res = Async.Catch <| API.discoverAssemblySequencePoints f rid pbo
             match res with
             | Choice1Of2 r -> 
-                (rid, a) |> DiscoverAssemblySequencePointsSucceeded |> self.Tell
+                (rid, pbo) |> DiscoverAssemblySequencePointsSucceeded |> self.Tell
             | Choice2Of2 e ->
                 let fi = e |> FailureInfo.FromException
-                (rid, a, fi) |> DiscoverAssemblySequencePointsFailed |> self.Tell
+                (rid, pbo, fi) |> DiscoverAssemblySequencePointsFailed |> self.Tell
         } |> Async.RunSynchronously
     
     let actorLoop (m : Actor<_>) =         
@@ -31,9 +30,9 @@ module AssemblySequencePointsDiscoverer =
             actor { 
                 let! msg = m.Receive()
                 match msg with
-                | DiscoverAssemblySequencePoints(rid, a) -> 
-                    (rid, a) |> EvAssemblySequencePointsDiscoveryStarting |> m.Context.System.EventStream.Publish
-                    bgWorker.StartOnBackgroundWorker (discoverAssemblySequencePointsWorker rid a m.Context.System.EventStream) m.Self 
+                | DiscoverAssemblySequencePoints(rid, pbo) -> 
+                    (rid, pbo) |> EvAssemblySequencePointsDiscoveryStarting |> m.Context.System.EventStream.Publish
+                    bgWorker.StartOnBackgroundWorker (discoverAssemblySequencePointsWorker rid pbo m.Context.System.EventStream) m.Self 
                     return! loopTaskRunning()
                 | _ -> Prelude.undefined
             }
@@ -41,12 +40,12 @@ module AssemblySequencePointsDiscoverer =
             actor {
                 let! msg = m.Receive()
                 match msg with
-                | DiscoverAssemblySequencePointsSucceeded(rid, a) ->
-                    (rid, a) |> EvAssemblySequencePointsDiscoverySucceeded |> m.Context.System.EventStream.Publish
+                | DiscoverAssemblySequencePointsSucceeded(rid, pbo) ->
+                    (rid, pbo) |> EvAssemblySequencePointsDiscoverySucceeded |> m.Context.System.EventStream.Publish
                     m.UnstashAll()
                     return! loop()
-                | DiscoverAssemblySequencePointsFailed(rid, a, e) ->
-                    (rid, a, e) |> EvAssemblySequencePointsDiscoveryFailed |> m.Context.System.EventStream.Publish
+                | DiscoverAssemblySequencePointsFailed(rid, pbo, e) ->
+                    (rid, pbo, e) |> EvAssemblySequencePointsDiscoveryFailed |> m.Context.System.EventStream.Publish
                     m.UnstashAll()
                     return! loop()
                 | _ -> 
@@ -67,8 +66,8 @@ module AssemblySequencePointsDiscovererCoordinator =
             actor { 
                 let! msg = m.Receive()
                 match msg with
-                | ReadyForDiscoverAssemblySequencePoints(id, a) -> 
-                    (id, a) |> DiscoverAssemblySequencePoints |> td.Tell
+                | ReadyForDiscoverAssemblySequencePoints(id, pbo) -> 
+                    (id, pbo) |> DiscoverAssemblySequencePoints |> td.Tell
                 return! loop()
             }
         loop()
