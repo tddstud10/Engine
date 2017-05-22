@@ -37,6 +37,8 @@ module API =
     open System.Text
     open System.Xml.Linq
     open System.Xml
+    open System.Reflection
+    open R4nd0mApps.TddStud10.Common
 
     let createProjectSnapshot rsp p = 
         let updateProjectItemSnapshot snapshotPath pi = 
@@ -61,14 +63,14 @@ module API =
             }
 
         async { 
-            let snapshotPath = 
+            let snapshotDir = 
                 rsp.SolutionPaths.SnapshotPath 
                 |> FilePath.getDirectoryName
                 |> Prelude.flip FilePath.combine (p.Index.ToString() |> FilePath)
             let! _ = p.Items
-                     |> Array.map (updateProjectItemSnapshot snapshotPath)
+                     |> Array.map (updateProjectItemSnapshot snapshotDir)
                      |> Async.Parallel
-            return { ProjectSnapshotCreatorOutput.SnapshotPath = snapshotPath; Project = p }
+            return { ProjectSnapshotCreatorOutput.SnapshotDirectoryName = snapshotDir; Project = p }
         }
 
 (*
@@ -98,7 +100,6 @@ module API =
 *)
     let fixProjectFile rsp p =
         async {
-            do! Async.Sleep(1000)
             return p
         }
 
@@ -134,19 +135,9 @@ module API =
     let buildProject rsp (sso: ProjectSnapshotCreatorOutput) =
         async {
             let wrapperProjectPath = 
-                (sso.SnapshotPath, wrapperProjectName |> FilePath) 
+                (sso.SnapshotDirectoryName, wrapperProjectName |> FilePath) 
                 ||> FilePath.combine
             FilePath.writeAllText wrapperProjectContents wrapperProjectPath
-
-            let props = 
-                [ "_TddStud10Project", (FilePath.combine sso.SnapshotPath sso.Project.FileName).ToString()
-                  "_TddStud10Target", "Build"
-                  "Configuration", "Debug" 
-                  "CreateVsixContainer", "false" 
-                  "DeployExtension", "false" 
-                  "CopyVsixExtensionFiles", "false" 
-                  "RunCodeAnalysis", "false" ]
-                |> Map.ofList
 
             let props =
                 rsp.Config.AdditionalMSBuildProperties
@@ -155,7 +146,21 @@ module API =
                              | [p; v] -> Some (p, v)
                              | _ -> None)
                 |> Array.choose id
-                |> Array.fold (fun acc (p, v) -> Map.add p v acc) props
+                |> Array.fold (fun acc (p, v) -> Map.add p v acc) Map.empty
+
+            let props = 
+                [ "_TddStud10Project", sso.SnapshotPath.ToString()
+                  "_TddStud10Target", "Build"
+                  "Configuration", "Debug" 
+                  "CreateVsixContainer", "false" 
+                  "DeployExtension", "false" 
+                  "CopyVsixExtensionFiles", "false" 
+                  "RunCodeAnalysis", "false"
+                  "DeployOnBuild", "false"
+                  "DebugSymbols", "true"
+                  "DebugType", "full"
+                  "Optimize", "false" ]
+                |> List.fold (fun acc (p, v) -> Map.add p v acc) props
 
             let props = props :> IDictionary<_, _>
         
@@ -169,18 +174,34 @@ module API =
                 |> Seq.append l.Errors
                 |> Seq.fold (fun (acc: StringBuilder) -> acc.AppendLine) (StringBuilder())
                 |> failwithf "Build Errors %O" 
-            return { Items = outputs |> Array.ofSeq; SnapshotPath = sso.SnapshotPath; Project = sso.Project }
+            return { Items = outputs |> Array.ofSeq; SnapshotDirectoryName = sso.SnapshotDirectoryName; Project = sso.Project }
         }
 
-    let instrumentAssembly rid a =
+    let instrumentAssembly _ pbo =
+        let instrumentAssemblyTempHack pp pssp ap = 
+            sprintf "R4nd0mApps.TddStud10.Engine%s" (if DFizer.isDF() then ".DF" else "")
+            |> Assembly.Load
+            |> fun a -> a.GetType("R4nd0mApps.TddStud10.Instrumentation")
+            |> fun t -> t.GetMethod("Instrument2", BindingFlags.Public ||| BindingFlags.Static)
+            |> fun m -> m.Invoke(null, [| ap; pp; pssp |])
+            |> ignore
+
+        let isAssembly fp =
+            fp
+            |> FilePath.getExtension
+            |> String.toLowerInvariant
+            |> Prelude.flip List.contains [".dll"; ".exe"]
+
         async {
-            do! Async.Sleep(1000)
-            return a
+            pbo.Items
+            |> Array.filter isAssembly 
+            |> Array.iter (instrumentAssemblyTempHack pbo.Project.Path pbo.SnapshotPath)
+
+            return pbo
         }
 
     let discoverAssemblySequencePoints f rid (pbo: ProjectBuilderOutput) =
         async {
-            do! Async.Sleep(1000)
             Tests 
             |> Map.tryFind pbo.Items.[0]
             |> Option.fold (fun _ x -> x) []
@@ -190,7 +211,6 @@ module API =
 
     let discoverAssemblyTests f rid a =
         async {
-            do! Async.Sleep(1000)
             Tests 
             |> Map.tryFind a.Items.[0]
             |> Option.fold (fun _ x -> x) []
@@ -202,7 +222,5 @@ module API =
         async {
             if t.TestName = "Test 1" then
                 failwithf "Test failed"
-
-            do! Async.Sleep(1000)
         }
 

@@ -227,6 +227,7 @@ TODO:
 - Snapshot
   - IncludeFolder settings
 - Multi-project solutions
+- Instrumentation should support snk
 -------
 - IDE integration
   - IDE Events 

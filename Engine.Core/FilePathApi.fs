@@ -47,3 +47,6 @@ module FilePath =
         folder.MakeRelativeUri(file).ToString().Replace('/', Path.DirectorySeparatorChar)
         |> Uri.UnescapeDataString
         |> FilePath
+
+    let getExtension (FilePath path) =
+        Path.GetExtension(path)

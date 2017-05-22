@@ -3,6 +3,7 @@ Suave
 Akka
 Akka.FSharp
 sqlite-net-pcl
+Mono.Cecil
 
 File:YaFunTK.fs
 

@@ -112,6 +112,11 @@ namespace R4nd0mApps.TddStud10
             }
         }
 
+        public static void Instrument2(FilePath assemblyPath, FilePath projectPath, FilePath projectSnapshotPath)
+        {
+            InstrumentImpl2(assemblyPath, projectPath, projectSnapshotPath);
+        }
+
         private static void VisitAllTypes(IEnumerable<ModuleDefinition> modules, Action<ModuleDefinition, TypeDefinition> action)
         {
             foreach (var module in modules)
@@ -217,6 +222,65 @@ namespace R4nd0mApps.TddStud10
                 1);
         }
 
+        private static void InstrumentImpl2(FilePath assemblyPath, FilePath projectPath, FilePath projectSnapshotPath)
+        {
+            var asmResolver = new DefaultAssemblyResolver();
+            Array.ForEach(asmResolver.GetSearchDirectories(), asmResolver.RemoveSearchDirectory);
+            asmResolver.AddSearchDirectory(FilePathModule.getDirectoryName(assemblyPath).Item);
+            var readerParams = new ReaderParameters
+            {
+                AssemblyResolver = asmResolver,
+                ReadSymbols = true,
+            };
+
+            string testRunnerPath = Path.GetFullPath(typeof(R4nd0mApps.TddStud10.TestRuntime.Marker).Assembly.Location);
+            var enterSPMD = from t in ModuleDefinition.ReadModule(testRunnerPath).GetTypes()
+                            where t.Name == "Marker"
+                            from m in t.Methods
+                            where m.Name == "EnterSequencePoint"
+                            select m;
+
+            Func<string, string> rebaseDocument = s => PathBuilder.rebaseCodeFilePath(projectPath, projectSnapshotPath, FilePath.NewFilePath(s)).Item;
+
+            Logger.LogInfo("Instrumenting {0}.", assemblyPath);
+
+            var assembly = AssemblyDefinition.ReadAssembly(assemblyPath.Item, readerParams);
+            if (assembly.Name.HasPublicKey)
+            {
+                Logger.LogError("Instrumenting signed assemblies is not supported yet: {0}.", assemblyPath);
+            }
+
+            /*
+                IL_0001: ldstr <assemblyId>
+                IL_0006: ldstr <mdtoken>
+                IL_000b: ldstr <spid>
+                IL_000d: call void R4nd0mApps.TddStud10.TestHost.Marker::ExitUnitTest(string, ldstr, ldstr)
+                */
+            MethodReference enterSPMR = assembly.MainModule.Import(enterSPMD.First());
+
+            VisitAllTypes(
+                assembly.Modules,
+                (m, t) =>
+                {
+                    InstrumentType2(assemblyPath.Item, rebaseDocument, enterSPMR, m, t);
+                });
+
+            var backupAssemblyPath = Path.ChangeExtension(assemblyPath.Item, ".original");
+            File.Delete(backupAssemblyPath);
+            File.Move(assemblyPath.Item, backupAssemblyPath);
+            try
+            {
+                assembly.Write(assemblyPath.Item, new WriterParameters { WriteSymbols = true, StrongNameKeyPair = null });
+            }
+            catch
+            {
+                Logger.LogInfo("Backing up or instrumentation failed. Attempting to revert back changes to {0}.", assemblyPath);
+                File.Delete(assemblyPath.Item);
+                File.Move(backupAssemblyPath, assemblyPath.Item);
+                throw;
+            }
+        }
+
         private static void InstrumentType(RunStartParams rsp, Func<DocumentLocation, IEnumerable<DTestCase>> findTest, string assemblyPath, Func<string, string> rebaseDocument, MethodReference enterSPMR, MethodReference exitUTMR, ModuleDefinition module, TypeDefinition type)
         {
             foreach (MethodDefinition meth in type.Methods)
@@ -291,6 +355,70 @@ namespace R4nd0mApps.TddStud10
                     {
                         Logger.LogError("Instrumentation: Unsupported method type: IsConstructo = {0}, Return Type = {1}, IsAsync = {2}.", meth.IsConstructor, meth.ReturnType, meth.IsAsync());
                     }
+                }
+
+                meth.Body.InitLocals = true;
+                meth.Body.OptimizeMacros();
+            }
+        }
+
+        private static void InstrumentType2(string assemblyPath, Func<string, string> rebaseDocument, MethodReference enterSPMR, ModuleDefinition module, TypeDefinition type)
+        {
+            foreach (MethodDefinition meth in type.Methods)
+            {
+                if (IsMethodSkipped(meth))
+                {
+                    continue;
+                }
+
+                meth.Body.SimplifyMacros();
+
+                var spi = from i in meth.Body.Instructions
+                          where i.SequencePoint != null
+                          where i.SequencePoint.StartLine != 0xfeefee
+                          select i;
+
+                var spId = 0;
+                var instructions = spi.ToArray();
+                foreach (var sp in instructions)
+                {
+                    if (sp.Previous != null &&
+                        (sp.Previous.OpCode.Code == Code.Leave_S
+                        || sp.Previous.OpCode.Code == Code.Leave
+                        || sp.Previous.OpCode.Code == Code.Endfilter
+                        || sp.Previous.OpCode.Code == Code.Endfinally))
+                    {
+                        continue;
+                    }
+
+                    /**********************************************************************************/
+                    /*                                PDB Path Replace                                */
+                    /**********************************************************************************/
+                    sp.SequencePoint.Document.Url = rebaseDocument(sp.SequencePoint.Document.Url);
+
+                    /**********************************************************************************/
+                    /*                            Inject Enter Sequence Point                         */
+                    /**********************************************************************************/
+                    Instruction instrMarker = sp;
+                    Instruction instr = null;
+                    var ilProcessor = meth.Body.GetILProcessor();
+
+                    // IL_000d: call void R4nd0mApps.TddStud10.TestHost.Marker::EnterSequencePoint(string, ldstr, ldstr)
+                    instr = ilProcessor.Create(OpCodes.Call, enterSPMR);
+                    ilProcessor.InsertBefore(instrMarker, instr);
+                    instrMarker = instr;
+                    // IL_000b: ldstr <spid>
+                    instr = ilProcessor.Create(OpCodes.Ldstr, (spId++).ToString());
+                    ilProcessor.InsertBefore(instrMarker, instr);
+                    instrMarker = instr;
+                    // IL_0006: ldstr <mdtoken>
+                    instr = ilProcessor.Create(OpCodes.Ldstr, meth.MetadataToken.RID.ToString());
+                    ilProcessor.InsertBefore(instrMarker, instr);
+                    instrMarker = instr;
+                    // IL_0001: ldstr <assemblyId>
+                    instr = ilProcessor.Create(OpCodes.Ldstr, module.Mvid.ToString());
+                    ilProcessor.InsertBefore(instrMarker, instr);
+                    instrMarker = instr;
                 }
 
                 meth.Body.InitLocals = true;

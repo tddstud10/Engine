@@ -10,6 +10,7 @@ WebSocket4Net
 Akka
 Akka.FSharp
 sqlite-net-pcl
+Mono.Cecil
 
 group TddStud10
     TddStud10.Common

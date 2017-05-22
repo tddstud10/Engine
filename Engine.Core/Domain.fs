@@ -53,7 +53,7 @@ type ResyncParams =
       Config : EngineConfig }
 
 type Project = 
-    { Index : int // change to ID
+    { Index : int
       Name : string
       FileName : FilePath
       DirectoryName : FilePath
@@ -73,19 +73,23 @@ type Solution =
         sprintf "%O (Dependencies: %d)" it.Path it.DependencyMap.Count
 
 type ProjectSnapshotCreatorOutput = 
-    { SnapshotPath : FilePath
+    { SnapshotDirectoryName : FilePath
       Project : Project }
+    member it.SnapshotPath =
+        (it.SnapshotDirectoryName, it.Project.FileName) ||> FilePath.combine
     override it.ToString() = 
-        sprintf "Snapshot output: %O [%O]" it.SnapshotPath it.Project
+        sprintf "Snapshot output: %O [%O]" it.SnapshotDirectoryName it.Project
 
 type ProjectFileFixerOutput = ProjectSnapshotCreatorOutput
 
 type ProjectBuilderOutput = 
     { Items : FilePath[]
-      SnapshotPath : FilePath
+      SnapshotDirectoryName : FilePath
       Project : Project }
+    member it.SnapshotPath =
+        (it.SnapshotDirectoryName, it.Project.FileName) ||> FilePath.combine
     override it.ToString() = 
-        sprintf "Buid output Items: %s [%O-%O]" (it.Items |> Array.fold (fun acc e -> acc + "; " + e.ToString()) "") it.SnapshotPath it.Project
+        sprintf "Buid output Items: %s [%O-%O]" (it.Items |> Array.fold (fun acc e -> acc + "; " + e.ToString()) "") it.SnapshotDirectoryName it.Project
 
 type AssemblyInstrumenterOutput = ProjectBuilderOutput
 
