@@ -15,7 +15,7 @@ module TestRunner =
             let! res = Async.Catch <| API.runTest rid t
             match res with
             | Choice1Of2 r -> 
-                (rid, t) |> RunTestSucceeded |> self.Tell
+                (rid, r) |> RunTestSucceeded |> self.Tell
             | Choice2Of2 e ->
                 let fi = e |> FailureInfo.FromException
                 (rid, t, fi) |> RunTestFailed |> self.Tell
@@ -39,8 +39,8 @@ module TestRunner =
             actor {
                 let! msg = m.Receive()
                 match msg with
-                | RunTestSucceeded(rid, t) ->
-                    (rid, t) |> EvTestRunSucceeded |> m.Context.System.EventStream.Publish
+                | RunTestSucceeded(rid, r) ->
+                    (rid, r) |> EvTestRunSucceeded |> m.Context.System.EventStream.Publish
                     m.UnstashAll()
                     return! loop()
                 | RunTestFailed(rid, t, e) ->

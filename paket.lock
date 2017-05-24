@@ -930,7 +930,7 @@ NUGET
     TddStud10.Common (1.2.3-ci0086)
       FSharp.Core (>= 4.0.0.1)
   remote: https://ci.appveyor.com/nuget/testhost-rrsttutj8jym
-    TddStud10.TestHost (0.2.1-ci0015)
+    TddStud10.TestHost (0.2.1-ci0016)
       FSharp.Core (>= 4.0.0.1)
       Mono.Cecil (>= 0.9.6.4)
       TddStud10.Common (>= 1.2.3-ci0086)

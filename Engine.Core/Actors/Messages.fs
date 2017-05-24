@@ -34,7 +34,7 @@ module ActorMessages =
         | EvAssemblySequencePointsDiscoverySucceeded of ResyncParams * ProjectBuilderOutput
         | EvAssemblySequencePointsDiscoveryFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
         | EvTestRunStarting of ResyncParams * DTestCase2
-        | EvTestRunSucceeded of ResyncParams * DTestCase2
+        | EvTestRunSucceeded of ResyncParams * DTestResult
         | EvTestRunFailed of ResyncParams * DTestCase2 * FailureInfo
 
     type RunnerMessage = 
@@ -91,6 +91,6 @@ module ActorMessages =
 
     type TestRunnerMessage =
         | RunTest of ResyncParams * DTestCase2
-        | RunTestSucceeded of ResyncParams * DTestCase2
+        | RunTestSucceeded of ResyncParams * DTestResult
         | RunTestFailed of ResyncParams * DTestCase2 * FailureInfo
 

@@ -228,7 +228,8 @@ TODO:
   - IncludeFolder settings
 - Multi-project solutions
 - Instrumentation should support snk
-- * InstrumentTestMethods post testdiscovery
+- InstrumentTestMethods post testdiscovery
+- Code coverage in runtest
 -------
 - IDE integration
   - IDE Events 

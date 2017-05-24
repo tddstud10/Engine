@@ -79,7 +79,7 @@ let actorLoop (m : Actor<_>) =
                     rp |> Option.bind (fun rp -> { rp with DiscoveryDone = rp.DiscoveryDone + 1 } |> Some)
                 | EvTestRunStarting(id, t) -> sprintf "[%O] Test run starting: %O" id t.DisplayName, rp
                 | EvTestRunSucceeded(id, t) -> 
-                    sprintf "[%O]     Test run succeeded: %O" id t.DisplayName, 
+                    sprintf "[%O]     Test run succeeded: [%A]%O" id t.Outcome t.DisplayName, 
                     rp |> Option.bind (fun rp -> { rp with TestsDone = rp.TestsDone + 1 } |> Some)
                 | EvTestRunFailed(id, t, e) -> 
                     sprintf "[%O]     Test run failed: %O %A" id t.DisplayName e, 

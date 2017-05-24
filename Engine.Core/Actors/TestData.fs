@@ -214,7 +214,18 @@ module API =
             return pbo
         }
     
-    let runTest rid (t : DTestCase2) = 
+    let runTest rsp (t : DTestCase2) = 
         async { 
-            System.Console.WriteLine(sprintf "Running test: %O" t.DisplayName)
+            let teSearchPath =
+                rsp.SolutionPaths.Path
+                |> FilePath.getDirectoryName
+                |> Prelude.flip FilePath.combine (FilePath "packages")
+
+            let tr =
+                t
+                |> Seq.singleton
+                |> TestAdapterExtensions.executeTest teSearchPath 
+                |> Seq.head
+            
+            return tr
         }
