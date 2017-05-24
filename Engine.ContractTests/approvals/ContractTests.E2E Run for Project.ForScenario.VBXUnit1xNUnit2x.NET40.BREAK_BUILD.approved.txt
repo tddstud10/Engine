@@ -74,7 +74,7 @@
         },
         "Config": {
           "SnapShotRoot": "<binroot>\\<GUID>",
-          "IgnoredTests": "",
+          "IgnoredTests": [],
           "IsDisabled": false,
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_BUILD"
@@ -166,7 +166,7 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": "",
+            "IgnoredTests": [],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -273,7 +273,7 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": "",
+            "IgnoredTests": [],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -380,7 +380,7 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": "",
+            "IgnoredTests": [],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -487,7 +487,7 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": "",
+            "IgnoredTests": [],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -594,7 +594,7 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": "",
+            "IgnoredTests": [],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -701,7 +701,7 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": "",
+            "IgnoredTests": [],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -808,7 +808,7 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": "",
+            "IgnoredTests": [],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -917,7 +917,7 @@
         },
         "Config": {
           "SnapShotRoot": "<binroot>\\<GUID>",
-          "IgnoredTests": "",
+          "IgnoredTests": [],
           "IsDisabled": false,
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_BUILD"
@@ -1015,7 +1015,7 @@
         },
         "Config": {
           "SnapShotRoot": "<binroot>\\<GUID>",
-          "IgnoredTests": "",
+          "IgnoredTests": [],
           "IsDisabled": false,
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_BUILD"

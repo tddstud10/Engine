@@ -2280,6 +2280,18 @@
       <Paket>True</Paket>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="R4nd0mApps.TddStud10.TestHost.Core">
+      <HintPath>..\packages\tddstud10\TddStud10.TestHost\lib\R4nd0mApps.TddStud10.TestHost.Core.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+    <Reference Include="R4nd0mApps.TddStud10.TestRuntime">
+      <HintPath>..\packages\tddstud10\TddStud10.TestHost\lib\R4nd0mApps.TddStud10.TestRuntime.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+  </ItemGroup>
   <Import Project="..\packages\SQLitePCLRaw.bundle_green\build\$(__paket__SQLitePCLRaw_bundle_green_targets).targets" Condition="Exists('..\packages\SQLitePCLRaw.bundle_green\build\$(__paket__SQLitePCLRaw_bundle_green_targets).targets')" Label="Paket" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.linux\build\$(__paket__SQLitePCLRaw_lib_e_sqlite3_linux_targets).targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux\build\$(__paket__SQLitePCLRaw_lib_e_sqlite3_linux_targets).targets')" Label="Paket" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.osx\build\$(__paket__SQLitePCLRaw_lib_e_sqlite3_osx_targets).targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.osx\build\$(__paket__SQLitePCLRaw_lib_e_sqlite3_osx_targets).targets')" Label="Paket" />

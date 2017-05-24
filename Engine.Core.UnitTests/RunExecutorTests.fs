@@ -12,7 +12,7 @@ open System.IO
 let cfg = { EngineConfigLoader.defaultValue<EngineConfig> with 
                 SnapShotRoot = "%WINDIR%"
                 AdditionalMSBuildProperties = [|"AdditionalMSBuildProperties"|]
-                IgnoredTests = "IgnoredTests" }
+                IgnoredTests = [|"IgnoredTests"|] }
 let now = DateTime.Now
 let host = new TestHost(Int32.MaxValue)
 let ex = (new InvalidOperationException("A mock method threw")) :> Exception

@@ -9,19 +9,19 @@ open TestData
 open ActorMessages
 
 module AssemblyTestsDiscoverer = 
-    let discoverAssemblyTestsWorker rid pbo (es: EventStream) (self : IActorRef) =
+    let discoverAssemblyTestsWorker rsp pbo (es: EventStream) (self : IActorRef) =
         async {
-            let f tid =
-                tid |> ReadyForRunTest |> es.Publish
-                tid |> EvTestDiscovered |> es.Publish   
+            let f x =
+                x |> ReadyForRunTest |> es.Publish
+                x |> EvTestDiscovered |> es.Publish   
 
-            let! res = Async.Catch <| API.discoverAssemblyTests f rid pbo
+            let! res = Async.Catch <| API.discoverAssemblyTests f rsp pbo
             match res with
             | Choice1Of2 r -> 
-                (rid, pbo) |> DiscoverAssemblyTestsSucceeded |> self.Tell
+                (rsp, r) |> DiscoverAssemblyTestsSucceeded |> self.Tell
             | Choice2Of2 e ->
                 let fi = e |> FailureInfo.FromException
-                (rid, pbo, fi) |> DiscoverAssemblyTestsFailed |> self.Tell
+                (rsp, pbo, fi) |> DiscoverAssemblyTestsFailed |> self.Tell
         } |> Async.RunSynchronously
     
     let actorLoop (m : Actor<_>) =         

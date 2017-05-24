@@ -59,9 +59,8 @@ let actorLoop (m : Actor<_>) =
                     rp |> Option.bind (fun rp -> { rp with InsturmentationDone = rp.InsturmentationDone + 1 } |> Some)
                 | EvAssemblySequencePointsDiscoveryStarting(id, a) -> 
                     sprintf "[%O] Assembly sequence points discovery starting: %O" id a, rp
-                | EvSequencePointsDiscovered(id, t) -> 
-                    sprintf "[%O] Sequence Points Discovered: %O" id t, 
-                    rp |> Option.bind (fun rp -> { rp with TotalTests = rp.TotalTests + 1 } |> Some)
+                | EvSequencePointsDiscovered(id, sps) -> 
+                    sprintf "[%O] Sequence Points Discovered: %s" id (sps |> Seq.fold (fun acc e -> acc + sprintf "%O[%d]; " e.Key (Seq.length e.Value)) ""), rp
                 | EvAssemblySequencePointsDiscoverySucceeded(id, a) -> 
                     sprintf "[%O]     Assembly sequence points discovery succeeded: %O" id a, 
                     rp |> Option.bind (fun rp -> { rp with DiscoveryDone = rp.DiscoveryDone + 1 } |> Some)
@@ -70,7 +69,7 @@ let actorLoop (m : Actor<_>) =
                     rp |> Option.bind (fun rp -> { rp with DiscoveryDone = rp.DiscoveryDone + 1 } |> Some)
                 | EvAssemblyTestDiscoveryStarting(id, a) -> sprintf "[%O] Assembly test discovery starting: %O" id a, rp
                 | EvTestDiscovered(id, t) -> 
-                    sprintf "[%O] Tests Discovered: %O" id t, 
+                    sprintf "[%O] Tests Discovered: %O" id t.DisplayName, 
                     rp |> Option.bind (fun rp -> { rp with TotalTests = rp.TotalTests + 1 } |> Some)
                 | EvAssemblyTestDiscoverySucceeded(id, a) -> 
                     sprintf "[%O]     Assembly test discovery succeeded: %O" id a, 
@@ -78,12 +77,12 @@ let actorLoop (m : Actor<_>) =
                 | EvAssemblyTestDiscoveryFailed(id, a, e) -> 
                     sprintf "[%O]     Assembly test discovery failed: %O %A" id a e, 
                     rp |> Option.bind (fun rp -> { rp with DiscoveryDone = rp.DiscoveryDone + 1 } |> Some)
-                | EvTestRunStarting(id, t) -> sprintf "[%O] Test run starting: %O" id t, rp
+                | EvTestRunStarting(id, t) -> sprintf "[%O] Test run starting: %O" id t.DisplayName, rp
                 | EvTestRunSucceeded(id, t) -> 
-                    sprintf "[%O]     Test run succeeded: %O" id t, 
+                    sprintf "[%O]     Test run succeeded: %O" id t.DisplayName, 
                     rp |> Option.bind (fun rp -> { rp with TestsDone = rp.TestsDone + 1 } |> Some)
                 | EvTestRunFailed(id, t, e) -> 
-                    sprintf "[%O]     Test run failed: %O %A" id t e, 
+                    sprintf "[%O]     Test run failed: %O %A" id t.DisplayName e, 
                     rp |> Option.bind (fun rp -> { rp with TestsDone = rp.TestsDone + 1 } |> Some)
             System.Console.WriteLine(sprintf "%s [%O]" msg rp)
             return! loop rp

@@ -927,13 +927,13 @@ NUGET
     FSharp.Core (4.0.0.1) - redirects: force
     Mono.Cecil (0.9.6.4)
   remote: https://ci.appveyor.com/nuget/common-wqs82t184w0x
-    TddStud10.Common (1.2.3-ci0085)
+    TddStud10.Common (1.2.3-ci0086)
       FSharp.Core (>= 4.0.0.1)
   remote: https://ci.appveyor.com/nuget/testhost-rrsttutj8jym
-    TddStud10.TestHost (0.2.1-ci0009)
+    TddStud10.TestHost (0.2.1-ci0015)
       FSharp.Core (>= 4.0.0.1)
       Mono.Cecil (>= 0.9.6.4)
-      TddStud10.Common (>= 1.2.3-ci0085)
+      TddStud10.Common (>= 1.2.3-ci0086)
 
 GROUP Test
 NUGET

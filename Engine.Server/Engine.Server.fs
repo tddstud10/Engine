@@ -228,6 +228,7 @@ TODO:
   - IncludeFolder settings
 - Multi-project solutions
 - Instrumentation should support snk
+- * InstrumentTestMethods post testdiscovery
 -------
 - IDE integration
   - IDE Events 
@@ -243,7 +244,8 @@ x Simplify messaging - ProjectBuildDone and BuildDone should ideally be the same
 
 *)
 
-(*[<EntryPoint>]
+(*
+[<EntryPoint>]
 let main2 _ = 
     let system = System.create ActorNames.System.Name (Configuration.load())
 

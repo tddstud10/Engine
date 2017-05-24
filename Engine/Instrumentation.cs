@@ -11,6 +11,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using R4nd0mApps.TddStud10.Engine.Core;
+using System.Collections.ObjectModel;
 
 namespace R4nd0mApps.TddStud10
 {
@@ -30,6 +31,15 @@ namespace R4nd0mApps.TddStud10
             }
 
             return null;
+        }
+
+        public static IReadOnlyDictionary<FilePath, IEnumerable<Common.Domain.SequencePoint>> GenerateSequencePointInfo2(FilePath assemblyPath, FilePath projectPath, FilePath projectSnapshotPath)
+        {
+            var x = 
+                GenerateSequencePointInfoImpl2(assemblyPath, projectPath, projectSnapshotPath)
+                .Aggregate(new Dictionary<FilePath, IEnumerable<Common.Domain.SequencePoint>>(), (acc, e) => { acc.Add(e.Key, e.Value); return acc; });
+
+            return new ReadOnlyDictionary<FilePath, IEnumerable<Common.Domain.SequencePoint>>(x);
         }
 
         private static PerDocumentSequencePoints GenerateSequencePointInfoImpl(IRunExecutorHost host, RunStartParams rsp)
@@ -63,6 +73,24 @@ namespace R4nd0mApps.TddStud10
             return perDocSP;
         }
 
+        private static PerDocumentSequencePoints GenerateSequencePointInfoImpl2(FilePath assemblyPath, FilePath projectPath, FilePath projectSnapshotPath)
+        {
+            var perDocSP = new PerDocumentSequencePoints();
+
+            Logger.LogInfo("Generating sequence point info for {0}.", assemblyPath);
+
+            var assembly = AssemblyDefinition.ReadAssembly(assemblyPath.Item, new ReaderParameters { ReadSymbols = true });
+
+            VisitAllTypes(
+                assembly.Modules,
+                (m, t) =>
+                {
+                    FindSequencePointForType2(projectPath, projectSnapshotPath, perDocSP, m, t);
+                });
+
+            return perDocSP;
+        }
+
         private static void FindSequencePointForType(RunStartParams rsp, PerDocumentSequencePoints perDocSP, ModuleDefinition module, TypeDefinition type)
         {
             foreach (MethodDefinition meth in type.Methods)
@@ -81,6 +109,43 @@ namespace R4nd0mApps.TddStud10
                 foreach (var sp in sps)
                 {
                     var fp = PathBuilder.rebaseCodeFilePath(rsp.Solution.Path, rsp.Solution.SnapshotPath, FilePath.NewFilePath(sp.SequencePoint.Document.Url));
+                    var seqPts = perDocSP.GetOrAdd(fp, _ => new ConcurrentBag<R4nd0mApps.TddStud10.Common.Domain.SequencePoint>());
+
+                    seqPts.Add(new R4nd0mApps.TddStud10.Common.Domain.SequencePoint
+                    {
+                        id = new SequencePointId
+                        {
+                            methodId = new MethodId(AssemblyId.NewAssemblyId(sp.module.Mvid), MdTokenRid.NewMdTokenRid(sp.meth.MetadataToken.RID)),
+                            uid = id++
+                        },
+                        document = fp,
+                        startLine = DocumentCoordinate.NewDocumentCoordinate(sp.SequencePoint.StartLine),
+                        startColumn = DocumentCoordinate.NewDocumentCoordinate(sp.SequencePoint.StartColumn),
+                        endLine = DocumentCoordinate.NewDocumentCoordinate(sp.SequencePoint.EndLine),
+                        endColumn = DocumentCoordinate.NewDocumentCoordinate(sp.SequencePoint.EndColumn),
+                    });
+                }
+            }
+        }
+
+        private static void FindSequencePointForType2(FilePath projectPath, FilePath projectSnapshotPath, PerDocumentSequencePoints perDocSP, ModuleDefinition module, TypeDefinition type)
+        {
+            foreach (MethodDefinition meth in type.Methods)
+            {
+                if (IsMethodSkipped(meth))
+                {
+                    continue;
+                }
+
+                var sps = from i in meth.Body.Instructions
+                          where i.SequencePoint != null
+                          where i.SequencePoint.StartLine != 0xfeefee
+                          select new { module, meth, i.SequencePoint };
+
+                int id = 0;
+                foreach (var sp in sps)
+                {
+                    var fp = PathBuilder.rebaseCodeFilePath(projectPath, projectSnapshotPath, FilePath.NewFilePath(sp.SequencePoint.Document.Url));
                     var seqPts = perDocSP.GetOrAdd(fp, _ => new ConcurrentBag<R4nd0mApps.TddStud10.Common.Domain.SequencePoint>());
 
                     seqPts.Add(new R4nd0mApps.TddStud10.Common.Domain.SequencePoint

@@ -4,6 +4,7 @@ open TestData
 open R4nd0mApps.TddStud10.Engine.Core
 
 module ActorMessages = 
+    open R4nd0mApps.TddStud10.Common.Domain
 
     type DataStoreMessage =
         | DsInitialize
@@ -25,16 +26,16 @@ module ActorMessages =
         | EvAssemblyInstrumentationSucceeded of ResyncParams * AssemblyInstrumenterOutput
         | EvAssemblyInstrumentationFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
         | EvAssemblyTestDiscoveryStarting of ResyncParams * ProjectBuilderOutput
-        | EvTestDiscovered of ResyncParams * TestId
+        | EvTestDiscovered of ResyncParams * DTestCase2
         | EvAssemblyTestDiscoverySucceeded of ResyncParams * ProjectBuilderOutput
         | EvAssemblyTestDiscoveryFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
         | EvAssemblySequencePointsDiscoveryStarting of ResyncParams * ProjectBuilderOutput
-        | EvSequencePointsDiscovered of ResyncParams * TestId
+        | EvSequencePointsDiscovered of ResyncParams * PerDocumentSequencePoints2
         | EvAssemblySequencePointsDiscoverySucceeded of ResyncParams * ProjectBuilderOutput
         | EvAssemblySequencePointsDiscoveryFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
-        | EvTestRunStarting of ResyncParams * TestId
-        | EvTestRunSucceeded of ResyncParams * TestId
-        | EvTestRunFailed of ResyncParams * TestId * FailureInfo
+        | EvTestRunStarting of ResyncParams * DTestCase2
+        | EvTestRunSucceeded of ResyncParams * DTestCase2
+        | EvTestRunFailed of ResyncParams * DTestCase2 * FailureInfo
 
     type RunnerMessage = 
         | Resync of ResyncParams
@@ -86,10 +87,10 @@ module ActorMessages =
         | DiscoverAssemblySequencePointsFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
 
     type TestRunnerCoordinatorMessage =
-        | ReadyForRunTest of ResyncParams * TestId
+        | ReadyForRunTest of ResyncParams * DTestCase2
 
     type TestRunnerMessage =
-        | RunTest of ResyncParams * TestId
-        | RunTestSucceeded of ResyncParams * TestId
-        | RunTestFailed of ResyncParams * TestId * FailureInfo
+        | RunTest of ResyncParams * DTestCase2
+        | RunTestSucceeded of ResyncParams * DTestCase2
+        | RunTestFailed of ResyncParams * DTestCase2 * FailureInfo
 

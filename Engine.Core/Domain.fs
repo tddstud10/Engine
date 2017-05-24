@@ -11,11 +11,11 @@ open System.Collections.Generic
 type EngineConfig = 
     { [<DefaultValue(@"%temp%\_tdd")>]            
       SnapShotRoot : string
-      [<DefaultValue("")>]            
-      IgnoredTests : string
+      [<DefaultValue([||] : string[])>]            
+      IgnoredTests : string[]
       [<DefaultValue(false)>]            
       IsDisabled : bool
-      [<DefaultValue([|"_TDDSTUD10=1"|])>]            
+      [<DefaultValue([||] : string[])>]            
       AdditionalMSBuildProperties : string[]
       [<DefaultValue([|"packages"; "paket-files"|])>]  
       SnapshotIncludeFolders : string[]
@@ -92,6 +92,8 @@ type ProjectBuilderOutput =
         sprintf "Buid output Items: %s [%O-%O]" (it.Items |> Array.fold (fun acc e -> acc + "; " + e.ToString()) "") it.SnapshotDirectoryName it.Project
 
 type AssemblyInstrumenterOutput = ProjectBuilderOutput
+
+type PerDocumentSequencePoints2 = IReadOnlyDictionary<FilePath, seq<SequencePoint>>
 
 // =================================================
 // NOTE: Adding any new cases will break RunStateTracker.
