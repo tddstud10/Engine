@@ -6,32 +6,40 @@ open Akka.FSharp
 open Akka.Routing
 open System
 open TestData
+open R4nd0mApps.TddStud10.TestHost
 
 module TestRunner = 
     open ActorMessages
 
-    let runTestErrorHandler rid t _ (self : IActorRef) =
+    let runTestErrorHandler svc rsp t _ (self : IActorRef) =
         async {
-            let! res = Async.Catch <| API.runTest rid t
+            let! res = Async.Catch <| API.runTest svc rsp t
             match res with
             | Choice1Of2 r -> 
-                (rid, r) |> RunTestSucceeded |> self.Tell
+                (rsp, r) |> RunTestSucceeded |> self.Tell
             | Choice2Of2 e ->
                 let fi = e |> FailureInfo.FromException
-                (rid, t, fi) |> RunTestFailed |> self.Tell
+                (rsp, t, fi) |> RunTestFailed |> self.Tell
         } |> Async.RunSynchronously
     
     let actorLoop (m : Actor<_>) =         
         let bgWorker = BackgroundWorker()
-        m.Defer bgWorker.AbortBackgroundWorker
+        let svcCB = TestAdapterServiceFactory.TestAdapterServiceCallback()
+        let proc, svc = TestAdapterServiceFactory.create svcCB
+        
+        let cleanup () =
+            bgWorker.AbortBackgroundWorker()
+            proc.Kill()
+
+        m.Defer cleanup
 
         let rec loop() = 
             actor { 
                 let! msg = m.Receive()
                 match msg with
-                | RunTest(rid, t) -> 
-                    (rid, t) |> EvTestRunStarting |> m.Context.System.EventStream.Publish
-                    bgWorker.StartOnBackgroundWorker (runTestErrorHandler rid t m.Context.System.EventStream) m.Self 
+                | RunTest(rsp, t) -> 
+                    (rsp, t) |> EvTestRunStarting |> m.Context.System.EventStream.Publish
+                    bgWorker.StartOnBackgroundWorker (runTestErrorHandler svc rsp t m.Context.System.EventStream) m.Self 
                     return! loopTaskRunning()
                 | _ -> Prelude.undefined
             }
@@ -39,12 +47,12 @@ module TestRunner =
             actor {
                 let! msg = m.Receive()
                 match msg with
-                | RunTestSucceeded(rid, r) ->
-                    (rid, r) |> EvTestRunSucceeded |> m.Context.System.EventStream.Publish
+                | RunTestSucceeded(rsp, r) ->
+                    (rsp, r) |> EvTestRunSucceeded |> m.Context.System.EventStream.Publish
                     m.UnstashAll()
                     return! loop()
-                | RunTestFailed(rid, t, e) ->
-                    (rid, t, e) |> EvTestRunFailed |> m.Context.System.EventStream.Publish
+                | RunTestFailed(rsp, t, e) ->
+                    (rsp, t, e) |> EvTestRunFailed |> m.Context.System.EventStream.Publish
                     m.UnstashAll()
                     return! loop()
                 | _ -> 
@@ -59,14 +67,14 @@ module TestRunnerCoordinator =
     let actorLoop (m : Actor<_>) =         
         m.Context.System.EventStream.Subscribe<TestRunnerCoordinatorMessage>(m.Self) |> ignore
 
-        let opts = [ SpawnOption.Router(RoundRobinPool(Environment.ProcessorCount)) ]
+        let opts = [ SpawnOption.Router(RoundRobinPool(2)) ]
         let tr = spawnOpt m.Context ActorNames.TestRunner.Name TestRunner.actorLoop opts
         let rec loop() = 
             actor { 
                 let! msg = m.Receive()
                 match msg with
-                | ReadyForRunTest(id, t) -> 
-                    (id, t) |> RunTest |> tr.Tell
+                | ReadyForRunTest(rsp, t) -> 
+                    (rsp, t) |> RunTest |> tr.Tell
                 return! loop()
             }
         loop()

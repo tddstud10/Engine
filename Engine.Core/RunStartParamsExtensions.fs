@@ -24,20 +24,20 @@ module RunStartParamsExtensions =
               Config = { cfg with SnapShotRoot = snapShotRoot.ToString() }
               DataFiles = 
                   { SequencePointStore =
-                        PathBuilder.combine [ buildRoot
-                                              FilePath "Z_sequencePointStore.xml" ]
+                        FilePath.combine [ buildRoot
+                                           FilePath "Z_sequencePointStore.xml" ]
                     CoverageSessionStore = 
-                        PathBuilder.combine [ buildRoot
-                                              FilePath "Z_coverageresults.xml" ]
+                        FilePath.combine [ buildRoot
+                                           FilePath "Z_coverageresults.xml" ]
                     TestResultsStore = 
-                        PathBuilder.combine [ buildRoot
-                                              FilePath "Z_testresults.xml" ]
+                        FilePath.combine [ buildRoot
+                                           FilePath "Z_testresults.xml" ]
                     DiscoveredUnitTestsStore = 
-                        PathBuilder.combine [ buildRoot
-                                              FilePath "Z_discoveredUnitTests.xml" ]
+                        FilePath.combine [ buildRoot
+                                           FilePath "Z_discoveredUnitTests.xml" ]
                     DiscoveredUnitDTestsStore = 
-                        PathBuilder.combine [ buildRoot
-                                              FilePath "Z_discoveredUnitDTests.xml" ]
+                        FilePath.combine [ buildRoot
+                                           FilePath "Z_discoveredUnitDTests.xml" ]
                     TestFailureInfoStore = 
-                        PathBuilder.combine [ buildRoot
-                                              FilePath "Z_testFailureInfo.xml" ] } }
+                        FilePath.combine [ buildRoot
+                                           FilePath "Z_testFailureInfo.xml" ] } }

@@ -224,18 +224,26 @@ v Cancel
   - Incr With hung operation
 
 TODO:
+v support nunit v3
+v Copy test runtime
+v Code coverage in runtest
+v net.pipe conditional
+- test on osx 
+- datastore integration
+- Console log to actual logs
+- Redirect akka.net Logging to our logger
+
 - Snapshot
   - IncludeFolder settings
 - Multi-project solutions
 - Instrumentation should support snk
-- InstrumentTestMethods post testdiscovery
-- Code coverage in runtest
+- run tests serially doesnt work
+
 -------
+
 - IDE integration
   - IDE Events 
     - Specifics of each step - names of projects discovered, etc.
-  - Console log to actual logs
-  - Redirect akka.net Logging to our logger
 - Incremental
   - Test discover method will be different, will do lookup on files changed
   - Combined data since last resync
@@ -258,8 +266,10 @@ let main2 _ =
     let rsp =
         { Id = Guid.NewGuid()
           SolutionPaths = 
-            { Path = @"d:\src\t\Engine\TestProjects\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
-              SnapshotPath = @"D:\delme\_tdd\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
+            { Path = @"D:\src\t\Engine\TestProjects\FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln" |> FilePath
+              SnapshotPath = @"D:\delme\_tdd\FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln" |> FilePath
+//            { Path = @"d:\src\t\Engine\TestProjects\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
+//              SnapshotPath = @"D:\delme\_tdd\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
               BuildRoot = "" |> FilePath }
           Config = EngineConfigLoader.defaultValue<_> }
 

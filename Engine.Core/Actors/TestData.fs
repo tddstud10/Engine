@@ -3,7 +3,6 @@
 open R4nd0mApps.TddStud10.Common.Domain
 open R4nd0mApps.TddStud10.Engine.Core
 open System
-open System.Diagnostics
 open System.IO
 
 type FailureInfo = 
@@ -27,6 +26,9 @@ module API =
     open System.Reflection
     open System.Text
     open R4nd0mApps.TddStud10.TestHost
+    open R4nd0mApps.TddStud10.TestRuntime
+
+    let logger = R4nd0mApps.TddStud10.Logger.LoggerFactory.logger
     
     let createProjectSnapshot rsp p = 
         let updateProjectItemSnapshot snapshotPath pi = 
@@ -50,9 +52,8 @@ module API =
             }
         async { 
             let snapshotDir = 
-                rsp.SolutionPaths.SnapshotPath
-                |> FilePath.getDirectoryName
-                |> Prelude.flip FilePath.combine (p.Index.ToString() |> FilePath)
+                [ rsp.SolutionPaths.SnapshotPath |> FilePath.getDirectoryName; p.Index.ToString() |> FilePath ]
+                |> FilePath.combine
             let! _ = p.Items
                      |> Array.map (updateProjectItemSnapshot snapshotDir)
                      |> Async.Parallel
@@ -85,7 +86,7 @@ module API =
         psnPath
     
 *)
-    let fixProjectFile rsp p = async { return p }
+    let fixProjectFile _ p = async { return p }
     
     type BuildLogger() = 
         inherit Microsoft.Build.Utilities.Logger()
@@ -123,7 +124,7 @@ module API =
             >> String.toLowerInvariant
             >> Prelude.flip List.contains [ ".dll"; ".exe" ]
         async { 
-            let wrapperProjectPath = (sso.SnapshotDirectoryName, wrapperProjectName |> FilePath) ||> FilePath.combine
+            let wrapperProjectPath = [ sso.SnapshotDirectoryName; wrapperProjectName |> FilePath ] |> FilePath.combine
             FilePath.writeAllText wrapperProjectContents wrapperProjectPath
             let props = 
                 rsp.Config.AdditionalMSBuildProperties
@@ -145,7 +146,8 @@ module API =
                   "DebugSymbols", "true"
                   "DebugType", "full"
                   "Optimize", "false"
-                  "_TDDSTUD10", "1" ]
+                  "_TDDSTUD10", "1"
+                  "VisualStudioVersion", "14.0" ]
                 |> List.fold (fun acc (p, v) -> Map.add p v acc) props
             
             let props = props :> IDictionary<_, _>
@@ -167,7 +169,7 @@ module API =
                      Project = sso.Project }
         }
     
-    let invokeInstrumentationAPI<'T> methName pp pssp ap = 
+    let invokeInstrumentationAPI<'T> methName args = 
         async { 
             let ret = 
                 sprintf "R4nd0mApps.TddStud10.Engine%s" (if DFizer.isDF() then ".DF"
@@ -175,57 +177,55 @@ module API =
                 |> Assembly.Load
                 |> fun a -> a.GetType("R4nd0mApps.TddStud10.Instrumentation")
                 |> fun t -> t.GetMethod(methName, BindingFlags.Public ||| BindingFlags.Static)
-                |> fun m -> m.Invoke(null, [| ap; pp; pssp |]) 
+                |> fun m -> m.Invoke(null, args) 
             return ret :?> 'T
         }
     
     let instrumentAssembly _ pbo = 
         async { 
             let! _ = pbo.Items
-                     |> Array.map (invokeInstrumentationAPI<unit> "Instrument2" pbo.Project.Path pbo.SnapshotPath)
+                     |> Array.map (fun fp -> invokeInstrumentationAPI<unit> "Instrument2" [| fp; pbo.Project.Path; pbo.SnapshotPath|])
                      |> Async.Parallel
+
+            pbo.Items
+            |> Seq.map FilePath.getDirectoryName
+            |> Seq.iter (fun d -> 
+                         let s = TestRunTimeInstaller.Install(d.ToString())
+                         logger.logInfof "Installing test runtine: %s" s)
+
             return pbo
         }
     
     let discoverAssemblySequencePoints f rsp (pbo : ProjectBuilderOutput) = 
         async { 
             let! _ = pbo.Items
-                     |> Array.map 
-                            (invokeInstrumentationAPI<PerDocumentSequencePoints2> "GenerateSequencePointInfo2" 
-                                 pbo.Project.Path pbo.SnapshotPath >> Async.map (Prelude.tuple2 rsp >> f))
+                     |> Array.map (fun fp -> invokeInstrumentationAPI<PerDocumentSequencePoints2> "GenerateSequencePointInfo2" [|fp; pbo.Project.Path; pbo.SnapshotPath |] |> Async.map (Prelude.tuple2 rsp >> f))
                      |> Async.Parallel
             return pbo
         }
 
-    let discoverAssemblyTests f rsp pbo = 
+    let discoverAssemblyTests (svc : ITestAdapterService) rsp pbo = 
         async {
             let rebasePaths = pbo.Project.Path, pbo.SnapshotPath
             let tdSearchPath =
-                rsp.SolutionPaths.Path
-                |> FilePath.getDirectoryName
-                |> Prelude.flip FilePath.combine (FilePath "packages")
-
-            let! _ = 
-                pbo.Items
-                |> Array.map (fun item -> async { return TestAdapterExtensions.discoverTests rebasePaths tdSearchPath rsp.Config.IgnoredTests item })
-                |> Async.Parallel
-                |> Async.map (Seq.collect id >> Seq.iter (Prelude.tuple2 rsp >> f))
+                [ rsp.SolutionPaths.Path |> FilePath.getDirectoryName; FilePath "packages" ]
+                |> FilePath.combine
+            
+            pbo.Items
+            |> Array.iter (svc.DiscoverTests rebasePaths tdSearchPath rsp.Config.IgnoredTests)
     
             return pbo
         }
     
-    let runTest rsp (t : DTestCase2) = 
+    let runTest (svc : ITestAdapterService) rsp (t : DTestCase2) = 
         async { 
             let teSearchPath =
-                rsp.SolutionPaths.Path
-                |> FilePath.getDirectoryName
-                |> Prelude.flip FilePath.combine (FilePath "packages")
+                [ rsp.SolutionPaths.Path |> FilePath.getDirectoryName; FilePath "packages" ]
+                |> FilePath.combine
 
             let tr =
                 t
-                |> Seq.singleton
-                |> TestAdapterExtensions.executeTest teSearchPath 
-                |> Seq.head
+                |> svc.ExecuteTestsAndCollectCoverageData teSearchPath 
             
             return tr
         }

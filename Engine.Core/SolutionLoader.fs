@@ -43,9 +43,8 @@ let private projectIDFromMatch excludePatterns slnDir i (m : Match) =
         None
     else
         let projectFilePath = 
-            m.Groups.["path"].Value
-            |> FilePath
-            |> FilePath.combine slnDir
+            [ slnDir; FilePath m.Groups.["path"].Value ] 
+            |> FilePath.combine
 
         { Index = i
           Name = m.Groups.["name"].Value
@@ -65,8 +64,7 @@ let private getProjectReferences projectPath =
     |> Seq.cast<XmlNode>
     |> Seq.map (fun xn -> Option.attempt (fun () -> xn.Attributes.["Include"].Value |> FilePath))
     |> Seq.choose id
-    |> Seq.map (FilePath.combine (FilePath.getDirectoryName projectPath)
-                >> FilePath.getFullPath)
+    |> Seq.map (fun p -> [ FilePath.getDirectoryName projectPath; p] |> FilePath.combine |> FilePath.getFullPath)
     
 let private findProjectFromPath (projects : Project list) projectPath = 
     projects

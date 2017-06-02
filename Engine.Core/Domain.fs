@@ -51,6 +51,8 @@ type ResyncParams =
     { Id : ResyncId
       SolutionPaths : SolutionPaths
       Config : EngineConfig }
+    override it.ToString() = 
+        sprintf "%O" it.Id
 
 type Project = 
     { Index : int
@@ -63,7 +65,7 @@ type Project =
     override it.ToString() = 
         sprintf "%s::%O\%O [%O]#%d: Items = %d" it.Name it.DirectoryName it.FileName it.Id it.Index (it.Items |> Seq.length)
     member it.Path =
-        (it.DirectoryName, it.FileName) ||> FilePath.combine
+        [it.DirectoryName; it.FileName] |> FilePath.combine
 
 type Solution = 
     { Path : FilePath
@@ -76,24 +78,29 @@ type ProjectSnapshotCreatorOutput =
     { SnapshotDirectoryName : FilePath
       Project : Project }
     member it.SnapshotPath =
-        (it.SnapshotDirectoryName, it.Project.FileName) ||> FilePath.combine
+        [it.SnapshotDirectoryName; it.Project.FileName] |> FilePath.combine
     override it.ToString() = 
         sprintf "Snapshot output: %O [%O]" it.SnapshotDirectoryName it.Project
 
 type ProjectFileFixerOutput = ProjectSnapshotCreatorOutput
 
+// Nest the ProjectSnapshotCreatorOutput
 type ProjectBuilderOutput = 
     { Items : FilePath[]
       SnapshotDirectoryName : FilePath
       Project : Project }
     member it.SnapshotPath =
-        (it.SnapshotDirectoryName, it.Project.FileName) ||> FilePath.combine
+        [it.SnapshotDirectoryName; it.Project.FileName] |> FilePath.combine
     override it.ToString() = 
         sprintf "Buid output Items: %s [%O-%O]" (it.Items |> Array.fold (fun acc e -> acc + "; " + e.ToString()) "") it.SnapshotDirectoryName it.Project
 
 type AssemblyInstrumenterOutput = ProjectBuilderOutput
 
 type PerDocumentSequencePoints2 = IReadOnlyDictionary<FilePath, seq<SequencePoint>>
+
+type AssemblyTestsDiscovererOutput = ProjectBuilderOutput
+
+type TestRunCoverageData = string * string * string * string * seq<string * string * string>
 
 // =================================================
 // NOTE: Adding any new cases will break RunStateTracker.

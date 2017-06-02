@@ -149,6 +149,18 @@
     </Compile>
     <Compile Include="Engine.Server.fs" />
     <None Include="App.config" />
+    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\R4nd0mApps.TddStud10.TestAdapterServiceHost.exe">
+      <Link>R4nd0mApps.TddStud10.TestAdapterServiceHost.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\R4nd0mApps.TddStud10.TestAdapterServiceHost.exe.config">
+      <Link>R4nd0mApps.TddStud10.TestAdapterServiceHost.exe.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\R4nd0mApps.TddStud10.TestAdapterServiceHost.pdb">
+      <Link>R4nd0mApps.TddStud10.TestAdapterServiceHost.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
