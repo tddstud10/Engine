@@ -213,6 +213,17 @@ open R4nd0mApps.TddStud10.Common.Domain
 
 (*
 
+Directions
+- Basics 
+  - datastore
+  - events
+  - incremental
+- VS
+- VSCode on Win
+- VS for macOS
+  - adapter
+
+
 Scenarios:
 v Resync
 v Cancel
@@ -241,6 +252,7 @@ v net.pipe conditional
 
 -------
 
+- Use cancel of ITestExecutor
 - IDE integration
   - IDE Events 
     - Specifics of each step - names of projects discovered, etc.

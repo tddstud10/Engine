@@ -26,6 +26,10 @@
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\Debug\Engine.ContractTests.XML</DocumentationFile>
     <StartAction>Program</StartAction>
+    <StartProgram>D:\src\t\Engine\packages\test\xunit.runner.console\tools\xunit.console.exe</StartProgram>
+    <StartArguments>"D:\src\t\Engine\build\R4nd0mApps.TddStud10.Engine.ContractTests.dll"</StartArguments>
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -107,14 +111,6 @@
     <Compile Include="Helpers.fs" />
     <Compile Include="ContractTests.fs" />
     <Content Include="paket.references" />
-    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll">
-      <Link>Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\msdia120typelib_clr0200.dll">
-      <Link>msdia120typelib_clr0200.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\TddStud10.TestHost.exe">
       <Link>TddStud10.TestHost.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -124,6 +120,26 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="app.config" />
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\VS\R4nd0mApps.XTestPlatform.VS.dll">
+      <Link>Xtensions\VS\R4nd0mApps.XTestPlatform.VS.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\VS\R4nd0mApps.XTestPlatform.VS.pdb">
+      <Link>Xtensions\VS\R4nd0mApps.XTestPlatform.VS.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\TddStud10.TestHost.pdb">
+      <Link>TddStud10.TestHost.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\VS\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll">
+      <Link>Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\VS\msdia120typelib_clr0200.dll">
+      <Link>msdia120typelib_clr0200.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -994,7 +1010,7 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.6' Or $(TargetFrameworkVersion) == 'v2.0')">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.3' Or $(TargetFrameworkVersion) == 'v1.4' Or $(TargetFrameworkVersion) == 'v1.5' Or $(TargetFrameworkVersion) == 'v1.6' Or $(TargetFrameworkVersion) == 'v2.0')">
       <ItemGroup>
         <Reference Include="System.Security.Cryptography.Csp">
           <HintPath>..\packages\System.Security.Cryptography.Csp\ref\netstandard1.3\System.Security.Cryptography.Csp.dll</HintPath>
@@ -1267,25 +1283,6 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0')">
-      <ItemGroup>
-        <Reference Include="Mono.Cecil">
-          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net20\Mono.Cecil.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-        <Reference Include="Mono.Cecil.Mdb">
-          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net20\Mono.Cecil.Mdb.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-        <Reference Include="Mono.Cecil.Pdb">
-          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net20\Mono.Cecil.Pdb.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v3.5'">
       <ItemGroup>
         <Reference Include="Mono.Cecil">
@@ -1310,7 +1307,7 @@
         </Reference>
       </ItemGroup>
     </When>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7')">
       <ItemGroup>
         <Reference Include="Mono.Cecil">
           <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net40\Mono.Cecil.dll</HintPath>
@@ -1334,45 +1331,38 @@
         </Reference>
       </ItemGroup>
     </When>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7')">
+    <When Condition="($(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.3' Or $(TargetFrameworkVersion) == 'v1.4' Or $(TargetFrameworkVersion) == 'v1.5' Or $(TargetFrameworkVersion) == 'v1.6' Or $(TargetFrameworkVersion) == 'v2.0')) Or ($(TargetFrameworkIdentifier) == '.NETCoreApp' And ($(TargetFrameworkVersion) == 'v1.0' Or $(TargetFrameworkVersion) == 'v1.1' Or $(TargetFrameworkVersion) == 'v2.0'))">
       <ItemGroup>
         <Reference Include="Mono.Cecil">
-          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net45\Mono.Cecil.dll</HintPath>
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\netstandard1.3\Mono.Cecil.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
         <Reference Include="Mono.Cecil.Mdb">
-          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net45\Mono.Cecil.Mdb.dll</HintPath>
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\netstandard1.3\Mono.Cecil.Mdb.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
         <Reference Include="Mono.Cecil.Pdb">
-          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net45\Mono.Cecil.Pdb.dll</HintPath>
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\netstandard1.3\Mono.Cecil.Pdb.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
         <Reference Include="Mono.Cecil.Rocks">
-          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\net45\Mono.Cecil.Rocks.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <When Condition="$(TargetFrameworkIdentifier) == 'Silverlight' And $(TargetFrameworkVersion) == 'v5.0'">
-      <ItemGroup>
-        <Reference Include="Mono.Cecil">
-          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\sl5\Mono.Cecil.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-        <Reference Include="Mono.Cecil.Rocks">
-          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\sl5\Mono.Cecil.Rocks.dll</HintPath>
+          <HintPath>..\packages\tddstud10\Mono.Cecil\lib\netstandard1.3\Mono.Cecil.Rocks.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
       </ItemGroup>
     </When>
   </Choose>
+  <ItemGroup>
+    <Reference Include="R4nd0mApps.XTestPlatform.Api">
+      <HintPath>..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\R4nd0mApps.XTestPlatform.Api.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="R4nd0mApps.TddStud10.Common.Domain">
       <HintPath>..\packages\tddstud10\TddStud10.Common\lib\R4nd0mApps.TddStud10.Common.Domain.dll</HintPath>

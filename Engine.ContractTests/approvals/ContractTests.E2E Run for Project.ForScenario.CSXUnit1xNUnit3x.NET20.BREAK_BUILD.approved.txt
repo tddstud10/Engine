@@ -74,7 +74,9 @@
         },
         "Config": {
           "SnapShotRoot": "<binroot>\\<GUID>",
-          "IgnoredTests": [],
+          "IgnoredTests": [
+            "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+          ],
           "IsDisabled": false,
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_BUILD"
@@ -166,7 +168,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -273,7 +277,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -380,7 +386,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -487,7 +495,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -594,7 +604,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -701,7 +713,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -808,7 +822,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_BUILD"
@@ -917,7 +933,9 @@
         },
         "Config": {
           "SnapShotRoot": "<binroot>\\<GUID>",
-          "IgnoredTests": [],
+          "IgnoredTests": [
+            "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+          ],
           "IsDisabled": false,
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_BUILD"
@@ -1015,7 +1033,9 @@
         },
         "Config": {
           "SnapShotRoot": "<binroot>\\<GUID>",
-          "IgnoredTests": [],
+          "IgnoredTests": [
+            "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+          ],
           "IsDisabled": false,
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_BUILD"

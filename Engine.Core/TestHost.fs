@@ -1,7 +1,7 @@
 ﻿namespace R4nd0mApps.TddStud10.Engine.Core
 
 module TestHost =
-    open R4nd0mApps.TddStud10.Common.Domain
+    open System
 
     let buildCommandLine cmd (rsp : RunStartParams) =
         sprintf "\"%s\" \"%O\" \"%O\" \"%O\" \"%O\" \"%O\" \"%O\" \"%O\" \"%O\" \"%O\" \"%O\""
@@ -15,4 +15,4 @@ module TestHost =
             rsp.Solution.Path
             rsp.Solution.SnapshotPath
             rsp.DataFiles.DiscoveredUnitDTestsStore
-            rsp.Config.IgnoredTests
+            (String.Join(",", rsp.Config.IgnoredTests))

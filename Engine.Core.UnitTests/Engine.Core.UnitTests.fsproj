@@ -26,6 +26,9 @@
     <DocumentationFile>bin\Debug\Engine.Core.UnitTests.XML</DocumentationFile>
     <OtherFlags>
     </OtherFlags>
+    <StartArguments>"execute" "D:\src\t\Engine\build\e980bc2e-eae7-4d61-b7e7-504a0ee17e58\CSXUnit1xNUnit3x.NET20\out" "D:\src\t\Engine\build\e980bc2e-eae7-4d61-b7e7-504a0ee17e58\CSXUnit1xNUnit3x.NET20\out\Z_coverageresults.xml" "D:\src\t\Engine\build\e980bc2e-eae7-4d61-b7e7-504a0ee17e58\CSXUnit1xNUnit3x.NET20\out\Z_testresults.xml" "D:\src\t\Engine\build\e980bc2e-eae7-4d61-b7e7-504a0ee17e58\CSXUnit1xNUnit3x.NET20\out\Z_discoveredUnitTests.xml" "D:\src\t\Engine\build\e980bc2e-eae7-4d61-b7e7-504a0ee17e58\CSXUnit1xNUnit3x.NET20\out\Z_testFailureInfo.xml" "636334317335862729" "D:\src\t\Engine\TestProjects\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" "D:\src\t\Engine\build\e980bc2e-eae7-4d61-b7e7-504a0ee17e58\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" "D:\src\t\Engine\build\e980bc2e-eae7-4d61-b7e7-504a0ee17e58\CSXUnit1xNUnit3x.NET20\out\Z_discoveredUnitDTests.xml" "CSXUnit1xNUnit3x.StringTests3.TestToSkip"</StartArguments>
+    <StartAction>Program</StartAction>
+    <StartProgram>d:\src\t\Engine\build\TddStud10.TestHost.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -1296,7 +1299,7 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.6' Or $(TargetFrameworkVersion) == 'v2.0')">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.3' Or $(TargetFrameworkVersion) == 'v1.4' Or $(TargetFrameworkVersion) == 'v1.5' Or $(TargetFrameworkVersion) == 'v1.6' Or $(TargetFrameworkVersion) == 'v2.0')">
       <ItemGroup>
         <Reference Include="System.Security.Cryptography.Csp">
           <HintPath>..\packages\System.Security.Cryptography.Csp\ref\netstandard1.3\System.Security.Cryptography.Csp.dll</HintPath>

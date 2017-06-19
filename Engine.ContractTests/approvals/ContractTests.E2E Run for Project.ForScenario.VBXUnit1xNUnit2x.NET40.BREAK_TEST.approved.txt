@@ -5812,7 +5812,7 @@
           "Outcome": {
             "Case": "TOFailed"
           },
-          "ErrorStackTrace": "at VBXUnit1xNUnit2x.AppSettingTests.name() in <root>\\APPSETTINGTESTS.VB:line 34\r\n",
+          "ErrorStackTrace": "   at VBXUnit1xNUnit2x.AppSettingTests.name() in <root>\\APPSETTINGTESTS.VB:line 34",
           "ErrorMessage": "  Expected: same as \"test?\"\r\n  But was:  \"test\"\r\n"
         }
       ]
@@ -5848,7 +5848,7 @@
           "Outcome": {
             "Case": "TOFailed"
           },
-          "ErrorStackTrace": "   at VBXUnit1xNUnit2x.AppSettingTests.name2() in <root>\\APPSETTINGTESTS.VB:line 43",
+          "ErrorStackTrace": "   at VBXUnit1xNUnit2x.AppSettingTests.name2() in <root>\\APPSETTINGTESTS.VB:line 45",
           "ErrorMessage": "Assert.Equal() Failure\r\nPosition: First difference is at position 4\r\nExpected: test\r\nActual:   test?"
         }
       ]
@@ -5873,7 +5873,7 @@
       ]
     },
     {
-      "Key": "<root>\\APPSETTINGTESTS.VB|43",
+      "Key": "<root>\\APPSETTINGTESTS.VB|45",
       "Value": [
         {
           "message": "Assert.Equal() Failure\r\nPosition: First difference is at position 4\r\nExpected: test\r\nActual:   test?",
@@ -5882,7 +5882,7 @@
               "Case": "ParsedFrame",
               "Fields": [
                 "VBXUnit1xNUnit2x.AppSettingTests.name2()",
-                "<root>\\APPSETTINGTESTS.VB|43"
+                "<root>\\APPSETTINGTESTS.VB|45"
               ]
             }
           ]

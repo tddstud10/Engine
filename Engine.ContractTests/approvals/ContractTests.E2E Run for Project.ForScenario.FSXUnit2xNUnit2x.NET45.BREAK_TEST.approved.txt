@@ -7,12 +7,6 @@
     ],
     [
       {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
         "StartTime": "<DATETIME>",
         "TestHostPath": {
           "Case": "FilePath",
@@ -78,10 +72,23 @@
             ]
           }
         },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
+        "Config": {
+          "SnapShotRoot": "<binroot>\\<GUID>",
+          "IgnoredTests": [],
+          "IsDisabled": false,
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludePatterns": [
+            "\\.git\\",
+            "\\obj\\",
+            "\\bin\\"
+          ]
+        }
       }
     ],
     [
@@ -92,12 +99,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -163,10 +164,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -192,12 +206,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -263,10 +271,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -292,12 +313,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -363,10 +378,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -392,12 +420,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -463,10 +485,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -492,12 +527,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -563,10 +592,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -592,12 +634,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -663,10 +699,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -692,12 +741,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -763,10 +806,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -792,12 +848,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -863,10 +913,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -892,12 +955,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -963,10 +1020,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -992,12 +1062,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -1063,10 +1127,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -1092,12 +1169,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -1163,10 +1234,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -1192,12 +1276,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -1263,10 +1341,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -1292,12 +1383,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -1363,10 +1448,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -1392,12 +1490,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -1463,10 +1555,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -1492,12 +1597,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -1563,10 +1662,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -1592,12 +1704,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -1663,10 +1769,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -1692,12 +1811,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -1763,10 +1876,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_TEST"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_TEST"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -1794,12 +1920,6 @@
     ],
     [
       {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
         "StartTime": "<DATETIME>",
         "TestHostPath": {
           "Case": "FilePath",
@@ -1865,14 +1985,32 @@
             ]
           }
         },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
+        "Config": {
+          "SnapShotRoot": "<binroot>\\<GUID>",
+          "IgnoredTests": [],
+          "IsDisabled": false,
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludePatterns": [
+            "\\.git\\",
+            "\\obj\\",
+            "\\bin\\"
+          ]
+        }
       }
     ]
   ],
   [
+    "SequencePointsUpdated",
+    "TestCasesUpdated",
+    "TestResultsUpdated",
+    "TestFailureInfoUpdated",
+    "CoverageInfoUpdated",
     "SequencePointsUpdated",
     "TestCasesUpdated",
     "TestResultsUpdated",
@@ -1885,12 +2023,6 @@
     "Case": "Some",
     "Fields": [
       {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
         "StartTime": "<DATETIME>",
         "TestHostPath": {
           "Case": "FilePath",
@@ -1956,29 +2088,29 @@
             ]
           }
         },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_TEST"
-        ]
+        "Config": {
+          "SnapShotRoot": "<binroot>\\<GUID>",
+          "IgnoredTests": [],
+          "IsDisabled": false,
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_TEST"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludePatterns": [
+            "\\.git\\",
+            "\\obj\\",
+            "\\bin\\"
+          ]
+        }
       }
     ]
   },
   [
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\LIBRARY1.FS"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            14
-          ]
-        }
-      },
+      "Key": "<root>\\LIBRARY1.FS|14",
       "Value": [
         {
           "DtcId": "<GUID>",
@@ -2006,20 +2138,7 @@
       ]
     },
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\LIBRARY1.FS"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            31
-          ]
-        }
-      },
+      "Key": "<root>\\LIBRARY1.FS|31",
       "Value": [
         {
           "DtcId": "<GUID>",
@@ -2093,20 +2212,7 @@
       ]
     },
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\LIBRARY1.FS"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            39
-          ]
-        }
-      },
+      "Key": "<root>\\LIBRARY1.FS|39",
       "Value": [
         {
           "DtcId": "<GUID>",
@@ -2144,23 +2250,7 @@
       },
       "Value": [
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  7
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|7|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2193,23 +2283,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  5
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|5|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2242,23 +2316,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  4
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|4|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2291,23 +2349,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  3
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|3|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2340,23 +2382,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  2
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|2|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2389,23 +2415,7 @@
           }
         },
         {
-          "id": {
-            "methodId": {
-              "assemblyId": {
-                "Case": "AssemblyId",
-                "Fields": [
-                  "<GUID>"
-                ]
-              },
-              "mdTokenRid": {
-                "Case": "MdTokenRid",
-                "Fields": [
-                  1
-                ]
-              }
-            },
-            "uid": 0
-          },
+          "id": "<GUID>|1|0",
           "document": {
             "Case": "FilePath",
             "Fields": [
@@ -2442,28 +2452,7 @@
   ],
   [
     {
-      "Key": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              14
-            ]
-          }
-        }
-      },
+      "Key": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|14",
       "Value": [
         {
           "DisplayName": "FSXUnit2xNUnit2x.Class1.Reverse of reverse of a list is the original list",
@@ -2493,34 +2482,13 @@
           "Outcome": {
             "Case": "TOFailed"
           },
-          "ErrorStackTrace": "",
+          "ErrorStackTrace": null,
           "ErrorMessage": "FsCheck.Xunit.PropertyFailedException : Falsifiable..."
         }
       ]
     },
     {
-      "Key": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      },
+      "Key": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31",
       "Value": [
         {
           "DisplayName": "FSXUnit2xNUnit2x.Class1.should parse symbol(toParse: \"an1 rest\", result: \"?an1\")",
@@ -2618,28 +2586,7 @@
       ]
     },
     {
-      "Key": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      },
+      "Key": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|39",
       "Value": [
         {
           "DisplayName": "shouldSayHelloWithFsUnit",
@@ -2669,7 +2616,7 @@
           "Outcome": {
             "Case": "TOFailed"
           },
-          "ErrorStackTrace": "at FsUnit.TopLevelOperators.should[a,a](FSharpFunc`2 f, a x, Object y) in d:\\GitHub\\FsUnit\\src\\FsUnit.NUnit\\FsUnit.fs:line 48\r\nat FSXUnit2xNUnit2x.Class1.shouldSayHelloWithFsUnit() in <root>\\LIBRARY1.FS:line 39\r\n",
+          "ErrorStackTrace": "   at FsUnit.TopLevelOperators.should[a,a](FSharpFunc`2 f, a x, Object y) in D:\\GITHUB\\FSUNIT\\SRC\\FSUNIT.NUNIT\\FSUNIT.FS:line 48\r\n   at FSXUnit2xNUnit2x.Class1.shouldSayHelloWithFsUnit() in <root>\\LIBRARY1.FS:line 39",
           "ErrorMessage": "  Expected: \"Hello World!\", but was \"Hello ???\"\r\n"
         }
       ]
@@ -2677,20 +2624,31 @@
   ],
   [
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\LIBRARY1.FS"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            31
+      "Key": "D:\\GITHUB\\FSUNIT\\SRC\\FSUNIT.NUNIT\\FSUNIT.FS|48",
+      "Value": [
+        {
+          "message": "  Expected: \"Hello World!\", but was \"Hello ???\"\r\n",
+          "stack": [
+            {
+              "Case": "ParsedFrame",
+              "Fields": [
+                "FsUnit.TopLevelOperators.should[a,a](FSharpFunc`2 f, a x, Object y)",
+                "D:\\GITHUB\\FSUNIT\\SRC\\FSUNIT.NUNIT\\FSUNIT.FS|48"
+              ]
+            },
+            {
+              "Case": "ParsedFrame",
+              "Fields": [
+                "FSXUnit2xNUnit2x.Class1.shouldSayHelloWithFsUnit()",
+                "<root>\\LIBRARY1.FS|39"
+              ]
+            }
           ]
         }
-      },
+      ]
+    },
+    {
+      "Key": "<root>\\LIBRARY1.FS|31",
       "Value": [
         {
           "message": "Assert.Equal() Failure\r\n          ↓ (pos 0)\r\nExpected: ?an1\r\nActual:   an1\r\n          ↑ (pos 0)",
@@ -2699,20 +2657,7 @@
               "Case": "ParsedFrame",
               "Fields": [
                 "FSXUnit2xNUnit2x.Class1.should parse symbol(String toParse, String result)",
-                {
-                  "document": {
-                    "Case": "FilePath",
-                    "Fields": [
-                      "<root>\\LIBRARY1.FS"
-                    ]
-                  },
-                  "line": {
-                    "Case": "DocumentCoordinate",
-                    "Fields": [
-                      31
-                    ]
-                  }
-                }
+                "<root>\\LIBRARY1.FS|31"
               ]
             }
           ]
@@ -2720,20 +2665,7 @@
       ]
     },
     {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "<root>\\LIBRARY1.FS"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            39
-          ]
-        }
-      },
+      "Key": "<root>\\LIBRARY1.FS|39",
       "Value": [
         {
           "message": "  Expected: \"Hello World!\", but was \"Hello ???\"\r\n",
@@ -2742,103 +2674,14 @@
               "Case": "ParsedFrame",
               "Fields": [
                 "FsUnit.TopLevelOperators.should[a,a](FSharpFunc`2 f, a x, Object y)",
-                {
-                  "document": {
-                    "Case": "FilePath",
-                    "Fields": [
-                      "d:\\GitHub\\FsUnit\\src\\FsUnit.NUnit\\FsUnit.fs"
-                    ]
-                  },
-                  "line": {
-                    "Case": "DocumentCoordinate",
-                    "Fields": [
-                      48
-                    ]
-                  }
-                }
+                "D:\\GITHUB\\FSUNIT\\SRC\\FSUNIT.NUNIT\\FSUNIT.FS|48"
               ]
             },
             {
               "Case": "ParsedFrame",
               "Fields": [
                 "FSXUnit2xNUnit2x.Class1.shouldSayHelloWithFsUnit()",
-                {
-                  "document": {
-                    "Case": "FilePath",
-                    "Fields": [
-                      "<root>\\LIBRARY1.FS"
-                    ]
-                  },
-                  "line": {
-                    "Case": "DocumentCoordinate",
-                    "Fields": [
-                      39
-                    ]
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Key": {
-        "document": {
-          "Case": "FilePath",
-          "Fields": [
-            "d:\\GitHub\\FsUnit\\src\\FsUnit.NUnit\\FsUnit.fs"
-          ]
-        },
-        "line": {
-          "Case": "DocumentCoordinate",
-          "Fields": [
-            48
-          ]
-        }
-      },
-      "Value": [
-        {
-          "message": "  Expected: \"Hello World!\", but was \"Hello ???\"\r\n",
-          "stack": [
-            {
-              "Case": "ParsedFrame",
-              "Fields": [
-                "FsUnit.TopLevelOperators.should[a,a](FSharpFunc`2 f, a x, Object y)",
-                {
-                  "document": {
-                    "Case": "FilePath",
-                    "Fields": [
-                      "d:\\GitHub\\FsUnit\\src\\FsUnit.NUnit\\FsUnit.fs"
-                    ]
-                  },
-                  "line": {
-                    "Case": "DocumentCoordinate",
-                    "Fields": [
-                      48
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "Case": "ParsedFrame",
-              "Fields": [
-                "FSXUnit2xNUnit2x.Class1.shouldSayHelloWithFsUnit()",
-                {
-                  "document": {
-                    "Case": "FilePath",
-                    "Fields": [
-                      "<root>\\LIBRARY1.FS"
-                    ]
-                  },
-                  "line": {
-                    "Case": "DocumentCoordinate",
-                    "Fields": [
-                      39
-                    ]
-                  }
-                }
+                "<root>\\LIBRARY1.FS|39"
               ]
             }
           ]
@@ -2857,28 +2700,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              14
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|14"
     },
     {
       "Item1": {
@@ -2890,28 +2712,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31"
     },
     {
       "Item1": {
@@ -2923,28 +2724,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31"
     },
     {
       "Item1": {
@@ -2956,28 +2736,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31"
     },
     {
       "Item1": {
@@ -2989,28 +2748,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|39"
     },
     {
       "Item1": {
@@ -3022,28 +2760,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|39"
     },
     {
       "Item1": {
@@ -3055,28 +2772,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              14
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|14"
     },
     {
       "Item1": {
@@ -3088,28 +2784,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31"
     },
     {
       "Item1": {
@@ -3121,28 +2796,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31"
     },
     {
       "Item1": {
@@ -3154,28 +2808,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31"
     },
     {
       "Item1": {
@@ -3187,28 +2820,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31"
     },
     {
       "Item1": {
@@ -3220,28 +2832,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31"
     },
     {
       "Item1": {
@@ -3253,28 +2844,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              31
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|31"
     },
     {
       "Item1": {
@@ -3286,28 +2856,7 @@
         },
         "Item2": 0
       },
-      "Item2": {
-        "source": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll"
-          ]
-        },
-        "location": {
-          "document": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\LIBRARY1.FS"
-            ]
-          },
-          "line": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              39
-            ]
-          }
-        }
-      }
+      "Item2": "<binroot>\\<GUID>\\FSXUnit2xNUnit2x.NET45\\out\\FSXUnit2xNUnit2x.dll|<root>\\LIBRARY1.FS|39"
     }
   ]
 ]]

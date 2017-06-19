@@ -7,12 +7,6 @@
     ],
     [
       {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
         "StartTime": "<DATETIME>",
         "TestHostPath": {
           "Case": "FilePath",
@@ -78,10 +72,23 @@
             ]
           }
         },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_BUILD"
-        ]
+        "Config": {
+          "SnapShotRoot": "<binroot>\\<GUID>",
+          "IgnoredTests": [],
+          "IsDisabled": false,
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_BUILD"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludePatterns": [
+            "\\.git\\",
+            "\\obj\\",
+            "\\bin\\"
+          ]
+        }
       }
     ],
     [
@@ -92,12 +99,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -163,10 +164,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_BUILD"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_BUILD"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -192,12 +206,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -263,10 +271,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_BUILD"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_BUILD"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -292,12 +313,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -363,10 +378,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_BUILD"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_BUILD"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -392,12 +420,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -463,10 +485,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_BUILD"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_BUILD"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -492,12 +527,6 @@
     [
       {
         "sp": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -563,10 +592,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_BUILD"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_BUILD"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "info": {
           "name": {
@@ -592,12 +634,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -663,10 +699,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_BUILD"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_BUILD"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -692,12 +741,6 @@
     [
       {
         "Item1": {
-          "SnapShotRoot": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>"
-            ]
-          },
           "StartTime": "<DATETIME>",
           "TestHostPath": {
             "Case": "FilePath",
@@ -763,10 +806,23 @@
               ]
             }
           },
-          "IgnoredTests": "",
-          "AdditionalMSBuildProperties": [
-            "DefineConstants=BREAK_BUILD"
-          ]
+          "Config": {
+            "SnapShotRoot": "<binroot>\\<GUID>",
+            "IgnoredTests": [],
+            "IsDisabled": false,
+            "AdditionalMSBuildProperties": [
+              "DefineConstants=BREAK_BUILD"
+            ],
+            "SnapshotIncludeFolders": [
+              "packages",
+              "paket-files"
+            ],
+            "SnapshotExcludePatterns": [
+              "\\.git\\",
+              "\\obj\\",
+              "\\bin\\"
+            ]
+          }
         },
         "Item2": {
           "name": {
@@ -794,12 +850,6 @@
     ],
     [
       {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
         "StartTime": "<DATETIME>",
         "TestHostPath": {
           "Case": "FilePath",
@@ -865,26 +915,39 @@
             ]
           }
         },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_BUILD"
-        ]
+        "Config": {
+          "SnapShotRoot": "<binroot>\\<GUID>",
+          "IgnoredTests": [],
+          "IsDisabled": false,
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_BUILD"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludePatterns": [
+            "\\.git\\",
+            "\\obj\\",
+            "\\bin\\"
+          ]
+        }
       }
     ]
   ],
-  []
+  [
+    "SequencePointsUpdated",
+    "TestCasesUpdated",
+    "TestResultsUpdated",
+    "TestFailureInfoUpdated",
+    "CoverageInfoUpdated"
+  ]
 ]
 ,[
   {
     "Case": "Some",
     "Fields": [
       {
-        "SnapShotRoot": {
-          "Case": "FilePath",
-          "Fields": [
-            "<binroot>\\<GUID>"
-          ]
-        },
         "StartTime": "<DATETIME>",
         "TestHostPath": {
           "Case": "FilePath",
@@ -950,10 +1013,23 @@
             ]
           }
         },
-        "IgnoredTests": "",
-        "AdditionalMSBuildProperties": [
-          "DefineConstants=BREAK_BUILD"
-        ]
+        "Config": {
+          "SnapShotRoot": "<binroot>\\<GUID>",
+          "IgnoredTests": [],
+          "IsDisabled": false,
+          "AdditionalMSBuildProperties": [
+            "DefineConstants=BREAK_BUILD"
+          ],
+          "SnapshotIncludeFolders": [
+            "packages",
+            "paket-files"
+          ],
+          "SnapshotExcludePatterns": [
+            "\\.git\\",
+            "\\obj\\",
+            "\\bin\\"
+          ]
+        }
       }
     ]
   },

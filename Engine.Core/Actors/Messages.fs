@@ -6,6 +6,7 @@ open TestData
 module ActorMessages = 
     open R4nd0mApps.TddStud10.Common.Domain
     open R4nd0mApps.TddStud10.TestHost
+    open R4nd0mApps.XTestPlatform.Api
     
     type DataStoreMessage = 
         | DsInitialize
@@ -27,17 +28,17 @@ module ActorMessages =
         | EvAssemblyInstrumentationSucceeded of ResyncParams * AssemblyInstrumenterOutput
         | EvAssemblyInstrumentationFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
         | EvAssemblyTestDiscoveryStarting of ResyncParams * ProjectBuilderOutput
-        | EvTestDiscovered of ResyncParams * DTestCase2
+        | EvTestDiscovered of ResyncParams * XTestCase
         | EvAssemblyTestDiscoverySucceeded of ResyncParams * AssemblyTestsDiscovererOutput
         | EvAssemblyTestDiscoveryFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
         | EvAssemblySequencePointsDiscoveryStarting of ResyncParams * ProjectBuilderOutput
         | EvSequencePointsDiscovered of ResyncParams * PerDocumentSequencePoints2
         | EvAssemblySequencePointsDiscoverySucceeded of ResyncParams * ProjectBuilderOutput
         | EvAssemblySequencePointsDiscoveryFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
-        | EvTestRunStarting of ResyncParams * DTestCase2
+        | EvTestRunStarting of ResyncParams * XTestCase
         | EvTestRunCoverageDataCollected of ResyncParams * TestRunCoverageData
         | EvTestRunSucceeded of ResyncParams * DTestResultWithCoverageData
-        | EvTestRunFailed of ResyncParams * DTestCase2 * FailureInfo
+        | EvTestRunFailed of ResyncParams * XTestCase * FailureInfo
     
     type RunnerMessage = 
         | Resync of ResyncParams
@@ -92,9 +93,9 @@ module ActorMessages =
     
     // Test runner
     type TestRunnerCoordinatorMessage = 
-        | ReadyForRunTest of ResyncParams * DTestCase2
+        | ReadyForRunTest of ResyncParams * XTestCase
     
     type TestRunnerMessage = 
-        | RunTest of ResyncParams * DTestCase2
+        | RunTest of ResyncParams * XTestCase
         | RunTestSucceeded of ResyncParams * DTestResultWithCoverageData
-        | RunTestFailed of ResyncParams * DTestCase2 * FailureInfo
+        | RunTestFailed of ResyncParams * XTestCase * FailureInfo

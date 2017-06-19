@@ -1,1 +1,17 @@
-{"AdditionalMSBuildProperties":[],"IgnoredTests":"CSXUnit1xNUnit3x.StringTests3.TestToSkip","IsDisabled":false,"SnapShotRoot":"%temp%\\_tdd"}
+{
+  "SnapShotRoot": "%temp%\\_tdd",
+  "IgnoredTests": [
+    "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+  ],
+  "IsDisabled": false,
+  "AdditionalMSBuildProperties": [],
+  "SnapshotIncludeFolders": [
+    "packages",
+    "paket-files"
+  ],
+  "SnapshotExcludePatterns": [
+    "\\.git\\",
+    "\\obj\\",
+    "\\bin\\"
+  ]
+}

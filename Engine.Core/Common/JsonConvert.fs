@@ -92,13 +92,14 @@ let deserialize<'a> s =
     o
 
 let serialize o = 
+    let cfg = JsonSerializerSettings(ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
     do TypeDescriptor.AddAttributes(typeof<FilePath>, TypeConverterAttribute(typeof<FilePathConverter>)) |> ignore
     do TypeDescriptor.AddAttributes(typeof<DocumentLocation>, TypeConverterAttribute(typeof<DocumentLocationConverter>)) 
        |> ignore
     do TypeDescriptor.AddAttributes(typeof<TestId>, TypeConverterAttribute(typeof<TestIdConverter>)) |> ignore
     do TypeDescriptor.AddAttributes(typeof<SequencePointId>, TypeConverterAttribute(typeof<SequencePointIdConverter>)) 
        |> ignore
-    let s = JsonConvert.SerializeObject(o)
+    let s = JsonConvert.SerializeObject(o, cfg)
     s
 
 let serialize2 o = 

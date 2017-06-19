@@ -33,7 +33,7 @@ module AssemblyTestsDiscoverer =
         
         let cleanup () =
             bgWorker.AbortBackgroundWorker()
-            proc.Kill()
+            proc.Dispose()
 
         m.Defer cleanup
 

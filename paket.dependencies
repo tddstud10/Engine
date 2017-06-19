@@ -2,7 +2,7 @@ source https://www.nuget.org/api/v2
 
 nuget FSharp.Core 4.0.0.1 redirects: force
 nuget FSharp.Data
-nuget Mono.Cecil
+nuget Mono.Cecil prerelease
 nuget Newtonsoft.Json redirects: force 
 nuget Suave
 nuget System.Reactive
@@ -38,6 +38,8 @@ group TddStud10
     nuget FSharp.Core 4.0.0.1 redirects: force
     source https://ci.appveyor.com/nuget/common-wqs82t184w0x
     nuget TddStud10.Common 
+    source https://ci.appveyor.com/nuget/xtestplatform-ve52h0rqj3nc
+    nuget R4nd0mApps.XTestPlatform 
     source https://ci.appveyor.com/nuget/testhost-rrsttutj8jym
     nuget TddStud10.TestHost 
     

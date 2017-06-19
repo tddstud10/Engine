@@ -74,7 +74,9 @@
         },
         "Config": {
           "SnapShotRoot": "<binroot>\\<GUID>",
-          "IgnoredTests": [],
+          "IgnoredTests": [
+            "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+          ],
           "IsDisabled": false,
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
@@ -166,7 +168,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -273,7 +277,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -380,7 +386,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -487,7 +495,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -594,7 +604,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -701,7 +713,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -808,7 +822,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -915,7 +931,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1022,7 +1040,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1129,7 +1149,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1236,7 +1258,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1343,7 +1367,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1450,7 +1476,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1557,7 +1585,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1664,7 +1694,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1771,7 +1803,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1878,7 +1912,9 @@
           },
           "Config": {
             "SnapShotRoot": "<binroot>\\<GUID>",
-            "IgnoredTests": [],
+            "IgnoredTests": [
+              "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+            ],
             "IsDisabled": false,
             "AdditionalMSBuildProperties": [
               "DefineConstants=BREAK_TEST"
@@ -1987,7 +2023,9 @@
         },
         "Config": {
           "SnapShotRoot": "<binroot>\\<GUID>",
-          "IgnoredTests": [],
+          "IgnoredTests": [
+            "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+          ],
           "IsDisabled": false,
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
@@ -2090,7 +2128,9 @@
         },
         "Config": {
           "SnapShotRoot": "<binroot>\\<GUID>",
-          "IgnoredTests": [],
+          "IgnoredTests": [
+            "CSXUnit1xNUnit3x.StringTests3.TestToSkip"
+          ],
           "IsDisabled": false,
           "AdditionalMSBuildProperties": [
             "DefineConstants=BREAK_TEST"
@@ -2206,34 +2246,6 @@
             "Case": "DocumentCoordinate",
             "Fields": [
               30
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "Key": "<root>\\CLASS1.CS|41",
-      "Value": [
-        {
-          "DtcId": "<GUID>",
-          "FullyQualifiedName": "CSXUnit1xNUnit3x.StringTests3.TestToSkip",
-          "DisplayName": "CSXUnit1xNUnit3x.StringTests3.TestToSkip",
-          "Source": {
-            "Case": "FilePath",
-            "Fields": [
-              "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-            ]
-          },
-          "CodeFilePath": {
-            "Case": "FilePath",
-            "Fields": [
-              "<root>\\CLASS1.CS"
-            ]
-          },
-          "LineNumber": {
-            "Case": "DocumentCoordinate",
-            "Fields": [
-              41
             ]
           }
         }
@@ -3172,44 +3184,8 @@
           "Outcome": {
             "Case": "TONone"
           },
-          "ErrorStackTrace": null,
+          "ErrorStackTrace": "",
           "ErrorMessage": "  Expected: True\r\n  But was:  False\r\n"
-        }
-      ]
-    },
-    {
-      "Key": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41",
-      "Value": [
-        {
-          "DisplayName": "CSXUnit1xNUnit3x.StringTests3.TestToSkip",
-          "TestCase": {
-            "DtcId": "<GUID>",
-            "FullyQualifiedName": "CSXUnit1xNUnit3x.StringTests3.TestToSkip",
-            "DisplayName": "CSXUnit1xNUnit3x.StringTests3.TestToSkip",
-            "Source": {
-              "Case": "FilePath",
-              "Fields": [
-                "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll"
-              ]
-            },
-            "CodeFilePath": {
-              "Case": "FilePath",
-              "Fields": [
-                "<root>\\CLASS1.CS"
-              ]
-            },
-            "LineNumber": {
-              "Case": "DocumentCoordinate",
-              "Fields": [
-                41
-              ]
-            }
-          },
-          "Outcome": {
-            "Case": "TOFailed"
-          },
-          "ErrorStackTrace": "   at CSXUnit1xNUnit3x.StringTests3.TestToSkip() in <root>\\CLASS1.CS:line 42",
-          "ErrorMessage": "Assert.Equal() Failure\r\nExpected: 1\r\nActual:   0"
         }
       ]
     }
@@ -3231,23 +3207,6 @@
           ]
         }
       ]
-    },
-    {
-      "Key": "<root>\\CLASS1.CS|42",
-      "Value": [
-        {
-          "message": "Assert.Equal() Failure\r\nExpected: 1\r\nActual:   0",
-          "stack": [
-            {
-              "Case": "ParsedFrame",
-              "Fields": [
-                "CSXUnit1xNUnit3x.StringTests3.TestToSkip()",
-                "<root>\\CLASS1.CS|42"
-              ]
-            }
-          ]
-        }
-      ]
     }
   ],
   [
@@ -3508,30 +3467,6 @@
         "Item1": {
           "Case": "MdTokenRid",
           "Fields": [
-            3
-          ]
-        },
-        "Item2": 0
-      },
-      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
-    },
-    {
-      "Item1": {
-        "Item1": {
-          "Case": "MdTokenRid",
-          "Fields": [
-            3
-          ]
-        },
-        "Item2": 1
-      },
-      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
-    },
-    {
-      "Item1": {
-        "Item1": {
-          "Case": "MdTokenRid",
-          "Fields": [
             4
           ]
         },
@@ -3583,18 +3518,6 @@
             4
           ]
         },
-        "Item2": 0
-      },
-      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
-    },
-    {
-      "Item1": {
-        "Item1": {
-          "Case": "MdTokenRid",
-          "Fields": [
-            4
-          ]
-        },
         "Item2": 1
       },
       "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|12"
@@ -3634,18 +3557,6 @@
         "Item2": 1
       },
       "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
-    },
-    {
-      "Item1": {
-        "Item1": {
-          "Case": "MdTokenRid",
-          "Fields": [
-            4
-          ]
-        },
-        "Item2": 1
-      },
-      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
     },
     {
       "Item1": {
@@ -3694,18 +3605,6 @@
         "Item2": 2
       },
       "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|30"
-    },
-    {
-      "Item1": {
-        "Item1": {
-          "Case": "MdTokenRid",
-          "Fields": [
-            4
-          ]
-        },
-        "Item2": 2
-      },
-      "Item2": "<binroot>\\<GUID>\\CSXUnit1xNUnit3x.NET20\\out\\CSXUnit1xNUnit3x.dll|<root>\\CLASS1.CS|41"
     },
     {
       "Item1": {

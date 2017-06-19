@@ -60,14 +60,15 @@ namespace R4nd0mApps.TddStud10
                 {
                     Logger.LogInfo("Generating sequence point info for {0}.", assemblyPath);
 
-                    var assembly = AssemblyDefinition.ReadAssembly(assemblyPath, new ReaderParameters { ReadSymbols = true });
-
-                    VisitAllTypes(
-                        assembly.Modules,
-                        (m, t) =>
-                        {
-                            FindSequencePointForType(rsp, perDocSP, m, t);
-                        });
+                    using (var assembly = AssemblyDefinition.ReadAssembly(assemblyPath, new ReaderParameters { ReadSymbols = true }))
+                    {
+                        VisitAllTypes(
+                            assembly.Modules,
+                            (m, t) =>
+                            {
+                                FindSequencePointForType(rsp, perDocSP, m, t);
+                            });
+                    }
                 });
 
             return perDocSP;
@@ -79,14 +80,15 @@ namespace R4nd0mApps.TddStud10
 
             Logger.LogInfo("Generating sequence point info for {0}.", assemblyPath);
 
-            var assembly = AssemblyDefinition.ReadAssembly(assemblyPath.Item, new ReaderParameters { ReadSymbols = true });
-
-            VisitAllTypes(
-                assembly.Modules,
-                (m, t) =>
-                {
-                    FindSequencePointForType2(projectPath, projectSnapshotPath, perDocSP, m, t);
-                });
+            using (var assembly = AssemblyDefinition.ReadAssembly(assemblyPath.Item, new ReaderParameters { ReadSymbols = true }))
+            {
+                VisitAllTypes(
+                    assembly.Modules,
+                    (m, t) =>
+                    {
+                        FindSequencePointForType2(projectPath, projectSnapshotPath, perDocSP, m, t);
+                    });
+            }
 
             return perDocSP;
         }
@@ -101,9 +103,9 @@ namespace R4nd0mApps.TddStud10
                 }
 
                 var sps = from i in meth.Body.Instructions
-                          where i.SequencePoint != null
-                          where i.SequencePoint.StartLine != 0xfeefee
-                          select new { module, meth, i.SequencePoint };
+                          where meth.DebugInformation.GetSequencePoint(i) != null
+                          where meth.DebugInformation.GetSequencePoint(i).StartLine != 0xfeefee
+                          select new { module, meth, SequencePoint = meth.DebugInformation.GetSequencePoint(i) };
 
                 int id = 0;
                 foreach (var sp in sps)
@@ -138,9 +140,9 @@ namespace R4nd0mApps.TddStud10
                 }
 
                 var sps = from i in meth.Body.Instructions
-                          where i.SequencePoint != null
-                          where i.SequencePoint.StartLine != 0xfeefee
-                          select new { module, meth, i.SequencePoint };
+                          where meth.DebugInformation.GetSequencePoint(i) != null
+                          where meth.DebugInformation.GetSequencePoint(i).StartLine != 0xfeefee
+                          select new { module, meth, SequencePoint = meth.DebugInformation.GetSequencePoint(i) };
 
                 int id = 0;
                 foreach (var sp in sps)
@@ -224,6 +226,7 @@ namespace R4nd0mApps.TddStud10
             {
                 AssemblyResolver = asmResolver,
                 ReadSymbols = true,
+                ReadWrite = true,
             };
 
             string testRunnerPath = Path.GetFullPath(typeof(R4nd0mApps.TddStud10.TestRuntime.Marker).Assembly.Location);
@@ -249,40 +252,36 @@ namespace R4nd0mApps.TddStud10
                 {
                     Logger.LogInfo("Instrumenting {0}.", assemblyPath);
 
-                    var assembly = AssemblyDefinition.ReadAssembly(assemblyPath, readerParams);
-                    var hasSn = assembly.Name.HasPublicKey;
+                    using (var assembly = AssemblyDefinition.ReadAssembly(assemblyPath, readerParams))
+                    {
+                        var hasSn = assembly.Name.HasPublicKey;
 
-                    /*
-                       IL_0001: ldstr <assemblyId>
-                       IL_0006: ldstr <mdtoken>
-                       IL_000b: ldstr <spid>
-                       IL_000d: call void R4nd0mApps.TddStud10.TestHost.Marker::ExitUnitTest(string, ldstr, ldstr)
-                     */
-                    MethodReference enterSPMR = assembly.MainModule.Import(enterSPMD.First());
-                    MethodReference exitUTMR = assembly.MainModule.Import(exitUTMD.First());
+                        /*
+                           IL_0001: ldstr <assemblyId>
+                           IL_0006: ldstr <mdtoken>
+                           IL_000b: ldstr <spid>
+                           IL_000d: call void R4nd0mApps.TddStud10.TestHost.Marker::ExitUnitTest(string, ldstr, ldstr)
+                         */
+                        MethodReference enterSPMR = assembly.MainModule.ImportReference(enterSPMD.First());
+                        MethodReference exitUTMR = assembly.MainModule.ImportReference(exitUTMD.First());
 
-                    VisitAllTypes(
-                        assembly.Modules,
-                        (m, t) =>
+                        VisitAllTypes(
+                            assembly.Modules,
+                            (m, t) =>
+                            {
+                                InstrumentType(rsp, findTest, assemblyPath, rebaseDocument, enterSPMR, exitUTMR, m, t);
+                            });
+
+                        try
                         {
-                            InstrumentType(rsp, findTest, assemblyPath, rebaseDocument, enterSPMR, exitUTMR, m, t);
-                        });
-
-                    var backupAssemblyPath = Path.ChangeExtension(assemblyPath, ".original");
-                    File.Delete(backupAssemblyPath);
-                    File.Move(assemblyPath, backupAssemblyPath);
-                    try
-                    {
-                        assembly.Write(assemblyPath, new WriterParameters { WriteSymbols = true, StrongNameKeyPair = hasSn ? snKeyPair : null });
+                            assembly.Write(new WriterParameters { WriteSymbols = true, StrongNameKeyPair = hasSn ? snKeyPair : null });
+                        }
+                        catch
+                        {
+                            Logger.LogInfo("Backing up or instrumentation failed. Attempting to revert back changes to {0}.", assemblyPath);
+                            throw;
+                        }
                     }
-                    catch
-                    {
-                        Logger.LogInfo("Backing up or instrumentation failed. Attempting to revert back changes to {0}.", assemblyPath);
-                        File.Delete(assemblyPath);
-                        File.Move(backupAssemblyPath, assemblyPath);
-                        throw;
-                    }
-
                 },
                 1);
         }
@@ -296,6 +295,7 @@ namespace R4nd0mApps.TddStud10
             {
                 AssemblyResolver = asmResolver,
                 ReadSymbols = true,
+                ReadWrite = true,
             };
 
             string testRunnerPath = Path.GetFullPath(typeof(R4nd0mApps.TddStud10.TestRuntime.Marker).Assembly.Location);
@@ -309,40 +309,37 @@ namespace R4nd0mApps.TddStud10
 
             Logger.LogInfo("Instrumenting {0}.", assemblyPath);
 
-            var assembly = AssemblyDefinition.ReadAssembly(assemblyPath.Item, readerParams);
-            if (assembly.Name.HasPublicKey)
+            using (var assembly = AssemblyDefinition.ReadAssembly(assemblyPath.Item, readerParams))
             {
-                Logger.LogError("Instrumenting signed assemblies is not supported yet: {0}.", assemblyPath);
-            }
-
-            /*
-                IL_0001: ldstr <assemblyId>
-                IL_0006: ldstr <mdtoken>
-                IL_000b: ldstr <spid>
-                IL_000d: call void R4nd0mApps.TddStud10.TestHost.Marker::ExitUnitTest(string, ldstr, ldstr)
-                */
-            MethodReference enterSPMR = assembly.MainModule.Import(enterSPMD.First());
-
-            VisitAllTypes(
-                assembly.Modules,
-                (m, t) =>
+                if (assembly.Name.HasPublicKey)
                 {
-                    InstrumentType2(assemblyPath.Item, rebaseDocument, enterSPMR, m, t);
-                });
+                    Logger.LogError("Instrumenting signed assemblies is not supported yet: {0}.", assemblyPath);
+                }
 
-            var backupAssemblyPath = Path.ChangeExtension(assemblyPath.Item, ".original");
-            File.Delete(backupAssemblyPath);
-            File.Move(assemblyPath.Item, backupAssemblyPath);
-            try
-            {
-                assembly.Write(assemblyPath.Item, new WriterParameters { WriteSymbols = true, StrongNameKeyPair = null });
-            }
-            catch
-            {
-                Logger.LogInfo("Backing up or instrumentation failed. Attempting to revert back changes to {0}.", assemblyPath);
-                File.Delete(assemblyPath.Item);
-                File.Move(backupAssemblyPath, assemblyPath.Item);
-                throw;
+                /*
+                    IL_0001: ldstr <assemblyId>
+                    IL_0006: ldstr <mdtoken>
+                    IL_000b: ldstr <spid>
+                    IL_000d: call void R4nd0mApps.TddStud10.TestHost.Marker::ExitUnitTest(string, ldstr, ldstr)
+                    */
+                MethodReference enterSPMR = assembly.MainModule.ImportReference(enterSPMD.First());
+
+                VisitAllTypes(
+                    assembly.Modules,
+                    (m, t) =>
+                    {
+                        InstrumentType2(assemblyPath.Item, rebaseDocument, enterSPMR, m, t);
+                    });
+
+                try
+                {
+                    assembly.Write(new WriterParameters { WriteSymbols = true, StrongNameKeyPair = null });
+                }
+                catch
+                {
+                    Logger.LogInfo("Backing up or instrumentation failed. Attempting to revert back changes to {0}.", assemblyPath);
+                    throw;
+                }
             }
         }
 
@@ -358,8 +355,8 @@ namespace R4nd0mApps.TddStud10
                 meth.Body.SimplifyMacros();
 
                 var spi = from i in meth.Body.Instructions
-                          where i.SequencePoint != null
-                          where i.SequencePoint.StartLine != 0xfeefee
+                          where meth.DebugInformation.GetSequencePoint(i) != null
+                          where meth.DebugInformation.GetSequencePoint(i).StartLine != 0xfeefee
                           select i;
 
                 var spId = 0;
@@ -378,7 +375,7 @@ namespace R4nd0mApps.TddStud10
                     /**********************************************************************************/
                     /*                                PDB Path Replace                                */
                     /**********************************************************************************/
-                    sp.SequencePoint.Document.Url = rebaseDocument(sp.SequencePoint.Document.Url);
+                    meth.DebugInformation.GetSequencePoint(sp).Document.Url = rebaseDocument(meth.DebugInformation.GetSequencePoint(sp).Document.Url);
 
                     /**********************************************************************************/
                     /*                            Inject Enter Sequence Point                         */
@@ -408,7 +405,7 @@ namespace R4nd0mApps.TddStud10
                 /*************************************************************************************/
                 /*                            Inject Exit Unit Test                                  */
                 /*************************************************************************************/
-                var ret = IsSequencePointAtStartOfAUnitTest(rsp, spi.Select(i => i.SequencePoint).FirstOrDefault(), FilePath.NewFilePath(assemblyPath), findTest);
+                var ret = IsSequencePointAtStartOfAUnitTest(rsp, spi.Select(i => meth.DebugInformation.GetSequencePoint(i)).FirstOrDefault(), FilePath.NewFilePath(assemblyPath), findTest);
                 if (ret.Item1)
                 {
                     // NOTE: Reeeealy need to bring this class under test. Commenting out the void check as Property tests can return boolean.
@@ -439,8 +436,8 @@ namespace R4nd0mApps.TddStud10
                 meth.Body.SimplifyMacros();
 
                 var spi = from i in meth.Body.Instructions
-                          where i.SequencePoint != null
-                          where i.SequencePoint.StartLine != 0xfeefee
+                          where meth.DebugInformation.GetSequencePoint(i) != null
+                          where meth.DebugInformation.GetSequencePoint(i).StartLine != 0xfeefee
                           select i;
 
                 var spId = 0;
@@ -459,7 +456,7 @@ namespace R4nd0mApps.TddStud10
                     /**********************************************************************************/
                     /*                                PDB Path Replace                                */
                     /**********************************************************************************/
-                    sp.SequencePoint.Document.Url = rebaseDocument(sp.SequencePoint.Document.Url);
+                    meth.DebugInformation.GetSequencePoint(sp).Document.Url = rebaseDocument(meth.DebugInformation.GetSequencePoint(sp).Document.Url);
 
                     /**********************************************************************************/
                     /*                            Inject Enter Sequence Point                         */
@@ -592,7 +589,7 @@ namespace R4nd0mApps.TddStud10
             else
             {
                 var instructions = body.Instructions;
-                var returnVariable = new VariableDefinition("methodTimerReturn", med.ReturnType);
+                var returnVariable = new VariableDefinition(med.ReturnType);
                 body.Variables.Add(returnVariable);
                 var lastLd = Instruction.Create(OpCodes.Ldloc, returnVariable);
                 instructions.Add(lastLd);

@@ -11,21 +11,30 @@ open System
 open System.IO
 open Xunit
 
-let solutions = [ @"CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" //@"FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln"
-                                                                 ; @"VBXUnit1xNUnit2x.NET40\VBXUnit1xNUnit2x.sln" ]
-let variants = [ "BREAK_NOTHING"; "BREAK_TEST"; "BREAK_BUILD" ]
+let solutions = [ 
+    @"CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" 
+    @"VBXUnit1xNUnit2x.NET40\VBXUnit1xNUnit2x.sln" 
+    // @"FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln" // NOTE: PARTHO: Code generation and therefore sequence point generation appear inconsistent, other two provide sufficient coverage
+]
+
+let variants = [ 
+    "BREAK_NOTHING" 
+    "BREAK_BUILD"
+    "BREAK_TEST" 
+]
 
 let ``Test Data - E2E Run for Project`` : obj array seq = 
     seq { 
         for s in solutions do
-            for v in variants -> s, v
+            for v in variants -> s, v, (Guid.NewGuid().ToString())
     }
-    |> Seq.map (fun (a, b) -> 
+    |> Seq.map (fun (a, b, c) -> 
            [| box a
-              box b |])
+              box b
+              box c |])
 
-let runEngine sln props = 
-    let ssr = sprintf @"%s\%O" binRoot (Guid.NewGuid())
+let runEngine sln props dir = 
+    let ssr = sprintf @"%s\%s" binRoot dir
     let h = new TddStud10HostProxy(9999) :> ITddStud10Host
     try 
         async { 
@@ -48,7 +57,7 @@ let runEngine sln props =
             let! _ = e.EnableEngine()
             let ep = 
                 { HostVersion = HostVersion.VS2015
-                  EngineConfig = { EngineConfigLoader.defaultValue with SnapShotRoot = ssr; AdditionalMSBuildProperties = props }
+                  EngineConfig = { EngineConfigLoader.load (getTestProjectsRoot sln |> FilePath) with SnapShotRoot = ssr; AdditionalMSBuildProperties = props }
                   SolutionPath = getTestProjectsRoot sln |> FilePath
                   SessionStartTime = DateTime.UtcNow.AddMinutes(-1.0) }
             let! runInProgress = e.RunEngine ep
@@ -70,9 +79,9 @@ let runEngine sln props =
 [<UseApprovalSubdirectory("approvals")>]
 [<Theory>]
 [<MemberData("Test Data - E2E Run for Project")>]
-let ``E2E Run for Project`` (s : string, v : string) = 
+let ``E2E Run for Project`` (s : string, v : string, d : string) = 
     use __ = ApprovalResults.ForScenario(Path.GetDirectoryName(s), v)
-    let output, projRoot = runEngine s [| sprintf "DefineConstants=%s" v |]
+    let output, projRoot = runEngine s [| sprintf "DefineConstants=%s" v |] d
     Approvals.Verify(output, Func<_, _>(normalizeJsonDoc binRoot (Path.GetDirectoryName(projRoot.ToString()))))
 
 [<Fact>]
@@ -89,7 +98,7 @@ let ``DataStore API Tests``() =
             let! _ = e.EnableEngine()
             let ep = 
                 { HostVersion = HostVersion.VS2015
-                  EngineConfig = { EngineConfigLoader.defaultValue with SnapShotRoot = ssr; AdditionalMSBuildProperties = props }
+                  EngineConfig = { EngineConfigLoader.load (getTestProjectsRoot sln |> FilePath) with SnapShotRoot = ssr; AdditionalMSBuildProperties = props }
                   SolutionPath = getTestProjectsRoot sln |> FilePath
                   SessionStartTime = DateTime.UtcNow.AddMinutes(-1.0) }
             let! _ = e.RunEngine ep
@@ -106,10 +115,10 @@ let ``DataStore API Tests``() =
                 |> Seq.map (fun tc -> tc.FullyQualifiedName)
                 |> Seq.sort
             Assert.Equal<string []>
-                ([| "CSXUnit1xNUnit3x.StringTests3.IndexOf"; "CSXUnit1xNUnit3x.StringTests3.SquareRootDefinition(-1.0d)"; 
-                    "CSXUnit1xNUnit3x.StringTests3.SquareRootDefinition(0.0d)"; 
-                    "CSXUnit1xNUnit3x.StringTests3.SquareRootDefinition(1.0d)"; 
-                    "CSXUnit1xNUnit3x.StringTests3.TestToSkip" |], tcs |> Seq.toArray)
+                ([| "CSXUnit1xNUnit3x.StringTests3.IndexOf"
+                    "CSXUnit1xNUnit3x.StringTests3.SquareRootDefinition(-1.0d)"
+                    "CSXUnit1xNUnit3x.StringTests3.SquareRootDefinition(0.0d)" 
+                    "CSXUnit1xNUnit3x.StringTests3.SquareRootDefinition(1.0d)" |], tcs |> Seq.toArray)
             // API: GetSequencePointsForFile
             let! sps = ds.GetSequencePointsForFile(srcFile)
             Assert.Equal(23, sps |> Seq.length)
@@ -120,8 +129,7 @@ let ``DataStore API Tests``() =
                 |> Seq.map (fun tfi -> tfi.message)
                 |> Seq.sort
             Assert.Equal<string []>
-                ([| "Assert.Equal() Failure\r\nExpected: 1\r\nActual:   0"; 
-                    "Assert.Equal() Failure\r\nExpected: 7\r\nActual:   6" |], msgs |> Seq.toArray)
+                ([| "Assert.Equal() Failure\r\nExpected: 7\r\nActual:   6" |], msgs |> Seq.toArray)
             // API: GetTestResultsForSequencepointsIds
             let! spidtr = ds.GetTestResultsForSequencepointsIds(sps |> Seq.map (fun sp -> sp.id))
             let trgs = 
@@ -131,7 +139,7 @@ let ``DataStore API Tests``() =
                 |> dict
             Assert.Equal(3, trgs.Keys.Count)
             Assert.Equal(9, trgs.[TONone] |> Seq.length)
-            Assert.Equal(15, trgs.[TOFailed] |> Seq.length)
+            Assert.Equal(10, trgs.[TOFailed] |> Seq.length)
             Assert.Equal(28, trgs.[TOPassed] |> Seq.length)
             h.Dispose()
         }
