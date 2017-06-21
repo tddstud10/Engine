@@ -133,11 +133,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\VS\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll">
-      <Link>Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</Link>
+      <Link>Xtensions\VS\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\VS\msdia120typelib_clr0200.dll">
-      <Link>msdia120typelib_clr0200.dll</Link>
+      <Link>Xtensions\VS\msdia120typelib_clr0200.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -190,8 +190,7 @@ let createRoutes (commands : Commands) =
              RequestErrors.NOT_FOUND "Found no handlers." ]
     >=> Writers.setMimeType "application/json; charset=utf-8"
 
-[<EntryPoint>]
-let main (argv : string[]) = 
+let mainV1 (argv : string[]) = 
     let ppid, port = int argv.[0], int argv.[1]
     let commands = Commands(PushNotification >> sockSender.Post, JsonConvert.serialize)
     let app = createRoutes commands
@@ -265,9 +264,8 @@ x Simplify messaging - ProjectBuildDone and BuildDone should ideally be the same
 
 *)
 
-(*
-[<EntryPoint>]
-let main2 _ = 
+
+let mainV2 _ = 
     let system = System.create ActorNames.System.Name (Configuration.load())
 
     spawn system ActorNames.IdEvents.Name IdeEvents.actorLoop |> ignore
@@ -306,5 +304,11 @@ let main2 _ =
     system.WhenTerminated.Wait()
 
     0 // return an integer exit code
-*)
+
+[<EntryPoint>]
+let main (argv : string[]) =
+    if argv.Length <> 0 then
+        mainV1 argv
+    else
+        mainV2 argv
 

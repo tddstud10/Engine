@@ -26,7 +26,8 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Debug\R4nd0mApps.TddStud10.Engine.Server.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
-    <StartArguments>3428 9999 "adads"</StartArguments>
+    <StartArguments>
+    </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -159,6 +160,30 @@
     </None>
     <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\R4nd0mApps.TddStud10.TestAdapterServiceHost.pdb">
       <Link>R4nd0mApps.TddStud10.TestAdapterServiceHost.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\XUnit\R4nd0mApps.XTestPlatform.CecilUtils.dll">
+      <Link>Xtensions\XUnit\R4nd0mApps.XTestPlatform.CecilUtils.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\XUnit\R4nd0mApps.XTestPlatform.CecilUtils.pdb">
+      <Link>Xtensions\XUnit\R4nd0mApps.XTestPlatform.CecilUtils.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\XUnit\R4nd0mApps.XTestPlatform.XUnit.dll">
+      <Link>Xtensions\XUnit\R4nd0mApps.XTestPlatform.XUnit.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\XUnit\R4nd0mApps.XTestPlatform.XUnit.pdb">
+      <Link>Xtensions\XUnit\R4nd0mApps.XTestPlatform.XUnit.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\XUnit\xunit.abstractions.dll">
+      <Link>Xtensions\XUnit\xunit.abstractions.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\packages\tddstud10\R4nd0mApps.XTestPlatform\lib\Xtensions\XUnit\xunit.runner.utility.net35.dll">
+      <Link>Xtensions\XUnit\xunit.runner.utility.net35.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

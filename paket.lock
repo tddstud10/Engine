@@ -1119,17 +1119,17 @@ NUGET
       Microsoft.NETCore.Targets (>= 1.1) - framework: dnxcore50, netstandard10, >= netstandard13
       System.Runtime (>= 4.3) - framework: dnxcore50, netstandard10, >= netstandard13
   remote: https://ci.appveyor.com/nuget/xtestplatform-ve52h0rqj3nc
-    R4nd0mApps.XTestPlatform (2.0.0-ci0015)
+    R4nd0mApps.XTestPlatform (2.0.0-ci0017)
       FSharp.Core (>= 4.0.0.1)
       Mono.Cecil (>= 0.10.0-beta6)
   remote: https://ci.appveyor.com/nuget/common-wqs82t184w0x
     TddStud10.Common (1.2.3-ci0090)
       FSharp.Core (>= 4.0.0.1)
   remote: https://ci.appveyor.com/nuget/testhost-rrsttutj8jym
-    TddStud10.TestHost (2.1.0-ci0038)
+    TddStud10.TestHost (2.1.0-ci0039)
       FSharp.Core (>= 4.0.0.1)
       Mono.Cecil (>= 0.10.0-beta6)
-      R4nd0mApps.XTestPlatform (>= 2.0.0-ci0015)
+      R4nd0mApps.XTestPlatform (>= 2.0.0-ci0016)
       TddStud10.Common (>= 1.2.3-ci0090)
 
 GROUP Test
