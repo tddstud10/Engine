@@ -1,6 +1,7 @@
 ﻿module R4nd0mApps.TddStud10.Engine.Core.EngineConfigLoaderTests
 
 open R4nd0mApps.TddStud10.Common.Domain
+open System
 open System.IO
 open global.Xunit
 open FsUnit.Xunit
@@ -16,7 +17,9 @@ type AConfig =
 let getSlnPath sln = sprintf @"%s.%s" (Path.GetTempFileName()) sln |> FilePath
 
 let defCfg = { ASetting = "aSetting default value"; BSetting = 0xdeadbeeful }
-let defCfgStr = "{\r\n  \"ASetting\": \"aSetting default value\",\r\n  \"BSetting\": 3735928559\r\n}"
+let defCfgStr = 
+    "{\n  \"ASetting\": \"aSetting default value\",\n  \"BSetting\": 3735928559\n}"
+    |> String.replace "\n" Environment.NewLine
 
 [<Fact>]
 let ``First time load creates file and returns default value``() = 
@@ -30,10 +33,10 @@ let ``First time load creates file and returns default value``() =
 
 [<Fact>]
 let ``First time load creates file and returns default value, even if save fails``() = 
-    let sln = getSlnPath "|first.sln"
+    let sln = getSlnPath "|/first.sln"
     let cfg = EngineConfigLoader.load<AConfig> sln
     cfg |> should equal defCfg
-    File.Exists(EngineConfigLoader.configPath sln) |> should be False
+    File.Exists(EngineConfigLoader.configPath sln) |> should equal false
 
 [<Fact>]
 let ``Second time load reads from file and returns value``() = 

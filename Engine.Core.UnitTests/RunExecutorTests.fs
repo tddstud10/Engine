@@ -16,7 +16,7 @@ let cfg = { EngineConfigLoader.defaultValue<EngineConfig> with
 let now = DateTime.Now
 let host = new TestHost(Int32.MaxValue)
 let ex = (new InvalidOperationException("A mock method threw")) :> Exception
-let slnFile = ~~"c:\\folder\\file.sln"
+let slnFile = ~~"/cdrive/folder/file.sln"
 let stubRsp = RunStartParams.Create cfg now slnFile
 
 let createSteps n = 
@@ -41,6 +41,8 @@ let areRdsSimillar (rd1 : RunStartParams option) (rd2  : RunStartParams) =
     | None -> false
     | Some rd1 -> rd1.Solution.Path = rd2.Solution.Path
 
+let (/) a b = Path.Combine(a, b)
+
 [<Fact>]
 let ``Executor initialized RunData``() = 
     let re = RunExecutor.Create host [||] id
@@ -59,16 +61,16 @@ let ``Executor initialized RunData``() =
           TestHostPath = ~~(sprintf "TddStud10.TestHost%s.exe" (if (Common.DFizer.isDF()) then ".DF" else ""))
           Solution = 
             { Path = slnFile
-              SnapshotPath = ~~(ssRoot + @"\folder\file.sln")
-              BuildRoot = ~~(ssRoot + @"\folder\out") }
+              SnapshotPath = ~~(ssRoot / "folder/file.sln")
+              BuildRoot = ~~(ssRoot / "folder/out") }
           Config = { cfg with SnapShotRoot = (~~ssRoot).ToString() }
           DataFiles = 
-              { SequencePointStore = ~~(ssRoot + @"\folder\out\Z_sequencePointStore.xml")
-                CoverageSessionStore = ~~(ssRoot + @"\folder\out\Z_coverageresults.xml")
-                TestResultsStore = ~~(ssRoot + @"\folder\out\Z_testresults.xml")
-                DiscoveredUnitTestsStore = ~~(ssRoot + @"\folder\out\Z_discoveredUnitTests.xml")
-                DiscoveredUnitDTestsStore = ~~(ssRoot + @"\folder\out\Z_discoveredUnitDTests.xml")
-                TestFailureInfoStore = ~~(ssRoot + @"\folder\out\Z_testFailureInfo.xml") } }
+              { SequencePointStore = ~~(ssRoot / "folder/out/Z_sequencePointStore.xml")
+                CoverageSessionStore = ~~(ssRoot / "folder/out/Z_coverageresults.xml")
+                TestResultsStore = ~~(ssRoot / "folder/out/Z_testresults.xml")
+                DiscoveredUnitTestsStore = ~~(ssRoot / "folder/out/Z_discoveredUnitTests.xml")
+                DiscoveredUnitDTestsStore = ~~(ssRoot / "folder/out/Z_discoveredUnitDTests.xml")
+                TestFailureInfoStore = ~~(ssRoot / "folder/out/Z_testFailureInfo.xml") } }
     Assert.Equal(expected, actual)
     Assert.Equal(err, None)
 

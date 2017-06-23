@@ -8,6 +8,8 @@ open System.IO
 open System.Text.RegularExpressions
 open System.Xml
 
+let replaceWinDirSepChar = String.replace "\\" <| Path.DirectorySeparatorChar.ToString()
+
 let private projectPattern = 
     Regex
         (@"Project\(\""(?<typeGuid>.*?)\""\)\s+=\s+\""(?<name>.*?)\"",\s+\""(?<path>.*?)\"",\s+\""(?<guid>.*?)\""(?<content>.*?)\bEndProject\b", 
@@ -43,7 +45,7 @@ let private projectIDFromMatch excludePatterns slnDir i (m : Match) =
         None
     else
         let projectFilePath = 
-            [ slnDir; FilePath m.Groups.["path"].Value ] 
+            [ slnDir; m.Groups.["path"].Value |> replaceWinDirSepChar |> FilePath] 
             |> FilePath.combine
 
         { Index = i
@@ -54,7 +56,6 @@ let private projectIDFromMatch excludePatterns slnDir i (m : Match) =
           Type = m.Groups.["typeGuid"].Value |> Guid
           Items = getProjectItems excludePatterns projectFilePath } |> Some
 
-
 let private getProjectReferences projectPath = 
     let doc = XmlDocument()
     doc.Load(projectPath.ToString())
@@ -62,15 +63,20 @@ let private getProjectReferences projectPath =
     nsmgr.AddNamespace("msb", "http://schemas.microsoft.com/developer/msbuild/2003")
     doc.DocumentElement.SelectNodes("//msb:ProjectReference", nsmgr)
     |> Seq.cast<XmlNode>
-    |> Seq.map (fun xn -> Option.attempt (fun () -> xn.Attributes.["Include"].Value |> FilePath))
+    |> Seq.map (fun xn -> Option.attempt (fun () -> xn.Attributes.["Include"].Value |> replaceWinDirSepChar))
     |> Seq.choose id
-    |> Seq.map (fun p -> [ FilePath.getDirectoryName projectPath; p] |> FilePath.combine |> FilePath.getFullPath)
-    
+    |> Seq.map (fun p -> [ FilePath.getDirectoryName projectPath; p |> FilePath])
+    |> Seq.map (fun p -> p |> FilePath.combine |> FilePath.getFullPath)
+            
 let private findProjectFromPath (projects : Project list) projectPath = 
     projects
     |> List.tryFind (fun p -> p.Path = projectPath)
 
 let load excludePatterns slnPath = 
+    let excludePatterns =
+       excludePatterns
+       |> Array.map replaceWinDirSepChar
+
     let slnDir = slnPath |> FilePath.getDirectoryName
     
     let projects = 

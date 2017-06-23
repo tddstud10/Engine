@@ -5,17 +5,19 @@ open R4nd0mApps.TddStud10.Common.Domain
 open global.Xunit
 open System.IO
 
+let (~~) = SolutionLoader.replaceWinDirSepChar
+
 let binRoot = Path.getLocalPath()
 
 let getTestProjectsRoot testProject = 
-    [ Path.GetFullPath(Path.Combine(binRoot, @"..\..\..\TestProjects"))
-      Path.GetFullPath(Path.Combine(binRoot, @"..\TestProjects")) ]
+    [ Path.GetFullPath(Path.Combine(binRoot, ~~ @"..\..\..\TestProjects"))
+      Path.GetFullPath(Path.Combine(binRoot, ~~ @"..\TestProjects")) ]
     |> List.map (fun it -> Path.Combine(it, testProject))
     |> List.find File.Exists
 
 [<Fact>]
 let ``loadSolution should build Solution from filesystem``() = 
-    let slnPath = @"ComplexSln\ComplexSln.sln" |> getTestProjectsRoot |> FilePath
+    let slnPath = ~~ @"ComplexSln\ComplexSln.sln" |> getTestProjectsRoot |> FilePath
     let sln = SolutionLoader.load [| @"\.git\"; @"\bin\"; @"\xbin\"; @"\obj\" |] slnPath
     sln.Path |> should equal slnPath
     sln.Projects
@@ -27,13 +29,11 @@ let ``loadSolution should build Solution from filesystem``() =
     |> Array.collect id
     |> Array.length
     |> should equal 16
-    let x =
-        sln.Projects
-        |> Array.filter (fun p -> p.Name = "Lib1")
-        |> Array.collect (fun p -> p.Items)
-        |> Array.sort
-    let y = [| FilePath "Class1.cs"; FilePath "Lib1.csproj"; FilePath @"Properties\AssemblyInfo.cs" |]
-    x |> should equal y
+    sln.Projects
+    |> Array.filter (fun p -> p.Name = "Lib1")
+    |> Array.collect (fun p -> p.Items)
+    |> Array.sort
+    |> should equal [| FilePath "Class1.cs"; FilePath "Lib1.csproj"; FilePath ~~ @"Properties\AssemblyInfo.cs" |]
     sln.DependencyMap
     |> Seq.map (fun kv -> (kv.Key.Name, kv.Value |> Seq.length))
     |> Seq.sortBy fst
