@@ -1,9 +1,10 @@
 ﻿module R4nd0mApps.TddStud10.Engine.TestFramework
 
 open System
+open System.IO
 open R4nd0mApps.TddStud10.Common.Domain
 
-let inline (~~) s = FilePath s
+let (~~) = String.replace "\\" (Path.DirectorySeparatorChar.ToString()) >> FilePath
 
 type CallSpyBehavior =
     | DoesNotThrow

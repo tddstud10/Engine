@@ -61,16 +61,16 @@ let ``Executor initialized RunData``() =
           TestHostPath = ~~(sprintf "TddStud10.TestHost%s.exe" (if (Common.DFizer.isDF()) then ".DF" else ""))
           Solution = 
             { Path = slnFile
-              SnapshotPath = ~~(ssRoot / "folder/file.sln")
-              BuildRoot = ~~(ssRoot / "folder/out") }
+              SnapshotPath = ~~(ssRoot / @"folder\file.sln")
+              BuildRoot = ~~(ssRoot / @"folder\out") }
           Config = { cfg with SnapShotRoot = (~~ssRoot).ToString() }
           DataFiles = 
-              { SequencePointStore = ~~(ssRoot / "folder/out/Z_sequencePointStore.xml")
-                CoverageSessionStore = ~~(ssRoot / "folder/out/Z_coverageresults.xml")
-                TestResultsStore = ~~(ssRoot / "folder/out/Z_testresults.xml")
-                DiscoveredUnitTestsStore = ~~(ssRoot / "folder/out/Z_discoveredUnitTests.xml")
-                DiscoveredUnitDTestsStore = ~~(ssRoot / "folder/out/Z_discoveredUnitDTests.xml")
-                TestFailureInfoStore = ~~(ssRoot / "folder/out/Z_testFailureInfo.xml") } }
+              { SequencePointStore = ~~(ssRoot / @"folder\out\Z_sequencePointStore.xml")
+                CoverageSessionStore = ~~(ssRoot / @"folder\out\Z_coverageresults.xml")
+                TestResultsStore = ~~(ssRoot / @"folder\out\Z_testresults.xml")
+                DiscoveredUnitTestsStore = ~~(ssRoot / @"folder\out\Z_discoveredUnitTests.xml")
+                DiscoveredUnitDTestsStore = ~~(ssRoot / @"folder\out\Z_discoveredUnitDTests.xml")
+                TestFailureInfoStore = ~~(ssRoot / @"folder\out\Z_testFailureInfo.xml") } }
     Assert.Equal(expected, actual)
     Assert.Equal(err, None)
 

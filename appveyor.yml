@@ -7,7 +7,9 @@ assembly_info:
   patch: false
 
 cache:
-  - packages -> packet.lock
+  - '%USERPROFILE%\.nuget\packages' -> packet.lock 
+  - '%LocalAppData%\NuGet\Cache' -> packet.lock
+  - '%LocalAppData%\NuGet\v3-cache' -> paket.lock
   - paket-files -> packet.lock
 
 before_build:
@@ -18,5 +20,5 @@ build_script:
 
 test: off
 
-#on_finish:
-#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+on_finish:
+- ps: $blockRdp = $false; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
