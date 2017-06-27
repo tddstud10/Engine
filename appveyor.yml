@@ -7,9 +7,9 @@ assembly_info:
   patch: false
 
 cache:
-  - '%USERPROFILE%\.nuget\packages' -> packet.lock 
-  - '%LocalAppData%\NuGet\Cache' -> packet.lock
-  - '%LocalAppData%\NuGet\v3-cache' -> paket.lock
+  - '%USERPROFILE%\.nuget\packages' 
+  - '%LocalAppData%\NuGet\Cache'
+  - '%LocalAppData%\NuGet\v3-cache'
   - paket-files -> packet.lock
 
 before_build:

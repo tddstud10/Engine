@@ -275,12 +275,17 @@ let mainV2 _ =
 
     let rsp =
         { Id = Guid.NewGuid()
-          SolutionPaths = 
-            { Path = @"D:\src\t\Engine\TestProjects\FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln" |> FilePath
-              SnapshotPath = @"D:\delme\_tdd\FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln" |> FilePath
+          SolutionPaths =
+            if Environment.IsMono then
+                { Path = @"/Users/partho/src/gh/t/Engine/TestProjects/FSXUnit2xNUnit2x.NET45/FSXUnit2xNUnit2x.sln" |> FilePath
+                  SnapshotPath = @"/Users/partho/src/delme/_tdd/FSXUnit2xNUnit2x.NET45/FSXUnit2xNUnit2x.sln" |> FilePath
+                  BuildRoot = "" |> FilePath }
+            else
+                { Path = @"D:\src\t\Engine\TestProjects\FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln" |> FilePath
+                  SnapshotPath = @"D:\delme\_tdd\FSXUnit2xNUnit2x.NET45\FSXUnit2xNUnit2x.sln" |> FilePath
 //            { Path = @"d:\src\t\Engine\TestProjects\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
 //              SnapshotPath = @"D:\delme\_tdd\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
-              BuildRoot = "" |> FilePath }
+                  BuildRoot = "" |> FilePath }
           Config = EngineConfigLoader.defaultValue<_> }
 
     rsp |> Resync |> runner.Tell
