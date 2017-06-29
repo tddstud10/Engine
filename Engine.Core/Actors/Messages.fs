@@ -1,13 +1,10 @@
 namespace R4nd0mApps.TddStud10.Engine.Actors
 
 open R4nd0mApps.TddStud10.Engine.Core
-open TestData
+open R4nd0mApps.TddStud10.TestHost
+open R4nd0mApps.XTestPlatform.Api
 
 module ActorMessages = 
-    open R4nd0mApps.TddStud10.Common.Domain
-    open R4nd0mApps.TddStud10.TestHost
-    open R4nd0mApps.XTestPlatform.Api
-    
     type DataStoreMessage = 
         | DsInitialize of ResyncParams
         | DsSequencePointsDiscovered of ResyncParams * PerDocumentSequencePoints2

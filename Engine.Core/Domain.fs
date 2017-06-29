@@ -280,3 +280,13 @@ type RunStep =
       func : RunStepFunc }
 
 type RunSteps = RunStep array
+
+type FailureInfo = 
+    { Message : string
+      StackTrace : string }
+    static member FromException(e : exn) = 
+        { Message = e.Message
+          StackTrace = e.StackTrace }
+
+type RunId = Guid
+

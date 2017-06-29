@@ -5,11 +5,13 @@ open Akka.Event
 open Akka.FSharp
 open Akka.Routing
 open System
-open TestData
 open ActorMessages
+open R4nd0mApps.TddStud10.Engine.RunSteps
 open R4nd0mApps.TddStud10.TestHost
+open R4nd0mApps.TddStud10.Engine.Core
 
 module AssemblyTestsDiscoverer = 
+
     let discoverAssemblyTestsWorker svc (svcCB: TestAdapterServiceFactory.TestAdapterServiceCallback) rsp pbo (es: EventStream) (self : IActorRef) =
         async {
             let f x =
@@ -18,7 +20,7 @@ module AssemblyTestsDiscoverer =
                 x |> DsTestDiscovered |> es.Publish   
 
             svcCB.Callback <- Prelude.tuple2 rsp >> f
-            let! res = Async.Catch <| API.discoverAssemblyTests svc rsp pbo
+            let! res = Async.Catch <| AssemblyTestsDiscoverer.discoverAssemblyTests svc rsp pbo
             match res with
             | Choice1Of2 r -> 
                 (rsp, r) |> DiscoverAssemblyTestsSucceeded |> self.Tell

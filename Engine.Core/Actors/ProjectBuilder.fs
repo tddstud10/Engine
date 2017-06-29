@@ -5,14 +5,15 @@ open Akka.Event
 open Akka.FSharp
 open Akka.Routing
 open System
-open TestData
+open R4nd0mApps.TddStud10.Engine.Core
+open R4nd0mApps.TddStud10.Engine.RunSteps
 
 module AssemblyInstrumenter = 
     open ActorMessages
 
     let instrumentAssemblyErrorHandler rid a (es : EventStream) (self : IActorRef) =
         async {
-            let! res = Async.Catch <| API.instrumentAssembly rid a
+            let! res = Async.Catch <| AssemblyInstrumenter.instrumentAssembly rid a
             match res with
             | Choice1Of2 r -> 
                 (rid, r) |> ReadyForDiscoverAssemblyTests |> es.Publish
@@ -63,7 +64,7 @@ module ProjectBuilder =
     
     let buildProjectErrorHandler rid (sso : ProjectSnapshotCreatorOutput) (ai : IActorRef) (es : EventStream) (self : IActorRef) =
         async {
-            let! res = Async.Catch <| API.buildProject rid sso
+            let! res = Async.Catch <| ProjectBuilder.buildProject rid sso
             match res with
             | Choice1Of2 r -> 
                 (rid, r) |> InstrumentAssembly |> ai.Tell
@@ -111,7 +112,7 @@ module ProjectFileFixer =
 
     let fixProjectFileErrorHandler rid p (pb : IActorRef) (es : EventStream) (self : IActorRef) =
         async {
-            let! res = Async.Catch <| API.fixProjectFile rid p
+            let! res = Async.Catch <| ProjectFileFixer.fixProjectFile rid p
             match res with
             | Choice1Of2 r -> 
                 (rid, r) |> BuildProject |> pb.Tell
@@ -159,7 +160,7 @@ module ProjectSnapshotCreator =
 
     let createProjectSnapshotErrorHandler rsp p (pff : IActorRef) (es : EventStream) (self : IActorRef) =
         async {
-            let! res = Async.Catch <| API.createProjectSnapshot rsp p
+            let! res = Async.Catch <| ProjectSnapshotCreator.createProjectSnapshot rsp p
             match res with
             | Choice1Of2 r -> 
                 (rsp, r) |> FixProjectFile |> pff.Tell

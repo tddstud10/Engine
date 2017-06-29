@@ -185,20 +185,33 @@ type IEngine =
     abstract RunEngine : ep:EngineParams -> Async<bool>
     abstract IsRunInProgress : unit -> Async<bool>
 
-type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x = 
-    let logger = LoggerFactory.logger
-    let engineParams : EngineParams option ref = ref None
-    let cbs : IEngineCallback list ref = ref (cb |> Option.fold (fun _ e -> [ e ]) [])
-    let invokeCbs f = !cbs |> List.iter (fun cb -> Exec.safeExec (fun () -> f cb))
-    
-    let createRunStepsTempHack() = 
+module EngineAPI =
+    let createRunStepsTempHack(dataStore : IDataStore) = 
         sprintf "R4nd0mApps.TddStud10.Engine%s" (if DFizer.isDF() then ".DF" else "")
         |> Assembly.Load
         |> fun a -> a.GetType("R4nd0mApps.TddStud10.Engine.Engine")
         |> fun t -> t.GetMethod("CreateRunSteps", BindingFlags.Public ||| BindingFlags.Static)
         |> fun m -> m.Invoke(null, [| Func<_, _>(dataStore.FindTest) |]) :?> RunSteps
     
-    let runner = TddStud10Runner.Create x (createRunStepsTempHack())
+    let invokeInstrumentationAPITempHack<'T> methName args = 
+        async { 
+            let ret = 
+                sprintf "R4nd0mApps.TddStud10.Engine%s" (if DFizer.isDF() then ".DF"
+                                                         else "")
+                |> Assembly.Load
+                |> fun a -> a.GetType("R4nd0mApps.TddStud10.Instrumentation")
+                |> fun t -> t.GetMethod(methName, BindingFlags.Public ||| BindingFlags.Static)
+                |> fun m -> m.Invoke(null, args) 
+            return ret :?> 'T
+        }
+
+type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x = 
+    let logger = LoggerFactory.logger
+    let engineParams : EngineParams option ref = ref None
+    let cbs : IEngineCallback list ref = ref (cb |> Option.fold (fun _ e -> [ e ]) [])
+    let invokeCbs f = !cbs |> List.iter (fun cb -> Exec.safeExec (fun () -> f cb))
+    
+    let runner = TddStud10Runner.Create x (EngineAPI.createRunStepsTempHack dataStore)
     let currentRun : Task<_> ref = ref (null :> _)
     let currentRunCts : CancellationTokenSource ref = ref (null :> _)
     let isEnabled : bool ref = ref false

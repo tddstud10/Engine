@@ -234,12 +234,7 @@ v Cancel
   - Incr With hung operation
 
 TODO:
-v support nunit v3
-v Copy test runtime
-v Code coverage in runtest
-v net.pipe conditional
-- test on osx 
-- datastore integration
+- support nunit 
 - Console log to actual logs
 - Redirect akka.net Logging to our logger
 

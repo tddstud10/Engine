@@ -163,7 +163,13 @@
     <Compile Include="SolutionLoader.fs" />
     <Compile Include="Engine.fs" />
     <Compile Include="TddStud10Host.fs" />
-    <Compile Include="Actors/TestData.fs" />
+    <Compile Include="RunSteps/ProjectSnapshotCreator.fs" />
+    <Compile Include="RunSteps/ProjectFileFixer.fs" />
+    <Compile Include="RunSteps/ProjectBuilder.fs" />
+    <Compile Include="RunSteps/AssemblyInstrumenter.fs" />
+    <Compile Include="RunSteps/AssemblyTestsDiscoverer.fs" />
+    <Compile Include="RunSteps/AssemblySequencePointsDiscoverer.fs" />
+    <Compile Include="RunSteps/TestRunner.fs" />
     <Compile Include="Actors/BackgroundWorker.fs" />
     <Compile Include="Actors/Names.fs" />
     <Compile Include="Actors/Messages.fs" />

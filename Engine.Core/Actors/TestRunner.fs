@@ -5,8 +5,9 @@ open Akka.Event
 open Akka.FSharp
 open Akka.Routing
 open System
-open TestData
+open R4nd0mApps.TddStud10.Engine.RunSteps
 open R4nd0mApps.TddStud10.TestHost
+open R4nd0mApps.TddStud10.Engine.Core
 
 module TestRunner = 
     open ActorMessages
@@ -16,7 +17,7 @@ module TestRunner =
             let f x =
                 x |> DsTestRunSucceeded |> es.Publish   
 
-            let! res = Async.Catch <| API.runTest svc rsp t f
+            let! res = Async.Catch <| TestRunner.runTest svc rsp t f
             match res with
             | Choice1Of2 r -> 
                 (rsp, r) |> RunTestSucceeded |> self.Tell

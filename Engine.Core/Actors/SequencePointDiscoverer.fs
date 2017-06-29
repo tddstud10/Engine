@@ -5,8 +5,9 @@ open Akka.Event
 open Akka.FSharp
 open Akka.Routing
 open System
-open TestData
 open ActorMessages
+open R4nd0mApps.TddStud10.Engine.RunSteps
+open R4nd0mApps.TddStud10.Engine.Core
 
 module AssemblySequencePointsDiscoverer = 
     let discoverAssemblySequencePointsWorker rid pbo (es: EventStream) (self : IActorRef) =
@@ -15,7 +16,7 @@ module AssemblySequencePointsDiscoverer =
                 x |> EvSequencePointsDiscovered |> es.Publish   
                 x |> DsSequencePointsDiscovered |> es.Publish   
 
-            let! res = Async.Catch <| API.discoverAssemblySequencePoints f rid pbo
+            let! res = Async.Catch <| AssemblySequencePointsDiscoverer.discoverAssemblySequencePoints f rid pbo
             match res with
             | Choice1Of2 r -> 
                 (rid, pbo) |> DiscoverAssemblySequencePointsSucceeded |> self.Tell
