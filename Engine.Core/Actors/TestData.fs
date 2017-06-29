@@ -218,7 +218,7 @@ module API =
             return pbo
         }
     
-    let runTest (svc : ITestAdapterService) rsp (t : XTestCase) = 
+    let runTest (svc : ITestAdapterService) rsp (t : XTestCase) f = 
         async { 
             let teSearchPath =
                 [ rsp.SolutionPaths.Path |> FilePath.getDirectoryName; FilePath "packages" ]
@@ -229,5 +229,7 @@ module API =
                 |> DataContract.serialize
                 |> svc.ExecuteTestsAndCollectCoverageData teSearchPath 
             
+            (rsp, tr) |> f
+
             return tr
         }

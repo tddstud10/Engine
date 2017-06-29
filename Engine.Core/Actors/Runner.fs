@@ -14,7 +14,7 @@ let actorLoop (m : Actor<_>) =
                 rp
                 |> EvResyncStarting
                 |> m.Context.System.EventStream.Publish
-                DsInitialize |> m.Context.System.EventStream.Publish
+                rp |> DsInitialize |> m.Context.System.EventStream.Publish
                 rs |> Option.iter m.Context.Stop
                 let rs = spawn m.Context ActorNames.RunScheduler.Name RunScheduler.actorLoop
                 let sln = rp.SolutionPaths.Path |> SolutionLoader.load rp.Config.SnapshotExcludePatterns

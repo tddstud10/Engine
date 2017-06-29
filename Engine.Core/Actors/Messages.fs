@@ -9,7 +9,10 @@ module ActorMessages =
     open R4nd0mApps.XTestPlatform.Api
     
     type DataStoreMessage = 
-        | DsInitialize
+        | DsInitialize of ResyncParams
+        | DsSequencePointsDiscovered of ResyncParams * PerDocumentSequencePoints2
+        | DsTestDiscovered of ResyncParams * XTestCase
+        | DsTestRunSucceeded of ResyncParams * DTestResultWithCoverageData
     
     type IdeEventsMessage = 
         | EvResyncStarting of ResyncParams

@@ -11,7 +11,9 @@ open ActorMessages
 module AssemblySequencePointsDiscoverer = 
     let discoverAssemblySequencePointsWorker rid pbo (es: EventStream) (self : IActorRef) =
         async {
-            let f = EvSequencePointsDiscovered >> es.Publish   
+            let f x = 
+                x |> EvSequencePointsDiscovered |> es.Publish   
+                x |> DsSequencePointsDiscovered |> es.Publish   
 
             let! res = Async.Catch <| API.discoverAssemblySequencePoints f rid pbo
             match res with

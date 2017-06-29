@@ -286,7 +286,7 @@ let mainV2 _ =
 //            { Path = @"d:\src\t\Engine\TestProjects\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
 //              SnapshotPath = @"D:\delme\_tdd\CSXUnit1xNUnit3x.NET20\CSXUnit1xNUnit3x.sln" |> FilePath
                   BuildRoot = "" |> FilePath }
-          Config = EngineConfigLoader.defaultValue<_> }
+          Config = { EngineConfigLoader.defaultValue<_> with AdditionalMSBuildProperties = [|"DefineConstants=BREAK_TEST"|] } }
 
     rsp |> Resync |> runner.Tell
 

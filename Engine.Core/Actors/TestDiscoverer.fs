@@ -15,6 +15,7 @@ module AssemblyTestsDiscoverer =
             let f x =
                 x |> ReadyForRunTest |> es.Publish
                 x |> EvTestDiscovered |> es.Publish   
+                x |> DsTestDiscovered |> es.Publish   
 
             svcCB.Callback <- Prelude.tuple2 rsp >> f
             let! res = Async.Catch <| API.discoverAssemblyTests svc rsp pbo

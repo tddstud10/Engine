@@ -11,9 +11,12 @@ open R4nd0mApps.TddStud10.TestHost
 module TestRunner = 
     open ActorMessages
 
-    let runTestErrorHandler svc rsp t _ (self : IActorRef) =
+    let runTestErrorHandler svc rsp t (es: EventStream) (self : IActorRef) =
         async {
-            let! res = Async.Catch <| API.runTest svc rsp t
+            let f x =
+                x |> DsTestRunSucceeded |> es.Publish   
+
+            let! res = Async.Catch <| API.runTest svc rsp t f
             match res with
             | Choice1Of2 r -> 
                 (rsp, r) |> RunTestSucceeded |> self.Tell
