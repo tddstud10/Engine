@@ -100,8 +100,6 @@ type PerDocumentSequencePoints2 = IReadOnlyDictionary<FilePath, seq<SequencePoin
 
 type AssemblyTestsDiscovererOutput = ProjectBuilderOutput
 
-type TestRunCoverageData = string * string * string * string * seq<string * string * string>
-
 // =================================================
 // NOTE: Adding any new cases will break RunStateTracker.
 // When we get rid of the B/T style notification icon, get rid of this.

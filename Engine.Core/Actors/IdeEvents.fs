@@ -77,7 +77,6 @@ let actorLoop (m : Actor<_>) =
                 | EvAssemblyTestDiscoveryFailed(id, a, e) -> 
                     sprintf "[%O]     Assembly test discovery failed: %O %A" id a e, rp
                 | EvTestRunStarting(id, t) -> sprintf "[%O] Test run starting: %O" id t.DisplayName, rp
-                | EvTestRunCoverageDataCollected (id, (s, d, l, trid, sps)) -> sprintf "[%O] Coverage data collected: %s#%s#%s[%s]. Count = %d." id s d l trid (Seq.length sps), rp
                 | EvTestRunSucceeded(id, t) -> 
                     sprintf "[%O]     Test run succeeded: [%A]%O (Message: %A): Coverage Data Points = %d" id t.Result.Outcome t.Result.DisplayName t.Result.FailureInfo (Seq.length t.CoverageData), 
                     rp |> Option.bind (fun rp -> { rp with TestsDone = rp.TestsDone + 1 } |> Some)

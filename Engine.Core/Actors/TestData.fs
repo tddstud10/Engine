@@ -89,12 +89,6 @@ module API =
 *)
     let fixProjectFile _ p = async { return p }
 
-    let funxx wFile wLineNumber wColumnNumber wSubcategory wCode wMessage =
-        sprintf "%s(%d,%d): %s error %s: %s" wFile wLineNumber wColumnNumber wSubcategory wCode wMessage
-
-    let funyy eFile eLineNumber eColumnNumber eSubcategory eCode eMessage =
-        sprintf "%s(%d,%d): %s error %s: %s" eFile eLineNumber eColumnNumber eSubcategory eCode eMessage
-
     type BuildLogger() = 
         inherit Microsoft.Build.Utilities.Logger()
         let warnings = ConcurrentQueue<string>()
@@ -105,14 +99,16 @@ module API =
             es.WarningRaised.Add
                 (fun w -> 
                 warnings.Enqueue
-                    (funxx w.File w.LineNumber w.ColumnNumber w.Subcategory w.Code w.Message))
+                    (sprintf "%s(%d,%d): %s error %s: %s" w.File w.LineNumber w.ColumnNumber w.Subcategory w.Code 
+                         w.Message))
             es.ErrorRaised.Add
                 (fun e -> 
                 errors.Enqueue
-                    (funyy e.File e.LineNumber e.ColumnNumber e.Subcategory e.Code e.Message))
+                    (sprintf "%s(%d,%d): %s error %s: %s" e.File e.LineNumber e.ColumnNumber e.Subcategory e.Code 
+                         e.Message))
     
     let private wrapperProjectName = "_tddstud10wrapper.proj"
-    let private wrapperProjectContents = """<Project ToolsVersion="15.0" DefaultTargets="_TddStud10BuildProject" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    let private wrapperProjectContents = """<Project ToolsVersion="14.0" DefaultTargets="_TddStud10BuildProject" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Target Name="_TddStud10BuildProject">
         <MSBuild 
             Projects="$(_TddStud10Project)" 
@@ -152,12 +148,12 @@ module API =
                   "DebugType", "full"
                   "Optimize", "false"
                   "_TDDSTUD10", "1"
-                  "VisualStudioVersion", "15.0" ]
+                  "VisualStudioVersion", "14.0" ]
                 |> List.fold (fun acc (p, v) -> Map.add p v acc) props
             
             let props = props :> IDictionary<_, _>
             let l = BuildLogger()
-            let proj = ProjectInstance(wrapperProjectPath.ToString(), props, "15.0")
+            let proj = ProjectInstance(wrapperProjectPath.ToString(), props, "14.0")
             let status = proj.Build([| "_TddStud10BuildProject" |], [ l :> ILogger ])
             
             let outputs = 

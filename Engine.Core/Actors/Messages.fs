@@ -36,7 +36,6 @@ module ActorMessages =
         | EvAssemblySequencePointsDiscoverySucceeded of ResyncParams * ProjectBuilderOutput
         | EvAssemblySequencePointsDiscoveryFailed of ResyncParams * ProjectBuilderOutput * FailureInfo
         | EvTestRunStarting of ResyncParams * XTestCase
-        | EvTestRunCoverageDataCollected of ResyncParams * TestRunCoverageData
         | EvTestRunSucceeded of ResyncParams * DTestResultWithCoverageData
         | EvTestRunFailed of ResyncParams * XTestCase * FailureInfo
     
