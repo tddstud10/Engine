@@ -65,7 +65,7 @@ let runEngine sln props dir =
             do! waitWhileRunInProgress e
             do! Async.Sleep(2000)
             let! dsState = ds.GetSerializedState()
-            let runOutput = sprintf "[%s\r\n,%s]" ([ eEvents; dsEvents ] |> JsonConvert.serialize2) dsState
+            let runOutput = sprintf "[%s\r\n,%s]" ([ eEvents; dsEvents ] |> JsonContract.serializeFormatted) dsState
             h.Dispose()
             Assert.False(h.IsRunning)
             return runOutput, ep.SolutionPath
