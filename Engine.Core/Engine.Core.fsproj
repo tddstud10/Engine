@@ -147,7 +147,7 @@
     <Compile Include="Domain.fs" />
     <Compile Include="Common\SafeExec.fs" />
     <Compile Include="Common\FileSystem.fs" />
-    <Compile Include="Common\JsonConvert.fs" />
+    <Compile Include="Common\JsonContract.fs" />
     <Compile Include="Server.fs" />
     <Compile Include="DataStore.fs" />
     <Compile Include="EngineConfigLoader.fs" />

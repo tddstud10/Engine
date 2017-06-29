@@ -1,4 +1,4 @@
-﻿module R4nd0mApps.TddStud10.Common.JsonConvert
+﻿module R4nd0mApps.TddStud10.Common.JsonContract
 
 open Newtonsoft.Json
 open R4nd0mApps.TddStud10.Common.Domain
@@ -25,4 +25,4 @@ let private jcs =
 let private cfg = JsonSerializerSettings(ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
 let deserialize<'a> s = JsonConvert.DeserializeObject<'a>(s, jcs)
 let serialize o = JsonConvert.SerializeObject(o, cfg)
-let serialize2 o = JsonConvert.SerializeObject(o, Formatting.Indented, cfg)
+let serializeFormatted o = JsonConvert.SerializeObject(o, Formatting.Indented, cfg)

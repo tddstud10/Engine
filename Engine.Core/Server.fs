@@ -61,15 +61,15 @@ let private callServer<'T> baseUrl p (o : HttpRequestBody option) =
     logger.logInfof "|PROXY ACCESS| =====> %s %s %O" baseUrl p o
     Http.AsyncRequestString
         (sprintf "%s%s" baseUrl p, headers = [ HttpRequestHeaders.ContentType HttpContentTypes.Json ], ?body = o) 
-    |> Async.map (JsonConvert.deserialize<string []>
+    |> Async.map (JsonContract.deserialize<string []>
                   >> Seq.head
-                  >> JsonConvert.deserialize<Response<'T>>
+                  >> JsonContract.deserialize<Response<'T>>
                   >> (fun a -> a.Data))
 
 let getFromServer<'T> baseUrl p = None |> callServer<'T> baseUrl p
 
 let postToServer<'T> baseUrl p = 
-    JsonConvert.serialize
+    JsonContract.serialize
     >> TextRequest
     >> Some
     >> callServer<'T> baseUrl p
@@ -99,4 +99,4 @@ module Notifications =
                 o.OnError(ea.Exception))
             ws.Opened.AddHandler(fun _ _ -> logger.logInfof "WEBSOCKET CLIENT: Subscribing Observable.")
             Action(ignore))
-        |> Observable.map JsonConvert.deserialize<Notification>
+        |> Observable.map JsonContract.deserialize<Notification>

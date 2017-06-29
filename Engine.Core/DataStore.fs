@@ -134,7 +134,7 @@ type DataStore() =
                           (fun kv -> 
                           kv.Value.ToArray() |> Array.map (fun v -> (kv.Key.methodId.mdTokenRid, kv.Key.uid), v.testId))
                    |> Array.sortBy (fun (um, tid : TestId) -> sprintf "%O.%O" um tid)) :> obj ]
-                |> JsonConvert.serialize2
+                |> JsonContract.serializeFormatted
             state
 
 type IXDataStoreEvents = 

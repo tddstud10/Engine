@@ -46,7 +46,7 @@ let sockSender =
                                          return! loop (Some ws)
                 | Some ws, PushNotification n -> 
                     logger.logInfof "SOCK SENDER AGENT: sending message. %O..." n
-                    let bs = n |> JsonConvert.serialize |> UTF8.bytes |> ArraySegment
+                    let bs = n |> JsonContract.serialize |> UTF8.bytes |> ArraySegment
                     let! _ = ws.send Text bs true
                     return! loop (Some ws)
             }
@@ -79,7 +79,7 @@ let handler f : WebPart =
             let data = 
                 r.request
                 |> getResourceFromReq
-                |> JsonConvert.deserialize<'a>
+                |> JsonContract.deserialize<'a>
             let! res = Async.Catch(f data)
             match res with
             | Choice1Of2 res -> 
@@ -192,7 +192,7 @@ let createRoutes (commands : Commands) =
 
 let mainV1 (argv : string[]) = 
     let ppid, port = int argv.[0], int argv.[1]
-    let commands = Commands(PushNotification >> sockSender.Post, JsonConvert.serialize)
+    let commands = Commands(PushNotification >> sockSender.Post, JsonContract.serialize)
     let app = createRoutes commands
     ThreadPool.SetMinThreads(8, 8) |> ignore
     ppid
