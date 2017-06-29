@@ -73,7 +73,7 @@ let runEngine sln props dir =
         |> Async.RunSynchronously
     finally
         h.Dispose()
-        if Directory.Exists ssr then Exec.safeExec (fun () -> Directory.Delete(ssr, true))
+        if Directory.Exists ssr then SafeExec.safeExec (fun () -> Directory.Delete(ssr, true))
 
 [<UseReporter(typeof<DiffReporter>)>]
 [<UseApprovalSubdirectory("approvals")>]
@@ -146,7 +146,7 @@ let ``DataStore API Tests``() =
         |> Async.RunSynchronously
     finally
         h.Dispose()
-        if Directory.Exists ssr then Exec.safeExec (fun () -> Directory.Delete(ssr, true))
+        if Directory.Exists ssr then SafeExec.safeExec (fun () -> Directory.Delete(ssr, true))
 
 let quickRun ssr (h : ITddStud10Host) = 
     let concat = Seq.fold (fun acc e -> acc + ";" + e.ToString()) ""
@@ -194,4 +194,4 @@ let ``Host can function after being disposed and recreated``() =
         Assert.Equal(res, (App.getVersion(), ees, dses, true))
     finally
         h.Dispose()
-        if Directory.Exists ssr then Exec.safeExec (fun () -> Directory.Delete(ssr, true))
+        if Directory.Exists ssr then SafeExec.safeExec (fun () -> Directory.Delete(ssr, true))

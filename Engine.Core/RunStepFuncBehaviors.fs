@@ -7,7 +7,7 @@ let logger = R4nd0mApps.TddStud10.Logger.LoggerFactory.logger
 
 let eventsPublisher f = 
     fun h sp i { onStart = se; onError = ee; onFinish = fe } -> 
-        Exec.safeExec (fun () -> 
+        SafeExec.safeExec (fun () -> 
             se.Trigger({ sp = sp
                          info = i }))
         let rsr = 
@@ -20,11 +20,11 @@ let eventsPublisher f =
                   runData = NoData
                   addendum = ExceptionData ex }
         if rsr.status <> Succeeded then 
-            Exec.safeExec (fun () -> 
+            SafeExec.safeExec (fun () -> 
                 ee.Trigger({ sp = sp
                              info = i
                              rsr = rsr }))
-        Exec.safeExec (fun () -> 
+        SafeExec.safeExec (fun () -> 
             fe.Trigger({ sp = sp
                          info = i
                          rsr = rsr }))

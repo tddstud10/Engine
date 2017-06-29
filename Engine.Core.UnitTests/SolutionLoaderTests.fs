@@ -7,7 +7,7 @@ open System.IO
 
 let (~~) = SolutionLoader.replaceWinDirSepChar
 
-let binRoot = Path.getLocalPath()
+let binRoot = Path.getExecutingAssemblyLocation()
 
 let getTestProjectsRoot testProject = 
     [ Path.GetFullPath(Path.Combine(binRoot, ~~ @"..\..\..\TestProjects"))

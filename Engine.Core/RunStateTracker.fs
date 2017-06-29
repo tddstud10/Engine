@@ -62,7 +62,7 @@ type RunStateTracker() =
         let oldState = state
         state <- transitionState (state, ev)
         logger.logInfof "Run Tracker State Machine: Trasition (%A, %A) -> %A" oldState ev state
-        Exec.safeExec (fun () -> runStateChanged.Trigger(state))
+        SafeExec.safeExec (fun () -> runStateChanged.Trigger(state))
     
     member __.State = state
     member public __.RunStateChanged = runStateChanged.Publish

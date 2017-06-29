@@ -45,17 +45,17 @@ type DataStore() =
         | NoData -> ()
         | TestCases(tc) -> 
             x.TestCases <- tc
-            Exec.safeExec (fun () -> tcu.Trigger(x.TestCases))
+            SafeExec.safeExec (fun () -> tcu.Trigger(x.TestCases))
         | SequencePoints(sp) -> 
             x.SequencePoints <- sp
-            Exec.safeExec (fun () -> spu.Trigger(x.SequencePoints))
+            SafeExec.safeExec (fun () -> spu.Trigger(x.SequencePoints))
         | TestRunOutput(tr, tfi, ci) -> 
             x.TestResults <- tr
-            Exec.safeExec (fun () -> tru.Trigger(x.TestResults))
+            SafeExec.safeExec (fun () -> tru.Trigger(x.TestResults))
             x.TestFailureInfo <- tfi
-            Exec.safeExec (fun () -> tfiu.Trigger(x.TestFailureInfo))
+            SafeExec.safeExec (fun () -> tfiu.Trigger(x.TestFailureInfo))
             x.CoverageInfo <- ci
-            Exec.safeExec (fun () -> ciu.Trigger(x.CoverageInfo))
+            SafeExec.safeExec (fun () -> ciu.Trigger(x.CoverageInfo))
     
     interface IDataStore with
         member x.GetStartParams() = x.RunStartParams
@@ -283,7 +283,7 @@ type XDataStore(ds : IDataStore, cb : IXDataStoreCallback option) =
         f() |> Async.result
     
     let cbs : IXDataStoreCallback list ref = ref (cb |> Option.fold (fun _ e -> [ e ]) [])
-    let invokeCbs f _ = !cbs |> List.iter (fun cb -> Exec.safeExec (fun () -> f cb))
+    let invokeCbs f _ = !cbs |> List.iter (fun cb -> SafeExec.safeExec (fun () -> f cb))
     do ds.TestCasesUpdated.Add(invokeCbs (fun cb -> cb.OnTestCasesUpdated()))
     do ds.SequencePointsUpdated.Add(invokeCbs (fun cb -> cb.OnSequencePointsUpdated()))
     do ds.TestResultsUpdated.Add(invokeCbs (fun cb -> cb.OnTestResultsUpdated()))

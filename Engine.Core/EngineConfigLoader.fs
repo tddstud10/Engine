@@ -16,7 +16,7 @@ module EngineConfigLoader =
     
     let inline private fromJsonSafe<'T> str = 
         fun () -> JsonConvert.DeserializeObject<'T>(str, JsonSerializerSettings(DefaultValueHandling = DefaultValueHandling.Populate))
-        |> Exec.safeExec2
+        |> SafeExec.safeExec2
 
     let defaultValue<'T> : 'T = "{}" |> fromJson<'T>
 
@@ -32,7 +32,7 @@ module EngineConfigLoader =
                 cfg, toJson cfg
             else defaultValue<'T>, toJson defaultValue<'T>
         
-        Exec.safeExec (fun () -> File.WriteAllText(cfgPath, json))
+        SafeExec.safeExec (fun () -> File.WriteAllText(cfgPath, json))
         cfg : 'T
 
     let setConfig<'T> slnPath (cfg : 'T) =

@@ -93,7 +93,7 @@ type DsFailureInfo =
 
 let dbPath = 
     "tddstud10.datastore.db"
-    |> Prelude.tuple2 (Path.getLocalPath())
+    |> Prelude.tuple2 (Path.getExecutingAssemblyLocation())
     |> Path.Combine
 
 let initializeDb (db : SQLiteConnection option) = 

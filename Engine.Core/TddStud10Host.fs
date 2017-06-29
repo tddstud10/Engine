@@ -43,7 +43,7 @@ type TddStud10HostProxy(port : int, ?local0 : bool) =
             new XDataStoreEventsSink(eo) :> _
     
     let getServerExePath() = 
-        let cd = Assembly.GetExecutingAssembly() |> Assembly.getAssemblyLocation
+        let cd = Path.getExecutingAssemblyLocation()
         [ "R4nd0mApps.TddStud10.Engine.Server.exe"; "R4nd0mApps.TddStud10.Engine.Server.DF.exe" ]
         |> List.map (fun exe -> Path.Combine(cd, exe))
         |> List.find File.Exists
@@ -77,9 +77,9 @@ type TddStud10HostProxy(port : int, ?local0 : bool) =
                     if proc.HasExited then logger.logInfof "TddStud10Host: Server has already exited. Exit code: %d" proc.Id
                     else 
                         logger.logInfof "TddStud10Host: Serveris running currently. Killing it."
-                        Exec.safeExec proc.Kill
+                        SafeExec.safeExec proc.Kill
                 else logger.logInfof "TddStud10Host: Server was not started"
-            Exec.safeExec innerFn
+            SafeExec.safeExec innerFn
     
     interface ITddStud10Host with
         

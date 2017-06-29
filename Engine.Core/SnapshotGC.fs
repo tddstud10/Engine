@@ -34,7 +34,7 @@ module SnapshotGC =
             logger.logInfof "SnapshotGC: detected %d snapshots to be GCed. Starting to delete them now." garbage.Length
             tc.TrackEvent("SnapshotGC", dict[], dict["SnapshotsDeleted", (float)garbage.Length])
 
-            garbage |> Seq.iter (fun d -> Exec.safeExec (fun () -> Directory.Delete(d, true)))
+            garbage |> Seq.iter (fun d -> SafeExec.safeExec (fun () -> Directory.Delete(d, true)))
             return garbage
         }
 

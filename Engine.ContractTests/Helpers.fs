@@ -8,7 +8,7 @@ open System.IO
 open System.Reflection
 open System.Text.RegularExpressions
 
-let binRoot = Assembly.GetExecutingAssembly() |> Assembly.getAssemblyLocation
+let binRoot = Path.getExecutingAssemblyLocation()
 
 let getTestProjectsRoot testProject = 
     [ Path.GetFullPath(Path.Combine(binRoot, @"..\..\..\TestProjects"))

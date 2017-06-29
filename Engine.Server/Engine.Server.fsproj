@@ -148,7 +148,9 @@
     <Compile Include="..\AssemblyInfo.fs">
       <Link>AssemblyInfo.fs</Link>
     </Compile>
-    <Compile Include="Engine.Server.fs" />
+    <Compile Include="Engine.ServerV1.fs" />
+    <Compile Include="Engine.ServerV2.fs" />
+    <Compile Include="Program.fs" />
     <None Include="App.config" />
     <None Include="..\packages\tddstud10\TddStud10.TestHost\lib\R4nd0mApps.TddStud10.TestAdapterServiceHost.exe">
       <Link>R4nd0mApps.TddStud10.TestAdapterServiceHost.exe</Link>

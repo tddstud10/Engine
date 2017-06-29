@@ -209,7 +209,7 @@ type Engine(dataStore : IDataStore, cb : IEngineCallback option) as x =
     let logger = LoggerFactory.logger
     let engineParams : EngineParams option ref = ref None
     let cbs : IEngineCallback list ref = ref (cb |> Option.fold (fun _ e -> [ e ]) [])
-    let invokeCbs f = !cbs |> List.iter (fun cb -> Exec.safeExec (fun () -> f cb))
+    let invokeCbs f = !cbs |> List.iter (fun cb -> SafeExec.safeExec (fun () -> f cb))
     
     let runner = TddStud10Runner.Create x (EngineAPI.createRunStepsTempHack dataStore)
     let currentRun : Task<_> ref = ref (null :> _)
